@@ -26,7 +26,7 @@ USER $NB_UID
 # R packages
 RUN conda install --quiet --yes \
     'r-base=4.0*' \
-    'r-caret-6.0*' \
+    'r-caret-6.*' \
     'r-crayon=1.3*' \
     'r-devtools=2.3*' \
     'r-forecast=8.12*' \
