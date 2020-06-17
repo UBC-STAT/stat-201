@@ -17,7 +17,8 @@ RUN pip install git+https://github.com/data-8/nbgitpuller \
     && jupyter serverextension enable --sys-prefix nbgitpuller \
     && jupyter labextension install @jupyterlab/git \
     && pip install jupyterlab-git \
-    && jupyter serverextension enable --py jupyterlab_git  
+    && jupyter serverextension enable --py jupyterlab_git \
+    && jupyter lab build  
 RUN useradd -m -s /bin/bash -N -u 9999 jupyter
 USER jupyter
 # Configure environment
