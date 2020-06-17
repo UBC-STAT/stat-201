@@ -14,7 +14,10 @@ RUN conda install --quiet --yes -c conda-forge \
 
 USER root
 RUN pip install git+https://github.com/data-8/nbgitpuller \
-    && jupyter serverextension enable --sys-prefix nbgitpuller
+    && jupyter serverextension enable --sys-prefix nbgitpuller \
+    && jupyter labextension install @jupyterlab/git \
+    && pip install jupyterlab-git \
+    && jupyter serverextension enable --py jupyterlab_git  
 RUN useradd -m -s /bin/bash -N -u 9999 jupyter
 USER jupyter
 # Configure environment
