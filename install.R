@@ -1,7 +1,0 @@
-install.packages("readr")
-install.packages("dplyr")
-install.packages("ggplot2")
-install.packages("infer")
-install.packages("repr")
-install.packages("testthat")
-install.packages("gridExtra")

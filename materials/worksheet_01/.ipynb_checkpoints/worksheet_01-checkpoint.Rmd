@@ -1,0 +1,843 @@
+# -*- coding: utf-8 -*-
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd,R:light
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.4.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "aff777346a0d9e44c27d51d98a1f3fb2", "grade": false, "grade_id": "cell-ccd1e2501ff21f28", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+# Worksheet 1: Introduction to Statistical Inference and Sampling
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "e532132906f4a137dbbf424eed3263bc", "grade": false, "grade_id": "cell-a3b416b82b7bac72", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+### Welcome to STAT 201: Statistical Inference for Data Science
+
+Each week you will complete a lecture assignment like this one. Before we get started, there are some administrative details.
+
+You can't learn technical subjects without hands-on practice. The weekly lecture worksheets and tutorials are an important part of the course. Collaborating on lecture worksheets and tutorial assignments is more than okay -- it's encouraged! You should rarely be stuck for more than a few minutes on questions in lecture or tutorial, so ask a neighbor, TA or an instructor for help (explaining things is beneficial, too -- the best way to solidify your knowledge of a subject is to explain it). Please don't just share answers, though. Everyone must submit a copy of their own work.
+
+You can read more about course policies on the course website.
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "bcd8c3df0c0da3c6009bcac64ef5c489", "grade": false, "grade_id": "cell-7f137055c244e8bb", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+#### Lecture and Tutorial Learning Goals:
+After completing this week's lecture and tutorial work, you will be able to:
+
+1. Describe real-world examples of questions that can be answered with the statistical inference methods presented in this course (e.g., estimation, hypothesis testing).
+1. Name common population qunatity (e.g., mean, proportion, median, variance, correlation) that are often estimated using sample data, and write computer scripts to calculate estimates of these parameters.
+1. Define the following terms in relation to statistical inference: population, sample, population parameter, estimate, sampling distribution.
+1. Write a computer script to draw random samples from a finite population (e.g., census data).
+1. Write a computer script to reveal a sampling distribution from a finite population.
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "7886b4112bd5cb031438041a15eef22a", "grade": false, "grade_id": "cell-b3e882daf16912d9", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+DSCI 100 is a prerequisite for this course so students should be comfortable with the tutorial and worksheet style and structure. Student should also be familar with answering  questions in a jupyter notebook and assessing if their answers are correct before submission. 
+
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "acbc5d265d1f5f73d367da7d0ee83b0c", "grade": false, "grade_id": "cell-82dfbe5a9829fa67", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+This worksheet covers [Chapter 7 - 7.3 of the Modern Dive Textbook](https://moderndive.com/7-sampling.html) of the online textbook. You should read this chapter before attempting this worksheet.
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '34f4f440a8c0c0cb5538248b4e2a3e25', 'grade': False, 'grade_id': 'cell-ddd97f3228533f17', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+library(tidyverse)
+library(repr)
+library(digest)
+library(infer)
+library(gridExtra)
+library(taxyvr)
+library(cowplot)
+source("tests_worksheet_01.R")
+source("cleanup_worksheet_01.R")
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "2f1dfe81edc205b6a805e3ccb9b986b9", "grade": false, "grade_id": "cell-4f02f27ed4ce78da", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 1. Warm Up Questions
+
+In DSCI 100, we learned about [6 different types of data analysis questions we can ask and answer](https://ubc-dsci.github.io/introduction-to-datascience/). Let's start this worksheet off by reminding us what an inferential question is.
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "9dcfeb1cb49ad10a2738eadda183ac7f", "grade": false, "grade_id": "cell-2a0842175d90ec51", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.0**
+<br>{points: 1}
+
+Which of the following is an example of an inferential question:
+
+A. How many candy stores are there in Kitsilano?   
+    
+B. Does the average sleep duration of individuals who consume melatonin 30 minutes before bed differ from those who do not?     
+     
+C. If I study 28 hours, what score will I obtain on this exam?     
+     
+D. Does owning a houseplant lead to the adoption of a puppy?     
+ 
+_Assign your answer to an object called `answer1.0`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '31fb8fa3e3158ce12b19898328fa495e', 'grade': False, 'grade_id': 'cell-7f45af42ce3654c9', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+answer1.0 <- "a"
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '69ec74474282cd4c36a5d7affb9cd793', 'grade': True, 'grade_id': 'cell-370ef28ef4d2afef', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.0()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "72ad847f1cdd59f20d778cc3e88fb90f", "grade": false, "grade_id": "cell-2ade049ef0bdae06", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.1**
+<br>{points: 1}
+
+True or false?
+
+"How does taking the new experimental drug result in lower blood pressure?" is an example of an inferential question.
+
+_Assign your answer to an object called `answer1.1`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'eb26cce6f699a14619885244d36fbf9b', 'grade': False, 'grade_id': 'cell-a59dd67fdf2b5b14', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c5b914036234bc708ab3c08d09e80336', 'grade': True, 'grade_id': 'cell-24f6f39cbad38803', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.1()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "eb9c7c538bf5ff813ff9e03fd77aa99e", "grade": false, "grade_id": "cell-f05dc7047d85b2cf", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.2**
+<br>{points: 1}
+
+Which R package is used for sampling simulation?
+
+A. `dbplyr`
+
+B. `rep_sample_n`
+
+C. `broom`
+
+D. `infer`
+        
+_Assign your answer to an object called `answer1.2`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'f5774fef1cabc56a9fe43d75591c3100', 'grade': False, 'grade_id': 'cell-6fe8a5c60f5088fe', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '7b94cd150aa25d6a0e71168b6aa190a9', 'grade': True, 'grade_id': 'cell-ca46f7274bbb8e82', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.2()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "403119c0e1190f098db3bb749a6f8002", "grade": false, "grade_id": "cell-082896050f56b83a", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.3**
+<br> {points: 1}
+
+Read the mixed-up table below and assign each object in the code cell below the integer associated with its correct definition.
+
+| <p align="left"> Term | <p align="left"> Definition |
+|----------------|------------|
+| <p align="left">mean | <p align="left">1. The ratio of some elements from a dataset to all existing elements in the data. |
+| <p align="left">proportion | <p align="left"> 2. The mean of the sum of the squared distances of each element from its mean.|
+| <p align="left">median | <p align="left">3. The middle element of a sorted variable’s data (or the mean of the two middle-most elements, if there are an even number of elements).|
+| <p align="left">variance | <p align="left">4. The strength \& direction of the linear relationship between two variables.|
+| <p align="left">correlation | <p align="left">5. The sum of all of the data elements divided by how many elements there are.|
+    
+_Assign your answers to the objects given below (`mean`, `proportion`, `median`, `variance`, and `correlation`). Your answers should each be a single integer._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'efd875eed6f906ef0a37aee6617ed088', 'grade': False, 'grade_id': 'cell-32e8a32bc1e8e019', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# mean <- NULL
+# proportion <- NULL
+# median <- NULL
+# variance <- NULL
+# correlation <- NULL
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c39e2938e8b0d33b4065f4a1abc43cc3', 'grade': True, 'grade_id': 'cell-80a34af1e398fc32', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.3()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "0de66940e51ac40bd741b7dc02832ef7", "grade": false, "grade_id": "cell-9b7cbd596e8db154", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.4**
+<br> {points: 1}
+
+Read the mixed-up table below and assign each object in the code cell below the integer associated with its correct definition.
+
+| Terms |  Definitions |
+|----------------|------------|
+| <p align="left">point estimate | <p align="left">1. the entire set of entities/objects of interest |
+| <p align="left">population | <p align="left">2. selecting a subset of observations from a population where each observation is equally likely to be selected at any point during the selection process|
+| <p align="left">random sampling | <p align="left">3. a numerical summary value about the population |
+| <p align="left">representative sampling | <p align="left">4. a distribution of point estimates, where each point estimate was calculated from a different random sample from the same population |
+| <p align="left">population parameter | <p align="left">5. a collection of observations from a population |
+| <p align="left">sample |  <p align="left">6. a single number calculated from a random sample that estimates an unknown population parameter of interest |
+| <p align="left">observation | <p align="left">7. selecting a subset of observations from a population where the sample’s characteristics are a good representation of the population’s characteristics |
+| <p align="left">sampling distribution | <p align="left">8. a quantity or a quality (or set of these) we collect from a given entity/object |
+    
+_Assign your answers to the objects given below (`point_estimate`, `population`, `random_sampling`, `representative_sampling`, `sample`, `observation`, and `sampling_distribution`). Your answers should each be a single integer._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'a5ad164417db64e299c3fa8a25c7233f', 'grade': False, 'grade_id': 'cell-a1c8c8030496cf62', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# point_estimate <- NULL
+# population <- NULL
+# random_sampling <- NULL
+# representative_sampling <- NULL
+# population_parameter <- NULL
+# sample <- NULL
+# observation <- NULL
+# sampling_distribution <- NULL
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '97d3733e6ffdcf132d3e74add4f265a6', 'grade': True, 'grade_id': 'cell-4a24ccad4eac3a5b', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.4()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "b3b4ad0bd90d8704e35ad99b0bf42327", "grade": false, "grade_id": "cell-0214e5bdd912ce9f", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.5**
+<br> {points: 1}
+
+True or false?
+
+A distribution shows all possible values (or intervals) of a variable, and how often they occur.
+
+_Assign your answer to an object called `answer1.5`. Your answer should be either "true" or "false" surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '93b982e7f11a0da4d75856b84f4cf34d', 'grade': False, 'grade_id': 'cell-58619a3b699b4eb8', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '9db2124d74fbdfb9f8664365b40f4d08', 'grade': True, 'grade_id': 'cell-f3553853de48de4f', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.5()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "bab21c56333fcdf4856af957e072b996", "grade": false, "grade_id": "cell-13a54771fe022451", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.6**
+<br> {points: 1}
+
+Tiffany got 10 packages of Skittles for Halloween. Every time she opened a new package, she recorded the number of red Skittles that it contained. The table below describes the distribution of the number of red Skittles after she opened all 10 packages.
+
+| # Red Skittles | Frequency |
+|----------------|-----------|
+| 0              | 0         |
+| 1              | 1         |
+| 2              | 3         |
+| 3              | 3         |
+| 4              | 2         |
+| 5              | 1         |
+| > 5            | 0         |
+
+Which histogram below could be used to describe the distribution of the number of red Skittles?
+
+_Assign your answer to an object called `answer1.6`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '41de50a54c6aa3f07ba3ba66de01ae62', 'grade': False, 'grade_id': 'cell-be8a82d56273d53e', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+source("skittles.R")
+```
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '0194f85bbddfc0c77f869df2d83c697f', 'grade': False, 'grade_id': 'cell-eae0ae97905ad1e3', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '6075017c98fd706e11d15b8448a778dc', 'grade': True, 'grade_id': 'cell-d2292a2dede39897', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.6()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "f440909762d9c2d3b1be339e33df6bcd", "grade": false, "grade_id": "cell-1319bf8e4602d44d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+Use the histogram below to answer the next **two** questions. It was produced using the `mpg` variable from the `mtcars` dataset. Note that it is not necessary to understand the code used to produce the histogram to answer the questions.
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'e4feb5e829245cba971b58b57e3ef42c', 'grade': False, 'grade_id': 'cell-68be4905e01e2179', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+options(repr.plot.width = 4, repr.plot.height = 3)
+
+mtcars %>%
+    ggplot(aes(x = mpg)) +
+    scale_y_continuous(breaks = seq(0, 8, 1)) +
+    geom_histogram(boundary = 10, binwidth = 2, colour = "white") +
+    scale_x_continuous(breaks = seq(10, 34, 2)) +
+    xlab("Miles per gallon (mpg)") +
+    ylab("Frequency") +
+    ggtitle("Distribution of miles per gallon \nrating for all cars in the mtcars dataset")
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "cfd34c56beffda440832d4065b696c3b", "grade": false, "grade_id": "cell-951363965048a8c7", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.7**
+<br>{points: 1}
+
+How many cars are there in the `mtcars` dataset with a `mpg` rating of less than 12?
+
+_Assign your answer to an object called `answer1.7`. Your answer should be a single integer._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'cd5fee7d213c8ed4f63bd95bfb701540', 'grade': False, 'grade_id': 'cell-1fd2456f311a850a', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'eba8151f34bd7deabde03c435843fc84', 'grade': True, 'grade_id': 'cell-d9493c9861f1a5a8', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.7()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "363424b8ffe6163c1b1f8f27c94d83f7", "grade": false, "grade_id": "cell-9966fe7c15c32e34", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.8**
+<br>{points: 1}
+
+How many more cars are there in the `mtcars` dataset with a `mpg` rating between 16 and 22 than there are with a `mpg` rating between 22 and 28?
+
+_Assign your answer to an object called `answer1.8`. Your answer should be a single integer._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '041a2f20cf37154e2a38b44d792a7571', 'grade': False, 'grade_id': 'cell-ac4ffeb74fafd7ac', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '56c7c1083e17bf86dab5151a67e187f0', 'grade': True, 'grade_id': 'cell-2e69ac12dd07b62b', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.8()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "95111ca45b37109ec516ac5e53afb6d6", "grade": false, "grade_id": "cell-c49b636f4737765f", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 2. Vancouver Property Tax
+Now we are going to start working with a real population to explore the concepts of population distributions, sampling, and sampling distributions a bit more in-depth. We will compute a single point estimate of a population parameter and compare it to the true value, and then take many samples to explore the distribution of the point estimates themselves, which is what we call a sampling distribution. We'll also compare the sampling distribution to the population distribution and its parameters.
+<!-- #endregion -->
+
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "e5172d81fb219ad0edad46c2837040a4", "grade": false, "grade_id": "cell-1a705931653de4e8", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+
+> _"In this world, nothing is certain except death and taxes."_
+<br>
+> [Benjamin Franklin](https://constitutioncenter.org/blog/benjamin-franklins-last-great-quote-and-the-constitution)
+        
+Homeowners in Vancouver can certainly agree with this statement. Every year, Vancouverites have their property assessed for its value, and based on that are charged a certain amount to the government as a tax for owning property. For several years, the City of Vancouver has been collecting data on the assessment and levy for every property in Vancouver. This data has been made publicly available on their [Data Portal](https://opendata.vancouver.ca/), and we have compiled it into an R package called `taxyvr`. Let's load that package now.
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '4f057ba6866781c663a29384e0119b2d', 'grade': False, 'grade_id': 'cell-1e28f10ad2685f3c', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+library(taxyvr)
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "4f4ab8dd05ccad27395489dc45b1ea86", "grade": false, "grade_id": "cell-b9f303065910237c", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+`taxyvr` contains property tax assessment data for all properties from 2014 to 2019, with one data frame for each year, named `tax_2014`, `tax_2015`, and so on. It also contains a dataframe with information about some properties from 2020, `tax_2020`, but this data is still being updated by the city. We will be using data from the `taxyvr` package all throughout the course, so be sure to familiarize yourself with its contents!
+
+For this worksheet, we are going to be looking at the data from 2019, `tax_2019`, because it is the most recent and complete dataset that we have available. This dataset represents all the properties in Vancouver for the year of 2019, and can be considered a census.
+
+<br>
+
+![](https://media.giphy.com/media/28jeqp9apQJM6pClEo/giphy.gif)
+<div style="text-align: center"><i>Image from <a href="https://media.giphy.com/media/28jeqp9apQJM6pClEo/giphy.gif">giphy.com</i></a></div>
+<br>
+
+In Vancouver, there are many different types of properties with various purposes. The City of Vancouver has classified each property into nine different zone categories, such as comprehensive development, one or multiple-family dwellings, and commercial. We are interested in understanding the assessment values of one of the most common types of residential homes in Vancouver: multiple family dwellings in strata housing (e.g., condos, townhouses, duplexes). Specifically, we are interested in estimating the mean assessment value for multiple family dwellings in strata housing.
+
+As mentioned above, the City of Vancouver collects this data for all properties in the entire city. Thus, we have data for the whole population of interest. Usually, this is not the case, and when we **do** have access to the entire population as we do here, this defeats the purpose of estimating since we can easily calculate the mean directly. However, we are still going to be estimating here (in fact, we will be making hundreds of estimates!) so that we can understand how our estimations behave.
+
+Our population of interest is a subset of all Vancouver properties, so we need to select only the rows for this type of property. Before we do that, let's take a look at the first few rows of our `tax_2019` data set.
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '9ea4237d4c6008edde1c8c0f2f084711', 'grade': False, 'grade_id': 'cell-fc176c52f0481b55', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+head(tax_2019)
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "250d1c1fc7f7ffb72d87e12258e2ab5f", "grade": false, "grade_id": "cell-843ea3d942861b83", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+Some of the column names are a bit confusing. We can use `?tax_2019` to display more information about the data, including a description of the meaning of each column:
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '87a648d400793d8ffce301ccd4c0f750', 'grade': False, 'grade_id': 'cell-faf3c0dec4508a51', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+?tax_2019
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "56471d284b8b00ad84e849bafd747059", "grade": false, "grade_id": "cell-87d1179527cc6179", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+As mentioned above, we are only interested in the population corresponding to multiple family dwellings in strata housing. In this data set, the properties that correspond to that meet the following criteria:  
+- **Have a land value greater than \$1:**  Some properties are assignment a value of `NA` and these are the properties undergoing big renovations. These values get ammended after the improvement and are reflected in the following year's assessment. The same occurs with homes that are asssessed at $0.
+- **Are of legal type land `STRATA`**
+- **Are of zone category `Multiple Family Dwelling`** 
+
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "b305ec40ad89608cb141f3e2a69ae305", "grade": false, "grade_id": "cell-e7b0e675810d24b4", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.0** 
+<br> {points: 1}
+
+Let's filter our dataset `tax_2019` to get a subset with the above criteria, which we will define as our population. Since we will be concentrating on the `current_land_value` column, ensure that your final data frame has only this column.
+
+_Assign your data frame to an object called `multi_family_strata`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '416aafbed70399aeaf062dfdeb965151', 'grade': False, 'grade_id': 'cell-a5780df8ff3ee2af', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# multi_family_land <- tax_2019 %>%  
+#     filter(!is.na(...),
+#            ...,
+#            ...,
+#            ...) %>% 
+#     select(...)
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+head(multi_family_strata)
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c39323ab8f55471c232b0511ec417475', 'grade': True, 'grade_id': 'cell-d0d01d8617427f65', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.0()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "e7b4dc347ba7ed8f7e011c3ac155cad0", "grade": false, "grade_id": "cell-f30ea04eea40b9dd", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.1** 
+<br> {points: 1}
+
+Visualize the distribution of `current_land_value` for the population `multi_family_strata` that we obtained in the previous question by plotting a histogram using `geom_histogram` with the argument `bins = 50`. Ensure that your axis are human-readable. We changed the format of the x-axis scale using `scale_x_continuous` and rotated it to make it more readable.
+
+_Assign your plot to an object called `pop_dist`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c581096fea1056f7aab328788294a1bf', 'grade': False, 'grade_id': 'cell-f5534e6c9cd14c66', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+options(repr.plot.width = 4, repr.plot.height = 3)
+
+# pop_dist <- ... %>% 
+#     ggplot(...) + 
+#     geom_...(...) +
+#     ... +
+#     ggtitle("Land Value Distribution") +
+#     scale_x_continuous(labels = scales::dollar_format()) +
+#     theme(axis.text.x = element_text(angle = 45, hjust = 1))
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+pop_dist
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'bc5f00f1959d25fb834a5c2d1c59a6cd', 'grade': True, 'grade_id': 'cell-456cbebb3f4f32b4', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.1()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "30b8dc1a405bd2988828bb0b1c7f88fe", "grade": false, "grade_id": "cell-62b684a63ec96f31", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.2** 
+<br> {points: 1}
+
+We are interested in the population's mean assessed value for multiple family dwellings in strata housing. Because we have data for the entire population (`multi_family_strata`), we can calculate the population parameter of interest with `summarise`. The resulting dataframe should have a single column named `pop_mean`.
+
+_Assign your data frame to an object called `pop_mean`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '59482c5e4a1357488f3c17657e6f5256', 'grade': False, 'grade_id': 'cell-fb1b348c31d1d836', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# pop_mean <- ... %>% 
+#     ...(pop_mean = ...(...))
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+pop_mean
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '637d7381fa7ba8df4b602edf716d2b9d', 'grade': True, 'grade_id': 'cell-dc386e49215841fd', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.2()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "eec48d1c60da2a295f0dcb6aa568fa56", "grade": false, "grade_id": "cell-035b54d76e73d9c0", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.3** 
+<br> {points: 1}
+
+In most cases, we rarely have the resources to measure every thing (person, house, event, etc.) in the population, so instead, we collect a single sample from the population. We use that single sample to try to estimate a population parameter (as well as infer how accurate our estimate is, but more on that later).
+
+Let's pretend we are in such a situation where we can only take a sample of 40 observations from our population. Use `rep_sample_n` to take your sample, and set the seed to `4321`.
+
+_Assign your data frame to an object called `sample_1`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '147916b492f1f0b7ac78de319dc18b12', 'grade': False, 'grade_id': 'cell-6127051155e5b696', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(4321) # DO NOT CHANGE!
+
+# sample_1 <- ... %>% 
+#     rep_sample_n(...)
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+head(sample_1)
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '747235c988c10e9490cfd5a128eb49fb', 'grade': True, 'grade_id': 'cell-d9d2029104a018db', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.3()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "0e5104b4d4f29dd0cfa059c71d17126e", "grade": false, "grade_id": "cell-8fc6b0362a3e2415", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.4** 
+<br> {points: 1}
+
+Visualize the distribution of the random sample you just took (`sample_1`) by plotting a histogram using `geom_histogram` with the argument `bins = 50`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a human-readable label.
+
+_Assign your plot to an object called `sample_1_dist`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'd6e982c270cfc35344b7b52ed7f128d5', 'grade': False, 'grade_id': 'cell-9b759497eb1b7bef', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+sample_1_dist
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '0139d2bade7c2af3d9d49bcb8bd7d273', 'grade': True, 'grade_id': 'cell-029a8b40c27703a3', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.4()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "e3e88fc7b83754bb07210ca065b7213c", "grade": false, "grade_id": "cell-3c4b35ed554cb337", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.6** 
+<br> {points: 1}
+
+Recall that our population parameter of interest is the population's mean assessed value. Using the sample you just took (`sample_1`), calculate a point estimate for the population mean using `summarise`. The resulting data frame should have a single column named `sample_1_mean`.
+
+_Assign your data frame to an object called `sample_1_mean`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'd9b57b26c96ef1f50d68e0752e339b55', 'grade': False, 'grade_id': 'cell-66a0061d96d6e200', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# sample_1_mean <- ... %>% 
+#     ...(sample_1_mean = ...(...)) %>% 
+#     select(-replicate)
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+sample_1_mean
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'bd149bd567e760d61041cd5e409b7a7a', 'grade': True, 'grade_id': 'cell-ee2a0a06a44ea114', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.6()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "4a68682a12ca0fb77addf33f1d6e2b4b", "grade": false, "grade_id": "cell-21b6178f8e9bdffb", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+Now, let's compare our random sample to the population from where it was drawn.
+
+**Note**: a small number of the members of our population and sample are not visible because we set an upper bound on the x-axis so you can see a majority of the distribution easier (this causes some of the warnings you see below).
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '2f84d3a92b771bf0bbc4571aa6fb32b3', 'grade': False, 'grade_id': 'cell-154ba1653638eb0b', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+options(repr.plot.height = 5, repr.plot.width = 4)
+plot_grid(pop_dist +
+                 scale_x_continuous(limits = c(0, 3000000),
+                                    labels = scales::dollar_format()),
+          sample_1_dist +
+                 scale_x_continuous(limits = c(0, 3000000),
+                                    labels = scales::dollar_format()) +
+                 scale_y_continuous(breaks = seq(0, 10, 2)),
+          align = "v",
+          axis = "lr",
+          ncol = 1)
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "200ca7803aae43c7fdcd5c11b6f23ed0", "grade": false, "grade_id": "cell-eb2c62ea4906de98", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+And now let's compare our point estimate with the true population parameter we were trying to estimate:
+<!-- #endregion -->
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'f2af69c97270786dfed16a5277ba71a0', 'grade': False, 'grade_id': 'cell-be2a0262a31de71f', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+pop_mean
+sample_1_mean
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "14081d220c8cca394fc86cb829317158", "grade": false, "grade_id": "cell-8659c3d519a6c08c", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.7**
+<br> {points: 1}
+
+After comparing the population and sample distributions above, and the true population parameter and the sample point estimates, which statement below **is not** correct:
+
+A. The sample point estimates are close to the values for the true population parameter we are trying to estimate.
+
+B. The sample distribution is of a similar shape to the population distribution.
+
+C. The sample point estimates are identical to the values for the true population parameter we are trying to estimate.
+
+_Assign your answer to an object called `answer2.7`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '11624e9a50b8cac50a45e78cfc83f090', 'grade': False, 'grade_id': 'cell-b8b05f3e0f161221', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '80353c9d593cdb1f0fe2b15ef1d333aa', 'grade': True, 'grade_id': 'cell-be6afdaf764b33d4', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.7()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "10ebf9c032f121564fd5a1f53e1abdc9", "grade": false, "grade_id": "cell-76f60ee97027b734", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.8** 
+<br> {points: 1}
+
+What if we took another sample? What would we expect? Let's try! Take another random sample from the population using the seed `9999`, visualize its distribution, and then calculate the point estimate (sample mean). To do this, copy and paste the code below and then rearrange the lines so that the code runs properly.
+
+```{r}
+summarise(sample_2_mean = mean(current_land_value))
+xlab("Land Value (CAD)") +
+rep_sample_n(40)
+scale_x_continuous(labels = scales::dollar_format()) +
+theme(axis.text.x = element_text(angle = 45, hjust = 1))
+sample_2 <- multi_family_strata %>% 
+ggtitle("Sample 2 distribution") +
+geom_histogram(bins = 50) +
+sample_2_estimates <- sample_2 %>% 
+sample_2_dist <- ggplot(sample_2, aes(x = current_land_value)) + 
+```
+
+_You should end up with three objects: `sample_2` (your random sample), `sample_2_dist` (your plot), and `sample_2_mean` (your point estimate)._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'ee89637f7255d520b4d4750b2f35e0d1', 'grade': False, 'grade_id': 'cell-2a682041fddd28e7', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(9999) # DO NOT CHANGE!
+options(repr.plot.width = 4, repr.plot.height = 3)
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+sample_2_dist
+sample_2_mean
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '0e62b6b64bf18740fc29fd638f68b68b', 'grade': True, 'grade_id': 'cell-1db5a1e7c5ad9e78', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.8()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "2578cfd1a7b908605fc5a13e83d6edc8", "grade": false, "grade_id": "cell-eb219a4fb15011de", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.9** 
+<br> {points: 1}
+
+After comparing the distribution and point estimate of this second random sample from the population with that of the first random sample and the population, which statements below **is not** correct:
+
+A. The sample distributions from different random samples are of a similar shape to the population distribution, but they vary a bit depending which values are captured in the sample.
+
+B. The sample point estimates from different random samples are close to the true population parameter, but they vary a bit depending which values are captured in the sample.
+
+C. Every random sample from the same population should have an indentical distribution and yield identical point estimates.
+
+*Assign your answer to an object called `answer2.9`. Your answer should be a single character surrounded by quotes.*
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '1add5d8eec6f81ef63baaf21af9dadce', 'grade': False, 'grade_id': 'cell-edd6cd70c14dfcca', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'a6cd2e1927c26b5357c648318d800995', 'grade': True, 'grade_id': 'cell-961d5cc12c2f4ef7', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.9()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "394db83afeb3dbf6f0e725112cf48968", "grade": false, "grade_id": "cell-8f85485e137d66db", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 3. Exploring the sampling distribution of an estimate
+
+Just how much should we expect the point estimates of our random samples to vary? To build an intuition for this, let's experiment a little more with our multiple family dwelling property population. To do this we will take 1500 random samples, and then calculate the point estimate we are interested in (let's choose the mean for this example) for each sample. Finally, we will visualize the distribution of the sample point estimates. This distribution will tell us how much we would expect the point estimates of our random samples to vary for this population for samples of size 40 (the size of our samples).
+<!-- #endregion -->
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "5b177235289c1756a0fa7d251cd8fe64", "grade": false, "grade_id": "cell-f430927379459861", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.0** 
+<br> {points: 1}
+
+Draw 1500 random samples from our population of multiple family dwelling strata properties (`multi_family_strata`). Each sample should have 40 observations. Use `4321` as your seed.
+
+_Assign your data frame to an object called `samples`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'e3b467f49cb94ce4c4c5cb16cc6d459e', 'grade': False, 'grade_id': 'cell-0cd0a42b7d255c17', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(4321) # DO NOT CHANGE!
+
+# samples <- ... %>% 
+#     rep_sample_n(size = ..., reps = ...)
+
+# your code here
+fail() # No Answer - remove if you provide an answer
+head(samples)
+tail(samples)
+nrow(samples)
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '943b549dac343d73ffc0369bfc501c25', 'grade': True, 'grade_id': 'cell-5fb4d9288b5d06ed', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.0()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "ce0ed9b1b2d597de6066b39a7104013f", "grade": false, "grade_id": "cell-9d0c47c5bd510ff6", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.1** 
+<br> {points: 1}
+
+Using the 1500 random samples you just took, group by the sample replicate number (`replicate`), and then for each sample, calculate the mean as the point estimate. The resulting data frame should have the columns `replicate` and `sample_mean`.
+
+_Assign your data frame to an object called `sample_estimates`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '23c02dcc215ba3768557e25a840f948c', 'grade': False, 'grade_id': 'cell-f7a679dc1b0f3222', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+head(sample_estimates)
+tail(sample_estimates)
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '4797c5899ed21910615640778b523142', 'grade': True, 'grade_id': 'cell-f2619e029e119d40', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.1()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "476561a8b487616cce43fe4f4b0af745", "grade": false, "grade_id": "cell-f7c9f1334fb8632e", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.2** 
+<br> {points: 1}
+
+Visualize the distribution of the sample estimates (`sample_estimates`) you just calculated by plotting a histogram using `geom_histogram` with the argument `bins = 30`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a human-readable label.
+
+_Assign your plot to an object called `sampling_distribution`._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '12c992c285f57da6dc6b137332ead3bc', 'grade': False, 'grade_id': 'cell-918edc33544fa612', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+sampling_distribution
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'a0c9beb1101642671efa22fc74d2baa5', 'grade': True, 'grade_id': 'cell-5bea467e58589db9', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.2()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "100f6355b869728a5c2c0494fba2a499", "grade": false, "grade_id": "cell-cb6de75bfb66278d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.3** 
+<br> {points: 1}
+
+Let's refresh our memories; what is the mean current land value of the population (we calculated this above)?.
+
+_Assign your answer to an object called `answer3.3`. Your answer should be a single number._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '5a355c7c3fae2d3fcbcc6c6c09a5682b', 'grade': False, 'grade_id': 'cell-db4bbfe72c697682', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+answer3.3
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c27ae11c8bdbdf277d6f8436fdcc8478', 'grade': True, 'grade_id': 'cell-b07acd6be3cc9451', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.3()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "ccaec6975674389839582ca67fcb4d64", "grade": false, "grade_id": "cell-a8242c02db1ac403", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.4**
+<br> {points: 1}
+
+Considering the true value for the population mean, and the sampling distribution you created and visualized in question 2.1, which statement below **is not** correct:
+
+A. The sampling distribution is centered at the true population mean.
+
+B. Most sample means are at or very near the same value as the true population mean.
+
+C. All the sample means are the same value as the true population mean.
+
+D. Few sample means are far away from the same value as the true population mean.
+
+*Assign your answer to an object called `answer3.3`. Your answer should be a single character surrounded by quotes.*
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '1140ba0f080ed98e99cc18cd7ac02f06', 'grade': False, 'grade_id': 'cell-b016cfdf5fb664e1', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '85abd61dadefa75ad14210bdd4ae6d88', 'grade': True, 'grade_id': 'cell-2f8e7fb5ba342a36', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.4()
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'c9ef9412e2697dd62d6b8887cc43879d', 'grade': False, 'grade_id': 'cell-c5a2718621752af7', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+sampling_distribution + scale_x_continuous(breaks = seq(500000, 1000000, 100000),
+                                           labels = scales::dollar_format())
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "b77a6fa737fd878c6d8efe47906c2570", "grade": false, "grade_id": "cell-22a1ff67bac51f32", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.5**
+<br> {points: 1}
+
+Considering the sampling distribution you visualized in question 2.1, within which of the following range of values (in CAD) do **most** of the sample means lie? We have printed the sampling distribution again directly above this question for your convenience.
+
+A. \\$700,000 to \\$1,000,000
+
+B. \\$650,000 to \\$800,000
+
+C. \\$550,000 to \\$700,000
+
+D. \\$500,000 to \\$600,000
+
+_Assign your answer to an object called `answer3.5`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'dbf014efeefd0d20b7689b7d1801f8dc', 'grade': False, 'grade_id': 'cell-185c21a8d9bc1db6', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '4d67ba68602800d12b2d3acb189314a7', 'grade': True, 'grade_id': 'cell-83569649ee33da44', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.5()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "a0970de2091228a030688e5292fd3917", "grade": false, "grade_id": "cell-2faa963145be56a4", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.6**
+<br> {points: 1}
+
+True or false?
+
+Taking a random sample and calculating a point estimate is a good way to get a "best guess" of the population parameter you are interested in. 
+
+_Assign your answer to an object called `answer3.6`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'd0fe314485572caa6806f22ccf010533', 'grade': False, 'grade_id': 'cell-bc3094d5d6c32ef5', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '986e4edc62b8493cca287da7b6f048dd', 'grade': True, 'grade_id': 'cell-6969f5fb23f7b4c9', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.6()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "df8d7a1d3676ec6cb02b2ef5a5030b36", "grade": false, "grade_id": "cell-273734adaa8bd084", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.7**
+<br> {points: 1}
+
+Suppose you work for a radio station in Vancouver, and the owner (your boss) is interested in selecting music based on the age of the audience. You are asked to gather a random sample of the audience and report an estimation of the mean age of the entire audience to your boss. Considering what you know about sampling distributions, which of the following is true regarding the estimation of the population parameter of interest (mean) using a single point estimate?
+
+A. A single point estimate might be inaccurate, depending on who ends up in the random sample. Perhaps you should hold off on this project until you learn more about the error associated with a point estimate and how you could report it to your boss.
+
+B. A single point estimate might be inaccurate, depending on who ends up in the random sample. However, you should ignore this and not report anything about this to your boss since there is much higher chance that the point estimate will be close to the true population parameter.
+
+C. A single point estimate from a random sample is guaranteed to be accurate. You can report the point estimate to your boss with complete confidence.
+
+_Assign your answer to an object called `answer3.7`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r deletable=FALSE, nbgrader={'cell_type': 'code', 'checksum': '68b42b57d1e559a28c9ec16b810cb3bf', 'grade': False, 'grade_id': 'cell-fb7837805cdad156', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# your code here
+fail() # No Answer - remove if you provide an answer
+```
+
+```{r deletable=FALSE, editable=FALSE, nbgrader={'cell_type': 'code', 'checksum': 'de6ef045e706aca977bbe745c5435bda', 'grade': True, 'grade_id': 'cell-10d1f7d1ec842a1f', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.7()
+```
+
+<!-- #region deletable=false editable=false nbgrader={"cell_type": "markdown", "checksum": "c3b4af6f7d02d47763dbc84c126760ab", "grade": false, "grade_id": "cell-e88fa2107d4d8a58", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+### Final thoughts
+
+Congratulations! You have completed your first STAT 201 worksheet. Before you close the tab, here are a few final remarks:
+
+- Recall that we were interested in estimating the mean assessment value (`current_land_value`) for multiple family dwellings in strata housing (`multi_family_strata`).
+- Here, we had access to data to the entire population, which would defeat the purpose of "estimating" in reality. Usually, this is not the case. However, we went ahead and made many estimates anyways to learn about how they behave.
+- By doing this, we now understand that point estimates can vary. This knowledge will be useful when we don't have access to the entire population, and later on, we will learn how to quantify this inherent "uncertainty" in our point estimates and infer about how accurate they are.
+<!-- #endregion -->
