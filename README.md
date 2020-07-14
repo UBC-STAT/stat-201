@@ -4,11 +4,10 @@
 TBD January 2021
 
 ## Description
-Fundamental concepts in probability. The statistical and probabilistic foundations of inference, the frequentist paradigm. Concepts first introduced through simulation followed with an introduction and exploration of asymptotic theory.
+Classical and simulation-based techniques for estimation and hypothesis testing, including inference for means and proportions. Emphasis on case studies and real data sets, as well as reproducible and transparent workflows when writing computer scripts for analysis and reports.
 
 ## Prerequisites for STAT 201
-- DSCI 100 Introduction to Data Science
-
+- DSCI 100: Introduction to Data Science
 
 ## Textbook
 We are using an open source textbook available free on the web: [ModernDive: Statistical Inference via Data Science](https://moderndive.com/) developed by Chester Ismay and Albert Y. Kim.      
@@ -19,7 +18,7 @@ We may also make some references to [OpenIntro Statistics](https://leanpub.com/o
 Data Science skills and tools have been increasingly in demand in the last few years. This course is designed as a method of furthering experience and gaining such skills in the specific area of applications of statistical inference. STAT 201 will explain key concepts through the analysis of data while exploring various and diverse case studies. Special attention will be given to writing computer scripts to create reproducible analyses. In this course, students will be introduced to classical results based on exact and approximate distributional theory in comparison with results derived from simulation-based or resampling approaches, such as permutation and bootstrapping. The resampling framework allows the course to go beyond inference for means and proportions to other parameters needed in practice. This course will be computationally heavy, therefore, students will become well versed in implementing these concepts by writing computer scripts suitable for modern data analysis (e.g. R). There will be an emphasis on reproducible workflows, clear communication of findings and a general understanding of key concepts decontextualized from specific applications.
 
 ## Course Software Platforms
-Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/). Worksheets and tutorial problem sets as well as the final project analysis, development, and reports will be done using [Jupyter Notebooks](http://jupyter.org/). Students will access the worksheets and tutorials in [Jupyter Notebooks](https://ubc-dsci.github.io/introduction-to-datascience/index.html#jupyter-notebooks) through [Canvas](https://canvas.ubc.ca/courses/19078). Students will require a laptop, chromebook or tablet in both lectures and tutorials. If a student does not their own laptop or chromebook, students may be able to [loan a laptop from the UBC library](https://services.library.ubc.ca/computers-technology/technology-borrowing/).
+Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/). Worksheets and tutorial problem sets as well as the final project analysis, development, and reports will be done using [Jupyter Notebooks](http://jupyter.org/). Students will access the worksheets and tutorials in Jupyter Notebooks through Canvas. Students will require a laptop, chromebook or tablet in both lectures and tutorials. If a student does not their own laptop or chromebook, students may be able to [loan a laptop from the UBC library](https://services.library.ubc.ca/computers-technology/technology-borrowing/).
 
 ## Learning Outcomes
 By the end of the course, students will be able to:
@@ -39,12 +38,12 @@ By the end of the course, students will be able to:
 
 | Position | Name  | Email | Office Hours | Office Location |
 |----------|-------|-------|--------------|-----------------|
-| Instructor  | [Instructor Name ](https://trevorcampbell.me/) | email@stat.ubc.ca | Day at hh:mm | EARTH7777 |
-| Instructor | [Instructor Name ](https://trevorcampbell.me/) | email@stat.ubc.ca | Day at hh:mm | EARTH7777 |
-| TA | Name, Name | | Day at hh:mm | EARTH7777 |
-| TA | Name, Name | | Day at hh:mm | EARTH7777 |
-| TA | Name, Name | | Day at hh:mm | EARTH7777 |
-| TA | Name, Name | | Day at hh:mm | EARTH7777 |
+| Instructor  | Vincenzo Coia | | Day at hh:mm | TBD |
+| Instructor | Rodolfo Lourenzutti | | Day at hh:mm | TBD |
+| TA | Name, Name | | Day at hh:mm | TBD |
+| TA | Name, Name | | Day at hh:mm | TBD |
+| TA | Name, Name | | Day at hh:mm | TBD |
+| TA | Name, Name | | Day at hh:mm | TBD |
 
 ## Assessment
 
