@@ -1,7 +1,7 @@
 # STAT 201: Statistical Inference for Data Science
 
 ## Time and Place
-TBD January 2021
+January - April 2021 on Mondays & Wednesdays at 16:00	- 17:30	
 
 ## Description
 Classical and simulation-based techniques for estimation and hypothesis testing, including inference for means and proportions. Emphasis on case studies and real data sets, as well as reproducible and transparent workflows when writing computer scripts for analysis and reports.
