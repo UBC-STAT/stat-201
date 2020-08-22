@@ -3,7 +3,7 @@
 ARG BASE_CONTAINER=jupyter/r-notebook
 FROM $BASE_CONTAINER
 
-LABEL maintainer="Tiffany Timbers <tiffany.timbers@stat.ubc.ca>"
+LABEL maintainer="Tiffany Timbers <tiffany.timbers@gmail.com>"
 
 # R packages on conda-forge
 RUN conda install --quiet --yes -c conda-forge \
