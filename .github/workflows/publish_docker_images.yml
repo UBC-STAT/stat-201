@@ -39,7 +39,7 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: dockerfiles/r-stat-201
-        tags: "${{ steps.bump.outputs.new_tag }}"
+        tags: "latest,${{ steps.bump.outputs.new_tag }}"
     - name: Sleep for 5 min
       uses: jakejarvis/wait-action@master
       with:
@@ -51,4 +51,4 @@ jobs:
         username: ${{ secrets.DOCKER_USERNAME }}
         password: ${{ secrets.DOCKER_PASSWORD }}
         workdir: dockerfiles/r-stat-201-grading
-        tags: "${{ steps.bump.outputs.new_tag }}"
+        tags: "latest,${{ steps.bump.outputs.new_tag }}"
