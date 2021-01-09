@@ -1,7 +1,29 @@
 # STAT 201: Statistical Inference for Data Science
 
+## Course Information:
+- [Time and Place](#Time-and-Place)
+- [Description](#Description)
+- [Prerequisites for STAT 201](#Prerequisites-for-STAT-201)
+- [Textbook](#Textbook)
+- [Expanded Course Description](#Expanded-Course-Description)
+- [Course Software Platforms](#Course-Software-Platforms)
+- [Learning Outcomes](#Learning-Outcomes)
+- [Teaching Team](#Teaching-Team)
+- [Assessment](#Assessment)
+- [Schedule](#Schedule)
+- [Policies](#Policies):
+    - [Late/Absence](#Late/Absence)
+    - [Autograder Policy](Autograder-Policy)
+    - [Re-grading](Re-grading)
+    - [Device/Browser](Device/Browser)
+    - [Exams](#Exams)
+    - [Missed Final Exam](#Missed-Final-Exam)
+    - [Academic Concession Policy](#Academic-Concession-Policy)
+    - [Academic Integrity](#Academic-Integrity)
+    - [Plagiarism](#Plagiarism)
+
 ## Time and Place
-January - April 2021 on Mondays & Wednesdays at 16:00	- 17:30	
+Mondays and Wednesdays 16:00 - 17:30	
 
 ## Description
 Classical and simulation-based techniques for estimation and hypothesis testing, including inference for means and proportions. Emphasis on case studies and real data sets, as well as reproducible and transparent workflows when writing computer scripts for analysis and reports.
@@ -13,14 +35,14 @@ Classical and simulation-based techniques for estimation and hypothesis testing,
 We are using an open source textbook available free on the web: [ModernDive: Statistical Inference via Data Science](https://moderndive.com/) developed by Chester Ismay and Albert Y. Kim.      
 We may also make some references to [OpenIntro Statistics](https://leanpub.com/openintro-statistics) by David Diez, Mine Cetinkaya-Rundel, and Christopher Barr which is available by donation.
 
-
 ## Expanded Course Description
 Data Science skills and tools have been increasingly in demand in the last few years. This course is designed as a method of furthering experience and gaining such skills in the specific area of applications of statistical inference. STAT 201 will explain key concepts through the analysis of data while exploring various and diverse case studies. Special attention will be given to writing computer scripts to create reproducible analyses. In this course, students will be introduced to classical results based on exact and approximate distributional theory in comparison with results derived from simulation-based or resampling approaches, such as permutation and bootstrapping. The resampling framework allows the course to go beyond inference for means and proportions to other parameters needed in practice. This course will be computationally heavy, therefore, students will become well versed in implementing these concepts by writing computer scripts suitable for modern data analysis (e.g. R). There will be an emphasis on reproducible workflows, clear communication of findings and a general understanding of key concepts decontextualized from specific applications.
 
 ## Course Software Platforms
-Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/). Worksheets and tutorial problem sets as well as the final project analysis, development, and reports will be done using [Jupyter Notebooks](http://jupyter.org/). Students will access the worksheets and tutorials in Jupyter Notebooks through Canvas. Students will require a laptop, chromebook or tablet in both lectures and tutorials. If a student does not their own laptop or chromebook, students may be able to [loan a laptop from the UBC library](https://services.library.ubc.ca/computers-technology/technology-borrowing/).
+Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/). Worksheets and tutorial problem sets as well as the final project analysis, development, and reports will be done using [Jupyter Notebooks](http://jupyter.org/). Students will access the worksheets and tutorials in Jupyter Notebooks through Canvas. Students will require a laptop, chromebook or tablet in both lectures and tutorials. If a student does not have their own laptop or chromebook, students may be able to [loan a laptop from the UBC library](https://services.library.ubc.ca/computers-technology/technology-borrowing/).
 
 ## Learning Outcomes
+
 By the end of the course, students will be able to:
 - Describe real-world examples of questions that can be answered with the statistical inference methods presented in this course (e.g., estimation, hypothesis testing) and apply inference skills and concepts to answer such questions.
 - Explain what random and representative samples are and how they can influence estimation.
@@ -33,21 +55,23 @@ By the end of the course, students will be able to:
 - Discuss how an estimator’s bias arises (e.g., sample bias, study design), and its implications in statistical inference.
 - Perform all aspects of a statistical analysis (from data consumption to reporting) using reproducible and transparent computer scripts.
 
+You can also check the learning outcomes for each week of the course [here](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md).
+
+### By Week
+
 ## Teaching Team
 
+|  Position  |         Name        |          e-mail         | Office Hours | Office Location |
+|------------|---------------------|-------------------------|--------------|-----------------|
+| Instructor |    Vincenzo Coia    | vincen.coia@stat.ubc.ca | Day at hh:mm |       Zoom      |
+| Instructor | Rodolfo Lourenzutti | lourenzutti@stat.ubc.ca | Day at hh:mm |       Zoom      |
+|    TA      | Creagh Briercliffe  |                         | Day at hh:mm |       Zoom      |
+|    TA      | Name, Name          |                         | Day at hh:mm |       Zoom      |
 
-| Position | Name  | Email | Office Hours | Office Location |
-|----------|-------|-------|--------------|-----------------|
-| Instructor  | Vincenzo Coia | | Day at hh:mm | TBD |
-| Instructor | Rodolfo Lourenzutti | | Day at hh:mm | TBD |
-| TA | Name, Name | | Day at hh:mm | TBD |
-| TA | Name, Name | | Day at hh:mm | TBD |
-| TA | Name, Name | | Day at hh:mm | TBD |
-| TA | Name, Name | | Day at hh:mm | TBD |
 
 ## Assessment
 
-In each class (lecture and tutorial) there will be an assignment. Lecture worksheets are due **Day at hh:mm**, and tutorial worksheets are due **Day at hh:mm**. To open the assignment, click the link (e.g. `worksheet_01`) from Canvas. To submit your assignment, just make sure your work is saved (File -> Save and Checkpoint to be sure) **on our server** (i.e., using the link from Canvas) before the deadline. Our server will automatically snapshot at the due date/time.
+In each class (lecture and tutorial) there will be an assignment. **Lecture and tutorial worksheet due dates are posted on Canvas**. To open the assignment, click the link (e.g. `worksheet_01`) from Canvas. To submit your assignment, just make sure your work is saved (File -> Save and Checkpoint to be sure) **on our server** (i.e., using the link from Canvas) before the deadline. Our server will automatically snapshot at the due date/time.
 
 ### Course breakdown
 
@@ -70,32 +94,35 @@ In each class (lecture and tutorial) there will be an assignment. Lecture worksh
 
 ## Schedule
 
-_Lectures are held on **Day**. Tutorials are held on **Day** and build on the concepts learned in lecture._ 
+_Lectures are held on Mondays. Tutorials are held on Wednesdays and build on the concepts learned in lecture._ 
 - _**MD** refers to [ModernDive](https://moderndive.com/)_
 - _**OIS** refers to [OpenInto Statistics](https://www.openintro.org/download.php?file=os3&referrer=/stat/textbook.php)_ 
 
 | Week | Topic       | Readings   |
 |------|-------------|------------|
-| [1](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-1-introduction-to-statistical-inference-and-sampling) | Introduction to Statistical Inference and Sampling  | <ul><li>[MD: Chapter 7 - 7.2.3 Sampling](https://moderndive.com/7-sampling.html)</li></ul>|
-| [2](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-2-populations-and-sampling) | Populations and Sampling   | <ul><li>[MD Chapter 7.2.4 onwards (to the end of chapter 7) Sampling](https://moderndive.com/7-sampling.html#sampling-framework)</li> OIS: Chapter 3.4 Random Variables</li></ul>|
-| [3](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-3-bootstrapping-and-its-relationship-to-the-sampling-distribution) | Bootstrapping and its Relationship to the Sampling Distribution   | <ul><li>[ MD: Chapter 8 - 8.2 Bootstrapping](https://moderndive.com/8-confidence-intervals.html)</li><li>[MD: Chapter 8.7.1 Comparing bootstrap and sampling distributions](https://moderndive.com/8-confidence-intervals.html#bootstrap-vs-sampling)</li></ul>|
-| [4](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-4-confidence-intervals-via-bootstrapping) | Confidence Intervals via Bootstrapping   | <ul><li>[MD: Chapter 8.3- 8.7 Confidence Intervals](https://moderndive.com/8-confidence-intervals.html#ci-build-up)</li></ul>|
-| 5 | Mid-term #1 and Preparation for Projects  | |
-| [6](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-6-estimators-and-additional-measures-of-their-uncertainty) | Estimators and Additional Measures of their Uncertainty  | |
-| [7](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-7-hypothesis-testing-via-simulationrandomization) | Hypothesis Testing via Simulation/Randomization | <ul><li>[MD: Chapter 9 - 9.4.1 Hypothesis Testing ](https://moderndive.com/9-hypothesis-testing.html)</li></ul>|
-| 8 | Mid-term #2 Introduction of Methods Based on Exact and Asymptotic Distributional Theory  | <ul><li> OIS Chapter 3.1.2 Probability</li></ul>|
-| [9](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-9-confidence-intervals-based-on-the-assumption-of-normality-or-the-central-limit-theorem) | Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem   | <ul><li> OIS: Chapter 5.2 Confidence intervals for a proportion </li><li> [MD: Chapter 7.5.2 Central Limit Theorem ](https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem) </li><li> [MD: Appendix A Normal Distribution ](https://moderndive.com/A-appendixA.html#appendix-normal-curve)</li><li>[MD: Chapter 8.7.2 Theory-based confidence intervals](https://moderndive.com/8-confidence-intervals.html#theory-ci)</li></ul> |
-| [10](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-10-classical-tests-based-on-normal-and-t--distributions) | Classical Tests Based on Normal and t- Distributions   | <ul><li>[MD: Chapter 9.6.1 Theory-based hypothesis tests](https://moderndive.com/9-hypothesis-testing.html#theory-hypo)</li></ul>|
-| [11](https://github.ubc.ca/UBC-DSCI/stat-201/blob/master/lecture-learning-outcomes.md#week-11-errors-in-inference) | Errors in Inference  | <ul><li>[MD: Chapter 9.4.2 Types of errors](https://moderndive.com/9-hypothesis-testing.html#types-of-errors)</li><li>[MD: Chapter 9.6.3 Problems with p-values](https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values)</li></ul>|
+| [1](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-1-introduction-to-statistical-inference-and-sampling) | Introduction to Statistical Inference and Sampling  | <ul><li>[MD: Chapter 7 - 7.2.3 Sampling](https://moderndive.com/7-sampling.html)</li></ul>|
+| [2](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-2-populations-and-sampling) | Populations and Sampling   | <ul><li>[MD Chapter 7.2.4 onwards (to the end of chapter 7) Sampling](https://moderndive.com/7-sampling.html#sampling-framework)</li> OIS: Chapter 3.4 Random Variables</li></ul>|
+| [3](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-3-bootstrapping-and-its-relationship-to-the-sampling-distribution) | Bootstrapping and its Relationship to the Sampling Distribution   | <ul><li>[ MD: Chapter 8 - 8.2 Bootstrapping](https://moderndive.com/8-confidence-intervals.html)</li><li>[MD: Chapter 8.7.1 Comparing bootstrap and sampling distributions](https://moderndive.com/8-confidence-intervals.html#bootstrap-vs-sampling)</li></ul>|
+| [4](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-4-confidence-intervals-via-bootstrapping) | Confidence Intervals via Bootstrapping   | <ul><li>[MD: Chapter 8.3- 8.7 Confidence Intervals](https://moderndive.com/8-confidence-intervals.html#ci-build-up)</li></ul>|
+| [5](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-5-mid-term-1-and-preparation-for-projects) | Mid-term #1 and Preparation for Projects  | |
+| [6](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-6-hypothesis-testing-via-simulationrandomization) | Hypothesis Testing via Simulation/Randomization | <ul><li>[MD: Chapter 9 - 9.4.1 Hypothesis Testing ](https://moderndive.com/9-hypothesis-testing.html)</li></ul>|
+| [7](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-7-confidence-intervals-of-means-and-proportions-based-on-the-assumption-of-normality-or-the-central-limit-theorem) | Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem   | <ul><li> OIS: Chapter 5.2 Confidence intervals for a proportion </li><li> [MD: Chapter 7.5.2 Central Limit Theorem ](https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem) </li><li> [MD: Appendix A Normal Distribution ](https://moderndive.com/A-appendixA.html#appendix-normal-curve)</li><li>[MD: Chapter 8.7.2 Theory-based confidence intervals](https://moderndive.com/8-confidence-intervals.html#theory-ci)</li></ul> |
+| [8](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-8-classical-tests-based-on-normal-and-t--distributions) | Classical Tests Based on Normal and t- Distributions   | <ul><li>[MD: Chapter 9.6.1 Theory-based hypothesis tests](https://moderndive.com/9-hypothesis-testing.html#theory-hypo)</li></ul>|
+| 9 | Mid-term #2 and Introduction of Methods Based on Exact and Asymptotic Distributional Theory  | <ul><li> OIS Chapter 3.1.2 Probability</li></ul>|
+| [10](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-10-errors-in-inference) | Errors in Inference  | <ul><li>[MD: Chapter 9.4.2 Types of errors](https://moderndive.com/9-hypothesis-testing.html#types-of-errors)</li><li>[MD: Chapter 9.6.3 Problems with p-values](https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values)</li></ul>|
+| [11](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-11-beyond-two-group-comparisons) | Beyond two-group comparisons  | |
 | 12 | Project Week | |
 | Exam period  | Final Exam | |
 
 ## Policies
 
 ### Late/Absence
-Regular attendance to lecture and tutorials is expected of students. Students who are unavoidably absent because of illness or other reasons should inform the instructor(s) of the course as soon as possible, preferably, prior to the start of the lecture/tutorial. Students who miss quizzes 1 or 2 or an assignment need to provide a self-declaration and make arrangements (e.g., schedule an oral make-up quiz) with the Instructor as soon as possible. Failing to present a declaration may result in a grade of zero.
+Regular attendance to lecture and tutorials is expected of students. Students who are unavoidably absent because of illness or other reasons should inform the instructor(s) of the course as soon as possible, preferably, prior to the start of the lecture/tutorial. There will be no make-up quizzes (midterms). Students who miss quizzes 1 or 2 or an assignment and want to request an Academic Concession need to contact the Instructor as soon as possible and provide a [self-declaration form](https://canvas.ubc.ca/courses/65765/files/12177943?module_item_id=2778150). Failing to present a declaration may result in a grade of zero.
 
 Late lecture and tutorial worksheets will receive a grade of 0. For other assessments, a late submission is defined as any work submitted after the deadline. For a late submission, the student will receive a 50% deducation of their grade for the first occurrence. Hence a maximum attainable grade for the first piece of work submitted late is 50%. Any additional pieces of work that are submitted late will receive a grade of 0 for subsequent occurrences.
+
+### Free-pass
+Due to the extreme challenging circumstances we are facing, we are going to drop the lowest grade worksheet and tutorial (one of each). 
 
 ### Autograder Policy
 Many of the questions in assignments are graded automatically by software. The grading computer has exactly the same hardware setup as the server that students work on. No assignment, when completed, should take longer than 5 minutes to run on the server. The autograder will automatically stop (time out) for each student assignment after a maximum of 5 minutes; **any ungraded questions at that point will receive a score of 0.**
@@ -110,8 +137,8 @@ If you have concerns about the way your work was graded, please contact the TA w
 ### Device/Browser
 Students are responsible for using a device and browser compatible with all functionality of Canvas. Chrome or Firefox browsers are recommended; Safari has had issues with Canvas quizzes in the past.
 
-### Mid-terms Exams
-Two 45-minute mid-terms will be administered at the start of the lecture in Weeks 5 and 8. Notwithstanding the grading weights [above](#course-breakdown), students must pass the final exam to pass the course.
+### Exams
+In this course, two 45-minute mid-terms will be administered at the start of the lecture in Weeks 5 and 9. Besides, there will be a two-hour final exam. Notwithstanding the grading weights [above](#course-breakdown), students must pass the final exam to pass the course. All the exams will be open-book; however, you are not allowed to communicate with another person during the exams. 
 
 ### Missed Final Exam
 Students who miss the final exam must report to their faculty advising office within 72 hours of the missed exam, and must supply supporting documentation. Only your faculty advising office can grant deferred standing in a course. You must also notify your instructor prior to (if possible) or immediately after the exam. Your instructor will let you know when you are expected to write your deferred exam. Deferred exams will ONLY be provided to students who have applied for and received deferred standing from their faculty.
