@@ -63,7 +63,7 @@ You can also check the learning outcomes for each week of the course [here](http
 
 |  Position  |         Name        |          e-mail         | Office Hours | Office Location |
 |------------|---------------------|-------------------------|--------------|-----------------|
-| Instructor |    Vincenzo Coia    |                         | Day at hh:mm |       Zoom      |
+| Instructor |    Vincenzo Coia    | vincen.coia@stat.ubc.ca | Day at hh:mm |       Zoom      |
 | Instructor | Rodolfo Lourenzutti | lourenzutti@stat.ubc.ca | Day at hh:mm |       Zoom      |
 |    TA      | Creagh Briercliffe  |                         | Day at hh:mm |       Zoom      |
 |    TA      | Name, Name          |                         | Day at hh:mm |       Zoom      |
