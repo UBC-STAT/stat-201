@@ -10,9 +10,12 @@
 - [Learning Outcomes](#Learning-Outcomes)
 - [Teaching Team](#Teaching-Team)
 - [Assessment](#Assessment)
+    - [Course breakdown](#course-breakdown)
+    - [Group project breakdown](#Group-project-breakdown)
 - [Schedule](#Schedule)
 - [Policies](#Policies):
     - [Late/Absence](#Late/Absence)
+    - [Free pass](#Free-pass)
     - [Autograder Policy](Autograder-Policy)
     - [Re-grading](Re-grading)
     - [Device/Browser](Device/Browser)
@@ -57,7 +60,6 @@ By the end of the course, students will be able to:
 
 You can also check the learning outcomes for each week of the course [here](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md).
 
-### By Week
 
 ## Teaching Team
 
