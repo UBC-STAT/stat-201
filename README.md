@@ -89,8 +89,8 @@ In each class (lecture and tutorial) there will be an assignment. **Lecture and 
 
 **Test Dates**:
 
-- _Midterm 1_: Monday, Feb 8
-- _Midterm 2_: Monday, Mar 15
+- _Midterm 1_: Monday, Feb 8 at 4pm
+- _Midterm 2_: Monday, Mar 15 at 4pm
 
 ### Group project breakdown
 
