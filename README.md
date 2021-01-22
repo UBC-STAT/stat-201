@@ -1,14 +1,29 @@
----
-title: "STAT 201: Statistical Inference for Data Science"
-output: 
-    html_document:
-        toc: true
-        toc_depth: 3
-        keep_md: true
----
+# STAT 201: Statistical Inference for Data Science
 
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
+## Course Information:
+- [Time and Place](#Time-and-Place)
+- [Description](#Description)
+- [Prerequisites for STAT 201](#Prerequisites-for-STAT-201)
+- [Textbook](#Textbook)
+- [Expanded Course Description](#Expanded-Course-Description)
+- [Course Software Platforms](#Course-Software-Platforms)
+- [Learning Outcomes](#Learning-Outcomes)
+- [Teaching Team](#Teaching-Team)
+- [Assessment](#Assessment)
+    - [Course breakdown](#course-breakdown)
+    - [Group project breakdown](#Group-project-breakdown)
+- [Schedule](#Schedule)
+- [Policies](#Policies):
+    - [Late/Absence](#Late/Absence)
+    - [Free pass](#Free-pass)
+    - [Autograder Policy](Autograder-Policy)
+    - [Re-grading](Re-grading)
+    - [Device/Browser](Device/Browser)
+    - [Exams](#Exams)
+    - [Missed Final Exam](#Missed-Final-Exam)
+    - [Academic Concession Policy](#Academic-Concession-Policy)
+    - [Academic Integrity](#Academic-Integrity)
+    - [Plagiarism](#Plagiarism)
 
 ## Time and Place
 
