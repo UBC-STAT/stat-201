@@ -49,6 +49,7 @@ Students will learn to perform their analysis using the [R programming language]
 ## Learning Outcomes
 
 By the end of the course, students will be able to:
+
 - Describe real-world examples of questions that can be answered with the statistical inference methods presented in this course (e.g., estimation, hypothesis testing) and apply inference skills and concepts to answer such questions.
 - Explain what random and representative samples are and how they can influence estimation.
 - Write computer scripts to perform estimation and hypothesis testing via simulation-based inference approaches, as well as by applying results from exact and approximate distributional theory.
@@ -57,7 +58,7 @@ By the end of the course, students will be able to:
 - Effectively visualize point estimates and different measures of uncertainty (e.g., confidence intervals, standard errors) by writing computer scripts.
 - Discuss the impact of type I & II errors as well as responsible use and reporting of p-values on hypothesis tests.
 - Explain estimator bias and uncertainty, and write a computer script to calculate it.
-- Discuss how an estimator’s bias arises (e.g., sample bias, study design), and its implications in statistical inference.
+- Discuss how an estimator's bias arises (e.g., sample bias, study design), and its implications in statistical inference.
 - Perform all aspects of a statistical analysis (from data consumption to reporting) using reproducible and transparent computer scripts.
 
 You can also check the learning outcomes for each week of the course [here](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md).
@@ -159,9 +160,9 @@ Please see [UBC's concession policy](http://www.calendar.ubc.ca/vancouver/index.
 
 ### Academic Integrity
 The academic enterprise is founded on honesty, civility, and integrity. As members of this enterprise, all students are expected to know, understand, and follow the codes of conduct regarding academic integrity. At the most basic level, this means submitting only original work done by you and acknowledging all sources of information or ideas and attributing them to others as required. This also means you should not cheat, copy, or mislead others about what is your work. Violations of academic integrity (i.e., misconduct) lead to the breakdown of the academic enterprise, and therefore serious consequences arise and harsh sanctions are imposed. For example, incidences of plagiarism or cheating may result in a mark of zero on the
-assignment or exam and more serious consequences may apply if the matter is referred to the President’s Advisory Committee on Student Discipline. Careful records are kept in order to monitor and prevent recurrences.
+assignment or exam and more serious consequences may apply if the matter is referred to the President's Advisory Committee on Student Discipline. Careful records are kept in order to monitor and prevent recurrences.
 
-A more detailed description of academic integrity, including the University’s policies and procedures, may be found in the Academic Calendar at http://calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,0.
+A more detailed description of academic integrity, including the University's policies and procedures, may be found in the Academic Calendar at http://calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,0.
 
 ### Plagiarism
 Students must correctly cite any code or text that has been authored by someone else or by the student themselves for other assignments. Cases of plagiarism may include, but are not limited to:
