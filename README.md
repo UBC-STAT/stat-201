@@ -49,6 +49,7 @@ Students will learn to perform their analysis using the [R programming language]
 ## Learning Outcomes
 
 By the end of the course, students will be able to:
+
 - Describe real-world examples of questions that can be answered with the statistical inference methods presented in this course (e.g., estimation, hypothesis testing) and apply inference skills and concepts to answer such questions.
 - Explain what random and representative samples are and how they can influence estimation.
 - Write computer scripts to perform estimation and hypothesis testing via simulation-based inference approaches, as well as by applying results from exact and approximate distributional theory.
@@ -57,7 +58,7 @@ By the end of the course, students will be able to:
 - Effectively visualize point estimates and different measures of uncertainty (e.g., confidence intervals, standard errors) by writing computer scripts.
 - Discuss the impact of type I & II errors as well as responsible use and reporting of p-values on hypothesis tests.
 - Explain estimator bias and uncertainty, and write a computer script to calculate it.
-- Discuss how an estimator’s bias arises (e.g., sample bias, study design), and its implications in statistical inference.
+- Discuss how an estimator's bias arises (e.g., sample bias, study design), and its implications in statistical inference.
 - Perform all aspects of a statistical analysis (from data consumption to reporting) using reproducible and transparent computer scripts.
 
 You can also check the learning outcomes for each week of the course [here](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md).
@@ -65,12 +66,12 @@ You can also check the learning outcomes for each week of the course [here](http
 
 ## Teaching Team
 
-|  Position  |         Name        |          e-mail         | Office Hours | Office Location |
-|------------|---------------------|-------------------------|--------------|-----------------|
-| Instructor |    Vincenzo Coia    | vincen.coia@stat.ubc.ca | Day at hh:mm |       Zoom      |
-| Instructor | Rodolfo Lourenzutti | lourenzutti@stat.ubc.ca | Day at hh:mm |       Zoom      |
-|    TA      | Creagh Briercliffe  |                         | Day at hh:mm |       Zoom      |
-|    TA      | Name, Name          |                         | Day at hh:mm |       Zoom      |
+|  Position  |         Name        |          e-mail         |
+|------------|---------------------|-------------------------|
+| Instructor |    Vincenzo Coia    | vincen.coia@stat.ubc.ca |
+| Instructor | Rodolfo Lourenzutti | lourenzutti@stat.ubc.ca |
+|    TA      | Creagh Briercliffe  | (use Piazza)            |
+|    TA      | Ela Bandari         | (use Piazza)            |
 
 
 ## Assessment
@@ -87,6 +88,11 @@ In each class (lecture and tutorial) there will be an assignment. **Lecture and 
 | Two Midterms | 30 |
 | Final exam | 30 |
 
+**Test Dates**:
+
+- _Midterm 1_: Monday, Feb 8 at 4pm
+- _Midterm 2_: Monday, Mar 15 at 4pm
+
 ### Group project breakdown
 
 | Deliverable | Percent Grade |
@@ -102,21 +108,23 @@ _Lectures are held on Mondays. Tutorials are held on Wednesdays and build on the
 - _**MD** refers to [ModernDive](https://moderndive.com/)_
 - _**OIS** refers to [OpenInto Statistics](https://www.openintro.org/download.php?file=os3&referrer=/stat/textbook.php)_ 
 
-| Week | Topic       | Readings   |
-|------|-------------|------------|
-| [1](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-1-introduction-to-statistical-inference-and-sampling) | Introduction to Statistical Inference and Sampling  | <ul><li>[MD: Chapter 7 - 7.2.3 Sampling](https://moderndive.com/7-sampling.html)</li></ul>|
-| [2](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-2-populations-and-sampling) | Populations and Sampling   | <ul><li>[MD Chapter 7.2.4 onwards (to the end of chapter 7) Sampling](https://moderndive.com/7-sampling.html#sampling-framework)</li> OIS: Chapter 3.4 Random Variables</li></ul>|
-| [3](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-3-bootstrapping-and-its-relationship-to-the-sampling-distribution) | Bootstrapping and its Relationship to the Sampling Distribution   | <ul><li>[ MD: Chapter 8 - 8.2 Bootstrapping](https://moderndive.com/8-confidence-intervals.html)</li><li>[MD: Chapter 8.7.1 Comparing bootstrap and sampling distributions](https://moderndive.com/8-confidence-intervals.html#bootstrap-vs-sampling)</li></ul>|
-| [4](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-4-confidence-intervals-via-bootstrapping) | Confidence Intervals via Bootstrapping   | <ul><li>[MD: Chapter 8.3- 8.7 Confidence Intervals](https://moderndive.com/8-confidence-intervals.html#ci-build-up)</li></ul>|
-| [5](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-5-mid-term-1-and-preparation-for-projects) | Mid-term #1 and Preparation for Projects  | |
-| [6](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-6-hypothesis-testing-via-simulationrandomization) | Hypothesis Testing via Simulation/Randomization | <ul><li>[MD: Chapter 9 - 9.4.1 Hypothesis Testing ](https://moderndive.com/9-hypothesis-testing.html)</li></ul>|
-| [7](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-7-confidence-intervals-of-means-and-proportions-based-on-the-assumption-of-normality-or-the-central-limit-theorem) | Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem   | <ul><li> OIS: Chapter 5.2 Confidence intervals for a proportion </li><li> [MD: Chapter 7.5.2 Central Limit Theorem ](https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem) </li><li> [MD: Appendix A Normal Distribution ](https://moderndive.com/A-appendixA.html#appendix-normal-curve)</li><li>[MD: Chapter 8.7.2 Theory-based confidence intervals](https://moderndive.com/8-confidence-intervals.html#theory-ci)</li></ul> |
-| [8](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-8-classical-tests-based-on-normal-and-t--distributions) | Classical Tests Based on Normal and t- Distributions   | <ul><li>[MD: Chapter 9.6.1 Theory-based hypothesis tests](https://moderndive.com/9-hypothesis-testing.html#theory-hypo)</li></ul>|
-| 9 | Mid-term #2 and Introduction of Methods Based on Exact and Asymptotic Distributional Theory  | <ul><li> OIS Chapter 3.1.2 Probability</li></ul>|
-| [10](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-10-errors-in-inference) | Errors in Inference  | <ul><li>[MD: Chapter 9.4.2 Types of errors](https://moderndive.com/9-hypothesis-testing.html#types-of-errors)</li><li>[MD: Chapter 9.6.3 Problems with p-values](https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values)</li></ul>|
-| [11](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-11-beyond-two-group-comparisons) | Beyond two-group comparisons  | |
-| 12 | Project Week | |
-| Exam period  | Final Exam | |
+
+| Week | Instructor | Primary TA | Topic       | Readings   |
+|------|------------|------------|-------------|------------|
+| [1](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-1-introduction-to-statistical-inference-and-sampling) (Jan 11) | Vincenzo | Creagh | Introduction to Statistical Inference and Sampling  | [MD: Chapter 7 - 7.2.3 Sampling](https://moderndive.com/7-sampling.html) |
+| [2](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-2-populations-and-sampling) (Jan 18) | Vincenzo | Ela |  Populations and Sampling   | [MD Chapter 7.2.4 onwards (to the end of chapter 7) Sampling](https://moderndive.com/7-sampling.html#sampling-framework) and OIS: Chapter 3.4 Random Variables |
+| [3](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-3-bootstrapping-and-its-relationship-to-the-sampling-distribution) (Jan 25) | Vincenzo | Creagh |  Bootstrapping and its Relationship to the Sampling Distribution   | [MD: Chapter 8 - 8.2 Bootstrapping](https://moderndive.com/8-confidence-intervals.html) and [MD: Chapter 8.7.1 Comparing bootstrap and sampling distributions](https://moderndive.com/8-confidence-intervals.html#bootstrap-vs-sampling) |
+| [4](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-4-confidence-intervals-via-bootstrapping) (Feb 1) | Rodolfo | Ela |  Confidence Intervals via Bootstrapping   | [MD: Chapter 8.3- 8.7 Confidence Intervals](https://moderndive.com/8-confidence-intervals.html#ci-build-up) |
+| [5](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-5-mid-term-1-and-preparation-for-projects) (Feb 8) | Vincenzo | NA | Mid-term #1 and Preparation for Projects  | |
+| \*\*__READING WEEK__\*\* | | | | |
+| [6](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-6-hypothesis-testing-via-simulationrandomization) (Feb 22) | Rodolfo | Ela |  Hypothesis Testing via Simulation/Randomization | [MD: Chapter 9 - 9.4.1 Hypothesis Testing ](https://moderndive.com/9-hypothesis-testing.html) |
+| [7](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-7-confidence-intervals-of-means-and-proportions-based-on-the-assumption-of-normality-or-the-central-limit-theorem) (Mar 1) | Rodolfo | Creagh |  Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem   | OIS: Chapter 5.2 Confidence intervals for a proportion; [MD: Chapter 7.5.2 Central Limit Theorem ](https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem); [MD: Appendix A Normal Distribution ](https://moderndive.com/A-appendixA.html#appendix-normal-curve); and [MD: Chapter 8.7.2 Theory-based confidence intervals](https://moderndive.com/8-confidence-intervals.html#theory-ci) |
+| [8](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-8-classical-tests-based-on-normal-and-t--distributions) (Mar 8) | Rodolfo | Ela |  Classical Tests Based on Normal and t- Distributions   | [MD: Chapter 9.6.1 Theory-based hypothesis tests](https://moderndive.com/9-hypothesis-testing.html#theory-hypo) |
+| 9 (Mar 15) | NA | NA | Mid-term #2 and Introduction of Methods Based on Exact and Asymptotic Distributional Theory  | OIS Chapter 3.1.2 Probability |
+| [10](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-10-errors-in-inference) (Mar 22) | Rodolfo | Creagh | Errors in Inference  | [MD: Chapter 9.4.2 Types of errors](https://moderndive.com/9-hypothesis-testing.html#types-of-errors) and [MD: Chapter 9.6.3 Problems with p-values](https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values) |
+| [11](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-11-beyond-two-group-comparisons) (Mar 29) | Vincenzo | TBD |  Beyond two-group comparisons  | |
+| 12 (April 5) | NA | NA | Project Week | |
+| Exam period  | NA | NA | Final Exam | |
 
 ## Policies
 
@@ -152,9 +160,9 @@ Please see [UBC's concession policy](http://www.calendar.ubc.ca/vancouver/index.
 
 ### Academic Integrity
 The academic enterprise is founded on honesty, civility, and integrity. As members of this enterprise, all students are expected to know, understand, and follow the codes of conduct regarding academic integrity. At the most basic level, this means submitting only original work done by you and acknowledging all sources of information or ideas and attributing them to others as required. This also means you should not cheat, copy, or mislead others about what is your work. Violations of academic integrity (i.e., misconduct) lead to the breakdown of the academic enterprise, and therefore serious consequences arise and harsh sanctions are imposed. For example, incidences of plagiarism or cheating may result in a mark of zero on the
-assignment or exam and more serious consequences may apply if the matter is referred to the President’s Advisory Committee on Student Discipline. Careful records are kept in order to monitor and prevent recurrences.
+assignment or exam and more serious consequences may apply if the matter is referred to the President's Advisory Committee on Student Discipline. Careful records are kept in order to monitor and prevent recurrences.
 
-A more detailed description of academic integrity, including the University’s policies and procedures, may be found in the Academic Calendar at http://calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,0.
+A more detailed description of academic integrity, including the University's policies and procedures, may be found in the Academic Calendar at http://calendar.ubc.ca/vancouver/index.cfm?tree=3,54,111,0.
 
 ### Plagiarism
 Students must correctly cite any code or text that has been authored by someone else or by the student themselves for other assignments. Cases of plagiarism may include, but are not limited to:
