@@ -1,6 +1,8 @@
 Group Project: Overview
 ================
 
+**[Groupings can be found on canvas here](https://canvas.ubc.ca/courses/65765/files?preview=12928213)**
+
 As in DSCI 100, students will work together in groups to complete a Data
 Science project from the beginning (downloading data from the web) to
 the end (communicating their methods and conclusions in an electronic
