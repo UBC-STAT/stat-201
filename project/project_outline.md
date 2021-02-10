@@ -1,0 +1,55 @@
+Group Project: Overview
+================
+
+As in DSCI 100, students will work together in groups to complete a Data
+Science project from the beginning (downloading data from the web) to
+the end (communicating their methods and conclusions in an electronic
+report). Except this time, for STAT 201, your project will focus on
+statistical inference. Remember a fundamental theme in this course is
+that, in addition to drawing conclusions (such as computing an
+estimate), it’s critical to communicate the evidence and uncertainty
+associated with the conclusion. The latter is the main focus of this
+project, and will manifest in an electronic report.
+
+The electronic report will be a Jupyter notebook in which the code cells
+will download a dataset from the web, reproducibly and sensibly wrangle
+and clean, summarize and visualize the data, as well as appropriately
+answer an inferential question. Markdown cells will be used throughout
+the document to narrate the analysis to communicate the question asked,
+methods used, and the conclusion reached.
+
+For this project, you will need to **formulate and answer an inferential
+question about a dataset of your choice**. We list some suggested data
+sets below, however, we encourage you to use another data set that you
+can find. If you are unsure whether your dataset is adequate, please
+reach out to a member of the teaching team.
+
+  - City of Vancouver data: <https://opendata.vancouver.ca/pages/home/>
+    (or other cities, like Ottawa, Toronto, etc.)
+  - Vancouver crime data: <https://geodash.vpd.ca/opendata/>
+  - BC data: <https://data.gov.bc.ca/>
+  - Water survey of Canada:
+    <https://www.canada.ca/en/environment-climate-change/services/water-overview/quantity/monitoring/survey.html>
+  - Climate and Weather Data: <https://climate.weather.gc.ca/>
+  - Sports data
+  - Maybe do your own experiment or observational study, if you have
+    time – or maybe you already have the data. For example, do you track
+    your daily step count? If so, you could come up with some criteria
+    to determine whether you have been satisfying the goal, and use your
+    daily step counts. You could see how your performance holds up
+    depending on the day of week (or maybe whether or not it’s a
+    weekday), or perhaps across different group members.
+
+There are 5 deliverables (the “Teamwork” category, as indicated on the
+syllabus, has two submissions):
+
+| Deliverable                                                                                                                                                                                               | Due Date                     | Weight |
+| --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------- | ------ |
+| [Teamwork: contract](https://canvas.ubc.ca/courses/65765/assignments/795877)                                                                                                                              | Friday, Feb 26 (Week 6)      | 1      |
+| Proposal ([instructions](https://github.com/UBC-STAT/stat-201-student/blob/master/project/proposal.md); [canvas submission location and rubric](https://canvas.ubc.ca/courses/65765/assignments/795878))  | Friday, Mar 5 (Week 7)       | 3      |
+| [Peer Review](https://canvas.ubc.ca/courses/65765/assignments/795880)                                                                                                                                     | Saturday, Mar 20 (Week 9)    | 2      |
+| Final Report ([instructions](https://github.com/UBC-STAT/stat-201-student/blob/master/project/final.md); [canvas submission location and rubric](https://canvas.ubc.ca/courses/65765/assignments/795879)) | Saturday, April 10 (Week 12) | 10     |
+| [Teamwork: evaluation](https://canvas.ubc.ca/courses/65765/assignments/795882)                                                                                                                            | Tuesday, April 13 (Week 12)  | 4      |
+
+(Attribution: these instructions are a modified version of the DSCI 100
+project at UBC)

@@ -1,0 +1,49 @@
+---
+title: "Group Project: Final Report"
+output: github_document
+---
+
+Each group will create a final electronic report (max 2000 written words, not including citations) using Jupyter to communicate the question asked, the analysis performed and the conclusion reached.
+
+Only one member of your team needs to submit. You must submit **2 files**:
+
+- the source Jupyter notebook (`.ipynb` file)
+- the rendered final document (`.html` file) 
+
+Each report should include the following sections:
+
+- Title
+- Introduction
+- Methods and Results
+- Discussion
+- References
+
+(Attribution: these instructions are a modified version of the DSCI 100 project at UBC)
+
+## Introduction
+
+The instructions for this section are the same in your proposal. Just be sure to improve this section by incorporating feedback, and changing things based on your own improved understanding of the project (now that more time has passed since the proposal).
+
+## Methods and Results
+
+Here is where you'll include your work from the "Preliminary Results" in your proposal, along with the additional results you planned to conduct, as indicated in the "Methods: Plan" section of your proposal. Be sure to incorporate feedback from the teaching team and your peers (as relevant), or make any improvements based on your own improved understanding of the project (now that more time has passed since the proposal).
+
+Specifically, in addition to what is requested in the "Preliminary Results" section of the proposal, we are looking for the following components:
+
+- Describe in written English the methods you used to perform your analysis from beginning to end that narrates the code the does the analysis.
+    - Make sure to interpret the results you obtain. It's not enough to just state what a 90% confidence interval is, for example. 
+- Ensure your tables and/or figures are labeled with a figure/table number.
+- Do you think one of bootstrapping or asymptotics is more appropriate than the other? Why or why not? Explain why you think both methods gave you similar/different results, and whether you think one is more trustworthy than the other. 
+
+## Discussion
+
+In this section, you'll interpret the results you obtained in the previous section with respect to the main question/goal of your project. 
+
+- Summarize what you found, and the implications/impact of your findings. 
+- If relevant, discuss whether your results were what you expected to find.
+- Discuss future questions/research this study could lead to.
+
+## References
+
+The same instructions for your proposal also applies here. You only need to make changes if necessary (e.g., if feedback indicates so).
+
