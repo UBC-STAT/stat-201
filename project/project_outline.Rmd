@@ -1,6 +1,8 @@
 ---
 title: "Group Project: Overview"
-output: github_document
+output: 
+    html_document:
+        keep_md: true
 ---
 
 As in DSCI 100, students will work together in groups to complete a Data Science project from the beginning (downloading data from the web) to the end (communicating their methods and conclusions in an electronic report). Except this time, for STAT 201, your project will focus on statistical inference. Remember a fundamental theme in this course is that, in addition to drawing conclusions (such as computing an estimate), it's critical to communicate the evidence and uncertainty associated with the conclusion. The latter is the main focus of this project, and will manifest in an electronic report.
