@@ -7,14 +7,15 @@ LABEL maintainer="Tiffany Timbers <tiffany.timbers@gmail.com>"
 
 # R packages on conda-forge
 RUN conda install --quiet --yes -c conda-forge \
-  r-cowplot=1.* \
-  r-ggally=1.5* \
-  r-gridextra=2.3* \
-  r-infer=0.5* \
-  r-testthat=2.3* 
+    r-cowplot=1.* \
+    r-ggally=1.5* \
+    r-gridextra=2.3* \
+    r-infer=0.5* \
+    r-testthat=2.3* 
 
 RUN Rscript -e "devtools::install_github('UBC-MDS/datateachr@v0.2.1')" \
-    && Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')"
+    && Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')" \
+    && Rscript -e "devtools::install_github("allisonhorst/palmerpenguins")"
 
 USER root
 RUN pip install git+https://github.com/data-8/nbgitpuller \
