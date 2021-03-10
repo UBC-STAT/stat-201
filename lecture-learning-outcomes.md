@@ -71,7 +71,7 @@ From this section, students are expected to be able to:
 5.	Discuss the potential limitations of these methods.
 
 
-### Week 9: Mid-term #2 Introduction of Methods Based on Exact and Asymptotic Distributional Theory
+### Week 9: Mid-term #2 and Project Work
 
 
 ### Week 10: Errors in Inference
