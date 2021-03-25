@@ -41,7 +41,6 @@ Also from this section, students are expected to be able to
 1.	Propose parameters that are useful, given the type of data.
 2.	Propose parameters that are useful, given a question.
 3.  Choose an appropriate way to present estimator uncertainty, given a question, by comparing and contrasting the usefulness of confidence intervals vs. standard error.
-4.  Calculate, interpret, and visualize prediction intervals.
 
 ### Week 6: Hypothesis Testing via Simulation/Randomization
 From this section, students are expected to be able to:
@@ -88,7 +87,7 @@ From this section, students are expected to be able to:
 2.  Apply FDR or Bonferroni correction to control the errors when performing multiple hypothesis testing.
 3.  The value of presenting an entire distribution as a prediction. 
 4.  Estimate a population distribution using simulation (if there's time). Example: wedding planning: https://www.tomasbeuzen.com/post/party-planning-probability/
-
+5.  Calculate, interpret, and visualize prediction intervals.
 
 ### Week 12: Project Week
 This week is designed as independent studying where the students will be working on a project that aims at answering an inferential question with the material they have learned from weeks 1-11.
