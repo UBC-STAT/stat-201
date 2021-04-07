@@ -28,7 +28,7 @@
 ## Time and Place
 
 - Mondays and Wednesdays 16:00 - 17:30 (Zoom link on canvas)
-- Friday office hour (optional): 11:00 - 12:00 (Zoom link on canvas)
+- Friday office hour (optional): typically held 11:00 - 12:00 (Zoom link on canvas)
 
 ## Description
 Classical and simulation-based techniques for estimation and hypothesis testing, including inference for means and proportions. Emphasis on case studies and real data sets, as well as reproducible and transparent workflows when writing computer scripts for analysis and reports.
@@ -92,6 +92,7 @@ In each class (lecture and tutorial) there will be an assignment. **Lecture and 
 
 - _Midterm 1_: Monday, Feb 8 at 4pm
 - _Midterm 2_: Monday, Mar 15 at 4pm
+- _Final Exam_: Saturday, April 24
 
 ### Group project breakdown
 
