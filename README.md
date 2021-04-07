@@ -123,8 +123,8 @@ _Lectures are held on Mondays. Tutorials are held on Wednesdays and build on the
 | 9 (Mar 15) | NA | NA | Mid-term #2 and project work  |  |
 | [10](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-10-errors-in-inference) (Mar 22) | Rodolfo | Creagh | Errors in Inference  | [MD: Chapter 9.4.2 Types of errors](https://moderndive.com/9-hypothesis-testing.html#types-of-errors) and [MD: Chapter 9.6.3 Problems with p-values](https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values) |
 | [11](https://github.com/UBC-STAT/stat-201-student/blob/master/lecture-learning-outcomes.md#week-11-beyond-two-group-comparisons) (Mar 29) | Vincenzo | Vincenzo |  Beyond two-group comparisons  | |
-| 12 (April 5) | NA | NA | Project Week | |
-| Exam period  | NA | NA | Final Exam | |
+| 12 (April 7) | Vincenzo | NA | Project Week | |
+| 13  | Rodolfo (Monday), Vincenzo (Wednesday) | NA | Final Exam | |
 
 ## Policies
 
