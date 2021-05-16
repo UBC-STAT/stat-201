@@ -1,0 +1,130 @@
+body {
+    margin-top: 0px;
+    margin-left: 0px;
+    display: grid;
+    grid-template-columns: minmax(auto, 250px) auto;
+    grid-template-areas: "nav main";
+    gap: 25px;
+    
+}
+
+/*********************
+    NAVIGATION MENU 
+**********************/
+nav {
+    grid-column: 1;
+    grid-area: nav;
+    font-size: 18px;
+    object-fit: contain;
+    height: 100vh;
+    width: 75%;
+    position: sticky;
+    top: 0;
+    background: linear-gradient(90deg, rgba(0,0,50,.10) 10%,rgba(0,0,50,.1) 25%, rgba(0,0,50,0.01) 90%,  rgba(255,255,255,0.01) 100%); 
+    padding: 1em;
+
+}
+
+nav img {
+    display: block;
+    border-radius: 5px;
+    margin-top: 5px;
+    text-align: center;
+    margin: 0.5em auto 1em auto;
+}
+
+/*********************
+   NAVIGATION MENU 
+  name and job title
+**********************/
+#name {
+    font-weight: bold;
+    text-align: center;
+    font-size: 35px;
+    padding: 0%;
+    margin-top: 0%;
+    margin-bottom: 0px;
+    color: rgb(0,0,100);
+}
+
+#department {
+    font-size: 15px;
+    text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: rgba(0,0,50,.8);
+    margin: 0;
+}
+
+.nav-separator {
+    width: 100%;
+    color: rgb(0,0,50);
+    margin-bottom: 0;
+}
+
+/*********************
+   NAVIGATION MENU 
+        links
+**********************/
+nav a {
+    text-decoration: none;
+    font-size: 1.1em;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: rgb(0,0,50);
+}
+
+nav ul {
+    list-style: none;
+    padding-left: 20%;
+}
+
+nav ul li{
+    padding: .15em;
+}
+
+nav a:hover{
+    color: red;
+    text-decoration: underline;
+}
+/*********************
+   NAVIGATION MENU 
+        social
+**********************/
+.social {
+    margin-top: 10px;
+    font-size: 10px;
+    text-align: center;
+    word-spacing: 8px;
+    color: black;
+}
+
+.social a:hover{
+    text-decoration: none;
+}
+
+/*********************
+      MAIN COLUMN
+**********************/
+main {
+    grid-area: main;
+    height: min-content;
+    margin-top: 1em;
+    margin-right: 2em;
+    max-width: 700px;
+}
+
+main h1, main h2 {
+    font-size: 2.8em;
+    font-weight: 1;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    width: 100%;
+    height: auto;
+    letter-spacing: 5px;
+    margin-bottom: 0px;
+    margin-top: 0.5em;
+    color: rgb(82, 82, 82);
+}
+
+main h2 {
+    font-size: 2.5em;
+    padding-top: 0px;
+}

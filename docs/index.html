@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAT 201</title>
+    <link rel="stylesheet" href="styles/main.css">
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+
+</head>
+
+<body>
+    <header>
+        <img alt="UBC logo" src="imgs/UBC-logo.png" />
+        <h1>STAT 201</h1>
+        <h2>Statistical Inference for Data Science</h2>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="">Syllabus</a></li>
+            <li><a href="">Resources</a></li>
+            <li><a href="">Calendar</a></li>
+            <li><a href="pages/index/index-topics.html">Index</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+
+    </main>
+
+    <script defer>
+        function load_page(name) {
+            const request = new XMLHttpRequest();
+            request.open('GET', './' + name);
+            request.responseType = 'document';
+            request.onload = () => {
+                const response = request.responseXML;
+                document.querySelector('#main_column').innerHTML = response.querySelector('#main_column').innerHTML;
+                console.log(request.response.querySelector('main').innerHTML);
+            }
+            request.send();
+        };
+
+        document.addEventListener('DOMContentLoaded', () => {
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.onclick = () => {
+                    load_page(link.dataset.page);
+                    return false;
+                };
+            });
+
+            document.querySelectorAll('.menu_link').forEach(link => {
+                link.onclick = () => {
+                    load_page(link.dataset.page);
+                    return false;
+                };
+            });
+        });
+    </script>
+</body>
+
+</html>

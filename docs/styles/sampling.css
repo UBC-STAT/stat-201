@@ -1,0 +1,14 @@
+svg {
+    margin-bottom: 3em;
+}
+.svg-title{
+    display: inline-block;
+    font-size: 40px;
+    margin-top: 2em;
+    margin-bottom: 0em;
+}
+
+label, option {
+
+    font-size: 25px;
+}
