@@ -68,6 +68,39 @@ nav a:hover{
     color:  rgba(0, 0, 50, 0.8);
 }
 
+.dropdown {
+    position: relative;
+    display: inline-block;
+  }
+  
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    width: 100%;
+    text-align: left;
+    background-color: #f1f1f1;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+  
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: black;
+    padding: 12px .2em 12px 2em;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    width: 82%;
+  }
+  
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
 /*********************
          MAIN 
 **********************/
