@@ -91,6 +91,7 @@ nav a:hover{
     padding: 12px .2em 12px 2em;
     text-decoration: none;
     display: block;
+    box-sizing: content-box;
     text-align: left;
     width: 82%;
   }
@@ -109,17 +110,116 @@ main {
     margin-left: 2em;
 }
 
-main h1{
+main h2{
     text-align: left;
-    font-size: 2.8em;
+    font-size: 3.5em;
     font-weight: 1;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
     width: 100%;
     height: auto;
     letter-spacing: 5px;
-    margin-bottom: 0px;
-    margin-top: 0.5em;
-    color:black;
-    text-decoration: underline;
+    padding-bottom: 10px;
+    margin-top: .5em;
+    margin-bottom: .5em;
+    color:rgb(0, 0, 85);
+    border-bottom: rgb(0, 0, 85);
+    border-bottom-style: double;
+    width:max-content;
 }
 
+main h3{
+    text-align: left;
+    font-size: 2.5em;
+    font-weight: 2;
+    width: 100%;
+    height: auto;
+    padding-bottom: 5px;
+    margin-top: 1em;
+    margin-bottom: .3em;
+    color:rgb(0, 0, 85);
+}
+
+main h4{
+    text-align: left;
+    font-size: 1.9em;
+    font-weight: 2;
+    width: 100%;
+    height: auto;
+    padding-bottom: 5px;
+    margin-top: 1em;
+    margin-bottom: 0;
+    color:rgb(0, 0, 85);
+}
+
+main p {
+    font-size: 20px;
+    width: 90%;
+    text-justify: auto;
+    text-indent: 2em;
+}
+
+main li > p {
+    margin: 0;
+    text-indent: .5em;
+}
+
+main > ul > li {
+    margin: 10px;
+}
+
+main > ol > li {
+    margin: 10px;
+}
+
+table {
+    table-layout: fixed;
+    border-collapse: collapse;
+    border-top: 3px double black;
+    border-bottom: 3px double black;
+    margin: 1em 2em;
+    caption-side: top;
+}
+
+table > caption{
+    font-size: 22px;
+}
+/* Configure table */
+th {
+    font-size: 20px;
+    padding: .5em;
+}
+
+td {
+    border-bottom: 1px solid black;
+    padding: .5em;
+    font-size: 18px;    
+    text-align: center;
+}
+
+tr {
+    font-size: 14px;
+}
+
+thead tr {
+    background-color: rgb(58, 58, 58);
+    color: white;
+    font-size: 15px;
+}
+
+tbody tr:nth-child(even){
+    background-color: rgba(190, 189, 189, 0.5);
+}
+
+tr th:nth-child(odd){
+    width: 115px;
+}
+
+thead th:nth-child(even){
+    border-right: 2px solid white;
+}
+
+tbody td:nth-child(even){
+    border-right: 2px solid black;
+}
+tbody td:last-child{
+    border-right: none;
+}

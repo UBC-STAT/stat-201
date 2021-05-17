@@ -1,26 +1,20 @@
-const exercises = document.querySelectorAll(".box-exercise");
+function load_page(name) {
+    const request = new XMLHttpRequest();
+    request.open('GET', name);
+    request.responseType = 'document';
+    request.onload = () => {
+        const response = request.responseXML;
+        document.querySelector('main').innerHTML = response.querySelector('main').innerHTML;
+        console.log(request.response.querySelector('main').innerHTML);
+    }
+    request.send();
+};
 
-exercises.forEach(exercise => {
-    const btn = exercise.querySelector(".btn-show-answers");
-    const answers = exercise.querySelectorAll(".answer");
-    const solution = exercise.querySelector(".solution");
-
-    btn.addEventListener("click", () => {
-        for (answer of answers) {
-            if (answer.value === "") {
-                alert("You should try answering the exercises before seeing the answers.");
-                return 0;
-            }
-        }
-
-        if (solution.style.display === "") {
-            solution.style.display = "block";
-            btn.textContent = "Hide answers";
-        }
-        else {
-            solution.style.display = "";
-            btn.textContent = "Show answers";
-        }
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('[data-page]').forEach(link => {
+        link.onclick = () => {
+            load_page(link.dataset.page);
+            return false;
+        };
     });
-
 });
