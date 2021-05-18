@@ -1,26 +1,40 @@
+// Add data to the current page history
+history.replaceState({page: "index.html"}, "", "index.html")
+
+// load the page with the back button
+window.onpopstate = function(event){
+    load_page(event.state.page);
+}
+
+// loading the main function
 function load_page(path) {
     const page = path.split("#")[0];
     const section = path.split("#")[1];
 
-    console.log(`path: ${path}`);
-    console.log(`page: ${page}`);
-    console.log(`section: ${section}`);
-
     fetch(page)
         .then(response => response.text())
         .then(text => {
+            if (page === "index.html"){
+                const parser = new DOMParser();
+                const html = parser.parseFromString(text, "text/html");
+                text = html.querySelector("main").innerHTML;
+            }
+            
             document.querySelector('main').innerHTML = text;
             if (section) {
-                document.getElementById(section).scrollIntoView(true);
+                document.getElementById(section).scrollIntoView({block: "center", inline: "nearest"});
             }
         });
 }
 
+// add event listener to load the pages.
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-page]').forEach(link => {
-        link.addEventListener("click", () => {
-            console.log(link.dataset.page);
+        link.onclick = () => {
             load_page(link.dataset.page);
-        });
+            history.pushState({page: link.dataset.page}, "", link.dataset.page)
+            return false;
+        };
     });
 });
+
