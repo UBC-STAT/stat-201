@@ -35,6 +35,9 @@ header img {
 /*********************
     NAVIGATION MENU 
 **********************/
+nav {
+    position: sticky;
+}
 nav ul {
     display: flex;
     align-items: center;
