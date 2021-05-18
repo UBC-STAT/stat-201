@@ -37,12 +37,16 @@ header img {
 **********************/
 nav {
     position: sticky;
+    top:0px;
+    background-color: rgb(102,102,132);
+    z-index: 1;
 }
+
 nav ul {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: rgba(0, 0, 50, 0.6);
+    background-color: rgb(102,102,132);
     list-style: none;
     color: white;
     margin: 0;
@@ -116,7 +120,7 @@ main {
 main h2{
     text-align: left;
     font-size: 3.5em;
-    font-weight: 1;
+    font-weight: 300;
     width: 100%;
     height: auto;
     letter-spacing: 5px;
@@ -132,7 +136,8 @@ main h2{
 main h3{
     text-align: left;
     font-size: 2.5em;
-    font-weight: 2;
+    font-weight: 200;
+    letter-spacing: 2px;
     width: 100%;
     height: auto;
     padding-bottom: 5px;
@@ -144,7 +149,7 @@ main h3{
 main h4{
     text-align: left;
     font-size: 1.9em;
-    font-weight: 2;
+    font-weight: 200;
     width: 100%;
     height: auto;
     padding-bottom: 5px;
