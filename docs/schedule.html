@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STAT 201</title>
+    <script src="https://d3js.org/d3.v6.min.js"></script>
+    <script defer src='scripts/controller.js'></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+        integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+
+<body>
+    <header>
+        <img alt="UBC logo" src="imgs/UBC-logo.png" />
+        <h1>STAT 201</h1>
+        <h2>Statistical Inference for Data Science</h2>
+    </header>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="" data-page="syllabus.html">Course Information</a>
+                <div class="dropdown-content">
+                    <a href="" data-page="syllabus.html#Prerequisites">Prerequisites</a>
+                    <a href="" data-page="syllabus.html#Learning-Outcomes">Learning Outcomes</a>
+                    <a href="" data-page="syllabus.html#Policies">Policies</a>
+                    <a href="">Code of Conduct</a>
+                </div>
+            </li>
+            <li><a href="" data-page="schedule.html">Schedule</a></li>
+            <li><a href="">Resources</a></li>
+            <li><a href="index/index-topics.html">Index</a></li>
+            <li><a href="">About</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <h2>Schedule</h2>
+
+        <table>
+            <caption>Table 2: Course Calendar</caption>
+            <thead>
+                <tr>
+                    <th>Week</th>
+                    <th>Dates</th>
+                    <th style="width: 450px;">Topics</th>
+                    <th>Required Reading</th>
+                    <th>Due Dates</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>#1</td>
+                    <td>July 04 ~ July 10</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Introduction to Statistical Inference and Sampling</li>
+                            <li>Populations and Sampling</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li><a href="https://moderndive.com/7-sampling.html">Modern Dive: Chapter 7</a></li>
+                            <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#2</td>
+                    <td>July 11 ~ July 17</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Bootstrapping and its Relationship to the Sampling Distribution</li>
+                            <li>Confidence Intervals via Bootstrapping</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li><a href="https://moderndive.com/8-confidence-intervals.html#bootstrap-vs-sampling">Modern Dive: Chapter 8</a></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#3</td>
+                    <td>July 18 ~ July 24</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Mid-term #1 and Preparation for Projects</li>
+                            <li>Hypothesis Testing via Simulation/Randomization</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
+                            <li>More to come.</li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#4</td>
+                    <td>July 25 ~ July 31</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem</li>
+                            <li>Classical Tests Based on Normal and t-Distribution</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#5</td>
+                    <td>Aug 01 ~ Aug 07</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Mid-Term #2</li>
+                            <li>Errors in Inference</li>
+                            <li>Project Work</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+                <tr>
+                    <td>#6</td>
+                    <td>Aug 08 ~ Aug 14</td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>P-value</li>
+                            <li>Beyond Two-Group Comparisons</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li></li>
+                            <li></li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </main>
+</body>
+
+</html>

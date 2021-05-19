@@ -32,7 +32,7 @@ function load_page(path) {
 // add event listener to load the pages.
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-page]').forEach(link => {
-        link.onclick = () => {
+        link.onclick = (event) => {
             load_page(link.dataset.page);
             history.pushState({ page: link.dataset.page }, "", link.dataset.page)
             return false;
