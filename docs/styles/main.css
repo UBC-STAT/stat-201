@@ -162,8 +162,8 @@ main h4{
 main p {
     font-size: 16px;
     width: 90%;
+    text-align: justify;
     text-justify: auto;
-    text-indent: 2em;
 }
 
 main li > p {
