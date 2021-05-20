@@ -195,6 +195,7 @@ table > caption{
 th {
     font-size: 16px;
     padding: .5em;
+    text-align: center;
 }
 
 td {
