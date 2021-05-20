@@ -29,10 +29,15 @@
             <li class="dropdown">
                 <a href="" data-page="syllabus.html">Course Information</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="syllabus.html#Prerequisites">Prerequisites</a>
+                    <!--<a href="" data-page="syllabus.html#Prerequisites">Prerequisites</a>
+                    <a href="" data-page="syllabus.html#Textbooks">Textbooks</a>
                     <a href="" data-page="syllabus.html#Learning-Outcomes">Learning Outcomes</a>
-                    <a href="" data-page="syllabus.html#Policies">Policies</a>
-                    <a href="">Code of Conduct</a>
+                    <a href="" data-page="syllabus.html#Assessments">Assessments</a>
+                    <a href="" data-page="syllabus.html#Policies">Policies</a>-->
+
+                    <a href="" data-page="syllabus.html#Syllabus">Syllabus</a>
+                    <a href="" data-page="code-of-conduct.html">Code of Conduct</a>
+                    <a href="" data-page="syllabus.html#Syllabus">FAQ</a>
                 </div>
             </li>
             <li><a href="" data-page="schedule.html">Schedule</a></li>
@@ -44,16 +49,15 @@
 
     <main>
         <h2>Schedule</h2>
-
-        <table>
-            <caption>Table 2: Course Calendar</caption>
+        <table id="course-calendar">
+            <caption>Table 1: Course Calendar</caption>
             <thead>
                 <tr>
                     <th>Week</th>
                     <th>Dates</th>
                     <th style="width: 450px;">Topics</th>
                     <th>Required Reading</th>
-                    <th>Due Dates</th>
+                    <th style="width: 250px;">Assignments Due</th>
                 </tr>
             </thead>
             <tbody>
@@ -68,11 +72,18 @@
                     </td>
                     <td style="text-align: left;">
                         <ul>
-                            <li><a href="https://moderndive.com/7-sampling.html">Modern Dive: Chapter 7</a></li>
+                            <li><a href="https://moderndive.com/7-sampling.html">MD: Chapter 7</a></li>
                             <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
                         </ul>
                     </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheets 01 and 02</li>
+                            <li>Tutorials 01 and 02</li>
+                        </ul>
+                    </td>
                 </tr>
+
                 <tr>
                     <td>#2</td>
                     <td>July 11 ~ July 17</td>
@@ -84,26 +95,48 @@
                     </td>
                     <td style="text-align: left;">
                         <ul>
-                            <li><a href="https://moderndive.com/8-confidence-intervals.html">Modern Dive: Chapter 8</a> (up to Section 8.7.1, inclusive)</li>
+                            <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8</a> (up to Section 8.7.1, inclusive)</li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheets 03 and 04</li>
+                            <li>Tutorials 03 and 04</li>
                         </ul>
                     </td>
                 </tr>
+
                 <tr>
                     <td>#3</td>
                     <td>July 18 ~ July 24</td>
                     <td style="text-align: left;">
                         <ul>
-                            <li>Mid-term #1 and Preparation for Projects</li>
+                            <li>Mid-term #1 (July 20th)</li>
                             <li>Hypothesis Testing via Simulation/Randomization</li>
+                            <li>Preparation for Projects</li>
                         </ul>
                     </td>
                     <td style="text-align: left;">
                         <ul>
+                            <li><a href="https://moderndive.com/9-hypothesis-testing.html">MD: Sections 9 - 9.4.1 Hypothesis Testing </a></li>
                             <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
                             <li>More to come</li>
                         </ul>
                     </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheet 06</li>
+                            <li>Tutorial 06</li>
+                            <li>Project:
+                                <ul>
+                                    <li> Team Work Contract</li>
+                                    <li>Proposal</li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </td>
                 </tr>
+
                 <tr>
                     <td>#4</td>
                     <td>July 25 ~ July 31</td>
@@ -115,25 +148,48 @@
                     </td>
                     <td style="text-align: left;">
                         <ul>
-                            <li></li>
-                            <li></li>
+                            <li><a href="https://moderndive.com/A-appendixA.html#appendix-normal-curve">MD: Appendix A Normal Distribution </a></li>
+                            <li><a href="https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem">MD: Section 7.5.2 Central Limit Theorem </a></li>
+                            <li><a href="https://moderndive.com/8-confidence-intervals.html#theory-ci">MD: Section 8.7.2 Theory-based confidence intervals</a></li>
+                            <li>OIS: Section 5.2 Confidence intervals for a proportion</li>
+                            <li><a href="https://moderndive.com/9-hypothesis-testing.html#theory-hypo">MD: Section 9.6.1 Theory-based hypothesis tests</a></li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheets 07 and 08</li>
+                            <li>Tutorials 07 and 08</li>
+                            <li>Project:
+                                <ul>
+                                    <li>Peer Review</li>
+                                </ul>
+                            </li>
                         </ul>
                     </td>
                 </tr>
+
                 <tr>
                     <td>#5</td>
                     <td>Aug 01 ~ Aug 07</td>
                     <td style="text-align: left;">
                         <ul>
-                            <li>Mid-Term #2</li>
+                            <li>Mid-Term #2 (Aug 3rd)</li>
                             <li>Errors in Inference</li>
+                            <li>P-value</li>
                             <li>Project Work</li>
                         </ul>
                     </td>
                     <td style="text-align: left;">
                         <ul>
-                            <li></li>
-                            <li></li>
+                            <li><a href="https://moderndive.com/9-hypothesis-testing.html#types-of-errors">MD: Section 9.4.2 Types of errors</a></li>
+                            <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD: Section 9.6.3 Problems with p-values</a></li>
+                        </ul>
+                    </td>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheet 10</li>
+                            <li>Tutorial 10</li>
+                            <li>P-value activity</li>
                         </ul>
                     </td>
                 </tr>
@@ -142,20 +198,86 @@
                     <td>Aug 08 ~ Aug 14</td>
                     <td style="text-align: left;">
                         <ul>
-                            <li>P-value</li>
-                            <li>Beyond Two-Group Comparisons</li>
+                             <li>Beyond Two-Group Comparisons</li>
+                             <li>Course review for the Final</li>
                         </ul>
                     </td>
                     <td style="text-align: left;">
                         <ul>
-                            <li></li>
-                            <li></li>
+                            <li>Coming soon!</li>
+                        </ul>
+                    <td style="text-align: left;">
+                        <ul>
+                            <li>Worksheet 11</li>
+                            <li>Tutorial 11</li>
+                            <li>Project:
+                                <ul>
+                                    <li>Final Report</li>
+                                    <li>Teammate Evaluation</li>
+                                </ul>
+                            </li>
                         </ul>
                     </td>
                 </tr>
             </tbody>
         </table>
+        <p>MD: <a href="https://moderndive.com/">Modern Dive</a> </p>
+        <p>OIS: <a href="https://www.openintro.org/book/os/"> Openintro Statistics</a> </p>
+        <p>All due dates will be on the last day of the week (Saturday at 23:59:59).</p>
+        <h3>Test Dates</h4>
+        <ul>
+            <li>
+                <p>Midterm 1: Tuesday, July 20 at 2:30pm</p>
+            </li>
+            <li>
+                <p>Midterm 2: Tuesday, August 3 at 2:30pm</p>
+            </li>
+            <li>
+                <p>Final Exam: TBD (somewhere between August 16 and 20).</p>
+            </li>
+        </ul>
     </main>
 </body>
 
+
+<script defer>
+
+const months = {
+    "Jan": 00,
+    "Feb": 01,
+    "Mar": 02,
+    "March": 02,
+    "Apr": 03,
+    "April": 03,
+    "May": 04,
+    "Jun": 05,
+    "June": 05,
+    "Jul": 06,
+    'July': 06, 
+    'Aug': 07,
+    'Sep': 08,
+    'Oct': 09,
+    'Nov': 10,
+    'Dec': 11};
+
+const table = document.getElementById("course-calendar")
+
+table
+    .querySelector("tbody")
+    .querySelectorAll("tr")
+    .forEach(row => {
+        current_date = new Date();
+        year = current_date.getFullYear();
+
+        var end_week = row.querySelectorAll("td")[1].innerText.split("~")[1];
+        end_week = end_week.trim();
+        end_week = new Date(year, monthIndex = months[end_week.split(" ")[0]], parseInt(end_week.split(" ")[1]));
+        
+        if (current_date > end_week){
+            row.style.backgroundColor = "#ffc4c4";
+            row.nextElementSibling.style.backgroundColor = "#cdf7e0"; 
+        }
+    });
+    
+</script>
 </html>
