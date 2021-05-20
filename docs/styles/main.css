@@ -124,7 +124,7 @@ main h2{
     font-weight: 300;
     width: 100%;
     height: auto;
-    letter-spacing: 5px;
+    letter-spacing: 2px;
     padding-bottom: 10px;
     margin-top: .5em;
     margin-bottom: .5em;
@@ -138,7 +138,7 @@ main h3{
     text-align: left;
     font-size: 2em;
     font-weight: 200;
-    letter-spacing: 2px;
+    letter-spacing: 1px;
     width: 100%;
     height: auto;
     padding-bottom: 5px;
@@ -232,4 +232,8 @@ tbody td:nth-child(even){
 }
 tbody td:last-child{
     border-right: none;
+}
+
+main > table ul {
+    margin-bottom: .2em;
 }
