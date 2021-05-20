@@ -9,27 +9,28 @@ body {
 header h1, header h2 {
     text-align: center;
     color: white;
-    font-size: 60px;
+    font-size: 48px;
     letter-spacing: 5px;
     margin: 0;
     padding: .7em 0 0 0;
 }
 
 header h2 {
-    font-size: 30px;
+    font-size: 24px;
     margin: 0;
     padding: 0;
 }
 
 header {
-    height: 200px;
+    height: 160px;
     background-color: rgb(0, 0, 50);
 }
 
 header img {
     position: absolute;
-    top: 2em;
+    top: 1.5em;
     left: 2em;
+    width: 80px;
 }
 
 /*********************
@@ -63,7 +64,7 @@ nav a {
     height: 100%;
     width: 100%;
     text-decoration: none;
-    font-size: 25px;
+    font-size: 20px;
     color: white;
     margin: 0;
     text-align: center;
@@ -119,7 +120,7 @@ main {
 
 main h2{
     text-align: left;
-    font-size: 3.5em;
+    font-size: 2.8em;
     font-weight: 300;
     width: 100%;
     height: auto;
@@ -135,7 +136,7 @@ main h2{
 
 main h3{
     text-align: left;
-    font-size: 2.5em;
+    font-size: 2em;
     font-weight: 200;
     letter-spacing: 2px;
     width: 100%;
@@ -148,7 +149,7 @@ main h3{
 
 main h4{
     text-align: left;
-    font-size: 1.9em;
+    font-size: 1.52em;
     font-weight: 200;
     width: 100%;
     height: auto;
@@ -159,7 +160,7 @@ main h4{
 }
 
 main p {
-    font-size: 20px;
+    font-size: 16px;
     width: 90%;
     text-justify: auto;
     text-indent: 2em;
@@ -188,18 +189,18 @@ table {
 }
 
 table > caption{
-    font-size: 22px;
+    font-size: 18px;
 }
 /* Configure table */
 th {
-    font-size: 20px;
+    font-size: 16px;
     padding: .5em;
 }
 
 td {
     border-bottom: 1px solid black;
     padding: .5em;
-    font-size: 18px;    
+    font-size: 15px;    
     text-align: center;
 }
 
