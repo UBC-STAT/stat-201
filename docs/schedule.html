@@ -35,13 +35,13 @@
                 </div>
             </li>
             <li><a href="" data-page="schedule.html">Schedule</a></li>
-                
+
             <li class="dropdown">
                 <a href="" data-page="">Course Content</a>
                 <div class="dropdown-content">
                     <a href="" data-page="">Worksheets</a>
                     <a href="" data-page="">Tutorials</a>
-                    <a href="" data-page="">Group Project</a>
+                    <a href="group-project.html" data-page="">Group Project</a>
                 </div>
             </li>
             <li><a href="">Extra Resources</a></li>
@@ -234,139 +234,267 @@
             </tbody>
         </table>
         <p>MD: <a href="https://moderndive.com/">Modern Dive</a> <br>
-        OIS: <a href="https://www.openintro.org/book/os/"> Openintro Statistics</a> <br>
-        All due dates will be on the last day of the week (Saturday at 23:59:59).</p>
+            OIS: <a href="https://www.openintro.org/book/os/"> Openintro Statistics</a> <br>
+            All due dates will be on the last day of the week (Saturday at 23:59:59).</p>
         <h4>Test Dates</h4>
-            <ul>
-                <li>
-                    <p>Midterm 1: Tuesday, July 20 at 2:30pm</p>
-                </li>
-                <li>
-                    <p>Midterm 2: Tuesday, August 3 at 2:30pm</p>
-                </li>
-                <li>
-                    <p>Final Exam: TBD (somewhere between August 16 and 20).</p>
-                </li>
-            </ul>
+        <ul>
+            <li>
+                <p>Midterm 1: Tuesday, July 20 at 2:30pm</p>
+            </li>
+            <li>
+                <p>Midterm 2: Tuesday, August 3 at 2:30pm</p>
+            </li>
+            <li>
+                <p>Final Exam: TBD (somewhere between August 16 and 20).</p>
+            </li>
+        </ul>
         <h3>Learning Outcomes per Week</h3>
 
         <h4>Week 1: Introduction to Statistical Inference and Sampling</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Describe real-world examples of questions that can be answered 
-                with the statistical inference methods presented in this course 
-                (e.g., estimation, hypothesis testing).</p></li>
-            <li><p>Name common population parameters (mean, proportion, median, 
-                variance, standard deviation, and correlation) that are often 
-                estimated using sample data, and write computer scripts to calculate 
-                estimates of these parameters.</p></li>
-            <li><p>Define the following terms in relation to statistical inference: 
-                population, sample, population parameters, estimate, sampling distribution, sample distribution.</p></li>
-            <li><p>Write an R script to draw random samples from a finite population (e.g., census data).</p></li>
-            <li><p>Write an R script to reveal a sampling distribution from a finite population.</p></li>
+            <li>
+                <p>Describe real-world examples of questions that can be answered
+                    with the statistical inference methods presented in this course
+                    (e.g., estimation, hypothesis testing).</p>
+            </li>
+            <li>
+                <p>Name common population parameters (mean, proportion, median,
+                    variance, standard deviation, and correlation) that are often
+                    estimated using sample data, and write computer scripts to calculate
+                    estimates of these parameters.</p>
+            </li>
+            <li>
+                <p>Define the following terms in relation to statistical inference:
+                    population, sample, population parameters, estimate, sampling distribution, sample distribution.</p>
+            </li>
+            <li>
+                <p>Write an R script to draw random samples from a finite population (e.g., census data).</p>
+            </li>
+            <li>
+                <p>Write an R script to reveal a sampling distribution from a finite population.</p>
+            </li>
         </ul>
 
         <h4>Week 2: Populations and Sampling</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Compare and contrast quantitative and categorical variables.</p></li>
-            <li><p>Explain random and representative sampling and how this can influence estimation.</p></li>
-            <li><p>Define random variables and explain how they relate to sampling.</p></li>
-            <li><p>Define standard error and explain its purpose.</p></li>
-            <li><p>Compare and contrast population distribution, sample distribution and an estimator's sampling distribution.</p></li>
-            <li><p>Explain what a sampling distribution is, list its properties, and its purpose in statistical inference.</p></li>
+            <li>
+                <p>Compare and contrast quantitative and categorical variables.</p>
+            </li>
+            <li>
+                <p>Explain random and representative sampling and how this can influence estimation.</p>
+            </li>
+            <li>
+                <p>Define random variables and explain how they relate to sampling.</p>
+            </li>
+            <li>
+                <p>Define standard error and explain its purpose.</p>
+            </li>
+            <li>
+                <p>Compare and contrast population distribution, sample distribution and an estimator's sampling
+                    distribution.</p>
+            </li>
+            <li>
+                <p>Explain what a sampling distribution is, list its properties, and its purpose in statistical
+                    inference.</p>
+            </li>
         </ul>
 
 
         <h4>Week 3: Bootstrapping and its Relationship to the Sampling Distribution</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Explain why we don’t know/have a sampling distribution in practice/real life.</p></li>
-            <li><p>Define bootstrapping.</p></li>
-            <li><p>Write a computer script to create a bootstrap distribution to approximate a sampling distribution.</p></li>
-            <li><p>Contrast the bootstrap sampling distribution with an assumed sampling distribution.</p></li>
-            <li><p>Estimate the standard error of an estimator using bootstrapping.</p></li>
+            <li>
+                <p>Explain why we don’t know/have a sampling distribution in practice/real life.</p>
+            </li>
+            <li>
+                <p>Define bootstrapping.</p>
+            </li>
+            <li>
+                <p>Write a computer script to create a bootstrap distribution to approximate a sampling distribution.
+                </p>
+            </li>
+            <li>
+                <p>Contrast the bootstrap sampling distribution with an assumed sampling distribution.</p>
+            </li>
+            <li>
+                <p>Estimate the standard error of an estimator using bootstrapping.</p>
+            </li>
         </ul>
 
         <h4>Week 4: Confidence Intervals via Bootstrapping</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Define and calculate sample quantiles.</p></li>
-            <li><p>Define what a confidence interval is, and why we want to generate one.</p></li>
-            <li><p>Explain how the bootstrap sampling distribution can be used to create confidence intervals.</p></li>
-            <li><p>Write a computer script to calculate confidence intervals for a population parameter using bootstrapping.</p></li>
-            <li><p>Effectively visualize point estimates and confidence intervals.</p></li>
-            <li><p>Interpret and explain results from confidence intervals.</p></li>
-            <li><p>Discuss the potential limitations of these methods.</p></li>
+            <li>
+                <p>Define and calculate sample quantiles.</p>
+            </li>
+            <li>
+                <p>Define what a confidence interval is, and why we want to generate one.</p>
+            </li>
+            <li>
+                <p>Explain how the bootstrap sampling distribution can be used to create confidence intervals.</p>
+            </li>
+            <li>
+                <p>Write a computer script to calculate confidence intervals for a population parameter using
+                    bootstrapping.</p>
+            </li>
+            <li>
+                <p>Effectively visualize point estimates and confidence intervals.</p>
+            </li>
+            <li>
+                <p>Interpret and explain results from confidence intervals.</p>
+            </li>
+            <li>
+                <p>Discuss the potential limitations of these methods.</p>
+            </li>
         </ul>
 
         <h4>Week 5: Mid-term #1 and Preparation for Projects</h4>
-        <p>In this week, students will write a mid-term exam, and begin working on their projects. Also from this section, students are expected to be able to</p>
+        <p>In this week, students will write a mid-term exam, and begin working on their projects. Also from this
+            section, students are expected to be able to</p>
         <ul>
-            <li><p>Propose parameters that are useful, given the type of data.</p></li>
-            <li><p>Propose parameters that are useful, given a question.</p></li>
-            <li><p>Choose an appropriate way to present estimator uncertainty, given a question, by comparing and contrasting the usefulness of confidence intervals vs. standard error.</p></li>
-            <li><p>Calculate, interpret, and visualize prediction intervals.</p></li>
+            <li>
+                <p>Propose parameters that are useful, given the type of data.</p>
+            </li>
+            <li>
+                <p>Propose parameters that are useful, given a question.</p>
+            </li>
+            <li>
+                <p>Choose an appropriate way to present estimator uncertainty, given a question, by comparing and
+                    contrasting the usefulness of confidence intervals vs. standard error.</p>
+            </li>
+            <li>
+                <p>Calculate, interpret, and visualize prediction intervals.</p>
+            </li>
         </ul>
 
         <h4>Week 6: Hypothesis Testing via Simulation/Randomization</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Give an example of a question you could answer with a hypothesis test.</p></li>
-            <li><p>Differentiate composite vs. simple hypotheses.</p></li>
-            <li><p>Given an inferential question, formulate null and alternative hypotheses to be used in a hypothesis test.</p></li>
-            <li><p>Identify the steps and components of a basic hypothesis test ("there is only one hypothesis test").</p></li>
-            <li><p>Write computer scripts to perform hypothesis testing via simulation, randomization and bootstrapping approaches, as well as interpret the output.</p></li>
-            <li><p>Describe the relationship between confidence intervals and hypothesis testing.</p></li>
-            <li><p>Discuss the potential limitations of this simulation approach to hypothesis testing.</p></li>
+            <li>
+                <p>Give an example of a question you could answer with a hypothesis test.</p>
+            </li>
+            <li>
+                <p>Differentiate composite vs. simple hypotheses.</p>
+            </li>
+            <li>
+                <p>Given an inferential question, formulate null and alternative hypotheses to be used in a hypothesis
+                    test.</p>
+            </li>
+            <li>
+                <p>Identify the steps and components of a basic hypothesis test ("there is only one hypothesis test").
+                </p>
+            </li>
+            <li>
+                <p>Write computer scripts to perform hypothesis testing via simulation, randomization and bootstrapping
+                    approaches, as well as interpret the output.</p>
+            </li>
+            <li>
+                <p>Describe the relationship between confidence intervals and hypothesis testing.</p>
+            </li>
+            <li>
+                <p>Discuss the potential limitations of this simulation approach to hypothesis testing.</p>
+            </li>
         </ul>
 
 
-        <h4>Week 7: Confidence Intervals (of means and proportions) Based on the Assumption of Normality or the Central Limit Theorem</h4>
+        <h4>Week 7: Confidence Intervals (of means and proportions) Based on the Assumption of Normality or the Central
+            Limit Theorem</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Describe the Law of Large Numbers.</p></li>
-            <li><p>Describe a normal distribution.</p></li>
-            <li><p>Explain the Central Limit Theorem and its role in constructing confidence intervals.</p></li>
-            <li><p>Write a computer script to calculate confidence intervals based on the assumption of normality / the Central Limit Theorem.</p></li>
-            <li><p>Discuss the potential limitations of these methods.</p></li>
-            <li><p>Decide whether to use asymptotic theory or bootstrapping to compute estimator uncertainty.</p></li>
+            <li>
+                <p>Describe the Law of Large Numbers.</p>
+            </li>
+            <li>
+                <p>Describe a normal distribution.</p>
+            </li>
+            <li>
+                <p>Explain the Central Limit Theorem and its role in constructing confidence intervals.</p>
+            </li>
+            <li>
+                <p>Write a computer script to calculate confidence intervals based on the assumption of normality / the
+                    Central Limit Theorem.</p>
+            </li>
+            <li>
+                <p>Discuss the potential limitations of these methods.</p>
+            </li>
+            <li>
+                <p>Decide whether to use asymptotic theory or bootstrapping to compute estimator uncertainty.</p>
+            </li>
         </ul>
 
 
         <h4>Week 8: Classical Tests Based on Normal and t-Distributions</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Describe a t-distribution and its relationship with the normal distribution.</p></li>
-            <li><p>Use results from the assumption of normality or the Central Limit Theorem to perform estimation and hypothesis testing.</p></li>
-            <li><p>Compare and contrast the parts of estimation and hypothesis testing that differ between simulation- and resampling-based approaches with the assumption of normality or the Central Limit Theorem- based approaches.</p></li>
-            <li><p>Write a computer script to perform hypothesis testing based on results from the assumption of normality or the Central Limit Theorem.</p></li>
-            <li><p>Discuss the potential limitations of these methods.</p></li>
+            <li>
+                <p>Describe a t-distribution and its relationship with the normal distribution.</p>
+            </li>
+            <li>
+                <p>Use results from the assumption of normality or the Central Limit Theorem to perform estimation and
+                    hypothesis testing.</p>
+            </li>
+            <li>
+                <p>Compare and contrast the parts of estimation and hypothesis testing that differ between simulation-
+                    and resampling-based approaches with the assumption of normality or the Central Limit Theorem- based
+                    approaches.</p>
+            </li>
+            <li>
+                <p>Write a computer script to perform hypothesis testing based on results from the assumption of
+                    normality or the Central Limit Theorem.</p>
+            </li>
+            <li>
+                <p>Discuss the potential limitations of these methods.</p>
+            </li>
         </ul>
 
 
         <h4>Week 9: Mid-term #2 Introduction of Methods Based on Exact and Asymptotic Distributional Theory</h4>
-        <p><h4>Week 10: Errors in Inference</h4>        From this section, students are expected to be able to:</p>
+        <p>
+        <h4>Week 10: Errors in Inference</h4> From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Define type I & II errors.</p></li>
-            <li><p>Define power of a test.</p></li>
-            <li><p>Describe responsible use and reporting of p-values from hypothesis tests.</p></li>
-            <li><p>Discuss how these errors are linked to a "reproducibility crisis".</p></li>
-            <li><p>Measure how these errors amplify when performing multiple hypothesis testing, in the context of multiple comparisons.</p></li>
+            <li>
+                <p>Define type I & II errors.</p>
+            </li>
+            <li>
+                <p>Define power of a test.</p>
+            </li>
+            <li>
+                <p>Describe responsible use and reporting of p-values from hypothesis tests.</p>
+            </li>
+            <li>
+                <p>Discuss how these errors are linked to a "reproducibility crisis".</p>
+            </li>
+            <li>
+                <p>Measure how these errors amplify when performing multiple hypothesis testing, in the context of
+                    multiple comparisons.</p>
+            </li>
         </ul>
 
-        
+
         <h4>Week 11: Beyond two-group comparisons</h4>
         <p>From this section, students are expected to be able to:</p>
         <ul>
-            <li><p>Run a simple one-way ANOVA, without knowing the details of the test.</p></li>
-            <li><p>Apply FDR or Bonferroni correction to control the errors when performing multiple hypothesis testing.</p></li>
-            <li><p>The value of presenting an entire distribution as a prediction.</p></li>
-            <li><p>Estimate a population distribution using simulation (if there's time). Example: wedding planning: https://www.tomasbeuzen.com/post/party-planning-probability/</p></li>
+            <li>
+                <p>Run a simple one-way ANOVA, without knowing the details of the test.</p>
+            </li>
+            <li>
+                <p>Apply FDR or Bonferroni correction to control the errors when performing multiple hypothesis testing.
+                </p>
+            </li>
+            <li>
+                <p>The value of presenting an entire distribution as a prediction.</p>
+            </li>
+            <li>
+                <p>Estimate a population distribution using simulation (if there's time). Example: wedding planning:
+                    https://www.tomasbeuzen.com/post/party-planning-probability/</p>
+            </li>
         </ul>
         <h4>Week 12: Project Week</h4>
-        <p>This week is designed as independent studying where the students will be working on a project that aims at answering an inferential question with the material they have learned from weeks 1-11.</p>
-    </main> 
+        <p>This week is designed as independent studying where the students will be working on a project that aims at
+            answering an inferential question with the material they have learned from weeks 1-11.</p>
+    </main>
 </body>
 
 
