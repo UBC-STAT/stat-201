@@ -6,7 +6,7 @@ window.onpopstate = function (event) {
     load_page(event.state.page);
 }
 
-// loading the main function
+// loading the main tag
 function load_page(path) {
     const page = path.split("#")[0];
     const section = path.split("#")[1];
@@ -18,6 +18,7 @@ function load_page(path) {
             const html = parser.parseFromString(text, "text/html");
             text = html.querySelector("main").innerHTML;
             document.querySelector('main').innerHTML = text;
+            
             if (section) {
                 document.getElementById(section).scrollIntoView({ block: "center", inline: "nearest" });
             }
@@ -29,11 +30,19 @@ function load_page(path) {
         });
 }
 
+
+function load_js(path){
+    script = document.createElement("script")
+    script.src = path;
+    document.head.append(script);
+}
+
 // add event listener to load the pages.
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-page]').forEach(link => {
         link.onclick = (event) => {
             load_page(link.dataset.page);
+            if (link.dataset.js) load_js(link.dataset.js);
             history.pushState({ page: link.dataset.page }, "", link.dataset.page)
             return false;
         };
