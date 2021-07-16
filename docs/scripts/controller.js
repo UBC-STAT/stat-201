@@ -18,15 +18,6 @@ function load_page(path) {
             const html = parser.parseFromString(text, "text/html");
             text = html.querySelector("main").innerHTML;
             document.querySelector('main').innerHTML = text;
-            
-            if (section) {
-                document.getElementById(section).scrollIntoView({ block: "center", inline: "nearest" });
-            }
-            else {
-                document.body.scrollTop = 0;
-                document.documentElement.scrollTop = 0;
-            }
-
         });
 }
 
