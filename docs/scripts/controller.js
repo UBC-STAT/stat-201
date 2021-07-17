@@ -7,7 +7,7 @@ window.onpopstate = function (event) {
 }
 
 // loading the main tag
-function load_page(path) {
+function load_page(path, path_js) {
     const page = path.split("#")[0];
     const section = path.split("#")[1];
 
@@ -18,6 +18,9 @@ function load_page(path) {
             const html = parser.parseFromString(text, "text/html");
             text = html.querySelector("main").innerHTML;
             document.querySelector('main').innerHTML = text;
+        })
+        .then(() =>  {
+            if (path_js) load_js(path_js);
         });
 }
 
@@ -32,8 +35,7 @@ function load_js(path){
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('[data-page]').forEach(link => {
         link.onclick = (event) => {
-            load_page(link.dataset.page);
-            if (link.dataset.js) load_js(link.dataset.js);
+            load_page(link.dataset.page, link.dataset.js);
             history.pushState({ page: link.dataset.page }, "", link.dataset.page)
             return false;
         };
