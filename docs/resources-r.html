@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head data-course="stat-201">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAT 201</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script defer src='scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/schedule.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -15,11 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://lourenzutti.github.io/resources-for-course-site/styles/main.css">
 </head>
 
-<body>
-    <a href="" data-page="index.html" style="text-decoration: none;">
+<body onload='load_page("resources-r");'>
+    <a href="" data-page="index" style="text-decoration: none;">
         <header>
             <img alt="UBC logo" src="imgs/UBC-logo.png" />
             <h1>STAT 201</h1>
@@ -31,132 +32,32 @@
             <li class="dropdown">
                 <a href="">Course Information</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="syllabus.html#Syllabus">Syllabus</a>
-                    <a href="" data-page="code-of-conduct.html">Code of Conduct</a>
-                    <a href="" data-page="group-project.html">Group Project</a>
-                    <a href="" data-page="faq.html">FAQ</a>
+                    <a href="" data-page="syllabus">Syllabus</a>
+                    <a href="" data-page="covid-safety">COVID-19 Safety</a>
+                    <a href="" data-page="code-of-conduct">Code of Conduct</a>
                 </div>
             </li>
-            <li><a href="" data-page="schedule.html" data-js="scripts/schedule.js">Schedule</a></li>
-
-            <li class="dropdown">
-                <a href="" data-page="">Course Content</a>
-                <div class="dropdown-content">
-                    <a href="" data-page="assignments.html">Assignments</a>
-                </div>
-            </li>
+            <li><a href="" data-page="schedule" data-js="scripts/schedule.js">Schedule</a></li>
+            <li><a href="" data-page="group-project">Group Project</a></li>
             <li class="dropdown">
                 <a href="">Extra Resources</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="resources-r.html">R</a>
+                    <a href="" data-page="resources-r">R</a>
                 </div>
             </li>
         </ul>
     </nav>
 
 
+
     <main>
-        <h2>R resources</h2>
-        <p>Although this course is not about R, it is heavily based on R.
-            Here we point to some R resources that can be helpful to you in this course.</p>
+        <div id="from-md">
 
-        <h3>Books</h3>
+        </div>
 
-        <h4>R for Data Science</h4>
-        <p>This book was written by Hadley Wickham and Garrett Grolemund. It is an incredible book, which we highly
-            recommend you to read cover to cover and, most importantly, do the exercises. However, for this course
-            the following chapters are more relevant:</p>
+        <div style="height: 200px;">
 
-        <ul>
-            <li><a href="https://r4ds.had.co.nz/data-visualisation.html">Chapter 3</a></li>
-            <li><a href="https://r4ds.had.co.nz/transform.html">Chapter 5</a></li>
-            <li><a href="https://r4ds.had.co.nz/tibbles.html">Chapters 10 to 13;</a></li>
-            <li><a href="https://r4ds.had.co.nz/pipes.html">Chapters 18 to 21;</a></li>
-        </ul>
-
-        <h4>Data Science: A First Introduction</h4>
-        <p>This is the textbook of DSCI 100, and it was written by Tiffany Timbers, Trevor Campbell, and Melissa Lee.
-            For this course, you might want to refresh the following chapters:</p>
-        <ul>
-            <li><a href="https://ubc-dsci.github.io/introduction-to-datascience/wrangling.html">Chapter 3 - Cleaning and
-                    wrangling data</a></li>
-            <li><a href="https://ubc-dsci.github.io/introduction-to-datascience/viz.html">Chapter 4 - Effective data
-                    visualization</a></li>
-        </ul>
-
-
-        <h4>Modern Dive</h4>
-        <p>This book is the leading textbook for the course. Similarly, it is not a book about R, but it uses and
-            explains
-            many (but not all!) of the R packages and functions we will use in this course.</p>
-
-
-        <h3>Cheatsheets</h3>
-        <p>RStudio provides a very well curated list of cheatsheets <a
-                href="https://www.rstudio.com/resources/cheatsheets/">here</a>. For this course,
-            you might want take a look at following cheatsheets:</p>
-        <table>
-            <thead>
-                <tr>
-                    <th>Package</th>
-                    <th>Puporse</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-transformation.pdf"
-                            target="_blank" rel="noopener noreferrer">dplyr</a>
-                    </td>
-                    <td>Data wrangling.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/data-visualization-2.1.pdf"
-                            target="_blank" rel="noopener noreferrer">ggplot2</a>
-                    </td>
-                    <td>Package for data visualization.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/purrr.pdf" target="_blank"
-                            rel="noopener noreferrer">Apply</a>
-                    </td>
-                    <td>For lists and vectors manipulation.</td>
-                </tr>
-                <tr>
-                    <td><a href="https://raw.githubusercontent.com/rstudio/cheatsheets/master/factors.pdf"
-                            target="_blank" rel="noopener noreferrer">forcats</a>
-                    </td>
-                    <td>Manipulation of factors for categorical data.</td>
-                </tr>
-            </tbody>
-        </table>
-
-        <h3>Coming from Python?</h3>
-        <p>If you know Python and are not familiar with R (yet!), the following resources might help you
-            link your Python knowledge to R:
-        </p>
-        <ul>
-            <li>
-                <a href="https:
-                    //pandas.pydata.org/pandas-docs/stable/getting_started/comparison/comparison_with_r.html">
-                    Pandas comparison with R
-                </a>
-            </li>
-        </ul>
-
-
-        <!--
-        <h3>Where I go from here?</h3>
-        <p>If you enjoyed the R experience and want to get deeper, the following references might be helpful. These
-            references are completely overkill to this course, so do not try to follow them during the course,
-            especially if you are short on time. These are post-course references.
-        </p>
-        <h4>Programming in R</h4>
-        <h4>Data visualization with ggplot2</h4>
-        <h4> </h4> -->
-
-        <br><br>
-
-
+        </div>
     </main>
 </body>
 

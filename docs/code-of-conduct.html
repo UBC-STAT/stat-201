@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head data-course="stat-201">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAT 201</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script defer src='scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/schedule.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -15,11 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="https://lourenzutti.github.io/resources-for-course-site/styles/main.css">
 </head>
 
-<body>
-    <a href="" data-page="index.html" style="text-decoration: none;">
+<body onload='load_page("group-project");'>
+    <a href="" data-page="index" style="text-decoration: none;">
         <header>
             <img alt="UBC logo" src="imgs/UBC-logo.png" />
             <h1>STAT 201</h1>
@@ -31,138 +32,31 @@
             <li class="dropdown">
                 <a href="">Course Information</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="syllabus.html#Syllabus">Syllabus</a>
-                    <a href="" data-page="code-of-conduct.html">Code of Conduct</a>
-                    <a href="" data-page="group-project.html">Group Project</a>
-                    <a href="" data-page="faq.html">FAQ</a>
+                    <a href="" data-page="syllabus">Syllabus</a>
+                    <a href="" data-page="covid-safety">COVID-19 Safety</a>
+                    <a href="" data-page="code-of-conduct">Code of Conduct</a>
                 </div>
             </li>
-            <li><a href="" data-page="schedule.html" data-js="scripts/schedule.js">Schedule</a></li>
-
+            <li><a href="" data-page="schedule" data-js="scripts/schedule.js">Schedule</a></li>
+            <li><a href="" data-page="group-project">Group Project</a></li>
             <li class="dropdown">
-                <a href="" data-page="">Course Content</a>
+                <a href="">Extra Resources</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="assignments.html">Assignments</a>
-
+                    <a href="" data-page="resources-r">R</a>
                 </div>
             </li>
-            <li><a href="">Extra Resources</a></li>
         </ul>
     </nav>
 
+
     <main>
-        <h2>Code of conduct</h2>
-        <p>For STAT 201, we are committed to creating a friendly, respectful,
-            and supportive place for all people, no exceptions. As such, we do
-            not tolerate behaviour that is disrespectful to our teachers or learners
-            or that excludes, intimidates, or causes discomfort to others. We
-            do not tolerate discrimination or harassment. All participants in our
-            course are expected to show respect and courtesy to others. Everyone
-            participating in STAT 201 activities is required to conform to this Code of Conduct.</p>
+        <div id="from-md">
 
-        <p>
-            This Code of Conduct applies to all spaces managed by STAT 201 including,
-            but not limited to, class meetings, email communication,
-            and online forums such as Piazza and GitHub.
-            The STAT 201 teaching team are expected to assist with the enforcement
-            of the Code of Conduct, and all reports will be kept confidential.
-        </p>
+        </div>
 
-        <h3>Expected Behavior</h3>
+        <div style="height: 200px;">
 
-        <p>All participants in our events and communications are expected to show
-            respect and courtesy to others. All interactions should be professional
-            regardless of platform: either online or in-person. In order to foster
-            a positive and professional learning environment we encourage the following
-            kinds of behaviours in all STAT 201 events and platforms:</p>
-        <ul>
-            <li>
-                <p>Use welcoming and inclusive language</p>
-            </li>
-            <li>
-                <p>Be respectful of different viewpoints and experiences</p>
-            </li>
-            <li>
-                <p>Gracefully accept constructive criticism</p>
-            </li>
-            <li>
-                <p>Focus on what is best for the community</p>
-            </li>
-            <li>
-                <p>Show courtesy and respect towards other community members</p>
-            </li>
-        </ul>
-        <p>Note: See the four social rules for further recommendations.</p>
-
-        <h3>Unacceptable Behavior</h3>
-        <p>Examples of unacceptable behavior by participants at any STAT 201 event/platform include:</p>
-        <ul>
-            <li>
-                <p>written or verbal comments which have the effect of excluding people
-                    on the basis of membership of any specific group</p>
-            </li>
-            <li>
-                <p>causing someone to fear for their safety, such as through stalking,
-                    following, or intimidation</p>
-            </li>
-            <li>
-                <p>violent threats or language directed against another person</p>
-            </li>
-            <li>
-                <p>the display of sexual or violent images</p>
-            </li>
-            <li>
-                <p>unwelcome sexual attention</p>
-            </li>
-            <li>
-                <p>nonconsensual or unwelcome physical contact</p>
-            </li>
-            <li>
-                <p>sustained disruption of talks, events or communications</p>
-            </li>
-            <li>
-                <p>insults or put downs</p>
-            </li>
-            <li>
-                <p>sexist, racist, homophobic, transphobic, ableist, or exclusionary jokes</p>
-            </li>
-            <li>
-                <p>excessive swearing</p>
-            </li>
-            <li>
-                <p>incitement to violence, suicide, or self-harm</p>
-            </li>
-            <li>
-                <p>continuing to initiate interaction (including photography or recording)
-                    with someone after being asked to stop publication of private
-                    communication without consent</p>
-            </li>
-        </ul>
-
-        <h3>Consequences of Unacceptable Behavior</h3>
-        <p>Participants who are asked to stop any inappropriate behavior are expected to
-            comply immediately. This applies to any STAT 201 events and platforms, either
-            online or in-person. If a participant engages in behavior that violates this
-            code of conduct, the teaching team may warn the offender and or engage the
-            STAT 201 Instructor to investigate the Code of Conduct violation and impose
-            appropriate sanctions.</p>
-
-        <h3>Incident Reporting Guidelines</h3>
-        <p>If someone violates the Code of Conduct during a STAT 201 event or in an online
-            space outside of organised events, we ask that you report it to the instructor.
-            The current instructor of STAT 201 is Rodolfo Lourenzutti.
-            An email to lourenzutti@stat.ubc.ca will be seen by Rodolfo.
-            To report a STAT 201 code of conduct violation that will not be seen by Rodolfo,
-            an alternative contact person is Tiffany Timbers, Professor of Teaching in the
-            Department of Statistics at UBC. Her email is tiffany.timbers@stat.ubc.ca.</p>
-
-        <h3>Attribution</h3>
-        <p>
-            Modified from <a href="https://github.com/UBC-DSCI/dsci-100/blob/master/CODE_OF_CONDUCT.md">Code of Conduct
-                of UBC's DSCI 100</a>, which was derived from the <a
-                href="https://docs.carpentries.org/topic_folders/policies/code-of-conduct.html">Carpentries Code of
-                Conduct</a>.
-        </p>
+        </div>
     </main>
 </body>
 

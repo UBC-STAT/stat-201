@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
+<head data-course="stat-201">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>STAT 201</title>
     <script src="https://d3js.org/d3.v6.min.js"></script>
-    <script defer src='scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/controller.js'></script>
+    <script src=' https://lourenzutti.github.io/resources-for-course-site/scripts/schedule.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
         integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
@@ -15,29 +16,11 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
         crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="styles/main.css">
-    <style>
-        main>ul {
-            margin-top: 2px;
-        }
-
-        main>ul>li {
-            margin: 2px;
-        }
-
-        main>ol>li {
-            margin: 2px;
-        }
-
-        p {
-            margin-bottom: 0;
-            margin-top: 10px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://lourenzutti.github.io/resources-for-course-site/styles/main.css">
 </head>
 
-<body>
-    <a href="" data-page="index.html" style="text-decoration: none;">
+<body onload='load_page("index");'>
+    <a href="" data-page="index" style="text-decoration: none;">
         <header>
             <img alt="UBC logo" src="imgs/UBC-logo.png" />
             <h1>STAT 201</h1>
@@ -49,386 +32,28 @@
             <li class="dropdown">
                 <a href="">Course Information</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="syllabus.html#Syllabus">Syllabus</a>
-                    <a href="" data-page="code-of-conduct.html">Code of Conduct</a>
-                    <a href="" data-page="group-project.html">Group Project</a>
-                    <a href="" data-page="faq.html">FAQ</a>
+                    <a href="" data-page="syllabus">Syllabus</a>
+                    <a href="" data-page="covid-safety">COVID-19 Safety</a>
+                    <a href="" data-page="code-of-conduct">Code of Conduct</a>
                 </div>
             </li>
-            <li><a href="" data-page="schedule.html" data-js="scripts/schedule.js">Schedule</a></li>
-
-            <li class="dropdown">
-                <a href="" data-page="">Course Content</a>
-                <div class="dropdown-content">
-                    <a href="" data-page="assignments.html">Assignments</a>
-                </div>
-            </li>
+            <li><a href="" data-page="schedule" data-js="scripts/schedule.js">Schedule</a></li>
+            <li><a href="" data-page="group-project">Group Project</a></li>
             <li class="dropdown">
                 <a href="">Extra Resources</a>
                 <div class="dropdown-content">
-                    <a href="" data-page="resources-r.html">R</a>
+                    <a href="" data-page="resources-r">R</a>
                 </div>
             </li>
         </ul>
     </nav>
 
+
     <main>
-        <h2>Group Project</h2>
-        <p>As in DSCI 100, students will work in groups to complete a Data Science project from the beginning
-            (downloading data from the web) to the end (communicating their methods and conclusions in an electronic
-            report). However, this time, your project will focus on statistical inference. Remember, a fundamental theme
-            in this course is that, in addition to drawing conclusions (such as computing an estimate), it’s critical to
-            communicate the evidence and uncertainty associated with the conclusion. The latter is the main focus of
-            this project and will manifest in an electronic report.</p>
-        <p>The electronic report will be a Jupyter notebook in which the code cells will download a dataset from the
-            web, reproducibly and sensibly wrangle and clean, summarize and visualize the data, as well as appropriately
-            answer an inferential question. Throughout the document, markdown cells will be used to communicate the
-            question asked, methods used, and the conclusion reached.</p>
-        <p>For this project, you will need to formulate and answer an inferential question about a dataset of your
-            choice. We list some suggested data sets below; however, we encourage you to use another data set that
-            interests you. If you are unsure whether your dataset is adequate, please reach out to a member of the
-            teaching team.</p>
+        <div id="from-md">
 
+        </div>
 
-        <h3>Deliverable 1: Team Contract</h3>
-        <p>A group contract is a document to help you formalize the expectations you have for your group members and
-            what
-            they can expect of you. It will help you think about what you need from each other to work effectively as a
-            team!
-            You will create and agree on this contract as a team. <strong>Each member should "sign" (you can just type
-                out your name)
-                at the bottom of the submission</strong>.</p>
-        <p>At a minimum, your group contract must address the following:</p>
-
-        <h4>Goals</h4>
-        <ul>
-            <li>
-                <p>What are our team goals for this project?</p>
-            </li>
-            <li>
-                <p>What do we want to accomplish?</p>
-            </li>
-            <li>
-                <p>What skills do we want to develop or refine?</p>
-            </li>
-        </ul>
-        <h4>Expectations</h4>
-        <p>What do we expect of one another regarding attendance at meetings, participation, frequency of communication,
-            quality of work, etc.?</p>
-
-        <h4>Policies & Procedures</h4>
-        <p>What rules can we agree on to help us meet our goals and expectations?</p>
-
-        <h4>Consequences:</h4>
-        <p>How will we address non-performance regarding these goals, expectations, policies and procedures?</p>
-
-
-
-        <h3>Deliverable 2: Project Proposal</h3>
-        <p>Each group is expected to prepare a written proposal within 500 words
-            (about 1 page) that identifies the dataset they plan to work on, as well
-            as the question they would like to answer using that dataset for their
-            group project. The proposal should be done in a Jupyter notebook, and
-            then submitted both as an <code>.html</code> file (<code>File</code> &#8594; <code>Download As</code>
-            &#8594;
-            <code>HTML</code>) and
-            an <code>.ipynb</code> file that is reproducible (i.e. works and runs without any
-            additional files).
-        </p>
-
-        <p>Only one member of your team needs to submit. You must submit <strong>two files</strong>:
-        <ul>
-            <li>
-                <p>the source Jupyter notebook (<code>.ipynb</code> file)</p>
-            </li>
-            <li>
-                <p>the rendered final document (<code>.html</code> file)</p>
-            </li>
-        </ul>
-        </p>
-
-        <p>Each proposal should include the following sections:
-        <ul>
-            <li>
-                <p>Title</p>
-            </li>
-            <li>
-                <p>Introduction</p>
-            </li>
-            <li>
-                <p>Preliminary Results</p>
-            </li>
-            <li>
-                <p>Methods: Plan</p>
-            </li>
-            <li>
-                <p>References</p>
-            </li>
-        </ul>
-        </p>
-
-        <h4> Introduction</h4>
-
-        <p>Begin by providing some relevant background information on the topic so
-            that someone unfamiliar with it will be prepared to understand the rest
-            of your proposal.</p>
-
-        <p>Clearly state the question you will try to answer with your project.
-            Your question should involve one random variable of interest, spread
-            across two or more categories that are interesting to compare. For
-            example, you could consider the annual maxima river flow at two
-            different locations along a river, or perhaps gender diversity at
-            different universities. Of the response variable, identify one location
-            parameter (mean, median, quantile, etc.) and one scale parameter
-            (standard deviation, inter-quartile range, etc.) that would be useful in
-            answering your question. Justify your choices.</p>
-
-        <p>Identify and describe the dataset that will be used to answer the
-            question. Remember, this dataset is allowed to contain more variables
-            than you need – feel free to drop them!</p>
-
-        <p>Also, be sure to frame your question/objectives in terms of what is
-            already known in the literature. Be sure to include at least two
-            scientific publications that can help frame your study (you will need to
-            include these in the References section).</p>
-
-        <h4>Preliminary Results</h4>
-
-        <p>In this section, you will:
-        <ul>
-            <li>
-                <p>Demonstrate that the dataset can be read from the web into R.</p>
-            </li>
-            <li>
-                <p>Clean and wrangle your data into a tidy format.</p>
-            </li>
-            <li>
-                <p>Plot the relevant raw data, tailoring your plot in a way that</p>
-            </li>
-            addresses your question.
-            <li>
-                <p>Compute estimates of the parameter you identified across your
-                    groups. Present this in a table. If relevant, include these
-                    estimates in your plot.</p>
-            </li>
-        </ul>
-        </p>
-        <p>Be sure to not print output that takes up a lot of screen space.</p>
-
-        <h4> Methods: Plan</h4>
-
-        <p>The previous sections will carry over to your final report (you’ll be
-            allowed to improve them based on feedback you get). Begin this <em>Methods</em>
-            section with a brief description of “the good things” about this report
-            – specifically, in what ways is this report trustworthy?</p>
-
-        <p>Continue by explaining why the plot(s) and estimates that you produced
-            are not enough to give to a stakeholder, and what you should provide in
-            addition to address this gap. Make sure your plans include at least one
-            hypothesis test and one confidence interval, with at least one of these
-            being calculated using both bootstrapping and asymptotics for
-            comparison.</p>
-
-        <p>Finish this section by reflecting on how your final report might play
-            out:
-        <ul>
-            <li>
-                <p> What do you expect to find?</p>
-            </li>
-            <li>
-                <p> What impact could such findings have?</p>
-            </li>
-            <li>
-                <p> What future questions could this lead to?</p>
-            </li>
-        </ul>
-        </p>
-
-        <h4>References</h4>
-
-        <p>At least two citations of literature relevant to the project. The citation
-            format is your choice – just be consistent. Make sure to cite the source
-            of your data as well.</p>
-
-        <h3>Deliverable 3: Peer Review</h3>
-
-        <p>For this peer review, you will be <strong>individually</strong> providing feedback to
-            another group’s proposal. You will be sent an email with the proposal to
-            review.</p>
-
-        <p>We deliberately set up the review so that each member of your group is
-            assigned to review a *different* group’s proposal. This allows your
-            group to collectively see a larger variety of proposals.</p>
-
-        <h4>Instructions</h4>
-
-        <p>Bundle all of your feedback into a single document of your choice, and
-            submit that to canvas. There is no page limit. The teaching team will
-            deliver the feedback to your reviewee.</p>
-
-        <p>Your review should contain the following elements:</p>
-        <ul>
-            <li>
-                <p>As you read through the proposal, point out anything that you think is confusing, or is not
-                    communicated effectively. When possible, provide suggestions for improvement. If everything looks
-                    good to you, say why it looks good.</p>
-            </li>
-            <li>
-                <p>What part of the proposal is the most effective, and why?</p>
-            </li>
-            <li>
-                <p>What part of the proposal is the least effective, and why? Provide a suggestion for improvement.</p>
-            </li>
-            <li>
-                <p>Provide feedback on English, spelling, and grammar (if applicable).</p>
-            </li>
-        </ul>
-
-        <p>The rubric can be found on canvas. In short, <em>mechanics</em> (10%) evaluates
-            the composition of your submission, <em>reasoning</em> (70%) evaluates your
-            feedback, and <em>writing</em> (20%) evaluates your English, spelling, and
-            grammar.</p>
-
-        <h3>Deliverable 4: Final Report</h3>
-
-        <p>Each group will create a final electronic report (max 2000 written
-            words, not including citations) using Jupyter to communicate the
-            question asked, the analysis performed and the conclusion reached.</p>
-
-        <p>Only one member of your team needs to submit. You must submit <strong>two
-                files</strong>:</p>
-        <ul>
-            <li>
-                <p>the source Jupyter notebook (<code>.ipynb</code> file)</p>
-            </li>
-            <li>
-                <p>the rendered final document (<code>.html</code> file)</p>
-            </li>
-        </ul>
-
-        <p>Each report should include the following sections:</p>
-        <ul>
-            <li>
-                <p>Title</p>
-            </li>
-            <li>
-                <p>Introduction</p>
-            </li>
-            <li>
-                <p>Methods and Results</p>
-            </li>
-            <li>
-                <p>Discussion</p>
-            </li>
-            <li>
-                <p>References</p>
-            </li>
-        </ul>
-
-        <h4>Introduction</h4>
-
-        <p>The instructions for this section are the same in your proposal. Just be
-            sure to improve this section by incorporating feedback, and changing
-            things based on your own improved understanding of the project (now that
-            more time has passed since the proposal).</p>
-
-        <h4>Methods and Results</h4>
-
-        <p>Here is where you’ll include your work from the “Preliminary Results” in
-            your proposal, along with the additional results you planned to conduct,
-            as indicated in the “Methods: Plan” section of your proposal. Be sure to
-            incorporate feedback from the teaching team and your peers (as
-            relevant), or make any improvements based on your own improved
-            understanding of the project (now that more time has passed since the
-            proposal).</p>
-
-        <p>Specifically, in addition to what is requested in the “Preliminary
-            Results” section of the proposal, we are looking for the following
-            components:</p>
-        <ul>
-            <li>Describe in written English the methods you used to perform your
-                analysis from beginning to end that narrates the code the does the
-                analysis.
-                <ul>
-                    <li>Make sure to interpret the results you obtain. It’s not enough
-                        to just state what a 90% confidence interval is, for example.</li>
-                </ul>
-            </li>
-
-            <li>Ensure your tables and/or figures are labeled with a figure/table
-                number.</li>
-
-            <li>Do you think one of bootstrapping or asymptotics is more appropriate
-                than the other? Why or why not? Explain why you think both methods
-                gave you similar/different results, and whether you think one is
-                more trustworthy than the other.</li>
-        </ul>
-
-        <h4>Discussion</h4>
-
-        <p>In this section, you’ll interpret the results you obtained in the
-            previous section with respect to the main question/goal of your project.</p>
-        <ul>
-            <li>
-                <p>Summarize what you found, and the implications/impact of your findings.</p>
-            </li>
-            <li>
-                <p>If relevant, discuss whether your results were what you expected to find.</p>
-            </li>
-            <li>
-                <p>Discuss future questions/research this study could lead to.</p>
-            </li>
-        </ul>
-
-        <h4>References</h4>
-
-        <p>The same instructions for your proposal also applies here. You only need
-            to make changes if necessary (e.g., if feedback indicates so).</p>
-
-
-        <h3>Deliverable 5: Team Evaluation</h3>
-
-        <p>Evaluate each member of your group (including yourself) in terms of how they/you participated,
-            prepared, helped the group excel, and was a team player.</p>
-
-        <p>Click the Teammate Evaluation Template link in the Canvas home page to access the teamwork document
-            (or try this URL: https://canvas.ubc.ca/courses/65765/files/14148078?module_item_id=3069319). Fill out the jupyter notebook, then download an
-            html rendering of the completed notebook by going to <code>File</code> &#8594; <code>Download As</code>
-            &#8594; <code>HTML</code>. Finally, submit the rendered HTML document here.</p>
-
-        <p>- This is <strong>not</strong> a group submission. Every member of the group must complete and submit this
-            individually.</p>
-        </li>
-        <p>- This is <strong>not</strong> a standard worksheet/tutorial. You <strong>must</strong> download off our
-            server and submit the html to Canvas.</p>
-
-
-        <h3>Data</h3>
-
-        <ul>
-            <li>City of Vancouver data: <a href="https://opendata.vancouver.ca/pages/home/"
-                    class="uri">https://opendata.vancouver.ca/pages/home/</a> (or other cities, like Ottawa, Toronto,
-                etc.)</li>
-            <li>Vancouver crime data: <a href="https://geodash.vpd.ca/opendata/"
-                    class="uri">https://geodash.vpd.ca/opendata/</a></li>
-            <li>BC data: <a href="https://data.gov.bc.ca/" class="uri">https://data.gov.bc.ca/</a></li>
-            <li>Water survey of Canada: <a
-                    href="https://www.canada.ca/en/environment-climate-change/services/water-overview/quantity/monitoring/survey.html"
-                    class="uri">https://www.canada.ca/en/environment-climate-change/services/water-overview/quantity/monitoring/survey.html</a>
-            </li>
-            <li>Climate and Weather Data: <a href="https://climate.weather.gc.ca/"
-                    class="uri">https://climate.weather.gc.ca/</a></li>
-            <li>Sports data</li>
-            <li>Maybe do your own experiment or observational study, if you have time – or maybe you already have the
-                data. For example, do you track your daily step count? If so, you could come up with some criteria to
-                determine whether you have been satisfying the goal, and use your daily step counts. You could see how
-                your performance holds up depending on the day of week (or maybe whether or not it’s a weekday), or
-                perhaps across different group members.</li>
-        </ul>
-
-        <h3>Attribution</h3>
-        <p>These instructions are a modified version of the DSCI 100 project at UBC</p>
-        <br><br>
     </main>
 </body>
 
