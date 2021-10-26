@@ -13,33 +13,3 @@ computer scripts suitable for modern data analysis (e.g. R). There will be an em
 workflows, clear communication of findings and a general understanding of key concepts decontextualized from
 specific applications.
 
-### Teaching Team
-
-<div style='display: flex; flex-flow: row; width: 80%; flex-wrap: wrap;'>
-    <div id="teaching-member"
-        style="flex: 200px; display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; ">
-        <img src="https://ca.slack-edge.com/T09PA87BJ-UKBQKC708-b371eae5cc24-512" width="100px"
-            style="border-radius: 50px;" />
-        <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px;">
-            <a href="mailto:lourenzutti@stat.ubc.ca">Rodolfo Lourenzutti</a>
-                Instructor
-    </div>
-</div>
-
-<div id="teaching-member"
-    style="flex: 200px;display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
-    <img src="imgs/ta-seren.jpg" width="100px" style="border-radius: 50px; object-fit: cover;" />
-    <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
-        <a>Seren Lee</a>
-            Teaching Assistant
-    </div>
-</div>
-
-<div id="teaching-member"
-    style="flex: 200px; display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
-    <img src="imgs/ta-xiaomeng.jpg" width="100px" style="border-radius: 50px;" />
-    <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
-        <a>TA's name</a>
-            Teaching Assistant
-    </div>
-</div>
