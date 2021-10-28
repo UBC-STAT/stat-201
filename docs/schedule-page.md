@@ -167,6 +167,7 @@
                 <ul>
                     <li>Coming soon!</li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 11</li>
