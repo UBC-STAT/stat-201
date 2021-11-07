@@ -1,6 +1,6 @@
 ## Schedule
 
-<table id="course-calendar">
+<table id="course-schedule">
     <caption>Table 1: Course Calendar</caption>
     <thead>
         <tr>
