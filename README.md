@@ -16,3 +16,5 @@ From Rodolfo:
 > We are using this same template in STAT 200, 201, 301, 450, and 538.
 
 > There are some top menus (and submenus) that is also possible to add/remove. Right now, there's a specific workflow for that (by editing simultaneously multiple html file in vscode) -- e.g., add a navigation menu for the assignments.
+
+> I can help you with that if you need. I plan on soon making a more automatic process.
