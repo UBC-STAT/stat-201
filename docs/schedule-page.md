@@ -14,108 +14,84 @@
     <tbody>
         <tr>
             <td>#1</td>
-            <td>July 04 ~ July 10</td>
+            <td>Jan 10 - Jan 15</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Introduction to Statistical Inference and Sampling</li>
-                    <li>Populations and Sampling</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/7-sampling.html">MD: Chapter 7</a></li>
-                    <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Worksheets 01 and 02</li>
-                    <li>Tutorials 01 and 02</li>
+                    <li>Worksheet 01</li>
+                    <li>Tutorial 01</li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>#2</td>
-            <td>July 11 ~ July 17</td>
+            <td>Jan 17 - Jan 21</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Bootstrapping and its Relationship to the Sampling Distribution</li>
-                    <li>Confidence Intervals via Bootstrapping</li>
+                    <li>Populations and Sampling</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8</a> (up to
-                        Section 8.7.1, inclusive)</li>
+                    <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Worksheets 03 and 04</li>
-                    <li>Tutorials 03 and 04</li>
+                    <li>Worksheet 02</li>
+                    <li>Tutorial 02</li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>#3</td>
-            <td>July 18 ~ July 24</td>
+            <td>Jan 24 - Jan 28</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #1 (July 20th)</li>
-                    <li>Hypothesis Testing via Simulation/Randomization</li>
-                    <li>Preparation for Projects</li>
+                    <li>Bootstrapping and its Relationship to the Sampling Distribution</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://moderndive.com/9-hypothesis-testing.html">MD: Sections 9 - 9.4.1
-                            Hypothesis Testing </a></li>
-                    <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
-                    <li>More to come</li>
+                    <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8 - 8.2 and Chapter 8.7.1</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Worksheet 06</li>
-                    <li>Tutorial 06</li>
-                    <li>Project:
-                        <ul>
-                            <li> Team Work Contract</li>
-                        </ul>
-                    </li>
+                    <li>Worksheet 03</li>
+                    <li>Tutorial 03</li>
                 </ul>
             </td>
         </tr>
         <tr>
             <td>#4</td>
-            <td>July 25 ~ July 31</td>
+            <td>Jan 31 - Feb 4</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Confidence Intervals Based on the Assumption of Normality or the Central Limit Theorem
-                    </li>
-                    <li>Classical Tests Based on Normal and t-Distribution</li>
+                    <li>Confidence Intervals via bootstrapping</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://moderndive.com/A-appendixA.html#appendix-normal-curve">MD: Appendix A
-                            Normal Distribution </a></li>
-                    <li><a
-                            href="https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem">MD:
-                            Section 7.5.2 Central Limit Theorem </a></li>
-                    <li><a href="https://moderndive.com/8-confidence-intervals.html#theory-ci">MD: Section 8.7.2
-                            Theory-based confidence intervals</a></li>
-                    <li>OIS: Section 5.2 Confidence intervals for a proportion</li>
-                    <li><a href="https://moderndive.com/9-hypothesis-testing.html#theory-hypo">MD: Section 9.6.1
-                            Theory-based hypothesis tests</a></li>
+                    <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8.3 - 8.7</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Worksheets 07 and 08</li>
-                    <li>Tutorials 07 and 08</li>
+                    <li>Worksheet 04</li>
+                    <li>Tutorial 04</li>
                     <li>Project:
                         <ul>
+                            <li>Team Work Contract</li>
                             <li>Proposal</li>
                         </ul>
                     </li>
@@ -124,13 +100,142 @@
         </tr>
         <tr>
             <td>#5</td>
-            <td>Aug 01 ~ Aug 07</td>
+            <td>Feb 7 - Feb 11</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-Term #2 (Aug 3rd)</li>
-                    <li>Errors in Inference</li>
-                    <li>P-value</li>
+                    <li>Mid-Term #1 (Feb 7th)</li>
                     <li>Project Work</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><i>Note: there's no Worksheet and Tutorial 05</i></li>
+                    <li>Project:
+                        <ul>
+                            <li>Peer Review</li>
+                        </ul>
+                    </li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#6</td>
+            <td>Feb 14 - Feb 18</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Hypothesis testing via simulation/randomization</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><a href="https://moderndive.com/9-hypothesis-testing.html">MD: Sections 9 - 9.4.1
+                            Hypothesis Testing </a></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Worksheet 06</li>
+                    <li>Tutorial 06</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>NA</td>
+            <td>Feb 21 - Feb 25</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Mid-term break (no classes)</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#7</td>
+            <td>Feb 28 - Mar 4</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><a href="https://moderndive.com/A-appendixA.html#appendix-normal-curve">MD: Appendix A
+                            Normal Distribution </a></li>
+                    <li><a href="https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem">MD:
+                            Section 7.5.2 Central Limit Theorem </a></li>
+                    <li><a href="https://moderndive.com/8-confidence-intervals.html#theory-ci">MD: Section 8.7.2
+                            Theory-based confidence intervals</a></li>
+                    <li>OIS: Section 5.2 Confidence intervals for a proportion</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Worksheet 07</li>
+                    <li>Tutorial 07</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#8</td>
+            <td>Mar 7 - Mar 11</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Classical Tests Based on Normal and t-Distributions</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><a href="https://moderndive.com/9-hypothesis-testing.html#theory-hypo">MD: Section 9.6.1
+                            Theory-based hypothesis tests</a></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Worksheet 08</li>
+                    <li>Tutorial 08</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#9</td>
+            <td>Mar 14 - Mar 18</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Mid-term #2 (Mar 14)</li>
+                    <li>Methods based on exact and asymptotic distributional theory</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#10</td>
+            <td>Mar 21 - Mar 25</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Errors in Inference</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -146,32 +251,44 @@
                     <li>Worksheet 10</li>
                     <li>Tutorial 10</li>
                     <li>P-value activity</li>
-                    <li>Project:
-                        <ul>
-                            <li>Peer Review</li>
-                        </ul>
-                    </li>
                 </ul>
             </td>
         </tr>
         <tr>
-            <td>#6</td>
-            <td>Aug 08 ~ Aug 14</td>
+            <td>#11</td>
+            <td>Mar 28 - Apr 1</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Beyond Two-Group Comparisons</li>
-                    <li>Course review for the Final</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Coming soon!</li>
+                    <li>NA</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#12</td>
+            <td>Apr 4 - Apr 8</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Project Week</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
                     <li>Project:
                         <ul>
                             <li>Final Report</li>
@@ -190,9 +307,9 @@ All due dates will be on the last day of the week (Saturday at 23:59:59).
 
 #### Test Dates
 
-- Midterm 1: Tuesday, July 20 at 2:30pm
-- Midterm 2: Tuesday, August 3 at 2:30pm
-- Final Exam: Tue Aug 17 2021, 15:30 pm.
+- Midterm 1: Monday, Feb 7, 2022
+- Midterm 2: Tuesday, Mar 14, 2022
+- Final Exam: TBD
 
 ### Learning Outcomes per Week
 

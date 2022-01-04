@@ -13,9 +13,9 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- The lectures will be on Tuesdays and Thursdays from 14:30 to 17:30.
-- Office hours will be held on Fridays 10:00 - 11:00, via Zoom, same link as the lecture.
-
+- The lectures will be on Mondays and Wednesdays from 16:00 to 17:30.
+- Office hours will be held on TBD, via Zoom, same link as the lecture.
+- Zoom link available on canvas (for privacy).
 ### Software Platforms
 
 - Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/).
@@ -138,12 +138,6 @@ assignments files.
         </tbody>
     </table>
 </div>
-
-#### Test Dates
-
-- Midterm 1: Tuesday, July 20 at 2:30pm
-- Midterm 2: Tuesday, August 3 at 2:30pm
-- Final Exam: TBD (somewhere between August 16 and 20).
 
 #### Exams
 All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. For all the exams, the platform used will be Canvas. The types of questions can vary: reasoning, multiple-choice, multiple-answer,

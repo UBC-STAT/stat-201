@@ -19,10 +19,10 @@ specific applications.
     <div style='display: flex; flex-flow: row; width: 80%; flex-wrap: wrap;'>
         <div id="teaching-member"
             style="flex: 200px; display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; ">
-            <img src="https://ca.slack-edge.com/T09PA87BJ-UKBQKC708-b371eae5cc24-512" width="100px"
+            <img src="https://s.gravatar.com/avatar/21bcea359039a1808c9711d694fe9cc7?s=200%27)" width="100px"
                 style="border-radius: 50px;" />
             <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px;">
-                <a href="mailto:lourenzutti@stat.ubc.ca">Rodolfo Lourenzutti</a>
+                <a href="https://vincenzocoia.com/">Vincenzo Coia</a>
                 <p>
                     Instructor
                 </p>
@@ -30,9 +30,19 @@ specific applications.
     </div>
     <div id="teaching-member"
         style="flex: 200px;display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
-        <img src="imgs/ta-seren.jpg" width="100px" style="border-radius: 50px; object-fit: cover;" />
+        <img src="imgs/" width="100px" style="border-radius: 50px; object-fit: cover;" />
         <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
-            <a>Seren Lee</a>
+            <a>Yifan Yin</a>
+            <p>
+                Teaching Assistant
+            </p>
+        </div>
+    </div>
+    <div id="teaching-member"
+        style="flex: 200px;display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
+        <img src="imgs/" width="100px" style="border-radius: 50px; object-fit: cover;" />
+        <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
+            <a>Anthony Obrzut</a>
             <p>
                 Teaching Assistant
             </p>
