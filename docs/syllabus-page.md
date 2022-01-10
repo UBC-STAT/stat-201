@@ -179,11 +179,6 @@ for the first piece of work submitted late is 50%. Any additional
 pieces of work that are submitted late will receive a grade of 0
 for subsequent occurrences.
 
-####  Free-pass 
-
-Due to the extreme challenging circumstances we are facing,
-we are going to drop the lowest grade worksheet and tutorial (one of each).
-
 ####  Autograder Policy 
 
 Many of the questions in assignments are graded automatically by software.

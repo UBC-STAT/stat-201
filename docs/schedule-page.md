@@ -9,6 +9,7 @@
             <th style="width: 400px;">Topics</th>
             <th style="width: 400px;">Required Reading</th>
             <th style="width: 200px;">Assignments Due</th>
+            <th style="width: 200px;">Mode</th>
         </tr>
     </thead>
     <tbody>
@@ -31,6 +32,11 @@
                     <li>Tutorial 01</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>All remote</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#2</td>
@@ -51,6 +57,11 @@
                     <li>Tutorial 02</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>All remote</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#3</td>
@@ -69,6 +80,12 @@
                 <ul>
                     <li>Worksheet 03</li>
                     <li>Tutorial 03</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
@@ -97,6 +114,12 @@
                     </li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#5</td>
@@ -122,6 +145,12 @@
                     </li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#6</td>
@@ -143,6 +172,12 @@
                     <li>Tutorial 06</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>NA</td>
@@ -150,6 +185,11 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Mid-term break (no classes)</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -188,6 +228,12 @@
                     <li>Tutorial 07</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#8</td>
@@ -209,6 +255,12 @@
                     <li>Tutorial 08</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#9</td>
@@ -227,6 +279,12 @@
             <td style="text-align: left;">
                 <ul>
                     <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
@@ -253,6 +311,12 @@
                     <li>P-value activity</li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
         <tr>
             <td>#11</td>
@@ -271,6 +335,12 @@
                 <ul>
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
@@ -297,6 +367,12 @@
                     </li>
                 </ul>
             </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Office hour remote</li>
+                    <li>Monday & Wednesday in-person</li>
+                </ul>
+            </td>
         </tr>
     </tbody>
 </table>
@@ -308,7 +384,7 @@ All due dates will be on the last day of the week (Saturday at 23:59:59).
 #### Test Dates
 
 - Midterm 1: Monday, Feb 7, 2022
-- Midterm 2: Tuesday, Mar 14, 2022
+- Midterm 2: Monday, Mar 14, 2022
 - Final Exam: TBD
 
 ### Learning Outcomes per Week

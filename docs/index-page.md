@@ -30,7 +30,7 @@ specific applications.
     </div>
     <div id="teaching-member"
         style="flex: 200px;display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
-        <img src="imgs/" width="100px" style="border-radius: 50px; object-fit: cover;" />
+        <img src="imgs/yifan.jpg" width="100px" style="border-radius: 50px; object-fit: cover;" />
         <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
             <a>Yifan Yin</a>
             <p>
@@ -40,7 +40,7 @@ specific applications.
     </div>
     <div id="teaching-member"
         style="flex: 200px;display: flex; margin-top: 1em; margin-bottom: 2em; height: 100px; width: 300px;">
-        <img src="imgs/" width="100px" style="border-radius: 50px; object-fit: cover;" />
+        <img src="imgs/anthony.jpg" width="100px" style="border-radius: 50px; object-fit: cover;" />
         <div style="margin-top: auto; margin-bottom: auto; margin-left:1em; font-size: 20px; width: 300px;">
             <a>Anthony Obrzut</a>
             <p>
