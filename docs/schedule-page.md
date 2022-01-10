@@ -18,7 +18,7 @@
             <td>Jan 10 - Jan 15</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Introduction to Statistical Inference and Sampling</li>
+                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Introduction to Statistical Inference and Sampling</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
