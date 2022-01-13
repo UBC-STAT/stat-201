@@ -379,7 +379,21 @@
 
 MD: [Modern Dive](https://moderndive.com/) <br>
 OIS: [Openintro Statistics](https://www.openintro.org/book/os/) <br>
-All due dates will be on the last day of the week (Saturday at 23:59:59).
+All due dates will be on the last day of the week (Saturday at 23:59).
+
+<ul>
+    <li>Worksheet/Tutorial 01: Sat. Jan 15 at 23:59 (no extension) </li>
+    <li>Worksheet/Tutorial 02: Sat. Jan 22 at 23:59</li>
+    <li>Worksheet/Tutorial 03: Sat. Jan 29 at 23:59</li>
+    <li>Worksheet/Tutorial 04: Sat. Feb 5 at 23:59</li>
+    <li>Worksheet/Tutorial 06: Sat. Feb 19 at 23:59</li>
+    <li>Worksheet/Tutorial 07: Sat. Mar 4 at 23:59</li>
+    <li>Worksheet/Tutorial 08: Sat. Mar 12 at 23:59</li>
+    <li>Worksheet/Tutorial 10: Sat. Mar 26 at 23:59</li>
+    <li>Worksheet/Tutorial 11: Sat. Apr 2 at 23:59</li>
+</ul>
+
+The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate the technical difficulties experienced in Week 1).
 
 #### Test Dates
 
