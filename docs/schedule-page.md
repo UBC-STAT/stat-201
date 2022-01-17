@@ -43,7 +43,7 @@
             <td>Jan 17 - Jan 21</td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://ubc-stat.github.io/stat-201/lecs_html/stat201-week2.html">Populations and Sampling</a> <a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week2.Rmd">(.Rmd code for slides)</a></li>
+                    <li><a href="https://ubc-stat.github.io/stat-201/lecs_html/stat201-week02.html#1">Populations and Sampling</a> <a href="https://raw.githubusercontent.com/UBC-STAT/stat-201/website/lec/stat201-week02.Rmd">(.Rmd code for slides)</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
