@@ -395,6 +395,36 @@ All due dates will be on the last day of the week (Saturday at 23:59).
 
 The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate the technical difficulties experienced in Week 1).
 
+Who will be in attendance for Wednesday labs:
+
+<ul>
+    <li>Lab for Tutorial 01: Wed. Jan 12: Yifan and Anthony</li>
+    <li>Lab for Tutorial 02: Wed. Jan 19: Anthony and Qiong</li>
+    <li>Lab for Tutorial 03: Wed. Jan 26: Qiong and Yifan</li>
+    <li>Lab for Tutorial 04: Wed. Feb 2 : Yifan and Anthony</li>
+    <li>Lab for Tutorial 06: Wed. Feb 16: Anthony and Qiong</li>
+    <li>Lab for Tutorial 07: Wed. Mar 1 : Qiong and Yifan</li>
+    <li>Lab for Tutorial 08: Wed. Mar 9 : Yifan and Anthony</li>
+    <li>Lab for Tutorial 10: Wed. Mar 23: Anthony and Qiong</li>
+    <li>Lab for Tutorial 11: Wed. Mar 30: Qiong and Yifan</li>
+</ul>
+
+Who will be in attendance for Office Hour (new time TBD):
+
+<ul>
+    <li>Office Hour Fri. Jan 14: Yifan and Anthony</li>
+    <li>Office Hour Fri. Jan 21: Anthony and Qiong</li>
+    <li>Office Hour Fri. Jan 28: Qiong and Yifan</li>
+    <li>Office Hour Fri. Feb 4 : Yifan and Anthony</li>
+    <li>Office Hour Fri. Feb 11 (project-focussed):</li>
+    <li>Office Hour Fri. Feb 18: Anthony and Qiong</li>
+    <li>Office Hour Fri. Mar 4 : Qiong and Yifan</li>
+    <li>Office Hour Fri. Mar 11: Yifan and Anthony</li>
+    <li>Office Hour Fri. Mar 18 (project-focussed):</li>
+    <li>Office Hour Fri. Mar 25: Anthony and Qiong</li>
+    <li>Office Hour Fri. Apr 1 : Qiong and Yifan</li>
+</ul>
+
 #### Test Dates
 
 - Midterm 1: Monday, Feb 7, 2022
