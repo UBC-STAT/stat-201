@@ -68,7 +68,7 @@
             <td>Jan 24 - Jan 28</td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week3.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
+                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week03.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
