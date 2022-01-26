@@ -117,7 +117,7 @@ are not enough to give to a stakeholder, and what you should provide in
 addition to address this gap. Make sure your plans include at least one
 hypothesis test and one confidence interval, with at least one of these
 being calculated using both bootstrapping and asymptotics for
-comparison.
+comparison (only relevant for situations where we covered the asymptotic distribution in this class).
 
 Finish this section by reflecting on how your final report might play out:
 
