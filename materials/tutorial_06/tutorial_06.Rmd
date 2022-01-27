@@ -1,0 +1,1264 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-57c92078710d7670", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+# Tutorial 6: Hypothesis Testing
+
+### Lecture and Tutorial Learning Goals
+From this section, students are expected to be able to:
+
+1.	Give an example of a question you could answer with a hypothesis test.
+2.	Identify potential limitations in the data, arising from the methods of data collection, to answer the question
+3.	Specify a null and alternative hypothesis.
+4.	Given an inferential question, formulate hypotheses to be used in a hypothesis test.
+5.	Identify the correct steps and components of a basic hypothesis test.
+6.	Write computer scripts to perform hypothesis testing via simulation, randomization and bootstrapping approaches, as well as interpret the output.
+7.	Identify the advantages of simulation/randomization tests when estimating parameters different from proportions and means.
+8.	Describe the relationship between confidence intervals and hypothesis testing.
+9.	Discuss the potential limitations of these methods.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-fc07df746fa2acae', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+library(cowplot)
+library(datateachr)
+library(digest)
+library(infer)
+library(repr)
+library(taxyvr)
+library(tidyverse)
+library(dplyr)
+library(datateachr)
+penguins <- read.csv("https://raw.githubusercontent.com/allisonhorst/palmerpenguins/master/inst/extdata/penguins.csv")
+source("tests_tutorial_06.R")
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-5452f0b8e3cc9640", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 1. Annual Maximum Flow Rate of Bow River
+
+&emsp; When the snow melts in spring and summer, tons of water are released into the rivers, and floodings occur. One preventative measure is to keep track of the maximum flow of a river each year. For this question, we aim to prevent flooding by first studying the annual maximum daily discharge (in $m^3/s$) at a hydrometric station called <i> Bow River at Banff </i>, which is near Banff, Alberta. The data are saved to the data table <i>flow_sample</i>. Let's preview this dataset.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-00f0bba26d76ed06', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+?flow_sample
+```
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-5c3c13289a0b767a', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+head(flow_sample)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-1d4382bf89c3623d"} -->
+A village downstream wants to build a dam to mitigate the effects of annual flooding. To design this dam, we’re interested in studying the distribution of the maximum flow of Bow River at this station. A retired employee, who was monitoring many hydrometric stations in the area, claims that the annual maximum flow is typically around $210 m^3/s$. However, residents in the area claim  that the annual maximum flow is typically higher than $210 m^3/s$.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-eb547880fb23e1e7", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.1: Selecting Parameter</b><br>
+{points: 2}
+
+Which of the parameters below would be most suitable to investigate and ultimately test the residents’ claim? (Select all that apply)
+
+A. The mean of the annual maximum flow distribution at Bow River
+
+B. The median of the annual maximum flow distribution at Bow River
+
+C. The variance of the annual maximum flow distribution at Bow River
+
+D. The proportion of annual maximum flow values at Bow River exceeding the residents’ claim
+
+_Assign your answer to an object called `answer1.1`. Your answer should be a sequence of characters surrounded by quotes (e.g., "ABCD")._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-59d0d769a179b776', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.1 <- ""
+
+### BEGIN SOLUTION
+answer1.1 <- "AB"
+### END SOLUTION
+
+answer1.1
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-5b21334104d55645'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer1.1"', {
+    expect_true(exists("answer1.1"))
+  })
+
+### BEGIN HIDDEN TESTS
+  answer_hash <- digest(tolower(paste(sort(unlist(strsplit(answer1.1, ""))), collapse = "")))
+
+  test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "8b63e49106226d2a45958a7e24c97c37")
+  })
+
+  print("Success!")
+### END HIDDEN TESTS
+
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-f8c1adc7133c799b"} -->
+&emsp; For now, let us focus on the mean of the annual maximum flow. We want to test hypotheses about the mean <b>at the 5% significance level</b>. Here we assume that the annual maximum flow data originate from a distribution that does not change over the years (due to climate change, tectonic activities, etc).
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d04e69597c43ec20", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.2: Null Hypothesis</b><br>
+{points: 2}
+
+Which of the following would be an appropriate null hypothesis for us to set, given the residents’ and retired employee’s claims?
+
+A. $H_0$: The mean of the annual maximum flow at Bow River is equal to $210 m^3/s$.
+
+B. $H_0$: The mean of the annual maximum flow at Bow River is greater than $210 m^3/s$.
+
+C. $H_0$: The mean of the annual maximum flow at Bow River is greater than or equal to $210 m^3/s$.
+
+D. $H_0$: The mean of the annual maximum flow at Bow River is NOT equal to $210 m^3/s$.
+
+Your answer should be a string containing one letter.
+
+_Assign your answer to an object called `answer1.2`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-bbdcf0abb3076bb4', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.2 <-""
+
+### BEGIN SOLUTION
+answer1.2 <- "A"
+### END SOLUTION
+
+answer1.2
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-09943b30d60804fe'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer1.2"', {
+expect_true(exists("answer1.2"))
+})
+
+### BEGIN HIDDEN TESTS
+answer_hash <- digest(tolower(paste(sort(unlist(strsplit(answer1.2, ""))), collapse = "")))
+
+test_that("Solution is incorrect", {
+expect_equal(answer_hash, "127a2ec00989b9f7faf671ed470be7f8")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-0adb8800e06c8afc", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.3: Alternative Hypothesis </b><br>
+{points: 2}
+
+Which of the following would be an appropriate alternative hypothesis for us to set, given the residents’ and retired employee’s claims?
+
+A. $H_1$: The mean of the annual maximum flow at Bow River is less than $210 m^3/s$.
+
+B. $H_1$: The mean of the annual maximum flow at Bow River is greater than $210 m^3/s$.
+
+C. $H_1$: The mean of the annual maximum flow at Bow River is greater than or equal to $210 m^3/s$.
+
+D. $H_1$: The mean of the annual maximum flow at Bow River is <b>NOT</b> equal to $210 m^3/s$.
+
+Your answer should be a string containing one letter.
+
+_Assign your answer to an object called `answer1.3`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-276a5cceb1bb36f8', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.3 <-""
+
+### BEGIN SOLUTION
+answer1.3 <- "B"
+### END SOLUTION
+answer1.3
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-54163d50760ddff3'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+
+test_that('Did not assign answer to an object called "answer1.3"', {
+    expect_true(exists("answer1.3"))
+})
+
+### BEGIN HIDDEN TESTS
+answer_hash <- digest(tolower(paste(sort(unlist(strsplit(answer1.3, ""))), collapse = "")))
+
+test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "ddf100612805359cd81fdc5ce3b9fbba")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-e29939b4e2828732", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+&emsp; Now we select the maximum flow, keep only the year and the flow columns. We also find the sample size.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-97d809446f479cf4', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this code before continuing
+max_flow_sample <- 
+    flow_sample %>%
+    filter(extreme_type == 'maximum') %>%
+    select(year, flow) %>% 
+    rename(maximum_flow = flow)
+
+head(max_flow_sample)
+
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-67097464296d3c5f", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 1.4</b> <br>
+{points: 3}
+
+Calculate the observed test statistic from `max_flow_sample` with the `infer` package, specify the response, and use the `calculate` function. Leave your answer as a 1x1 tibble with a column named `stat`.
+
+_Assign your data frame to an object called `observed_mean`. Your data frame should have only one column, `stat`, and one row._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-d9f83fc59d078643', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#observed_mean <-
+
+### BEGIN SOLUTION
+observed_mean <- 
+    max_flow_sample %>% 
+    specify(response = maximum_flow)  %>%
+    calculate(stat = "mean")
+### END SOLUTION
+
+observed_mean 
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-c0e444ce1fc5f664'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "observed_mean"', {
+    expect_true(exists("observed_mean"))
+})
+
+test_that("Solution should be a data frame", {
+    expect_true("data.frame" %in% class(observed_mean))
+})
+
+
+### BEGIN HIDDEN TESTS
+
+  expected_colnames <- c("stat")
+  given_colnames <- colnames(observed_mean)
+  test_that("Data frame does not have the correct columns", {
+    expect_equal(length(setdiff(
+      union(expected_colnames, given_colnames),
+      intersect(expected_colnames, given_colnames)
+    )), 0)
+  })
+
+  test_that("Data frame does not contain the correct number of rows", {
+    expect_equal(digest(as.integer(nrow(observed_mean))), "4b5630ee914e848e8d07221556b0a2fb")
+  })
+
+  test_that("Data frame does not contain the correct data", {
+    expect_equal(digest(as.integer(sum(observed_mean$stat) * 10e6)), "65ecbe3364eb4b7f14b220842a60d074")
+  })
+
+  print("Success!")
+
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-4d47bff6731fa8a8", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.5: Simulating from the null distribution</b> <br>
+{points: 3}
+
+Using the `infer` workflow, generate 1000 samples from the null distribution. Remember the steps:
+
+1. `specify` the response;
+2. `hypothesize`;
+3. `generate` 1000 samples; 
+4. and `calculate` the mean of each sample. 
+
+_Assign your data frame to an object called `null_max_flow`. Your data frame should have two columns: `replicate` and  `stat`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-3c6d6c2eb789d852', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(1432) # Do not change this
+
+#null_max_flow <-
+
+### BEGIN SOLUTION
+null_max_flow <-
+    max_flow_sample %>%
+    specify(response = maximum_flow)  %>%
+    hypothesize(null = "point", mu=210) %>%
+    generate(reps = 1000, type = "bootstrap") %>%
+    calculate(stat = "mean")
+### END SOLUTION
+
+head(null_max_flow)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-81b290784b27c6d1'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+
+test_that('Did not assign answer to an object called "null_max_flow"', {
+    expect_true(exists("null_max_flow"))
+  })
+
+  test_that("Solution should be a data frame", {
+    expect_true("data.frame" %in% class(null_max_flow))
+  })
+
+### BEGIN HIDDEN TESTS
+
+expected_colnames <- c("stat")
+  given_colnames <- colnames(observed_mean)
+  test_that("Data frame does not have the correct columns", {
+    expect_equal(length(setdiff(
+      union(expected_colnames, given_colnames),
+      intersect(expected_colnames, given_colnames)
+    )), 0)
+  })
+
+  test_that("Data frame does not contain the correct number of rows", {
+    expect_equal(digest(as.integer(nrow(observed_mean))), "4b5630ee914e848e8d07221556b0a2fb")
+  })
+
+  test_that("Data frame does not contain the correct data", {
+    expect_equal(digest(as.integer(sum(observed_mean$stat) * 10e6)), "65ecbe3364eb4b7f14b220842a60d074")
+  })
+
+  print("Success!")
+
+### END HIDDEN TESTS
+
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-145ec8e33ab901cc", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.6</b><br>
+{points: 3}
+
+Plot the result of the hypothesis test using `visualize` with 10 bins, put a vertical bar for the observed test statistic, and shade the tail(s). Label the x-axis as `Mean`.
+
+```r
+max_flow_result_plot <- 
+    null_max_flow %>% 
+    visualize(bins = ...) + 
+    shade_p_value(obs_stat = ..., direction = ...) +
+    xlab(...)
+```
+
+<i>Assign your answer to an object called </i>`max_flow_result_plot`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-2999b00535bb274a', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#max_flow_result_plot <-
+
+### BEGIN SOLUTION
+
+max_flow_result_plot <- 
+    visualize(null_max_flow, bins = 10) + 
+    shade_p_value(obs_stat = observed_mean, direction = "right") +
+    theme(text = element_text(size = 22)) +
+    xlab("Mean")
+
+### END SOLUTION
+
+max_flow_result_plot
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-0f59fcb4d9912b65'}}
+test_1.6()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d24a21794f869182", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.7</b><br>
+{points: 3}
+
+Use the `get_p_value` function from `infer` package to get the p-value from `null_max_flow`. 
+
+```r
+answer1.7 <- 
+    ... %>% 
+    get_p_value(obs_stat = ..., direction = ...)
+```
+<i>Assign your answer to an object called </i>`answer1.7`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-cdd5fa2b8770bc9f', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.7 <-
+
+### BEGIN SOLUTION
+answer1.7 <- null_max_flow %>% 
+          get_p_value(obs_stat = observed_mean, direction = "right")
+### END SOLUTION
+answer1.7
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-ec34f3b254715300'}}
+test_1.7()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-726b2577fe97afcd", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.8: Conclusion of the test </b><br>
+{points: 3}
+
+What can we conclude based on the result of the hypothesis test?
+
+A. Given a p-value of 0.369 we do not reject the null hypothesis.
+
+B. Given a p-value of 0.369 we reject the null hypothesis.
+
+C. Given a p-value of 0.369 we do not reject the null hypothesis at the 5% significance level.
+
+D. Given a p-value of 0.369 we reject the null hypothesis at the 5% significance level.
+
+_Assign your answer to an object called `answer1.8`. Your response should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-cd83d388742b5c1e', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.8 <-
+
+### BEGIN SOLUTION
+answer1.8 <- "C"
+### END SOLUTION
+
+answer1.8
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-c01da46960066eff'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer1.8"', {
+    expect_true(exists("answer1.8"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+    expect_match(answer1.8, "a|b|c|d", ignore.case = TRUE)
+})
+
+### BEGIN HIDDEN TESTS
+
+answer_hash <- digest(tolower(answer1.8))
+  test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "6e7a8c1c098e8817e3df3fd1b21149d1")
+  })
+
+  print("Success!")
+
+### END HIDDEN TESTS
+
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-015747aad9f99ed7", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 1.9: Conclusion at a different significance level</b>
+
+{Points: 3}
+
+If we conducted the test at the 10% significance level instead, would our conclusion have been different?
+
+A. Yes, it would have, the null hypothesis would be rejected.
+
+B. Yes, it would have, the null hypothesis would be accepted.
+
+C. Yes, it would have, the null hypothesis would NOT be rejected.
+
+D. No, it wouldn’t.
+
+Your answer should be a string containing one letter.
+
+_Assign your answer to an object called `answer1.9`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-ff07ff67d5a1ed83', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer1.9 <-
+
+### BEGIN SOLUTION
+answer1.9 <- "D"
+### END SOLUTION
+answer1.9
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-9f2fd9fe55309574'}}
+test_1.9()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-ffa16ff57f4b5a8d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 1.10</b> <br>
+{points: 3}
+
+Now we would like to find the 90% confidence interval for the mean. First, let's find the bootstrap distribution for the mean by generating 1000 samples. Use the `infer` package and `max_flow_sample` to specify the response, generate 1000 samples, and calculate the mean. 
+
+
+_Assign your data frame to an object called `mean_max_bootstrap_dist`. Your data frame should have two columns: `replicate` and  `stat`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-64f8e7f7f47c3a85', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(6882) # Do not change this
+
+#mean_max_bootstrap_dist <-
+
+### BEGIN SOLUTION
+mean_max_bootstrap_dist <-
+    max_flow_sample %>%
+    specify(response = maximum_flow)  %>%
+    generate(reps = 1000, type = "bootstrap") %>%
+    calculate(stat = "mean")
+### END SOLUTION
+
+head(mean_max_bootstrap_dist)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-5f0b57fbbf90a7d5'}}
+test_1.10()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d56135d0ece3219e", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 1.11 </b> <br>
+{points: 2}
+
+Using the boostrap distribution `mean_max_bootstrap_dist`, find the 90% confidence interval given by the 0.1-quantile and 1-quantile (max). 
+
+```r
+mean_max_flow_ci <- 
+    ... %>% 
+    summarise(lower_ci = ..., upper_ci = ...)
+```
+
+_Assign your data frame to an object called `mean_max_flow_ci`. Your data frame should have two columns: `lower_ci` and  `upper_ci`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-a7989458209c905e', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# mean_max_flow_ci <-
+
+### BEGIN SOLUTION
+mean_max_flow_ci <- 
+    mean_max_bootstrap_dist %>% 
+    summarise(lower_ci = quantile(stat, 0.1), upper_ci = quantile(stat, 1))
+### END SOLUTION
+
+mean_max_flow_ci
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-c238fc99168e92b5'}}
+test_1.11()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d5cf433a7e810709", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 1.12 </b> <br>
+{points: 2}
+
+Using the `infer` package, visualize the confidence interval `mean_max_flow_ci` with the bootstrap distribution `mean_max_bootstrap_dist`.
+
+<i>Assign your plot to an object called </i>`mean_flow_ci_plot`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-5d7f7b1bc05b579e', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# mean_flow_ci_plot <- 
+
+### BEGIN SOLUTION
+mean_flow_ci_plot <- 
+    visualize(mean_max_bootstrap_dist) + 
+    shade_confidence_interval(endpoints = mean_max_flow_ci) +
+    xlab('Mean') + 
+    theme(text = element_text(size = 20))
+### END SOLUTION
+
+mean_flow_ci_plot
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-4e8a5c776697d937'}}
+test_1.12()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-43d4cea695e5b6f7", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 2.  Flipper Lengths of Penguins
+
+The dataset `penguins` contains size measurements for adult foraging penguins near Palmer Station, Antarctica. First, let's take a look at the first few rows of this dataset.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-9434eda90796aebe', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+head(penguins)
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-827c6561abf44dc5", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+&emsp; We want to study how Adelie and Chinstrap penguins are different. First, we study their flipper lengths (in mm).
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-245a0ab4a2611869"} -->
+<b> Question 2.1: Pre-processing</b> <br>
+{points: 2}
+
+Filter the `penguins` dataset to remove all rows with `NA` in `flipper_length_mm`, keep only the `Adelie` and `Chinstrap` species, and select the two columns `species` and `flipper_length_mm`.
+
+_Assign your data frame to an object called `adelie_chinstrap_flipper`. Your data frame should have only two columns, `species` and `flipper_length_mm`._ 
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-4befd1c3dc62017f', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#adelie_chinstrap_flipper <-
+
+### BEGIN SOLUTION
+adelie_chinstrap_flipper <- 
+    penguins %>% 
+    filter(!is.na(flipper_length_mm), species %in% c("Adelie", "Chinstrap")) %>% 
+    select(species, flipper_length_mm)
+### END SOLUTION
+
+head(adelie_chinstrap_flipper)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-8e8fea9ac0fa10b3'}}
+test_2.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-13b20a70bc1ac634", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 2.2: Null hypothesis</b> <br>
+{points: 2}
+
+&emsp; An ecologist suspects that flipper lengths affect their ability to swim. But are the flipper lengths different between the species? Looking at photos of the two penguin species, some claim that their flippers are generally the same length. However, an ecologist hypothesizes that they may not be the same length. To study the distributions of the flipper lengths of the two species, let's conduct a hypothesis test to examine their <b> difference in medians</b>.
+
+Which of the following would be an appropriate null hypothesis for us to set, given the above situation?
+
+A. $H_0$: The median flipper length of the Adelie penguins is the same as the median flipper length of the Chinstrap penguins.
+
+B. $H_0$: The mean flipper length of the Adelie penguins is the same as the mean flipper length of the Chinstrap penguins.
+
+C. $H_0$: The median flipper length of the Adelie penguins is different from the median flipper length of the Chinstrap penguins.
+
+D. $H_0$: The median flipper length of the Adelie penguins is greater than the median flipper length of the Chinstrap penguins.
+
+Your answer should be a string containing one letter.
+
+_Assign your answer to an object called `answer2.2`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-d2bf2e8a134f2895', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer2.2 <-
+
+### BEGIN SOLUTION
+answer2.2 <- "A"
+### END SOLUTION
+
+answer2.2
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-101813e2ab74aecd'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer2.2"', {
+    expect_true(exists("answer2.2"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+    expect_match(answer2.2, "a|b|c|d", ignore.case = TRUE)
+})
+
+### BEGIN HIDDEN TESTS
+
+answer_hash <- digest(tolower(answer2.2))
+
+test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "127a2ec00989b9f7faf671ed470be7f8")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-bb806d6682525df9", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 2.3: Alternative Hypothesis</b><br>
+{points: 2}
+
+Which of the following would be an appropriate alternative hypothesis for us to set, given the above situation?
+
+A. $H_1$: The median flipper length of the Adelie penguins is the same as the median flipper length of the Chinstrap penguins.
+
+B. $H_1$: The mean flipper length of the Adelie penguins is different from the mean flipper length of the Chinstrap penguins.
+
+C. $H_1$: The median flipper length of the Adelie penguins is different from the median flipper length of the Chinstrap penguins.
+
+D. $H_1$: The median flipper length of the Adelie penguins is less than the median flipper length of the Chinstrap penguins.
+
+Your answer should be a string containing one letter.
+
+_Assign your answer to an object called `answer2.3`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-d05d1675c44c9eb6', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer2.3 <-
+
+### BEGIN SOLUTION
+answer2.3 <- "C"
+### END SOLUTION
+
+answer2.3
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-550bdafdc0a5c4c6'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer2.3"', {
+    expect_true(exists("answer2.3"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+    expect_match(answer2.3, "a|b|c|d", ignore.case = TRUE)
+})
+
+### BEGIN HIDDEN TESTS
+
+answer_hash <- digest(tolower(answer2.3))
+
+test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "6e7a8c1c098e8817e3df3fd1b21149d1")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-f4da9409ad2b8f49", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.4 </b> <br>
+{points: 2}
+
+Count the numbers of Adelie penguins and Chinstrap penguins examined in `adelie_chinstrap_flipper`.
+
+```r
+penguin_count <-
+    ... %>% 
+    count(...)
+```
+
+_Assign your data frame to an object called `penguin_count`. Your data frame should have only two columns: `species` and `n`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-743723213f0f9cb1', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# penguin_count <-
+
+### BEGIN SOLUTION
+penguin_count <-
+    adelie_chinstrap_flipper %>% 
+    count(species)
+### END SOLUTION
+
+penguin_count
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-541be377c0b58516'}}
+test_2.4()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d74ad5c7b9e32c98", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.5</b><br>
+{points: 3}
+
+Calculate the observed test statistic with the `infer` package. Use `adelie_chinstrap_flipper` to specify the response and explanatory variables, and calculate Adelie's median minus Chinstrap's median. 
+
+_Assign your data frame to an object called `observed_diff_in_medians`. Your data frame should have only one column, `stat`, and one row._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-8944e82a58ce1446', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#obs_diff_in_medians <- 
+
+### BEGIN SOLUTION
+obs_diff_in_medians <- 
+    adelie_chinstrap_flipper  %>% 
+    specify(formula = flipper_length_mm ~ species) %>%
+    calculate(stat = "diff in medians", order = c("Adelie", "Chinstrap"))
+### END SOLUTION
+
+obs_diff_in_medians
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-9e72fe57d4e4d98c'}}
+test_2.5()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-b818e868e059e825", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 2.6: Simulating from the null distribution</b> <br>
+{points: 3}
+
+Using the `infer` package, generate 1000 samples from the null distribution. Use `adelie_chinstrap_flipper` to specify the response and explanatory variables, hypothesize, generate 1000 samples and calculate Adelie's median minus Chinstrap's median.
+
+_Assign your data frame to an object called `null_diff_in_medians`. Your data frame should have only two columns: `replicate` and `stat`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-9a967990242fda67', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(5437) # Do not change this
+
+#null_diff_in_medians <-
+
+### BEGIN SOLUTION
+null_diff_in_medians <- 
+    adelie_chinstrap_flipper %>% 
+    specify(formula = flipper_length_mm ~ species) %>%
+    hypothesize(null = "independence") %>% 
+    generate(reps = 1000, type = "permute")  %>%
+    calculate(stat = "diff in medians", order = c("Adelie", "Chinstrap"))
+### END SOLUTION
+
+head(null_diff_in_medians)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-0c90dd8cb33e5c6b'}}
+test_2.6()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a8e5bf9578f7b714", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 2.7</b> <br>
+{points: 3}
+
+Plot the result of the hypothesis test with `visualize` with 10 bins, put a vertical bar for the observed test statistic `obs_diff_in_medians`, and shade the tail(s).
+
+_Assign your plot to an object called `diff_in_medians_plot`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-88088363709a3021', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#diff_in_medians_plot <-
+
+### BEGIN SOLUTION
+diff_in_medians_plot <-
+    visualize(null_diff_in_medians, bins = 10) + 
+    shade_p_value(obs_stat = obs_diff_in_medians, direction = "both") +
+    xlab("Difference in median") +
+    theme(text = element_text(size = 20))
+### END SOLUTION
+
+diff_in_medians_plot
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-722525e3c18b6163'}}
+test_2.7()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-4efbcadd10da44f6", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 2.8</b> <br>
+{points: 3}
+
+Obtain the p-value of `obs_diff_in_medians` from `null_diff_in_medians`. Leave your answer as a $1 \times 1$ tibble with column name `p_value`.
+
+_Assign your data frame to an object called `answer2`. Your data frame should have only one column: `p_value`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-9cc94e6fc7915e7e', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer2.8 <-
+
+### BEGIN SOLUTION
+answer2.8 <-
+    null_diff_in_medians %>% 
+    get_p_value(obs_stat =  obs_diff_in_medians, direction = "both")
+### END SOLUTION
+
+answer2.8
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-6ae9456876481e63'}}
+test_2.8()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-79472809acf073c4"} -->
+<b> Question 2.9 </b> <br>
+{points: 2}
+
+We should never report a p-value of 0 because this suggests that making a Type I error is impossible. But this is too bold of a claim to make.
+
+What would be the best way to report the p-value? Think about what the next smallest p-value is possible to be calculated, given that we are using 1000 repetitions to calculate the sample.
+
+A. The p-value is < 0.05
+
+B. The p-value is < 0.01
+
+C. The p-value is < 0.001
+
+D. The p-value is < 0.0001
+
+
+_Assign you answer to an object called `answer2.9`. Your answer should be a string containing one letter._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-38a0bd20fb422203'}}
+#answer2.9 <-
+
+### BEGIN SOLUTION
+answer2.9 <- 'C'
+### END SOLUTION
+answer2.9
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-dca9a139679d58de'}}
+test_2.9()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-eae8d4303213040d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.10: Conclusion of the test </b> <br>
+{points: 3}
+
+What can we conclude based on the result of the hypothesis test?
+
+A. Given a p-value < 0.001 we reject the null hypothesis.
+
+B. Given a p-value < 0.001 we accept the alternative hypothesis at the 5% significance level.
+
+C. Given a p-value < 0.001 we do not reject the null hypothesis at the 5% significance level.
+
+D. Given a p-value < 0.001 we reject the null hypothesis at the 5% significance level.
+
+
+_Assign your answer to an object called `answer2.10`. Your answer should be a string containing one letter._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-f0c4498d52c61f7b', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer2.10 <-
+
+### BEGIN SOLUTION
+answer2.10 <- "D"
+### END SOLUTION
+
+answer2.10
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-48cf027f333efc2a'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer2.10"', {
+    expect_true(exists("answer2.10"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+    expect_match(answer2.10, "a|b|c|d", ignore.case = TRUE)
+})
+
+
+### BEGIN HIDDEN TESTS
+
+answer_hash <- digest(tolower(answer2.10))
+test_that("Solution is incorrect", {
+    expect_equal(answer_hash, "d110f00cfb1b248e835137025804a23b")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-b442d7a4c1941e61", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.11</b><br>
+{points: 3}
+
+Now we would like to find the 90% confidence interval for the difference in median. First, let's find the bootstrap distribution for the difference in medians with the `infer` package. Use `diff_in_medians_bootstrap_dist` to specify the response and explanatory variables, generate 1000 samples, and calculate Adelie's median minus Chinstrap's median. 
+
+_Assign your data frame to an object called `diff_in_medians_bootstrap_dist`. Your data frame should have only two columns: `replicate` and `stat`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-32def599d1f74cff', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(9263) # Do not change this
+
+#diff_in_medians_bootstrap_dist <-
+
+### BEGIN SOLUTION
+diff_in_medians_bootstrap_dist <- 
+    adelie_chinstrap_flipper %>%
+    specify(formula = flipper_length_mm ~ species) %>%
+    generate(reps = 1000, type = "bootstrap") %>%
+    calculate(stat = "diff in medians", order = c("Adelie", "Chinstrap"))  
+### END SOLUTION
+
+head(diff_in_medians_bootstrap_dist)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-1f971841b9de346a'}}
+test_2.11()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-3841d11be9807d7c", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.12 </b><br>
+{points: 2}
+
+Use `diff_in_medians_bootstrap_dist` to find the 90% confidence interval.
+
+_Assign your data frame to an object called `diff_in_medians_ci`. Your data frame should have two columns: `lower_ci` and  `upper_ci`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-314b02546d1b8263', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#diff_in_medians_ci <-
+
+### BEGIN SOLUTION
+diff_in_medians_ci <- 
+    diff_in_medians_bootstrap_dist %>% 
+    get_confidence_interval(level = 0.90, type = "percentile")
+### END SOLUTION
+
+diff_in_medians_ci
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-02c49394935e92c8'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "diff_in_medians_ci"', {
+expect_true(exists("diff_in_medians_ci"))
+})
+
+test_that("Solution should be a data frame", {
+expect_true("data.frame" %in% class(diff_in_medians_ci))
+})
+
+expected_colnames <- c("lower_ci", "upper_ci")
+given_colnames <- colnames(diff_in_medians_ci)
+test_that("Data frame does not have the correct columns", {
+    expect_equal(length(setdiff(
+      union(expected_colnames, given_colnames),
+      intersect(expected_colnames, given_colnames)
+    )), 0)
+})
+
+### BEGIN HIDDEN TESTS
+
+test_that("Data frame does not contain the correct data", {
+    expect_equal(digest(as.integer(sum(diff_in_medians_ci$lower_ci) * 10)), "f872f13e25467a39ead2b4a05e00adf0")
+    expect_equal(digest(as.integer(sum(diff_in_medians_ci$upper_ci) * 10)), "4576b114cdcf02f33aab0622728c91aa")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-aa117608bf62ed0b", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b> Question 2.13 </b><br>
+{points: 2}
+
+Visualize the confidence interval `diff_in_medians_ci` with the bootstrap distribution `diff_in_medians_bootstrap_dist`.
+
+<i>Assign your plot to an object called </i>`diff_in_medians_ci_plot`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-33ccfe26348df47a', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# diff_in_medians_ci_plot <-
+
+### BEGIN SOLUTION
+diff_in_medians_ci_plot <-
+    visualize(diff_in_medians_bootstrap_dist) + 
+    shade_confidence_interval(endpoints = diff_in_medians_ci) + 
+    theme(text = element_text(size = 20)) + 
+    xlab("Difference in Medians")
+### END SOLUTION
+
+diff_in_medians_ci_plot
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 2, 'grade_id': 'cell-a56d2bec8b964479'}}
+test_2.13()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-1146dfe6f077838a", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 3. Breast Cancer and Radiation Therapy
+
+&emsp; For this question, we will use the dataset found at https://archive.ics.uci.edu/ml/datasets/Breast+Cancer. The dataset contains information on 286 breast cancer patients, including variables on tumour size, tumour location, radiation therapy, cancer recurrence, and other basic medical history data. Given this dataset, we want to investigate whether there is a significant difference in the proportions of cancer recurrence between patients who were treated with experimental radiation therapy and patients who were not (i.e. received an alternate treatment). We will assume that the patients have been randomized into each of these two treatment groups.
+
+&emsp; Let's load this dataset. Note that the "irradiat" column indicates whether or not the patient received radiation therapy, while the "Class" column indicates whether or not the patient experienced a cancer recurrence event.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-5ce07a14b10cac34', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+breast_cancer <- read.csv(url("https://archive.ics.uci.edu/ml/machine-learning-databases/breast-cancer/breast-cancer.data"),header=FALSE)
+colnames(breast_cancer) <- c("class", "age", "menopause", "tumor-size", "inv-nodes", "node-caps", "deg-malig", "breast", "breast-quad", "irradiat")
+head(breast_cancer)
+```
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-f86991f96a49f4c7', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+recurrence_irradiat <- 
+    breast_cancer %>%
+    select(class, irradiat)
+
+head(recurrence_irradiat)
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-dacb75318f7c5a87", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+&emsp; Let's group by `class` and `irradiat` and tally how many samples are in each group.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-4b0dd6b1d19b03b8', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+recurrence_irradiat %>%
+    group_by(irradiat, class) %>%
+    tally() %>%
+    spread(irradiat, n)
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-b5bfec02b1f8467d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 3.1</b><br>
+{points: 3}
+
+Let $p_{1}$ be the proportion of radiation therapy patients (irradiat=true) that subsequently experienced cancer recurrence, and let $p_{2}$ be the proportion of patients that did not receive radiation therapy (irradiat=false) and subsequently experienced cancer recurrence. 
+
+We want to test $$H_0: p_{1} = p_{2},$$ and $$H_a: p_{1} \neq p_{2}.$$
+
+Calculate the observed test statistic $\hat{p}_1 - \hat{p}_2$ using `recurrence_irradiat` by first specifying the response and explanatory variables.
+
+_Assign your data frame to an object called `obs_diff_prop`. Your data frame should have only one column, `stat`, and one row._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-50f5046219d6451d', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#obs_diff_prop <- 
+
+### BEGIN SOLUTION
+obs_diff_prop <- 
+    recurrence_irradiat %>%
+    specify(formula=class~irradiat, success="recurrence-events") %>%
+    calculate(stat = "diff in props", order = c("yes", "no"))
+### END SOLUTION
+
+obs_diff_prop 
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-1149952055648d06'}}
+test_3.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-8b47ef7e19d98891", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 3.2: Null Distribution</b><br>
+{points: 3}
+
+Generate 1000 samples from the null distribution. Use `recurrence_irradiat` to specify the response and explanatory variables, hypothesize, generate 1000 samples and calculate the proportion of irradiated patients having recurrent cancer minus the proportion of non-irradiated patients having recurrent cancer. 
+
+_Assign your data frame to an object called `irradiat_null_distribution`. Your data frame should have only two columns: `replicate` and `stat`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-e6801b15b4258c14', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(3526)
+#irradiat_null_distribution <-
+
+### BEGIN SOLUTION
+irradiat_null_distribution <- recurrence_irradiat %>%
+                    specify(formula=class~irradiat, success="recurrence-events") %>%
+                    hypothesize(null="independence") %>%
+                    generate(reps = 1000, type = "permute") %>%
+                    calculate(stat = "diff in props", order = c("yes", "no"))
+### END SOLUTION
+
+head(irradiat_null_distribution)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-3a16b15f5692aca8'}}
+test_3.2()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-fcaaa01f1f5c44a9", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 3.3</b><br>
+{points: 3}
+
+Plot the result of the hypothesis test using `visualize` with 10 bins, put a vertical bar for the observed test statistic `obs_diff_prop`, and shade the tail(s).
+
+<i>Assign your answer to an object called </i>`irradiate_result_plot`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-7818997009c7aef4', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#irradiate_result_plot <-
+
+### BEGIN SOLUTION
+irradiate_result_plot <-
+    visualize(irradiat_null_distribution, bins = 10) + 
+    shade_p_value(obs_stat = obs_diff_prop, direction = "both") +
+    xlab("Difference in proportion")
+### END SOLUTION
+
+irradiate_result_plot 
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-c5d0b20f2d897555'}}
+test_3.3()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-cfc255e700f115c2", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+<b>Question 3.4: Calculate p-value</b> <br>
+{points: 3}
+
+Obtain the p-value from `irradiat_null_distribution`. Leave your answer as a $1 \times 1$ tibble with column name `p_value`.
+
+<i>Assign your answer to an object called </i>`answer3.4`.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-cdd617571e2e7956', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+#answer3.4<-
+
+### BEGIN SOLUTION
+answer3.4 <-
+    irradiat_null_distribution %>% 
+    get_p_value(obs_stat = obs_diff_prop, direction = "both")
+### END SOLUTION
+answer3.4
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-506d7cba4ff83f8d'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "answer3.4"', {
+    expect_true(exists("answer3.4"))
+  })
+
+  test_that("Solution should be a data frame", {
+    expect_true("data.frame" %in% class(answer3.4))
+  })
+
+expected_colnames <- c("p_value")
+given_colnames <- colnames(answer3.4)
+test_that("Data frame does not have the correct columns", {
+    expect_equal(length(setdiff(
+      union(expected_colnames, given_colnames),
+      intersect(expected_colnames, given_colnames)
+    )), 0)
+})
+
+### BEGIN HIDDEN TESTS
+
+test_that("Data frame does not contain the correct number of rows", {
+    expect_equal(digest(as.integer(nrow(answer3.4))), "4b5630ee914e848e8d07221556b0a2fb")
+})
+
+test_that("Data frame does not contain the correct data", {
+    expect_equal(digest(as.integer(sum(answer3.4$p_value) * 10e6)), "6f31d2cd2d03043e0063a6c33f2bff6b")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a5c982b6b269f9be", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+&emsp; Thus, given the p-value above, we reject the null hypothesis at 5% significance level.
+
+&emsp; Given this result and the test statistic that we observed in Question 3.1, there is evidence to suggest that cancer recurrence is associated with the type of treatment received. Specifically, patients who received the experimental radiation therapy may be more likely to experience cancer recurrence than patients who did not. This may be attributable to its lower effectiveness at eliminating the cancer present, compared to alternative treatments.
+<!-- #endregion -->
