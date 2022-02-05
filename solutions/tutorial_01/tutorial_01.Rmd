@@ -1,0 +1,829 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-908015dfa63adcb4"} -->
+## Tutorial 1:  Introduction to Statistical Inference and Sampling
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-b1b21626a440327a"} -->
+#### Lecture and Tutorial Learning Goals:
+After completing this week's lecture and tutorial work, you will be able to:
+
+1. Describe real-world examples of questions that can be answered with the statistical inference methods presented in this course (e.g., estimation, hypothesis testing).
+2. Name common population parameters (mean, proportion, median, variance, standard deviation, and correlation) that are often estimated using sample data, and write computer scripts to calculate estimates of these parameters.
+3. Define the following terms in relation to statistical inference: population, sample, population parameter, estimate, sampling distribution.
+4. Write a computer script to draw random samples from a finite population (e.g., census data).
+5. Write a computer script to reveal a sampling distribution from a finite population.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-e89baca94304416d"} -->
+#### General instructions
+
+Any place you see `...`, you must fill in the function, variable, or data to complete the code. Replace `fail()` with your completed code and run the cell!
+
+All visible autograded questions (i.e., questions with visible tests) are worth 1 point, and all hidden autograded questions and manually graded questions are worth 3 points.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-55edba8c34fc8bf3"} -->
+### Loading some packages
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-e38de85c42aa15da'}}
+# Run this cell before continuing. 
+library(cowplot)
+library(dplyr)
+library(gridExtra)
+library(tidyverse)
+library(repr)
+library(infer)
+library(repr)
+source("tests_tutorial_01.R")
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-02477be7ea6ada9c"} -->
+### Vancouver Street Trees
+
+In this tutorial, we will explore the population and sampling distributions of three different populations of trees planted in Vancouver. Specifically, we are interested in the diameters of three different sub-groups of trees planted along boulevards in the city. We will obtain these populations by filtering a single data set.
+
+![](https://media2.giphy.com/media/kiu8isFXsj1yqVBAOv/giphy.gif?cid=ecf05e4755256f4e6c94108bd7031859932bed37b115ca3a&rid=giphy.gif)
+<div style="text-align: center"><i>Image from <a href="https://media2.giphy.com/media/kiu8isFXsj1yqVBAOv/giphy.gif?cid=ecf05e4755256f4e6c94108bd7031859932bed37b115ca3a&rid=giphy.gif">giphy.com</i></a></div>
+
+
+To do this, we will use the `vancouver_trees` data set, which includes information about public trees planted along boulevards in Vancouver, such as their approximate height, diameter, family and species name, and other information describing where and when the they were planted. This data is originally from the [City of Vancouver's Open Data Portal](https://opendata.vancouver.ca/explore/dataset/street-trees/information/?disjunctive.species_name&disjunctive.common_name&disjunctive.height_range_id), but we have included it in an R package called `datateachr`. The `datateachr` package contains several open source data sets that have been compiled from various sources to make them easily accessible. We will be using data from this package regularly throughout the term. Let's now load the `datateachr` package and take a look at the first few rows of the `vancouver_trees` data set.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-54952796e66e195d'}}
+library(datateachr)
+head(vancouver_trees)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-0d5f2ba3ad8aa891"} -->
+## 1. Warm Up
+
+
+Before we get started, let's remind ourselves of a few important concepts and definitions.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-4900fe61551b3f00"} -->
+**Question 1.0**
+<br>{points: 1}
+
+What are two parameters that are typically used to describe the centre of a distribution?
+
+A. Standard deviation & variance
+
+B. Standard deviation & median
+
+C. Median & variance
+
+D. Median & mean
+
+_Assign your answer to an object called `answer1.0`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-3a464b1626e771c0'}}
+# answer1.0 <- ...
+
+### BEGIN SOLUTION
+answer1.0 <- "D"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-b0e684685f0edaeb'}}
+test_1.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-941e7154315399bf"} -->
+**Question 1.1**
+<br>{points: 3}
+
+In one or two sentences, explain what a sampling distribution of sample means is in your own words. Do not use the word "distribution" in your explanation.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-ec788aa80f383f85"} -->
+### BEGIN SOLUTION
+A sampling distribution of sample means shows all the possible values for the point estimates of the population mean, and how often we would expect those estimates to appear when making a number of point estimates.
+
+Note to TAs: Do not deduct marks if ".. of the population mean that were calculated using a particular sample size ..." is included in response.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-93d5cf7bf1e8be7d"} -->
+**Question 1.2**
+<br>{points: 1}
+
+True or false?
+
+In reality, we most often have access to data for the entire population that we are interested in studying.
+
+_Assign your answer to an object called `answer1.2`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-9dc33e4b16fbecff'}}
+# answer1.2 <- ...
+
+### BEGIN SOLUTION
+answer1.2 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-b75038fb29c9f50c', 'points': 1}}
+test_1.2()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-5a8d97c351173c12"} -->
+**Question 1.3**
+<br>{points: 1}
+
+Consider this unordered, numbered list of tasks related to populations, sampling, and sampling distributions: 
+
+1. Calculate the mean of the point estimates to use as your estimate.
+2. Take a random sample from the population.
+3. Plot the distribution of the sample(s).
+4. Calculate point estimate(s) for the sample(s).
+5. Describe the uncertainty related to your estimate.
+6. Plot the distribution of the point estimates.
+7. Calculate the population parameter.
+8. Take many random samples from the population.
+
+Choose the order of tasks that **best** describes the process of estimating a population parameter when we do not have access to the population.
+
+A. 8, 3, 7
+
+B. 2, 4, 5
+
+C. 8, 4, 1
+
+D. 2, 7, 5
+
+E. 8, 4, 6, 1
+
+F. 2, 3, 7, 5
+
+_Assign your answer to an object called `answer1.3`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-756aef05e9370e86'}}
+# answer1.3 <- ...
+
+### BEGIN SOLUTION
+answer1.3 <- "B"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-59868bdd46196233'}}
+test_1.3()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-438d8cbf29c6d31c"} -->
+**Question 1.4**
+<br>{points: 1}
+
+We will be using the `diameter` column of the `vancouver_trees` data set throughout this tutorial. The documentation for the `vancouver_trees` data set (which can be accessed using `?vancouver_trees`) states that the diameter column is
+
+> DBH in _**inches**_ (DBH stands for "diameter of tree at breast height").
+
+Let's convert this to metric units (centimetres) before we get started. Use the fact that $1 \text{ in} = 2.54 \text{ cm}$
+to convert the `diameter` column to centimetres by overwriting it with the `mutate` function.
+
+_Assign your data frame to an object called `metric_trees`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-2fe17cd445c4529b'}}
+# metric_trees <- 
+#   vancouver_trees %>% 
+#   ...(...)
+    
+### BEGIN SOLUTION
+metric_trees <- 
+    vancouver_trees %>% 
+    mutate(diameter = diameter * 2.54)
+### END SOLUTION
+
+head(metric_trees)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-3a2ddc8b634c2813'}}
+test_1.4()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-b49ca4759a087710"} -->
+## 2. Acer (Maple) Trees
+
+First, we will take a look at the population of `ACER` trees planted along the streets in Vancouver. The `ACER` genus (or family) of trees are commonly referred to as maple trees, and there are 31 different species currently planted throughout the city. Maple trees are quite popular along streets in Vancouver, making up around 25% of the entire population. They are well known for their bright shades of red, orange, and yellow during the fall, as well as for the appearance of a maple leaf on the Canadian flag.
+
+<img src="https://images.unsplash.com/photo-1568219273311-8616c622bc44?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1650&q=80" width=500>
+
+<div style="text-align: center"><i>Photo by <a href="https://media2.giphy.com/media/kiu8isFXsj1yqVBAOv/giphy.gif?cid=ecf05e4755256f4e6c94108bd7031859932bed37b115ca3a&rid=giphy.gif">Cindy Martin</a> on <a href="https://unsplash.com/?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText">Unsplash</a></i></div>
+
+For this section, we are interested in exploring the distribution and sampling distribution of **sample means** for the `diameter` of the trees in our population of street maple trees. Recall that the **mean** is the sum of all observations of a variable divided by the total number of observations. It is used to measure the centre of a distribution and is an example of a population parameter.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-a3d7f015bc5221f0"} -->
+**Question 2.0** 
+<br> {points: 1}
+
+Filter the `metric_trees` data set for the population of interest (`ACER` genus of street trees) and select the characteristic that we will be working with (`diameter`). Your resulting data frame should have a single column.
+
+_Assign your data frame to an object called `acer_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-7476bada5c340ebd'}}
+# acer_pop <- 
+#    ... %>% 
+#    ...(genus_name == ...) %>% 
+#    select(...)
+
+### BEGIN SOLUTION
+acer_pop <- 
+    metric_trees %>% 
+    filter(genus_name == "ACER") %>% 
+    select(diameter)
+### END SOLUTION
+
+head(acer_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-f2420a005fdbb5e5'}}
+test_2.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2fd3f213e3257905"} -->
+**Question 2.1**
+<br> {points: 1}
+
+Visualize the distribution of the population of interest (`acer_pop`) by plotting a histogram of `diameter` with bin widths of 16 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure your axis are descriptive and human-readable.
+
+_Assign your plot to an object called `acer_pop_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-f6a48f1161bf902f'}}
+# acer_pop_dist <- 
+#    ... %>% 
+#    ggplot(aes(x = ...)) +
+#    ...(... = ..., color='white') +
+#    ...("Distribution of Acer Tree Diameters") +
+#    xlab(...)
+
+### BEGIN SOLUTION
+acer_pop_dist <- 
+    acer_pop %>% 
+    ggplot(aes(x = diameter)) +
+    geom_histogram(binwidth = 16, color='white') +
+    ggtitle("Distribution of Acer Tree Diameters") +
+    xlab("Diameter (cm)")
+### END SOLUTION
+
+acer_pop_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-16cc219cc886014d'}}
+test_2.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2e0e29d3619802cc"} -->
+**Question 2.2**
+<br>{points: 1}
+
+True or false?
+
+The population distribution is approximately bell-shaped.
+
+_Assign your answer to an object called `answer2.2`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-1801a022e149d67e'}}
+# answer2.2 <- ...
+
+### BEGIN SOLUTION
+answer2.2 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-de09eb8a780565d8'}}
+test_2.2()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-236d6d86fdc60662"} -->
+**Question 2.3** 
+<br> {points: 1}
+
+Take `1500` samples of size `70` from the population `acer_pop` using `rep_sample_n()` and a seed of `9558`. Then, calculate the mean diameter of each sample (which is labelled by the `replicate` column). Your final data frame should have the columns `replicate` and `sample_mean`.
+
+_Assign your data frame to an object called `acer_estimates`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-21dc622dbfa804fb'}}
+set.seed(9558) # DO NOT CHANGE!
+
+# acer_estimates <- 
+#    ... %>% 
+#    ...(... = 70, reps = ...) %>% 
+#    ...(replicate) %>% 
+#    summarize(sample_mean = ...)
+
+### BEGIN SOLUTION
+acer_estimates <- 
+    acer_pop %>% 
+    rep_sample_n(size = 70, reps = 1500) %>% 
+    group_by(replicate) %>% 
+    summarize(sample_mean = mean(diameter))
+### END SOLUTION
+
+head(acer_estimates)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-908e2a05d48668e0'}}
+test_2.3()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-6e317a18e89adfa1"} -->
+**Question 2.4**
+<br> {points: 1}
+
+Visualize the distribution of the sample means (`acer_estimates`) by plotting a histogram with bin widths of 1 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `acer_sampling_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-2c04c0bca3ee66b9'}}
+# acer_sampling_dist <- 
+#    ... %>% 
+#    ggplot(aes(x = ...)) + 
+#    ...(... = ..., color='white') +
+#    ...("Sampling Distribution of Sample Means") +
+#    xlab("...")
+
+### BEGIN SOLUTION
+acer_sampling_dist <- 
+    acer_estimates %>% 
+    ggplot(aes(x = sample_mean)) + 
+    geom_histogram(binwidth = 1, color='white') +
+    ggtitle("Sampling Distribution of Sample Means") +
+    xlab("Mean diameter (cm)")
+### END SOLUTION
+
+acer_sampling_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-00594abf7caee154'}}
+test_2.4()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-3dc3a35a1df90d16"} -->
+**Question 2.5**
+<br>{points: 1}
+
+Which of the following statements is true about the sampling distribution above?
+
+A. We would normally estimate the mean of a population by using the mean of the sampling distribution.
+
+B. The median of the population is very close to the median of the sampling distribution.
+
+C. The mean of the population is very close to the mean of the sampling distribution.
+
+D. The sampling distribution is of a similar shape to the population distribution.
+
+_Assign your answer to an object called `answer2.5`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-ae0bd451eaea77d5'}}
+# answer2.5 <- ...
+
+### BEGIN SOLUTION
+answer2.5 <- "C"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-148ad5e2ea3d650c'}}
+test_2.5()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-60ac18111e102ca2"} -->
+## 3. Pissard Plum Trees
+
+Next, we are going to explore the population of Vancouver street trees with the common name `PISSARD PLUM`. These trees are a member of the plum tree family, which are often confused with cherry trees while flowering. Unlike the last part, here we are looking at a particular cultivar (cultivated variety) of trees rather than an entire family. The `PISSARD PLUM` cultivar is the second most popular cultivar along boulevards in Vancouver, making up around 6% of the total population.
+
+<img src="https://landscapeplants.oregonstate.edu/sites/plantid7/files/plantimage/prcea2847.jpg" width=500>
+
+<div style="text-align: center"><i>Image courtesy of <a href="https://landscapeplants.oregonstate.edu/plants/prunus-cerasifera-atropurpurea">OSU, College of Agricultural Sciences - Department of Horticulture</i></a></div>
+
+For this section, we are interested in the sampling distribution of the **sample medians** for the `diameter` of these trees. Recall that the **median** is the middle observation of a sorted variable's data. Like the mean, it is used to measure the centre of a distribution and is another example of a population parameter.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-187988a9986e81c6"} -->
+**Question 3.0** 
+<br> {points: 1}
+
+Filter the `metric_trees` data set for the population of interest (trees with a common name of `PISSARD PLUM`) and select the characteristic that we will be working with (`diameter`). Your resulting data frame should have a single column.
+
+_Assign your data frame to an object called `plum_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-68262760c9425c19'}}
+### BEGIN SOLUTION
+plum_pop <- 
+    metric_trees %>% 
+    filter(common_name == "PISSARD PLUM") %>% 
+    select(diameter)
+### END SOLUTION
+
+head(plum_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-aebc3cae40aa17db'}}
+test_3.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-3d0bc0c9dcb36fc5"} -->
+**Question 3.1**
+<br> {points: 1}
+
+Visualize the distribution of `diameter` of the population `plum_pop` by plotting a histogram with bin widths of 8 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure your axis are descriptive and human-readable.
+
+_Assign your plot to an object called `plum_pop_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-9e5c9136e312f856'}}
+### BEGIN SOLUTION
+plum_pop_dist <- 
+    plum_pop %>% 
+    ggplot(aes(x = diameter)) +
+    geom_histogram(binwidth = 8, color = 'white') +
+    ggtitle("Distribution of Pissard Plum Tree Diameters") +
+    xlab("Diameter (cm)")
+### END SOLUTION
+
+plum_pop_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-fc39d9461d6d86e3'}}
+test_3.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-98f3a2b6ee894a1d"} -->
+**Question 3.2**
+<br> {points: 3}
+
+Given the population distribution you visualized in the previous question, what can we say about the shape of the distribution and the median of the population?
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-04d61df14296700a"} -->
+The shape of the distribution is approximately symmetrical and bell-shaped. If we look closely towards the right side of the plot, there are a few trees with very large diameters (> 175 cm). Looking at the distribution, it appears that the median should fall somewhere between 25 and 40 cm. This can be confirmed by running
+
+```R
+plum_median <- plum_pop %>% 
+    summarize(median = median(diameter))
+```
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-4f2eaedddf57c496"} -->
+**Question 3.3**
+<br> {points: 1}
+
+Take `1500` samples of size `50` from the population `plum_pop` using `rep_sample_n()` and a seed of `8905`. Then, calculate the median of each sample (which is labelled by the `replicate` column). Your final data frame should have the columns `replicate` and `sample_median`.
+
+_Assign your data frame to an object called `plum_estimates`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-1c4e2cb0a1fd320b'}}
+set.seed(8905) # DO NOT CHANGE!
+### BEGIN SOLUTION
+plum_estimates <- 
+    plum_pop %>% 
+    rep_sample_n(size = 50, reps = 1500) %>% 
+    group_by(replicate) %>% 
+    summarize(sample_median = median(diameter))
+### END SOLUTION
+
+head(plum_estimates)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-6f3c51616064e661'}}
+test_3.3()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-e8a263f0dfd8f3e0"} -->
+**Question 3.4** 
+<br> {points: 1}
+
+Visualize the distribution of the sample medians (`plum_estimates`) by plotting a histogram with bin widths of 1 using `geom_histogram`  Add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `plum_sampling_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-7492c512df8dbcb0'}}
+### BEGIN SOLUTION
+plum_sampling_dist <- 
+    plum_estimates %>% 
+    ggplot(aes(x = sample_median)) +
+    geom_histogram(binwidth = 1, color = 'white') + 
+    ggtitle("Sampling Distribution of Sample Medians") + 
+    xlab("Median Diameter (cm)")
+### END SOLUTION
+
+plum_sampling_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-e59510fa876db9df'}}
+test_3.4()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d2b43c7f4f2b7742"} -->
+**Question 3.5**
+<br> {points: 3}
+
+Suppose you took a single random sample of the diameter of 50 Pissard Plum trees from public streets in Vancouver and calculated the median of the sample as a point estimate. What are some values that you would realistically obtain: any value between 10 and 60 cm, or any value between 30 and 40 cm? Justify your response in 1-2 brief sentences.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-ddb2e5de686983dd"} -->
+### BEGIN SOLUTION
+Realistically, we would expect to obtain any value between 30 and 40 cm because a large majority of the sample medians from our 1500 virtual random samples fell within this range.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-95cc6f4a2d03146e"} -->
+## 4. Kwanzan Flowering Cherry Trees
+
+Finally, we are going to explore the population of `KWANZAN FLOWERING CHERRY` (common name) trees planted along streets in Vancouver. Also referred to as "Japanese Cherry trees", this cultivar is the most popular type in Vancouver, making up 7% of the population. These trees have the infamous pink blossoms that you can see all across Vancouver and on campus in early spring.
+
+<img src="https://www.gardenia.net/storage/app/public/uploads/images/detail/Prunus%20Kanzan%20055089C104.jpg" width=500>
+
+<div style="text-align: center"><i>Image from <a href="https://www.gardenia.net/plant/prunus-kanzan-japanese-flowering-cherry">gardenia.net</i></a></div>
+
+Here, we are interested in looking at the sampling distribution of **sample variances**, again for the `diameter` of the trees in our population. Recall that the **variance** is the mean of the sum of the squared distances of each observation of a variable from the mean. It is typically used to measure how "wide" a distribution is and is another example of a population parameter.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-704934fbf2abe82f"} -->
+**Question 4.0** 
+<br> {points: 3}
+
+Filter the `metric_trees` data set for the population of interest (trees with a common name of `KWANZAN FLOWERING CHERRY`) and select the characteristic that we will be working with (`diameter`). Your resulting data frame should have a single column.
+
+_Assign your data frame to an object called `cherry_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-9da2256a70d5fe2f'}}
+### BEGIN SOLUTION
+cherry_pop <- 
+    metric_trees %>% 
+    filter(common_name == "KWANZAN FLOWERING CHERRY") %>% 
+    select(diameter)
+### END SOLUTION
+
+head(cherry_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-066ab81aee21ffd3'}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "cherry_pop"', {
+    expect_true(exists("cherry_pop"))
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution should be a data frame", {
+    expect_true("data.frame" %in% class(cherry_pop))
+})
+
+expected_colnames <- c("diameter")
+given_colnames <- colnames(cherry_pop)
+test_that("Data frame does not have the correct columns", {
+    expect_equal(length(setdiff(
+        union(expected_colnames, given_colnames),
+        intersect(expected_colnames, given_colnames)
+    )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+    expect_equal(nrow(cherry_pop), 10529)
+})
+
+test_that("Data frame does not contain the correct data", {
+    expect_equal(digest(as.integer(sum(cherry_pop$diameter))),"fb481aa2e436dcdaf8c2783d17462215")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-582df55b6a501176"} -->
+**Question 4.1**
+<br> {points: 3}
+
+Visualize the distribution `diameter` of the population `cherry_pop` by plotting a histogram with bins widths of 15 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure your axis are descriptive and human-readable.
+
+_Assign your plot to an object called `cherry_pop_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-1c852a66a3d4a32f'}}
+### BEGIN SOLUTION
+cherry_pop_dist <- 
+    cherry_pop %>% 
+    ggplot(aes(x = diameter)) +
+    geom_histogram(binwidth = 15, color = 'white') +
+    ggtitle("Distribution of Kwanzan Flowering Cherry Tree Diameters") +
+    xlab("Diameter (cm)")
+### END SOLUTION
+
+cherry_pop_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-2448f81d1156dc97', 'points': 3}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "cherry_pop_dist"', {
+  expect_true(exists("cherry_pop_dist"))
+})
+### BEGIN HIDDEN TESTS
+properties <- c(cherry_pop_dist$layers[[1]]$mapping, cherry_pop_dist$mapping)
+test_that("Plot does not have the correct variable on the x-axis", {
+  expect_true("diameter" == rlang::get_expr(properties$x))
+})
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(cherry_pop_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+  expect_equal(
+    digest(as.integer(mget("stat_params", cherry_pop_dist$layers[[1]])[["stat_params"]][["binwidth"]])),
+    "e03a89536262b6a0e2beabd90a841c43"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(nrow(cherry_pop_dist$data), 10529)
+  expect_equal(digest(as.integer(sum(cherry_pop_dist$data$diameter))), "fb481aa2e436dcdaf8c2783d17462215")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(cherry_pop_dist$labels$x == "diameter")
+})
+
+test_that("Plot should have a title", {
+  expect_true("title" %in% names(cherry_pop_dist$labels))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2b3b1c9d1cd2ba05"} -->
+**Question 4.2**
+<br> {points: 3}
+
+Using the two population distributions below, compare the standard deviation of the two populations. Be sure to justify your answer.
+
+**Note:** we have changed the scale and set an upper bound on where a large majority of the tree diameters fall, so you can focus on the most important parts of the distributions. This will remove a couple larger observations from our population, which results in the warnings shown below.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-d2b878f8f6f9b9de'}}
+plot_grid(plum_pop_dist + xlim(NA, 150),
+             cherry_pop_dist + xlim(NA, 150),
+             ncol = 2)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-74d6964e6aa3e72e"} -->
+### BEGIN SOLUTION
+Most of the cherry population falls within a larger range (0-100 cm) than the plum population (0-75 cm), so we should expect that the standard deviation of the cherry population is larger than the plum population.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-61c9644b17b2e3b5"} -->
+**Question 4.3**
+<br> {points: 3}
+
+Take `1500` samples of size `90` from the population `cherry_pop` using `rep_sample_n()` and a seed of `6919`. Then, calculate the variance of each sample (which is labelled by the `replicate` column). Your final data frame should have the columns `replicate` and `sample_variance`.
+
+**Hint:** you can use `var()` to compute variance.
+
+_Assign your data frame to an object called `cherry_estimates`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-d3d97303f5727199'}}
+set.seed(6919) # DO NOT CHANGE THIS
+
+### BEGIN SOLUTION
+cherry_estimates <- 
+    cherry_pop %>% 
+    rep_sample_n(size = 90, reps = 1500) %>% 
+    group_by(replicate) %>% 
+    summarize(sample_variance = var(diameter))
+### END SOLUTION
+
+head(cherry_estimates)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-03d16843a8dbe8e8'}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "cherry_estimates"', {
+  expect_true(exists("cherry_estimates"))
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(cherry_estimates))
+})
+
+expected_colnames <- c("replicate", "sample_variance")
+given_colnames <- colnames(cherry_estimates)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(nrow(cherry_estimates), 1500)
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(cherry_estimates$sample_variance))), "723289a5953d7a1be5b3471173799927")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-444e57f92fb0e980"} -->
+**Question 4.4**
+<br> {points: 3}
+
+Visualize the distribution of the sample variances (`cherry_estimates`) by plotting a histogram with bin widths of 25 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `cherry_sampling_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-b6dcac1e6134c913'}}
+### BEGIN SOLUTION
+cherry_sampling_dist <- 
+    cherry_estimates %>% 
+    ggplot(aes(x = sample_variance)) +
+    geom_histogram(binwidth = 25, color = 'white') +
+    ggtitle("Sampling Distribution of Sample Variance (n = 90)") +
+    xlab("Variance of Diameter")
+### END SOLUTION
+
+cherry_sampling_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-8d831378059516dc'}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+
+test_that('Did not assign answer to an object called "cherry_sampling_dist"', {
+  expect_true(exists("cherry_sampling_dist"))
+})
+### BEGIN HIDDEN TESTS
+properties <- c(cherry_sampling_dist$layers[[1]]$mapping, cherry_sampling_dist$mapping)
+test_that("Plot does not have the correct variable on the x-axis", {
+  expect_true("sample_variance" == rlang::get_expr(properties$x))
+})
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(cherry_sampling_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+  expect_equal(
+    digest(as.integer(mget("stat_params", cherry_sampling_dist$layers[[1]])[["stat_params"]][["binwidth"]])),
+    "5462ea21bef8d27d5a0ea4da35939549"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(nrow(cherry_sampling_dist$data), 1500)
+  expect_equal(digest(as.integer(sum(cherry_sampling_dist$data$sample_variance))), "723289a5953d7a1be5b3471173799927")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(cherry_sampling_dist$labels$x == "sample_variance")
+})
+
+test_that("Plot should have a title", {
+  expect_true("title" %in% names(cherry_sampling_dist$labels))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```

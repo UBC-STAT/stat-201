@@ -1,0 +1,944 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-f3ae6db28c5041d9"} -->
+# Tutorial 3: Bootstrapping and its Relationship to the Sampling Distribution
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-712e9ac4e769eb39"} -->
+### Lecture and Tutorial Learning Goals
+After completing this week's lecture and tutorial work, you will be able to:
+1. Explain why we don’t know/have a sampling distribution in practice/real life.
+2. Define bootstrapping.
+3. Write a computer script to create a bootstrap distribution to approximate a sampling distribution.
+4. Contrast a bootstrap sampling distribution with a sampling distribution obtained using multiple samples.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-28cb9e52e89ace8d'}}
+library(cowplot)
+library(datateachr)
+library(digest)
+library(gridExtra)
+library(infer)
+library(repr)
+library(taxyvr)
+library(tidyverse)
+source("tests_tutorial_03.R")
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-dc2ef0d60b4a4933"} -->
+## 1. Warm-Up Questions
+
+Let's start off with a few questions about bootstrapping and sampling practices in reality.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-3e24b34269f128b4"} -->
+**Question 1.0**
+<br>{points: 1}
+
+In 1-2 sentences, explain what bootstrapping is useful for.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-8c84f203af7f48fd"} -->
+### BEGIN SOLUTION
+Bootstrapping is useful for approximating a sampling distribution when we do not have access to data for the entire population that we are interested in.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-608fcde8287d2be1"} -->
+**Question 1.1**
+<br>{points: 1}
+
+True or false?
+
+A bootstrap sampling distribution will **always** have a similar width as the sampling distribution it is approximating.
+
+_Assign your answer to an object called `answer1.1`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-3eb563d3ebcd4b3e'}}
+# answer1.1 <- ...
+
+### BEGIN SOLUTION
+answer1.1 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-ec461d6d65200f1d'}}
+test_1.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-45d0af92c1953424"} -->
+**Question 1.2**
+<br>{points: 1}
+
+True or false?
+
+In reality, when we take a sample from the population, we are sampling with replacement.
+
+_Assign your answer to an object called `answer1.2`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-54bf9d55fc56bbf6'}}
+# answer1.2 <- ...
+
+### BEGIN SOLUTION
+answer1.2 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-1b1ad2d17f5bb494'}}
+test_1.2()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d6c903c695f1f6a5"} -->
+## 2. Bootstrap Distribution vs Sampling Distribution
+
+By now you should understand that not all sampling distributions come out as a nice symmetrical bell shape. In `worksheet_02` you saw one example of this when we were studying the distributions of point estimates for the proportion of properties that are located in downtown Vancouver, using the `tax_2019` data set. In the code cell below, we have re-created this sampling distribution so we can look at it a bit more closely.
+
+_Use the plot below to answer the **next question**._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-0b662bd6e3054d2b'}}
+set.seed(2410) # Use the same seed as last time to get
+               # the exact same observations in our samples.
+
+sampling_dist <- tax_2019 %>% 
+    filter(!is.na(geo_local_area)) %>% 
+    select(geo_local_area) %>% 
+    rep_sample_n(size = 10, reps = 2000) %>% 
+    group_by(replicate) %>% 
+    summarize(x = sum(geo_local_area == "Downtown"),
+              n = n()) %>% 
+    mutate(sample_proportion = x / n) %>% 
+    ggplot(aes(x = sample_proportion)) +
+        geom_histogram(binwidth = 1/10, colour = "white") +
+        xlab("Sample Proportion of Downtown Buildings") +
+        ggtitle("n = 10") +
+        scale_x_continuous(breaks = seq(0, 0.9, 0.1))
+sampling_dist
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d41acc8f82a60bac"} -->
+**Question 2.0**
+<br>{points: 1}
+
+The true proportion of buildings in Vancouver that are located downtown is 0.195. Suppose the data was adjusted such that the true proportion is now 0.5, and we created another sampling distribution with samples of size 100 using the code above. How would the symmetry of the new sampling distribution compare to the one generated above?
+
+A. The new sampling distribution would be less symmetrical.
+
+B. The symmetry of the new sampling distribution would be about the same.
+
+C. The new sampling distribution would be more symmetrical.
+
+D. It is impossible to tell how the symmetry of the new sampling distribution would compare.
+
+_Assign your answer to an object called `answer2.0`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-1487c5a41a521870'}}
+# answer2.0 <- ...
+
+### BEGIN SOLUTION
+answer2.0 <- "C"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-79e2ecf537661b10'}}
+test_2.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-f3fec4bdcd74fe8c"} -->
+### Root Barriers
+
+In this section, we are going to test the limits of bootstrapping to see whether it results in reliable approximations of asymmetrical sampling distributions, such as the one shown above. To do this, we will attempt to use bootstrapping to estimate sampling distributions that we know are even less symmetrical and compare them to see if our estimates are reasonable. One population that we have at our disposal that yields some asymmetrical sampling distributions is the `vancouver_trees` data set from the `datateachr` package. One example of this is the sampling distribution of sample proportions for the `root_barrier` variable; in this section, we will be looking at the proportion of trees that **do not** have a root barrier.
+
+<img src="https://www.flexiblelining.co.uk/media/shared/product-images/urban-hard-landscaping/rootbarrier/170UR4170-rootbarrier-panels-1.jpg" width=400>
+
+<div style="text-align: center"><i>Image from <a href="https://www.flexiblelining.co.uk/green-roof-systems/roof-garden-root-barrier/ribbed-root-barrier-panels"> Flexible Lining Products</i></a></div>
+
+Recall that the `vancouver_trees` dataset contains information about public trees planted along boulevards in Vancouver. The `root_barrier` variable in this dataset specifies whether or not a tree was planted with a root barrier or not. A root barrier is a type of underground wall that protects buildings, sidewalks, and roads from roots, which can severely damage these structures. One example of a type of root barrier is shown in the picture above.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-c719fb42fc24881f"} -->
+**Question 2.1** 
+<br> {points: 1}
+
+Filter `vancouver_trees` such that there are no `NA` values in the `root_barrier` column, and then select only that column. Use the scaffolding provided below as a guide:
+
+```r
+tree_pop <- vancouver_trees %>% 
+    filter(...) %>% 
+    ...(root_barrier)
+```
+
+_Assign your data frame to an object called `barrier_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-65aebf1f840a376d'}}
+### BEGIN SOLUTION
+barrier_pop <- vancouver_trees %>% 
+    filter(!is.na(root_barrier)) %>% 
+    select(root_barrier)
+### END SOLUTION
+head(barrier_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-5be38a133d838f2f'}}
+test_2.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-3db19654da2479d1"} -->
+**Question 2.2** 
+<br> {points: 1}
+
+Draw 2000 random samples of size 20 from the population `barrier_pop` using the `rep_sample_n` function and a seed of 3909. For each sample, calculate the proportion of trees that **do not** have a root barrier (i.e. where `root_barrier == "N"`) as the point estimate. Lastly, visualize the distribution of the sample proportions you just calculated by plotting a histogram using `geom_histogram` with bin widths of 1/20. Add a descriptive title to the plot using `ggtitle` and ensure that the x-axis has a human-readable label. Your final plot should have a variable named `p` on the x-axis. Use the scaffolding provided below as a guide:
+
+```r
+barrier_sampling_dist <- ... %>% 
+    rep_sample_n(size = ..., reps = ..., replace = ...) %>% 
+    ...(replicate) %>% 
+    summarize(x = sum(... == "N"),
+              n = n()) %>% 
+    mutate(p = ... / ...) %>% 
+    ggplot(aes(x = p)) +
+        geom_histogram(... = ...) +
+        xlab("Proportion") +
+        ggtitle("Sampling Distribution of Proportions (n = 20)")
+```
+
+_Assign your plot to an object called `barrier_sampling_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-68ae3b69a08fbf94'}}
+set.seed(3909) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+barrier_sampling_dist <- barrier_pop %>% 
+    rep_sample_n(size = 20, reps = 2000, replace = FALSE) %>% 
+    group_by(replicate) %>% 
+    summarize(x = sum(root_barrier == "N"),
+              n = n()) %>% 
+    mutate(p = x / n) %>% 
+    ggplot(aes(x = p)) +
+        geom_histogram(binwidth = 1/20) +
+        xlab("Proportion") +
+        ggtitle("Sampling Distribution of Sample Proportions (n = 20)")
+### END SOLUTION
+barrier_sampling_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-baec19ed025dc2e9'}}
+test_2.2()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-656b90f2deb5d102"} -->
+**Question 2.3** 
+<br> {points: 1}
+
+Take a single random sample of size 20 from `barrier_pop` using `rep_sample_n` and a seed of 1933. Ensure your resulting data frame only has a single column: `root_barrier`.
+
+**Hint:** Remember to `ungroup()` before using `select()`!
+
+_Assign your data frame to an object called `barrier_sample`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-d565a00f0fb18d3a'}}
+set.seed(1933) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+barrier_sample <- barrier_pop %>% 
+    rep_sample_n(size = 20) %>% 
+    ungroup() %>% 
+    select(root_barrier)
+### END SOLUTION
+head(barrier_sample)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-789b0060d74dbe20'}}
+test_2.3()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-5cc1c16691bdfe76"} -->
+**Question 2.4** 
+<br> {points: 1}
+
+Now we want to produce a bootstrap sampling distribution using `barrier_sample` sample we just took, which we will be able to compare to the sampling distribution we generated above. We want to use the exact same scaffolding as **question 2.2** (except the object name we are saving to) to complete the following task: 
+
+> Take 2000 bootstrap samples from `barrier_sample` using `rep_sample_n` with a seed of 2767. Then, calculate the proportion of trees in each sample that does not have a root barrier (`root_barrier == "N"`); name the column containing the sample propotions `p`. Lastly, use `geom_histogram` with bin widths of 1/20 to visualize the bootstrap distribution. Add a descriptive title to the plot using `ggtitle` and ensure that the x-axis has a human-readable label. 
+
+**Which two `...`'s in the scaffolding below _must_ be different than the code you used in question 2.2?**
+
+```R
+# LINE  1:    bootstrap_dist_20 <- ... %>% 
+# LINE  2:       rep_sample_n(size = ..., reps = ..., replace = ...) %>% 
+# LINE  3:       ...(replicate) %>% 
+# LINE  4:       summarize(x = sum(... == "N"),
+# LINE  5:                 n = n()) %>% 
+# LINE  6:       mutate(p = ... / ...) %>% 
+# LINE  7:       ggplot(aes(x = p)) +
+# LINE  8:           geom_histogram(... = ...) +
+# LINE  9:           xlab("Proportion") +
+# LINE 10:           ...("n = 20")
+```
+
+A. The `...` in `LINE 1` and the third `...` from the left in `LINE 2`
+
+B. The `...` in `LINE 1` and the second `...` from the left in `LINE 8`
+
+C. The first `...` from the left in `LINE 2` and the third `...` from the left in `LINE 2`
+
+D. The first `...` from the left in `LINE 2` and the second `...` from the left in `LINE 8`
+
+E. Some other two `...`'s not listed above.
+
+F. None of the above; only one `...` must be different.
+
+G. None of the above; three or more of the `...` must be different.
+
+_Assign your answer to an object called `answer2.4`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-bb6ac4a03c970908'}}
+# answer2.4 <- ...
+
+### BEGIN SOLUTION
+answer2.4 <- "A"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-c108dea3f7b6b6e2'}}
+test_2.4()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-092e11d77cbda9d5"} -->
+**Question 2.5** 
+<br> {points: 1}
+
+Take 2000 bootstrap samples from `barrier_sample` using `rep_sample_n` with a seed of 2767. Then, calculate the proportion of trees in each sample that does not have a root barrier (`root_barrier == "N"`). Lastly, use `geom_histogram` with bin widths of 1/20 to visualize the bootstrap distribution. Add a descriptive title to the plot using `ggtitle` and ensure that the x-axis has a human-readable label. 
+
+**Hint:** use your answer to the previous question and your code from **question 2.2**.
+
+_Assign your plot to an object called `barrier_bootstrap_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-49c66e4141824107'}}
+set.seed(2767) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+barrier_bootstrap_dist <- barrier_sample %>% 
+    rep_sample_n(size = 20, reps = 2000, replace = TRUE) %>% 
+    group_by(replicate) %>% 
+    summarize(x = sum(root_barrier == "N"),
+              n = n()) %>% 
+    mutate(p = x / n) %>% 
+    ggplot(aes(x = p)) +
+        geom_histogram(binwidth = 1/20) +
+        xlab("Proportion") +
+        ggtitle("Bootstrap Distribution of Sample Proportions (n = 20)")
+### END SOLUTION
+barrier_bootstrap_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-1e5db4cb336f35b7'}}
+test_2.5()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-5b7a33251a40cd78"} -->
+**Question 2.6** 
+<br> {points: 1}
+
+**Note:** this question has two parts!
+
+a) Calculate the standard deviation of the sampling distribution you generated above (`barrier_sampling_dist`); this is the standard error of the corresponding estimator.
+
+_Assign your answer to an object called `standard_error`. Your answer should be a single number._
+
+<br>
+
+b) Calculate the standard deviation of the bootstrap distribution you generated above (`barrier_bootstrap_dist`).
+
+_Assign your answer to an object called `standard_deviation`. Your answer should be a single number._
+
+**Hints:**
+- You can get the data that was used to generate using a plot with `plot_name$data`, for example: `barrier_sampling_dist$data`.
+- You can convert a 1x1 data frame to a number using `as.numeric()`.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-723febc1c6611afd'}}
+### BEGIN SOLUTION
+standard_error <- barrier_sampling_dist$data %>% 
+    summarize(se = sd(p)) %>% 
+    as.numeric()
+standard_deviation <- barrier_bootstrap_dist$data %>% 
+    summarize(sd = sd(p)) %>% 
+    as.numeric()
+### END SOLUTION
+standard_error
+standard_deviation
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-96fbd5f460153e4d'}}
+test_2.6()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-872bca96dfb37d39"} -->
+**Question 2.7** 
+<br> {points: 1}
+
+True or false?
+
+The standard deviation of a bootstrap distribution is a "good guess" of the standard deviation of the corresponding sampling distribution.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-98838fdd73e845c4'}}
+# answer2.7 <- ...
+
+### BEGIN SOLUTION
+answer2.7 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-2b590d0c77cfb166', 'points': 1}}
+test_2.7()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-c1862c7bad5b258e"} -->
+**Question 2.8** 
+<br> {points: 3}
+
+Will the standard deviation of a bootstrap distribution **always** be relatively close to the standard deviation of the corresponding sampling distribution?
+- If no, describe one situation related to our root barrier scenario above that would result in the `standard_deviation` object from **question 2.6** being very different than the `standard_error` object.
+- If yes, explain why no such situation exists.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-692bb294134028ed"} -->
+### BEGIN SOLUTION
+No. Either
+1. We get unlucky and get a sample where `root_barrier == "N"` for all observations in the sample, which would give us a standard deviation of 0 for the bootstrap distribution.
+2. We get unlucky and get a sample where we get lots of observations with `root_barrier == "Y"` (such as a 50/50 spliit between `"Y"` and `"N"`) which would give us a much larger standard deviation compared to the standard error.
+
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-09699b3910c5e22d"} -->
+## 3. A Closer Look at Bootstrapping
+
+There is one "rule" related to bootstrapping that we have not mentioned yet:
+
+> When generating a bootstrap distribution to estimate the sampling distribution for the original sample size, the **bootstrap samples** should be the **same size** as the **original sample** to get a useful estimate.
+
+For example, we would get poor results if we took a sample of size 30 from the population, and then took many bootstrap samples (resamples from the original sample, with replacement) of size 60 to estimate a sampling distribution for samples of size 30. Why? Let's try it out ourselves to discover the answer. Afterwards, we'll also go through some other questions to continue to solidify our understanding of the various nuances related to bootstrapping.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-0bd9dc7d44fd3c04"} -->
+### Building Permits
+
+To explore the "rule of thumb" that we mentioned above, we will again use the `vancouver_trees` data set from the `datateachr` pacakge. However, this time the population we are interested in is only the trees with the common name `"PISSARD PLUM"`, and the parameter that we are interested in is the standard deviation of the `diameter` of these trees.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-499c4bc56a311d6f'}}
+head(vancouver_trees)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-b08c8f90c4b7f79d"} -->
+**Question 3.0** 
+<br> {points: 3}
+
+Filter the `vancouver_trees` dataset for the population that we are interested in and then select the variable that we are interested in (your final data frame should have a single column).
+
+_Assign your data frame to an object called `plum_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-bdde492539c6004d'}}
+### BEGIN SOLUTION
+plum_pop <- vancouver_trees %>% 
+    filter(common_name == "PISSARD PLUM") %>% 
+    select(diameter)
+### END SOLUTION
+head(plum_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-ae4e3ed82fd5daf8'}}
+test_3.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-380227c9b0e5412d"} -->
+**Question 3.1** 
+<br> {points: 3}
+
+Take a single random sample of size 10 from `plum_pop` using the `rep_sample_n` function and a seed of 0737. Ensure your resulting data frame only has a single column: `diameter`.
+
+_Assign your data frame to an object called `plum_sample`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-75af97d43ec269ac'}}
+set.seed(0737) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+plum_sample <- plum_pop %>% 
+    rep_sample_n(size = 10) %>% 
+    ungroup() %>% 
+    select(diameter)
+### END SOLUTION
+head(plum_sample)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-0986f2eb2717d803', 'points': 3}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "plum_sample"', {
+  expect_true(exists("plum_sample"))
+})
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(plum_sample))
+})
+### BEGIN HIDDEN TESTS
+expected_colnames <- c("diameter")
+given_colnames <- colnames(plum_sample)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(plum_sample))), "71db8a6cad03244e6e50f0ad8bc95a65")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(plum_sample$diameter))), "bfc11d0fe85d8e3038dc8efe8787392c")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-997950696b0f714d"} -->
+**Question 3.2** 
+<br> {points: 3}
+
+Take 2500 bootstrap samples **of size 100** from the sample you took in the previous question by using the `rep_sample_n` function and a seed of 9284. 
+
+_Assign your data frame to an object called `plum_resamples`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-b06447756aff9cd5'}}
+set.seed(9284) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+plum_resamples <- plum_sample %>% 
+    rep_sample_n(size = 100, reps = 2500, replace = TRUE)
+### END SOLUTION
+head(plum_resamples)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-a2e18241939fda90'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "plum_resamples"', {
+  expect_true(exists("plum_resamples"))
+})
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(plum_resamples))
+})
+### BEGIN HIDDEN TESTS
+expected_colnames <- c("replicate", "diameter")
+given_colnames <- colnames(plum_resamples)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(plum_resamples))), "5c7178efcebee964f040b8aed493ab6e")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(plum_resamples$diameter))), "6aff2dc3aba0b4e14c6b69d961127d8b")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-c8eda13872adcd19"} -->
+**Question 3.3** 
+<br> {points: 3}
+
+Calculate the standard deviation for each resample that you took in the previous question with `group_by()` and `summarize()`. Name the new column containing the standard deviation `sd`.
+
+_Assign your data frame to an object called `resample_estimates`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-704a430b3580ea41'}}
+### BEGIN SOLUTION
+resample_estimates <- plum_resamples %>% 
+    group_by(replicate) %>% 
+    summarize(sd = sd(diameter))
+### END SOLUTION
+head(resample_estimates)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-caa64285e3611f8d'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "resample_estimates"', {
+  expect_true(exists("resample_estimates"))
+})
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(resample_estimates))
+})
+### BEGIN HIDDEN TESTS
+expected_colnames <- c("replicate")
+given_colnames <- colnames(resample_estimates)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 1)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(resample_estimates))), "45406a48666dcf764d5fead427284f8e")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(pull(select(resample_estimates, -replicate))) * 100000)), "2800e6a0713a739b996b510cfadf439c")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-28a80204df4ba87d"} -->
+**Question 3.3** 
+<br> {points: 3}
+
+Visualize the bootstrap distribution (of `resample_estimates`) by plotting a histogram using `geom_histogram` with bin widths of 0.25. Ensure that the x-axis has a human-readable label.
+
+_Assign your plot to an object called `plum_bootstrap_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-f4e06076985de5fe'}}
+### BEGIN SOLUTION
+plum_bootstrap_dist <- resample_estimates %>% 
+    ggplot(aes(x = sd)) +
+        geom_histogram(binwidth = 0.25) +
+        xlab("Standard Deviation")
+### END SOLUTION
+plum_bootstrap_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-962d663ea98f596f'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "plum_bootstrap_dist"', {
+  expect_true(exists("plum_bootstrap_dist"))
+})
+test_that("Solution should be a ggplot object", {
+  expect_true(is.ggplot(plum_bootstrap_dist))
+})
+### BEGIN HIDDEN TESTS
+properties <- c(plum_bootstrap_dist$layers[[1]]$mapping, plum_bootstrap_dist$mapping)
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(plum_bootstrap_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+  expect_equal(
+    digest(as.integer(mget("stat_params", plum_bootstrap_dist$layers[[1]])[["stat_params"]][["binwidth"]]) * 1000),
+    "908d1fd10b357ed0ceaaec823abf81bc"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(digest(nrow(plum_bootstrap_dist$data)), "45406a48666dcf764d5fead427284f8e")
+  expect_equal(digest(round(sum(pull(plum_bootstrap_dist$data, rlang::get_expr(properties$x))))), "172d7e5851f5ec0b2133b17bfea4e038")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(plum_bootstrap_dist$labels$x == toString(rlang::get_expr(properties$x)))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-1b4a28c6484afef9"} -->
+**Question 3.4** 
+<br> {points: 3}
+
+Produce a sampling distribution (**not** a bootstrap distribution) of sample standard deviations for samples of size 10 from the population `plum_pop` using a procedure similar to the previous questions and the last section; use `geom_histogram` with bin widths of 0.25. Also, use 2500 sample replicates and a seed of 2362.
+
+_Assign your plot to an object called `plum_sampling_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-ad672783439467a1'}}
+set.seed(2362) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+plum_sampling_dist <- plum_pop %>% 
+    rep_sample_n(size = 10, reps = 2500, replace = FALSE) %>% 
+    group_by(replicate) %>% 
+    summarize(sd = sd(diameter)) %>%
+    ggplot(aes(x = sd)) +
+        geom_histogram(binwidth = 0.25) +
+        xlab("Standard Deviation")
+### END SOLUTION
+plum_sampling_dist
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-6766ffaf56560b7f'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "plum_sampling_dist"', {
+  expect_true(exists("plum_sampling_dist"))
+})
+test_that("Solution should be a ggplot object", {
+  expect_true(is.ggplot(plum_sampling_dist))
+})
+### BEGIN HIDDEN TESTS
+properties <- c(plum_sampling_dist$layers[[1]]$mapping, plum_sampling_dist$mapping)
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(plum_sampling_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+  expect_equal(
+    digest(as.integer(mget("stat_params", plum_sampling_dist$layers[[1]])[["stat_params"]][["binwidth"]]) * 1000),
+    "908d1fd10b357ed0ceaaec823abf81bc"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(digest(nrow(plum_sampling_dist$data)), "45406a48666dcf764d5fead427284f8e")
+  expect_equal(digest(round(sum(pull(plum_sampling_dist$data, rlang::get_expr(properties$x))))), "b8bea64a9c34b72c1bfd996de060a2e4")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(plum_sampling_dist$labels$x == toString(rlang::get_expr(properties$x)))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-7e8315e5d3cbc365"} -->
+In the code cell below, we have used `plot_grid` to plot the sample distribution and bootstrap distribution side by side.
+
+**Note:** some of the sample standard deviations are not visible because we have manually set bounds on the x-axis so you can compare the important parts of the distributions more easily
+
+_Use the two plots below to answer the next **three questions**._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-8fb6ead05de278cb'}}
+options(repr.plot.width = 12, repr.plot.height = 4)
+plot_grid(plum_sampling_dist +
+              labs(title = "Sampling Distribution",
+                   caption = "Generated using 2500 sample replicates of size 10.") +
+              scale_x_continuous(limits = c(0, 10)),
+          plum_bootstrap_dist +
+              labs(title = "Bootstrap Distribution",
+                   caption = "Generated using 2500 bootstrap samples of size 100 from a sample of size 10.") + 
+              scale_x_continuous(limits = c(0, 10)),
+          ncol = 2)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2244b50e950e9a0c"} -->
+**Question 3.5** 
+<br> {points: 3}
+
+Which statement **best** describes the bootstrap distribution above?
+
+A. The distribution of many point estimates for the standard deviation of the population, which were acquired by taking many samples from the population and calculating the standard deviation of each sample.
+
+B. The distribution of many point estimates for the standard deviation of the sampling distribution (which is the standard error of the corresponding estimator), which were acquired by re-sampling from the original sample and calculating the standard deviation of each re-sample.
+
+C. The distribution of the standard deviations of many samples that were taken from the population.
+
+D. The distribution of standard deviations for many re-samples that were taken from the original sample.
+
+_Assign your answer to an object called `answer3.5`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-91d590e6b77000e6'}}
+# answer3.5 <- ...
+
+### BEGIN SOLUTION
+answer3.5 <- "D"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-edf9b5c8e15d6131', 'points': 3}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.5"', {
+  expect_true(exists("answer3.5"))
+})
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+  expect_match(answer3.5, "a|b|c|d", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.5)), "d110f00cfb1b248e835137025804a23b")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-a21ce58b3d2da734"} -->
+**Question 3.6** 
+<br> {points: 3}
+
+By referencing the plots above, explain why it's not a good idea to take bootstrap sizes of a **larger size than the original sample** to estimate the sampling distribution for the original sample size.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-ea429f75fae054cc"} -->
+### BEGIN SOLUTION
+Taking bootstrap sizes of a larger size than the original samples results in an artificially narrower bootstrap distribution, which does not do a good job at estimating the sampling distribution for the original sample size; we will under-estimate the standard error.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-5a499689a7ee1a31"} -->
+**Question 3.7** 
+<br> {points: 3}
+
+Suppose you took a single sample of size 164 and then took many bootstrap samples of size 10 from the first sample to produce a bootstrap distribution for the mean of the `diameter` variable in the `plum_pop` population. Suppose you wanted to use the standard deviation of the bootstrap distribution to estimate the standard deviation of the sampling distribution of sample means for the `diameter` variable for samples of size 164. How would you expect the estimate to compare to the actual standard error?
+
+A. The estimate would likely be an under-estimate.
+
+B. The estimate would likely be accurate.
+
+C. The estimate would likely be an over-estimate.
+
+D. There is not enough information to make this comparison.
+
+_Assign your answer to an object called `answer3.7`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-fcc688c1a5f5aafc'}}
+# answer3.7 <- ...
+
+### BEGIN SOLUTION
+answer3.7 <- "C"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-77a7fcc29f5d9d08', 'points': 3}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.7"', {
+  expect_true(exists("answer3.7"))
+})
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+  expect_match(answer3.7, "a|b|c|d", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.7)), "6e7a8c1c098e8817e3df3fd1b21149d1")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-aa93730bf9b99905"} -->
+### More Bootstrapping Nuances
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-926dcf19654f9798"} -->
+**Question 3.8** 
+<br> {points: 3}
+
+Suppose a bootstrap distribution of sample means of the `diameter` variable in `plum_pop`, using `rep_sample_n` to take single sample of size 8 from the population and 3000 bootstrap samples. The resulting distribution is displayed below with bin widths of 0.25:
+
+<img src="plot.png" width=600/>
+
+a) Given that the standard deviation of the `diameter` variable for the population `plum_pop` is around 5.0, is this a shape that you would expect the bootstrap distribution to have?
+
+b) If you answered yes, justify yourself in 1-2 sentences. If you answered no, justify yourself in 1-2 sentence and describe an error or scenario that would result in such a distribution in another sentence.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-b89f9dba49eab352"} -->
+### BEGIN SOLUTION
+a) No.
+**<br>{points: 1}**
+
+b) The standard deviation of the population is large enough that the values in our sample should vary more than the bootstrap distribution would indicate; all of our bootstrap sample means fit into a single bin of size 0.001. This means that either we got **very** unlucky and ended up with the exact same bootstrap sample during each of the 3000 replicates **OR** we accidentally resampled **without replacement**, which would give us the same bootstrap sample mean each time (specifically, the mean of the original sample).
+
+note: students only need to list one of the above scenarios
+**<br>{points: 2}**
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2ea018ce1de43103"} -->
+**Question 3.9** 
+<br> {points: 3}
+
+Consider the following single random sample of 6 observations of the reported average hours of screen time a person is exposed to each day:
+
+| `screen_time` <br> `<dbl>`|
+| -- |
+| 3 |
+| 6 |
+| 8 |
+| 1 |
+| 7 |
+| 7 |
+    
+Below are two more data frames that are claimed to have been created by bootstrapping from the original sample.
+
+| `screen_time` <br> `<dbl>`|
+| -- |
+| 6 |
+| 7 |
+| 6 |
+| 7 |
+| 7 |
+| 1 |
+
+| `screen_time` <br> `<dbl>`|
+| -- |
+| 7 |
+| 1 |
+| 7 |
+| 3 |
+| 6 |
+| 8 |
+
+ Consider the values in the two data frames above. Is there any evidence to falsify the claim? Explain why or why not in your own words in a few sentences.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-e29a92ff6d0d764d"} -->
+### BEGIN SOLUTION
+There is no evidence that falsifies the claim because:
+1. All values in the two data frames are present in the original sample
+2. The order of the values are different, indicating random sampling may have been involved
+3. The first data frame has one more 7 than the original, indicating that sampling with replacement must have occured here (and/or is missing 3 and/or 8, indicating that sampling with replacement must have occured because the sizes are the same), however, the frequency of the values in the second data frame are identical to the original, but this can still occur when sampling with replacement
+
+### END SOLUTION
+<!-- #endregion -->

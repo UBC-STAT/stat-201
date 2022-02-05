@@ -1,0 +1,847 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-0a3a16e4560c3222"} -->
+# Tutorial 4: Confidence Intervals via Bootstrapping
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-697926f90dfb6d3f"} -->
+#### Lecture and Tutorial Learning Goals:
+From this section, students are expected to be able to:
+
+1. Define what a confidence interval is, and why we want to generate one.
+2. Explain how the bootstrap sampling distribution can be used to create confidence intervals.
+3. Write a computer script to calculate confidence intervals for a population parameter using bootstrapping.
+4. Effectively visualize point estimates and confidence intervals.
+5. Interpret and explain results from confidence intervals.
+6. Discuss the potential limitations of these methods.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-9d4ab0c1978d7fc8'}}
+# Run this cell before continuing.
+library(cowplot)
+library(datateachr)
+library(digest)
+library(infer)
+library(repr)
+library(taxyvr)
+library(tidyverse)
+source("tests_tutorial_04.R")
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-8f98efcea21ec2e0"} -->
+## 1. Steam Games
+
+For the first part of this tutorial, we'll be working with a dataset that contains various attributes, including the name, original price, genre, and description, of over 40,000 different games available on Steam. Steam is a platform where video games (and some other types of applications) are distributed digitally. Essentially, Steam acts as a digital game store and library. Although this particular dataset was compiled in 2019, for this tutorial, we will assume we have data for the entire population for simplicity.
+
+
+<img src="https://steamcdn-a.akamaihd.net/store/about/social-og.jpg" width=500>
+<div style="text-align: center"><i>Image from <a href="https://store.steampowered.com/about/">store.steampowered.com</i></a></div><br>
+
+This data set, like several of the others we have worked with so far, is included in the `datateachr` package under the object name `steam_games`. The original source of the data set can be found in the documentation (`?steam_games`). We are interested in calculating a **90% confidence interval** for the **median of the `original_price`** of the games in the population. Afterwards, we will interpret the confidence interval and, because we are lucky enough to have access to data for the entire finite population, we will calculate the true median and see whether it is captured by our confidence interval.
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-ad245a9f4e1c5358'}}
+?steam_games
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-e3af05128aa353b2"} -->
+**Question 1.0** 
+<br> {points: 1}
+
+Filter out all `NA` values from the variable we are interested in (`original_price`), and select only that column.
+
+**Note:** the values of `original_price` are in $USD.
+
+_Assign your data frame to an object called `steam_pop`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-fa279e7c87ba536d'}}
+### BEGIN SOLUTION
+steam_pop <- 
+    steam_games %>% 
+    filter(!is.na(original_price)) %>% 
+    select(original_price)
+### END SOLUTION
+
+head(steam_pop)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-2328820ae2dd9342'}}
+test_1.0()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-6e83465e672d5f4a"} -->
+**Question 1.1** 
+<br> {points: 1}
+
+Take a single random sample of size 40 from `steam_pop` using `rep_sample_n` and a seed of 2078. After taking the sample, ensure that only the `original_price` column is selected. (_Hint: you will need to ungroup before selecting the column_.)
+
+_Assign your data frame to an object called `steam_sample`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-b15be21c9148990e'}}
+set.seed(2078)
+
+### BEGIN SOLUTION
+steam_sample <- 
+    steam_pop %>% 
+    rep_sample_n(reps = 1, size = 40, replace = FALSE) %>% 
+    ungroup() %>% 
+    select(original_price)
+### END SOLUTION
+
+head(steam_sample)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-aa73f2f5d26ec1a5'}}
+test_1.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-f8d2705dd1f8a738"} -->
+**Question 1.2** 
+<br> {points: 1}
+
+Take 1500 bootstrap samples from `steam_sample` using `rep_sample_n` and a seed of 9844. Then, calculate the median of each sample (name this column `bootstrap_median`). Your final data frame should have a `replicate` column and a `bootstrap_median` column.
+
+_Assign your data frame to an object called `steam_bootstrapped`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-fb44dfe96bbfc3e2'}}
+set.seed(9844)
+
+### BEGIN SOLUTION
+steam_bootstrapped <- steam_sample %>% 
+    rep_sample_n(reps = 1500, size = 40, replace = TRUE) %>% 
+    group_by(replicate) %>% 
+    summarize(bootstrap_median = median(original_price))
+### END SOLUTION
+
+head(steam_bootstrapped)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-ac7825fd6fb09e74'}}
+test_1.2()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-a81081ee88a8dcbb"} -->
+**Question 1.3** 
+<br> {points: 1}
+
+Use the `summarize` and `quantile` functions to calculate a 90% confidence interval for the median. Use the 0.05th and 0.95th quantiles for the lower and upper bounds of the interval, respectively. Name the column containing the lower bound of the interval `ci_lower` and the upper bound `ci_upper`.
+
+_Assign your data frame to an object called `steam_ci`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-32b6987424efb99e'}}
+### BEGIN SOLUTION
+steam_ci <- steam_bootstrapped %>% 
+    summarize(ci_lower = quantile(bootstrap_median, 0.05),
+              ci_upper = quantile(bootstrap_median, 0.95))
+### END SOLUTION
+head(steam_ci)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-d5e684abafd5de61'}}
+test_1.3()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-83b27ff0876de4d5"} -->
+### The `infer` package workflow for bootstrapping (and calculating confidence intervals)
+
+As you may have seen in [ModernDive](https://moderndive.com/8-confidence-intervals.html#infer-workflow), there is an alternative workflow for generating bootstrap distributions and calculating confidence intervals. The benefits are outlined in [Section 8.4.2](https://moderndive.com/8-confidence-intervals.html#infer-workflow). However, to summarize, the main benefit is that it will allow us to use similar code for inference methods that we will learn about later on, so we can compare and transition from one method to another much easier. The general workflow for bootstrapping with the `infer` workflow is summarized in the chart below:
+
+<img src="https://d33wubrfki0l68.cloudfront.net/e7a0c87bc2cf1c53724bff5b58ff74e80224aac2/7e5fe/images/flowcharts/infer/calculate.png
+" width=400>
+<div style="text-align: center"><i>Image from <a href="https://moderndive.com/8-confidence-intervals.html#infer-workflow">ModernDive</i></a></div><br>
+
+Given a sample, in the `specify` step, you "specify" the variable in the sample that you are interested in. With `generate`, you "generate" the bootstrap samples (like using `rep_sample_n`). Then, with `calculate`, you "calculate" the statistic you are interested in for each re-sample (like using `group_by(replicate)` and then `summarize`).
+
+Finally, you can use `get_confidence_interval` to calculate a confidence interval using our bootstrap distribution and quantiles (like using the `summarize` and `quantile` functions).
+
+Let's re-do **question 1.2** and **question 1.3** using this new workflow for practice.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d38884f4b37c73d0"} -->
+**Question 1.2 (with the `infer` workflow!)** 
+<br> {points: 1}
+
+Using the `infer` workflow, take 1500 bootstrap samples from `steam_sample` and calculate the **median** of each sample. Use the same seed as you did previously (9844) and the scaffolding provided below as a guide:
+
+```r
+steam_bootstrapped2 <- ... %>% 
+    specify(response = ...) %>% 
+    generate(type = "bootstrap", reps = ...) %>% 
+    calculate(stat = "...")
+```
+
+_Assign your data frame to an object called `steam_bootstrapped2`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-1f0df6bdbb62604c'}}
+set.seed(9844) # DO NOT CHANGE
+
+### BEGIN SOLUTION
+steam_bootstrapped2 <- steam_sample %>% 
+    specify(response = original_price) %>% 
+    generate(type = "bootstrap", reps = 1500) %>% 
+    calculate(stat = "median")
+### END SOLUTION
+head(steam_bootstrapped2)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-b45446b574e94ceb'}}
+test_1.2_infer()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-2d3f19165602c754"} -->
+**Question 1.3 (with the `infer` workflow)** 
+<br> {points: 1}
+
+Use the `get_confidence_interval` function with the bootstrap distribution you just generated (`steam_bootstrapped2`) to calculate a 90% confidence interval for the median. Use the scaffolding provided below as a guide:
+
+```r
+steam_ci2 <- steam_bootstrapped2 %>% 
+    get_confidence_interval(level = ..., type = "percentile")
+
+```
+
+**Note:** you can also use the function `get_ci`, which is the same as the function `get_confidence_interval`, but it is much more concise. Try replacing `get_confidence_interval` with `get_ci`, and the result will be the same!
+
+_Assign your data frame to an object called `steam_ci2`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-236e2d720af60c9f'}}
+### BEGIN SOLUTION
+steam_ci2 <- steam_bootstrapped2 %>% 
+    get_confidence_interval(level = 0.90, type = "percentile")
+### END SOLUTION
+steam_ci2
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-bcb118f1c903bc0c'}}
+test_1.3_infer()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-787bd139839ff9f2"} -->
+**Question 1.4**
+<br> {points: 1}
+
+Visualize the confidence interval (`steam_ci2`) with two `geom_vline` layers on top of the bootstrap distribution (`steam_bootstrapped2`) using `geom_histogram` with bin widths of 5. Use the scaffolding provided below as a guide:
+
+```r
+steam_ci_plot <- steam_bootstrapped2 %>% 
+    ggplot(aes(x = ...)) +
+    ...(binwidth = ...) +
+    ...(xintercept = steam_ci[[1]]) +
+    ...(xintercept = ...)
+```
+
+_Assign your plot to an object called `steam_ci_plot`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-ed597d1944e8d0f4'}}
+### BEGIN SOLUTION
+steam_ci_plot <- steam_bootstrapped2 %>% 
+    ggplot(aes(x = stat)) +
+    geom_histogram(binwidth = 5) +
+    geom_vline(xintercept = steam_ci[[1]]) +
+    geom_vline(xintercept = steam_ci[[2]])
+### END SOLUTION
+steam_ci_plot
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-33d5d981468b489b'}}
+test_1.4()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-ae991fa30d049a8c"} -->
+**Question 1.5** 
+<br> {points: 3}
+
+Consider the effectiveness of the plot above. If you think the plot is effective, list **at least** three reasons why. Otherwise, list **at least** three things that you would change about the plot to make it more effective.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "grade_id": "cell-d8bb30be9c34acae", "points": 1} -->
+### BEGIN SOLUTION
+Overall, the plot is ineffective. Some things to change may include:
+1. Decrease the size of the bins so the underlying bootstrap distribution is more apparent.
+2. Add a descriptive title.
+3. Add a descriptive x-axis.
+4. Make the boundaries of the confidence interval more apparent, perhaps by either
+    - Changing the colours of the vertical lines (and perhaps increase the thickness)
+    - Changing the colours of the histogram bars
+    - Add a transluscent rectangle spanning the y-axis and the confidence interval that contrasts with the histogram bars
+    - Label the boundaries of the confidence interval
+5. Add more breaks to the x-axis scale to make it easier to estimate values between the breaks.
+
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-671f9c9171d201f1"} -->
+**Question 1.6** 
+<br> {points: 1}
+
+Calculate the median of the population `steam_pop`.
+
+_Assign your answer to an object called `steam_median`. Your answer should be a single number._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-bf6e8d2bad6dbfa0'}}
+### BEGIN SOLUTION
+steam_median <- steam_pop %>% 
+    pull(original_price) %>% 
+    median()
+### END SOLUTION
+steam_median
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-54bb7b760cdd994e'}}
+test_1.6()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-479025f4f0b088ae"} -->
+**Question 1.7**
+<br>{points: 1}
+
+True or false?
+
+The confidence interval `steam_ci` captures the parameter of interest.
+
+_Assign your answer to an object called `answer1.7`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-667d895a7bdce38f'}}
+# answer1.7 <- ...
+
+### BEGIN SOLUTION
+answer1.7 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-d4ea9b654f5ac678', 'points': 1}}
+test_1.7()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-ad40e9e61ba37ed6"} -->
+**Question 1.8**
+<br>{points: 1}
+
+Suppose you repeated the process above and took 100 more samples and calculated a 90% cofidence interval for each sample. How many of the 100 intervals would you expect to capture the true median of the population?
+
+_Assign your answer to an object called `answer1.8`. Your answer should be a single integer._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-20d3a4e79a063c02'}}
+# answer1.8 <- ...
+
+### BEGIN SOLUTION
+answer1.8 <- 90
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-8e27b4947d4866fb'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer1.8"', {
+  expect_true(exists("answer1.8"))
+})
+answer_as_numeric <- as.numeric(answer1.8)
+test_that("Solution should be a number", {
+  expect_false(is.na(answer_as_numeric))
+})
+test_that("Solution should be an integer", {
+  expect_true(answer_as_numeric %% 1 == 0)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(answer_as_numeric), "ccff14b67a1584858596ab658dbc1e4d")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-90ccaf35bb6ea089"} -->
+## 2. Breast Cancer Diagnosis
+
+In this section, we'll be working with a sample of characteristics of the cell nuclei of various breast masses. The data originates from University of Wisconsin Hospital, where a physician named Dr. William H. Wolberg obtained samples of breast lumps (or tumors) using a fine needle aspiration (FNA) biopsy. Images of the samples were digitized to compute the characteristics of the nuclei that you can find in the sample to work towards Dr. Wolberg's original goal of diagnosing new tumours mathematically using only a single FNA [(he was quite successful!)](https://www.pnas.org/content/87/23/9193.short). In the sample, the nuclei characteristics have been paired with the ultimate diagnosis of the mass (benign or malignant).
+
+<img src="http://pages.cs.wisc.edu/~street/saves/xcyt1.gif
+" width=500>
+<div style="text-align: center">A screenshot from Xcyt, a program that was developed by Dr. Wolberg for breast mass diagnoses using these data.<br><i>Image from <a href="https://moderndive.com/8-confidence-intervals.html#infer-workflow">pages.cs.wisc.edu</i></a></div><br>
+
+This sample is located in the `datateachr` package, and is named `cancer_sample`. We are  interested in estimating the **proportion of the patients from the population whose breast masses are malignant** (`diagnosis == "M"`).
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-97d69e73d0674bea'}}
+# Run this cell before continuing.
+head(cancer_sample)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-40898ae24f137226"} -->
+**Question 2.0**
+<br>{points: 3}
+
+Describe the population from which the sample `cancer_sample` was drawn from.
+
+**Note:** this question has a fairly wide range of acceptable answers!
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-c8e6f6b5bbccd05b"} -->
+### BEGIN SOLUTION
+This question has a wide range of acceptable answers. Your answer depends on which group you suspect this sample is representative of (this is unclear). Here are two examples:
+1. The population is the set of all people in the world with breast lumps, assuming that the sample is representative of this group. 
+2. More realistically, perhaps the population is the set of all people in the United States with breast lumps, assuming that the sample is representative of this group.
+
+Regardless, there must be some mention of set of all **people with breast lumps** for full credit.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-26332d818a4387fa"} -->
+**Question 2.1**
+<br>{points: 3}
+
+Use the `infer` package workflow to calculate an 80% confidence interval for the proportion with malignant breast masses (`diagnosis == "M"`), using bootstrapping with 1000 replicates. Set your seed to 8943. Your final dataframe should have a single row and two columns named `lower_ci` and `upper_ci`.
+
+**Hint:** If you're stuck, don't be afraid to explore the [documentation for the `infer` package](https://cran.r-project.org/web/packages/infer/infer.pdf), peek at [Section 8.5 of ModernDive](https://moderndive.com/8-confidence-intervals.html#one-prop-ci), or ask someone for help! You can use your code from the previous section as a blueprint.
+
+_Assign your data frame to an object called `cancer_ci`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-b3208e919708e3a6'}}
+set.seed(8943) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+cancer_ci <- cancer_sample %>% 
+    specify(response = diagnosis, success = "M") %>% 
+    generate(type = "bootstrap", reps = 1000) %>% 
+    calculate(stat = "prop") %>% 
+    get_ci(type = "percentile", level = 0.80)
+### END SOLUTION
+cancer_ci
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 1, 'grade_id': 'cell-a48f1ab67ab90f8f'}}
+test_2.1()
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-c136664317b779e9"} -->
+**Question 2.2**
+<br>{points: 3}
+
+Does the confidence interval capture the population parameter we are interested in? If there is no way to determine this for certain, explain why that is the case.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "grade_id": "cell-dace4e4a65f80abb", "points": 3} -->
+### BEGIN SOLUTION
+There is no way to know for certain whether our confidence interval captures the true parameter because we do not have access to data for the entire population.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-439bd5e9841feb5b"} -->
+**Question 2.3**
+<br>{points: 3}
+
+In 1-2 sentences, explain one way you can interpret the confidence interval you calculated above (`cancer_ci`).
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-7d0ade0ba996d669"} -->
+### BEGIN SOLUTION
+**Solution 1:** We are 80% confident that the true proportion of individuals in our population with malignant breast lumps is captured by the confidence interval (0.3478032, 0.397188).
+
+**Solution 2:** Out of all possible confidence intervals with a confidence level of 80% that we could calculate for the proportion of individuals in the population with malignant breast lumps, the proportion of intervals that would contain the true population proportion is 0.80.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-e62dad9584edaeb3"} -->
+**Question 2.4**
+<br>{points: 1}
+
+Suppose you calculated another 80% confidence interval for the population proportion, but with a sample that was 5 times larger than `cancer_sample`. How would you expect this second interval compare to the first confidence interval you calculated above (`cancer_ci`)?
+
+A. The second confidence interval would likely be narrower than the first.
+
+B. The second confidence interval would likely be about the same width as the first.
+
+C. The second confidence interval would likely be wider than the first.
+
+D. There is no way to tell how the second interval would compare to the first.
+
+_Assign your answer to an object called `answer2.4`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-f8ebc2b8a4e59c38'}}
+# answer2.4 <- ...
+
+### BEGIN SOLUTION
+answer2.4 <- "A"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-1c527e7a33c44b58'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer2.4"', {
+  expect_true(exists("answer2.4"))
+})
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+  expect_match(answer2.4, "a|b|c|d", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer2.4)), "127a2ec00989b9f7faf671ed470be7f8")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-ede7d2d839cfd7d4"} -->
+## 3. Bow River at Banff: 100-Year Flood
+
+Sample quantiles, like the other statistics we have introduced such as the sample mean and standard deviation, can also be considered as a point estimate of a population parameter. Meaning, quantiles can be used to describe the distribution of a quantitative variable of a population; each distribution has a unique 0.4 quantile, 0.93 quantile, and so on. One common usage of quantiles is to estimate N-year floods. An N-year flood is defined as smallest possible severety for a flood that we **expect** to occur once every N years (but could occur more or less than once in any given N-year span). To calculate a point estimate N-year flood, one must find a quantile such that $\frac{1}{N}$ known observations fall above it. Also, like the other population parameters we have mentioned, we can also calculate a **confidence interval** for this parameter, which is what we will be doing in this section.
+
+
+In 2013, a combination of factors lead to the Bow River reaching very high flow rates (466 ${\text{m}^3}/{\text{s}}$ near Banff), which contributed to extreme flooding throughout Alberta, the Canadian province that lies directly east of British Columbia. One photograph of the event is shown above. For many years the Government of Canada has been collecting hydrometric data at many different stations for several rivers, including the Bow River. So, what's the least severe flood due to high Bow River flow rates that Albertans can expect every 100 years? To answer this question, our goal is calculate a **95% confidence interval for the 100-year flood** (the $1 - \frac{1}{100} = 0.99$ quantile) using the **maxima** flow rate data collected at the Banff Bow River station, recorded in ${\text{m}^3}/{\text{s}}$. This data is located [here](https://wateroffice.ec.gc.ca/report/historical_e.html?stn=05BB001&dataType=Annual+Extremes&parameterType=Flow&year=2018&mode=Table) but we have already tidied the data for you and included it in the `datateachr` package under the name `flow_sample`.
+
+`flow_sample` contains information about the maximum _and_ minimum flow rates for each year, so we need to filter the data set for **flow maxima**. We have done this for you in the cell below:
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': False, 'locked': True, 'task': False, 'grade_id': 'cell-bd77bcb71614f9ea'}}
+# Run this cell before continuing.
+flow_sample <- flow_sample %>% 
+    filter(extreme_type == "maximum")
+
+head(flow_sample)
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-899204d1a64f2bfd"} -->
+**Question 3.0**
+<br>{points: 3}
+
+The data contained in `flow_sample` is considered a sample. Describe the population from which the sample was drawn from.
+
+**Note:** there may more than one solution to this question depending on how one interprets "population".
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": true, "grade": true, "locked": false, "task": false, "points": 3, "grade_id": "cell-31c1a7ca3535d01a"} -->
+### BEGIN SOLUTION
+One solution could be: You could say the population is the set of all possible years. Or, at least all the years for which the river is in existence.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-c6f632ef113e101b"} -->
+**Question 3.1**
+<br>{points: 3}
+
+Use the `infer` package workflow to generate bootstrap distribution of the appropriate sample quantiles for `flow_sample` using 3000 bootstrap replicates. Set your seed to 4629. Your final dataframe should have the columns `replicate` and `stat`.
+
+**IMPORTANT NOTE:** because the `calculate` function does not support using quantiles as the sample statistic, here we have to use the `summarize` function. Thus, in place of the line where you would usually use `calculate` with the `infer` package workflow, you can use the following line:
+
+```r
+    ... %>%
+    summarize(stat = quantile(flow, probs = 0.99))
+```
+
+_Assign your data frame to an object called `flow_bootstrapped`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-0355d24604d1db72'}}
+set.seed(4629) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+flow_bootstrapped <- flow_sample %>% 
+    specify(response = flow) %>% 
+    generate(type = "bootstrap", reps = 3000) %>% 
+    summarize(stat = quantile(flow, probs = 0.99))
+### END SOLUTION
+head(flow_bootstrapped)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-6773d36ab69a5944'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "flow_bootstrapped"', {
+  expect_true(exists("flow_bootstrapped"))
+})
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(flow_bootstrapped))
+})
+### BEGIN HIDDEN TESTS
+expected_colnames <- c("replicate", "stat")
+given_colnames <- colnames(flow_bootstrapped)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(flow_bootstrapped))),
+               "b5458e3b37771063dd9f7160eb1e653f")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(flow_bootstrapped$stat) * 1000)),
+               "344980685a9b498b9a0c9b5facc1b81d")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-0654e2f42a6a3bc0"} -->
+**Question 3.2**
+<br>{points: 3}
+
+Use the appropriate function from the `infer` package to calculate a 95% confidence interval for the 100-year flood from the bootstrap distribution you just generated. Your final dataframe should have a single row and two columns named `lower_ci` and `upper_ci`.
+
+_Assign your data frame to an object called `flow_ci`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-4b586362c8579701'}}
+### BEGIN SOLUTION
+flow_ci <- flow_bootstrapped %>% 
+    get_ci(type = "percentile", level = 0.95)
+### END SOLUTION
+head(flow_ci)
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'grade_id': 'cell-0452ee4cd567c75f', 'points': 3}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "flow_ci"', {
+  expect_true(exists("flow_ci"))
+})
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(flow_ci))
+})
+### BEGIN HIDDEN TESTS
+expected_colnames <- c("lower_ci", "upper_ci")
+given_colnames <- colnames(flow_ci)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(flow_ci))),
+               "4b5630ee914e848e8d07221556b0a2fb")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(flow_ci$lower_ci * 1000)),
+               "6c75c5f700980e8e22a49f34a39f3578")
+  expect_equal(digest(as.integer(flow_ci$upper_ci * 1000)),
+               "18fd33d2daf5aac2f135ef8a7da79317")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-38ba2cf206a30f11"} -->
+**Question 3.3**
+<br> {points: 3}
+
+Create an **effective** visualization of the confidence interval `flow_ci` and its associated bootstrap distribution `flow_bootstrapped`. Use whichever layers and arguments you wish. 
+
+**Hint:** if you want some inspiration, check out https://www.r-graph-gallery.com/index.html!
+
+_Assign your plot to an object called `flow_ci_plot`._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': True, 'locked': False, 'task': False, 'grade_id': 'cell-b2ea95c2613769e0', 'points': 3}}
+### BEGIN SOLUTION
+
+# Students should at LEAST implement the three changes they suggested for the
+# first confidence interval plot that they mentioned in question 1.5
+# (1 point for each change mentioned there)
+
+# There may be some other unique ways to display the confidence interval that
+# would also get full points so long as they convey the story well
+
+steam_ci_plot <- flow_bootstrapped %>% 
+    ggplot(aes(x = stat)) +
+
+    # Use a more appropriate bin width
+    # Outline histogram bars
+    # Use contrasting, colour-blind friendly colours for histogram bars + lines
+    geom_histogram(binwidth = 10, fill = "#480087", colour = "white") +
+
+    # Increase width of CI boundary lines
+    geom_vline(xintercept = flow_ci[[1]], colour = "#2fed2f", size = 2) +
+    geom_vline(xintercept = flow_ci[[2]], colour = "#2fed2f", size = 2) +
+
+    # Add a rectangle annotation to emphasize CI bounds
+    annotate("rect",
+             xmin = flow_ci[[1]], xmax = flow_ci[[2]],
+             ymin = -Inf, ymax = Inf,
+             fill = "#2fed2f",
+             alpha = 0.2) +
+
+    # Make room for CI boundary labels
+    scale_y_continuous(limits = c(0, 800)) +
+
+    # Increase readability of x-axis
+    scale_x_continuous(limits = c(280, 500), breaks = seq(200, 600, 20)) +
+
+    # Labels boundaries of CI
+    annotate("text",
+             x = flow_ci[[1]] + 2,
+             y = 750,
+             hjust = 0,
+             label = paste(round(flow_ci[[1]]), "m^3 / s")) +
+    annotate("text",
+             x = flow_ci[[2]] - 2,
+             y = 750,
+             hjust = 1,
+             label = paste(round(flow_ci[[2]]), "m^3 / s")) +
+
+    # Add descriptive labels & titles
+    labs(title = "Simulated Bootstrap Distribution (1000 reps)\nWith 95% C.I. For 100-Year Flood",
+         subtitle = "Bow River, Banff, Alberta, Hydrometric Data Station 05BB001",
+         x = "0.99th Quantile of Flow Maxima (m^3/s)",
+         y = "Frequency") +
+
+    # Change theme for further contrast
+    theme_bw()
+### END SOLUTION
+steam_ci_plot
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d8c1d59bb6a4338c"} -->
+_Use your plot above to help you answer the **next 3 questions**._
+<!-- #endregion -->
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-83d097657c5a693e"} -->
+**Question 3.4**
+<br>{points: 1}
+
+True or false?
+
+There is a 50% chance that the true 100-year flood value is captured by the confidence interval `flow_ci`.
+
+_Assign your answer to an object called `answer3.4`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-d9a4eb2e56e2ecbe'}}
+# answer3.4 <- ...
+
+### BEGIN SOLUTION
+answer3.4 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-3eb0b62c08bdfbe9'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.4"', {
+  expect_true(exists("answer3.4"))
+})
+test_that('Answer should be "true" or "false"', {
+  expect_match(answer3.4, "true|false", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.4)),
+               "d2a90307aac5ae8d0ef58e2fe730d38b")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-d03d1d2daa5f780e"} -->
+**Question 3.5**
+<br>{points: 1}
+
+True or false?
+
+We are 95% confident that the true 100-year flood value is captured by the confidence interval `flow_ci`.
+
+_Assign your answer to an object called `answer3.5`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-f67f3bc2d2cecd09'}}
+# answer3.5 <- ...
+
+### BEGIN SOLUTION
+answer3.5 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-2c25ad9596dad135'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.5"', {
+  expect_true(exists("answer3.5"))
+})
+test_that('Answer should be "true" or "false"', {
+  expect_match(answer3.5, "true|false", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.5)),
+               "05ca18b596514af73f6880309a21b5dd")
+})
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"schema_version": 3, "solution": false, "grade": false, "locked": true, "task": false, "grade_id": "cell-008bc1078d0f8846"} -->
+**Question 3.6**
+<br>{points: 1}
+
+True or false?
+
+If we increased the confidence level of the confidence interval `flow_ci`, we would expect that it would become narrower.
+
+_Assign your answer to an object called `answer3.6`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'schema_version': 3, 'solution': True, 'grade': False, 'locked': False, 'task': False, 'grade_id': 'cell-91d3dae1fa9afd59'}}
+# answer3.6 <- ...
+
+### BEGIN SOLUTION
+answer3.6 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'schema_version': 3, 'solution': False, 'grade': True, 'locked': True, 'task': False, 'points': 3, 'grade_id': 'cell-8375139f411d5d82'}}
+# Here we check to see if you have given your answer the correct object name
+# and if your answer is plausible. However, all other tests have been hidden
+# so you can practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.6"', {
+  expect_true(exists("answer3.6"))
+})
+test_that('Answer should be "true" or "false"', {
+  expect_match(answer3.6, "true|false", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.6)),
+               "d2a90307aac5ae8d0ef58e2fe730d38b")
+})
+print("Success!")
+### END HIDDEN TESTS
+```

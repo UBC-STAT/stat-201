@@ -1,0 +1,1277 @@
+---
+jupyter:
+  jupytext:
+    formats: ipynb,Rmd
+    text_representation:
+      extension: .Rmd
+      format_name: rmarkdown
+      format_version: '1.2'
+      jupytext_version: 1.5.2
+  kernelspec:
+    display_name: R
+    language: R
+    name: ir
+---
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-e878cedd195c223b", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+# Tutorial 2: Populations and Sampling
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-54a529ad4f75126b", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+### Lecture and Tutorial Learning Goals
+After completing this week's lecture and tutorial work, you will be able to:
+
+1. Compare and contrast quantitative and categorical variables.
+2. Explain random and representative sampling and how this can influence estimation.
+3. Define random variables and explain how they relate to sampling.
+4. Define standard error and explain its purpose.
+5. Compare and contrast population distribution, sample distribution and an estimator's sampling distribution.
+6. Explain what a sampling distribution is, list its properties, and its purpose in statistical inference.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-072bbedad529ead5', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+library(cowplot)
+library(datateachr)
+library(digest)
+library(infer)
+library(lubridate)
+library(repr)
+library(tidyverse)
+source("tests_tutorial_02.R")
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-814a3bbf621b941f", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 1. Warm-Up Questions
+
+Here are a few questions to get you warmed up before we dive into the tutorial.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-ab94b4d1c4911d17", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.0**
+<br>{points: 1}
+
+Suppose you are given a random sample of the heights of 100 different trees planted in Vancouver. You are asked to calculate the variance of the sample, which will be used as a point estimate of the variance of the height of all trees in Vancouver.
+
+True or false?
+
+Your point estimate could be considered the outcome of a random variable.
+
+_Assign your answer to an object called `answer1.0`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-ee3221cfa9364516', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer1.0 <- ...
+
+### BEGIN SOLUTION
+answer1.0 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-19ddcc9b045f5837', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.0()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-ee9f65d2aca14d1e", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.1**
+<br>{points: 1}
+
+Consider the following 20 values:
+
+```
+-2	 7	-7	-10	 0
+ 4	-7	 5	 10	 9
+ 9	 6	-3	  2	 1
+ 4	 1	 2	  7	-9
+```
+
+What is the proportion of the values that are **less than or equal to 0**?
+
+_Assign your answer to an object called `answer1.1`. Your answer should be a single number._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-140d960e0aeccec8', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer1.1 <- ...
+
+### BEGIN SOLUTION
+answer1.1 <- 7 / 20
+### END SOLUTION
+
+answer1.1
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-7334b04965794762', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-e7edc23c85367d7a", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.2**
+<br>{points: 1}
+
+In which scenario(s) would it **not** be logical to calculate the mean of the data collected?
+
+A. You record the length of each word on a single page in a book.
+
+B. You record the colour of each vehicle parked along one side of a block in downtown Vancouver.
+
+C. You record the time that it takes for you sprint 100m on 10 different days.
+
+D. You record the number of students using laptops during each of the first 5 days of your math class.
+
+E. None of the above
+
+_Assign your answer to an object called `answer1.2`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-f0edb2a029003f3a', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer1.2 <- ...
+
+### BEGIN SOLUTION
+answer1.2 <- "B"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-3467ef68544c6ec2', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.2()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a526e3ba7d40ef3c", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 1.3**
+<br>{points: 1}
+
+True or false?
+
+An estimator is a random variable whose distribution is the sampling distribution for a particular sample size and population parameter.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-f26017e8ccddaf15', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer1.3 <- ...
+
+### BEGIN SOLUTION
+answer1.3 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-342c9b87e546ce6c', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_1.3()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-eff6d292442e9f82", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 2. Influence of Sample Size
+
+Recall that in the last worksheet, we took a look at how the size of our virtual samples can affect the shape of the sampling distributions that they produce. In this tutorial, we are going to continue looking at these trends in a bit more depth.
+
+To do this, we will be using the `apt_buildings` dataset from the `datateachr` package. Unlike the other dataset that we have worked with from this package, `vancouver_trees`, this dataset originates from Toronto. Here is a bit more information about it from the documentation (which you can access yourself using `?apt_buildings`):
+> This dataset contains Toronto apartment building information for buildings that are registered in the Apartment Building Standard (ABS) program. The information was collected from building owners/managers during the initial registration process. 
+
+![](https://media.giphy.com/media/Ru86ce44TU4A8/giphy.gif)
+<div style="text-align: center"><i>Image from <a href="https://media.giphy.com/media/Ru86ce44TU4A8/giphy.gif">giphy.com</i></a></div>
+
+As this dataset contains information about all apartments registered in the ABS program, we can consider it as a finite population. Hence, to solidify our understanding of the influence of sampling size on sampling distributions, we will take a look at the **sampling distribution of sample variance** for the **age (in years)** of our population apartment buildings in Toronto that are registered in the ABS program.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-26183e350a81edc6', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+colnames(apt_buildings)
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-748bb43889baf70e", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+Taking a look at the list of columns in the `apt_buildings` dataset that has been printed above, it appears there is no column describing age; we must create one ourselves.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d022c2280f3cad60", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.0** 
+<br> {points: 1}
+
+Use the scaffolding in the code cell below to add a new `age_yrs` column (which should describe be the age in **years** of each building) to `apt_buildings`, and then select only that new column. Afterwards, filter out rows that contain `NA` values.
+
+_**Note:** `Sys.Date()` is a function that returns a `date-time` object describing the current time, and `year()` is a function that gets the year from a `date-time` object. Hence, `year(Sys.Date())` is the current year._
+
+_**Hint:** check the list of column names above to see which column you need to use to calculate `age_yrs`._
+
+_Assign your data frame to an object called `apt_ages`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-72431e625a28bea3', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# apt_ages <- 
+#    apt_buildings %>% 
+#    ...(... = year(Sys.Date()) - ...) %>%    
+#    select(...) %>% 
+#    ...(...)
+
+### BEGIN SOLUTION
+apt_ages <- 
+    apt_buildings %>% 
+    mutate(age_yrs = year(Sys.Date()) - year_built) %>%    
+    select(age_yrs) %>% 
+    filter(!is.na(age_yrs))
+### END SOLUTION
+
+head(apt_ages)
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-06cb18bbf067eafe', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.0()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-6d372aa6ac776323", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.1**
+<br> {points: 1}
+
+Visualize the population distribution by creating a histogram with bin widths of 10 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `apt_age_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-5ffde2ae0d0f6fb1', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# apt_age_dist <- 
+#    apt_ages %>% 
+#    ggplot(aes(x = ...)) +
+#    ...(... = ..., boundary = 0, color = 'white') +
+#    ...("Ages of Toronto ABS Apartment Buildings") +
+#    ...("...")
+
+### BEGIN SOLUTION
+apt_age_dist <- 
+    apt_ages %>% 
+    ggplot(aes(x = age_yrs)) +
+    geom_histogram(binwidth = 10, boundary = 0, color = 'white') +
+    ggtitle("Ages of Toronto ABS Apartment Buildings") +
+    xlab("Age (years)")
+### END SOLUTION
+
+apt_age_dist
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-260bb0b7736e6db1', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-b4a218c8fc742180", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.2**
+<br> {points: 3}
+
+Let the $X$ be the age (in years) of a randomly selected apartment from the population of interest (all apartments in Toronto that are registered in the ABS program). Is it more likely that $X \leq 25$ or $X \geq 75$? Justify your answer in 1-2 sentences.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": true, "grade_id": "cell-a28bcc5868a1fae7", "locked": false, "points": 3, "schema_version": 3, "solution": true, "task": false} -->
+### BEGIN SOLUTION
+More apartments in the population are $\geq 75$ years old than apartments $\leq 25$ years old, so it is more likely that we choose one that is $\geq 75$ years old since all of the apartments in the population have an equal chance of being selected.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-ba00d3dc68131c58", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.3**
+<br> {points: 1}
+
+Use the `rep_sample_n` function to take 2000 samples of size 10 from the population `apt_ages`. Use the seed `3735`. Then, calculate the variance of each sample; name the column containing the sample variances `sample_var`. Your final data frame should have two columns: `replicate` and `sample_var`.
+
+_Assign your data frame to an object called `sample_vars_10x2000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-bfd696f40df627bb', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(3735) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+sample_vars_10x2000 <- 
+    apt_ages %>% 
+    rep_sample_n(size = 10, reps = 2000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs))
+### END SOLUTION
+
+head(sample_vars_10x2000)
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-0a2c436fa5a27f7b', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.3()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-61b2eff1ffabc9c8", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.4**
+<br> {points: 1}
+
+Visualize the distribution of the sample variances that you calculated in the previous question by plotting a histogram with bin widths of 80 using `geom_histogram`. Add a title of "size = 10, 2000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `sampling_dist_10x2000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-57d34a3685eadabf', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# sampling_dist_10x2000 <- 
+#    ... %>% 
+#    ...(aes(x = sample_var)) +
+#    ...(binwidth = ...) +
+#    ggtitle(...) +
+#    ...(...)
+
+### BEGIN SOLUTION
+sampling_dist_10x2000 <- 
+    sample_vars_10x2000 %>% 
+    ggplot(aes(x = sample_var)) +
+    geom_histogram(binwidth = 80, color = 'white') +
+    ggtitle("size = 10, 2000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_10x2000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-91d26a4811796629', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.4()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a9196bcc6cfa8834", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.5**
+<br> {points: 1}
+
+Using the same strategy as you did in **question 2.2**, draw 2000 random samples of size 50 from the population `apt_ages`. Use the seed `4623`. Then, for each sample, calculate the sample variance. Finally, visualize the distribution of the sample variances you just calculated by plotting a histogram with bin widths of 60 using `geom_histogram`. Add a title of "size = 50, 2000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `sampling_dist_50x2000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-5f6ff68722771bb2', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(4623) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+sampling_dist_50x2000 <- apt_ages %>% 
+    rep_sample_n(size = 50, reps = 2000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs)) %>% 
+    ggplot(aes(x = sample_var)) + 
+    geom_histogram(binwidth = 60, color = 'white') +
+    ggtitle("size = 50, 2000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_50x2000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-4654ab9a460d94c4', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.5()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-c5bb4004eb9087f2", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.6**
+<br> {points: 1}
+
+Using the same strategy as you did in **question 2.2**, draw 2000 random samples of size 150 from the population `apt_ages`. Use the seed `8614`. Then, for each sample, calculate the sample variance. Finally, visualize the distribution of the sample variances you just calculated by plotting a histogram with bin widths of 30 using `geom_histogram`. Add a title of "size = 150, 2000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `sampling_dist_150x2000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-dba2e1cf0450de35', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(8614)
+
+### BEGIN SOLUTION
+sampling_dist_150x2000 <- apt_ages %>% 
+    rep_sample_n(size = 150, reps = 2000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs)) %>% 
+    ggplot(aes(x = sample_var)) + 
+    geom_histogram(binwidth = 30, color = 'white') +
+    ggtitle("size = 150, 2000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_150x2000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-4799dd561a0d61c7', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_2.6()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-c2fce07e86a7fc10", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+_Use the set of plots below to answer the **next 2 questions**. Some of the code may be confusing, but you do not need to understand the code to answer the questions._
+
+In the code cell below, we have used `plot_grid` to plot the three sampling distributions side-by-side. We have sorted the plots by increasing order of sample size from left to right.
+
+**Note**: a small number of the sample variances are not visible because we manually set bounds on the x-axis so you can compare the distributions more easily (this causes the warnings you observe below).
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-256a9d20bf3efb5a', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+options(repr.plot.width = 20) # temp
+
+var_plot_row <- plot_grid(sampling_dist_10x2000  + xlim(0, 1250) + ylim(0, 500)+ ylim(0, 500) + theme(text = element_text(size=25)),
+                           sampling_dist_50x2000  + xlim(0, 1250) + ylim(0, 500) + ylim(0, 500) + theme(text = element_text(size=25)),
+                           sampling_dist_150x2000 + xlim(0, 1250) + ylim(0, 500) + ylim(0, 500) + theme(text = element_text(size=25)),
+                           ncol = 3)
+title <- ggdraw() + 
+  draw_label("Comparison of distributions of sample variances",
+             fontface = 'bold',
+             x = 0,
+             hjust = 0) +
+  theme(plot.margin = margin(0, 0, 0, 7))
+
+vars_grid <- plot_grid(title,
+                       var_plot_row,
+                       ncol = 1,
+                       rel_heights = c(0.1, 1))
+
+vars_grid
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-b81a69a258c5c9e2", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.7**
+<br> {points: 3}
+
+Given the three distributions of sample variances printed above, what can you say about the relationship(s) between sample size and the resulting distribution of sample variances (i.e. as the sample size changes, how does the distribution change)? Answer in 2-3 sentences in your own words.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": true, "grade_id": "cell-6247a09f38047bd5", "locked": false, "points": 3, "schema_version": 3, "solution": true, "task": false} -->
+### BEGIN SOLUTION
+- As sample size increases, the distribution of sample variances becomes narrower (OR the standard error of the distribution decreases).
+- As sample size increases, the distribution of sample variances becomes more symmetrical and/or appears more bell shaped.
+
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-bf217720327aedca", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+In the cell below, we have printed the true variance of the population. Use this value AND the sampling distribution printed above to answer the **next question**.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-9b62bb9684a965cc', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+print(var(apt_ages$age_yrs))
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-cf251c85ca4d4756", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 2.8**
+<br> {points: 3}
+
+What is similar between the three sampling distributions above? Answer in 1-2 sentences in your own words.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": true, "grade_id": "cell-487509bbc8ae46a2", "locked": false, "points": 3, "schema_version": 3, "solution": true, "task": false} -->
+### BEGIN SOLUTION
+- The mean of each sampling distribution appears to be near the true variance of ~360 (OR the "centre" of each sampling distribution appears to be near the true variance of ~360 should probably be accepted here as well).
+
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-70a043b6daa5e7e2", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 3. Influence of Sample Repetitions (the `reps` argument)
+
+At this point, you should have a deep understanding of how sample size influences the sampling distributions of point estimates. However, as we hinted in the previous section, there is one more argument that we haven't tinkered with: the `reps` argument in `rep_sample_n`.
+
+> To be clear, the `reps` argument describes the _number of samples_ that we take when calling `rep_sample_n`. The `replicate` column of the data frame returned by `rep_sample_n` describes which sample that observation is a member of. For example, if `reps = 10` and `size = 5`, then we will have $5 \times 10 = 50$ rows in the data frame produced by `rep_sample_n`, with `replicate` numbers ranging from 1 to 10, inclusive.
+
+In this section, we are going to explore the relationship between the number of samples we take (sample repetitions) and the sampling distribution produced, while holding the sample size constant. To do this, we are going to use the same population as the last section (`apt_ages`: the age in years of apartments in Toronto that are registered in the Apartment Building Standard program).
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-fae274cdbc0d7baf", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.0**
+<br> {points: 1}
+
+Consider the following code that takes a number of samples from `apt_ages`:
+```r
+samples <- apt_ages %>% 
+    rep_sample_n(size = 15, reps = 2000)
+```
+
+And, suppose one row of the resulting `samples` data frame appears as follows:
+
+| replicate | age_yrs |
+| --------- | ------- |
+| 201       | 15      |
+
+Given the code above, which of the following statements is true about this individual row taken from `samples`?
+
+A. This is the 201st observation sampled from `apt_ages`.
+
+B. This is the 15th observation sampled from `apt_ages`.
+
+C. This observation is a member of the 201st sample taken from `apt_ages`.
+
+D. This observation is a member of the 15th sample taken from `apt_ages`.
+
+_Assign your answer to an object called `answer3.0`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-ddb2f18952910742', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer3.0 <- ...
+
+### BEGIN SOLUTION
+answer3.0 <- "C"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-9e3d30aca1aa9bbc', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer3.0"', {
+  expect_true(exists("answer3.0"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+  expect_match(answer3.0, "a|b|c|d", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer3.0)), "6e7a8c1c098e8817e3df3fd1b21149d1")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-5de3743af956a013", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.1**
+<br> {points: 1}
+
+Use the `rep_sample_n` function to take 1000 samples of size 20 from the population `apt_ages`. Use the seed `3448`. Then, calculate the variance of each sample; name the column containing the sample variances `sample_var`.
+
+_Assign your data frame to an object called `sample_vars_20x1000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-df551ee1f1ae6b8b', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(3448) # DO NOT CHANGE!
+
+### BEGIN SOLUTION
+sample_vars_20x1000 <- apt_ages %>% 
+    rep_sample_n(size = 20, reps = 1000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs))
+### END SOLUTION
+
+head(sample_vars_20x1000)
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-ea6886a8fb5a6a12', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-058fc2d9edb254c0", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.2**
+<br> {points: 1}
+
+Visualize the distribution of the sample variances that you calculated in the previous question by plotting a histogram with bin widths of 5 using `geom_histogram`. Add a title of "size = 20, 1000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `sampling_dist_20x1000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-56d1cad13827cb57', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+### BEGIN SOLUTION
+sampling_dist_20x1000 <- sample_vars_20x1000 %>% 
+    ggplot(aes(x = sample_var)) +
+    geom_histogram(binwidth = 5) +
+    ggtitle("size = 20, 1000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_20x1000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-92023380dd1ffdea', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.2()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-6482fbb01eedb37f", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.3**
+<br> {points: 1}
+
+Using the same strategy as you did in **question 3.1**, draw 5000 random samples of size 20 from the population `apt_ages`. Use the seed `7631`. Then, for each sample, calculate the variance. Finally, visualize the distribution of the sample variances you just calculated by plotting a histogram with bin widths of 5 using `geom_histogram`. Add a title of "size = 20, 5000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_**Hint:** you can use the code from the previous section as a framework for your code here!_
+
+_Assign your plot to an object called `sampling_dist_20x5000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-e164db48f429b609', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(7631)
+
+### BEGIN SOLUTION
+sampling_dist_20x5000 <- apt_ages %>% 
+    rep_sample_n(size = 20, reps = 5000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs)) %>% 
+    ggplot(aes(x = sample_var)) + 
+    geom_histogram(binwidth = 5) +
+    ggtitle("size = 20, 5000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_20x5000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-9e1d0fb5432536fb', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.3()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-9ce06ef61e845054", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.4**
+<br> {points: 1}
+
+Using the same strategy as you did in **question 3.1**, draw 20000 random samples of size 20 from the population `apt_ages`. Use the seed `3695`. Then, for each sample, calculate the variance. Finally, visualize the distribution of the sample variances you just calculated by plotting a histogram with bin widths of 5 using `geom_histogram`. Add a title of "size = 20, 20000 reps" to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_**Hint:** you can use the code from the previous section as a framework for your code here!_
+
+_Assign your plot to an object called `sampling_dist_20x20000`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-a98f148673d4e2d7', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(3695)
+
+### BEGIN SOLUTION
+sampling_dist_20x20000 <- apt_ages %>% 
+    rep_sample_n(size = 20, reps = 20000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs)) %>% 
+    ggplot(aes(x = sample_var)) + 
+    geom_histogram(binwidth = 5) +
+    ggtitle("size = 20, 20000 reps") +
+    xlab("Sample Variance")
+### END SOLUTION
+
+sampling_dist_20x20000
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-b43ba8b35a85ddee', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.4()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-2c5f079c329e35a4", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+_Use the set of plots below to answer the **next question**. Some of the code may be confusing, but you do not need to understand the code to answer the question._
+
+In the code cell below, we have used `plot_grid` to plot the three sampling distributions side-by-side. We have sorted the plots by increasing order of sample repetitions from top to bottom.
+
+**Note**: a small number of the sample variances are not visible because we manually set bounds on the x-axis so you can compare the distributions more easily (this causes the warnings you observe below).
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-a4bc2c031eabf499', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# Run this cell before continuing.
+options(repr.plot.width = 10, repr.plot.height = 8) # temp
+
+var_plot_col <- plot_grid(sampling_dist_20x1000  + xlim(0, 1500),
+                          sampling_dist_20x5000  + xlim(0, 1500),
+                          sampling_dist_20x20000 + xlim(0, 1500),
+                          ncol = 1)
+title <- ggdraw() + 
+  draw_label("Comparison of distributions of sample variances, varying sample repetitions",
+             fontface = 'bold',
+             x = 0,
+             hjust = 0) +
+  theme(plot.margin = margin(0, 0, 0, 7))
+
+vars_grid <- plot_grid(title,
+                       var_plot_col,
+                       ncol = 1,
+                       rel_heights = c(0.1, 1))
+
+vars_grid
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-6f255566d10e17eb", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.5**
+<br> {points: 3}
+
+**Note:** the bin widths for the histograms above are _significantly_ smaller than the bin widths for the histograms produced in section 2 so we can see the effects of number of sampling repetitions clearly.
+
+How does the sampling distribution change as we increase the number of sampling repititions?
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": true, "grade_id": "cell-643cde902b49aeb1", "locked": false, "points": 3, "schema_version": 3, "solution": true, "task": false} -->
+### BEGIN SOLUTION
+There are several reasonable ways to describe the relationship here, including:
+- The distributions become more "filled in" (or, similarly, there appears to be less missing values) as the number of sample repetitions increases.
+- The distributions become smoother as the number of sample repetitions increases.
+
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-1e3d8991a08a1e75", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+_Use the plot below to answer the **next 2 questions**._
+
+Below is a picture of a sampling distribution (displayed a histogram with **bin widths of 2**) that was produced by taking **20 million samples** of size 20 from `apt_ages` using `rep_sample_n`. This is an extreme example to further demonstrate the effects of the number of sample repetitions on the resulting sample distribution:
+
+<img src="smooth_plot.png" style="width: 500px;"/>
+
+> <font color='red'><font size = 3>**WARNING!**</font>: Do **NOT** attempt to take this many samples on your own inside this notebook **OR ANY OTHER NOTEBOOK** located on the JupyterHub that we use for STAT 201.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-074c6d2ab15ba4e2", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.6**
+<br> {points: 3}
+
+Why don't we always take a large number of samples when exploring sampling distributions so we can get a nice, smooth distribution like the one shown above?
+
+A. Taking a large number of samples is computationally expensive.
+
+B. We may not always have enough data to draw such a large number of samples.
+
+C. We can get a good approximation of the "smoother" sampling distribution by using less sample repetitions, but larger bin widths in our histogram.
+
+D. All of the above.
+
+E. A and B only.
+
+F. A and C only.
+
+G. B and C only.
+
+H. None of the above.
+
+_Assign your answer to an object called `answer3.6`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-e13587503fbb792d', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer3.6 <- ...
+
+### BEGIN SOLUTION
+answer3.6 <- "F"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-b121ddf9b7f0c895', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.6()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-0955b59c0b3419f0", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 3.7**
+<br> {points: 3}
+
+True or false?
+
+The sampling distribution displayed below is a good approximation of the smooth sampling distribution pictured above.
+
+**Note:** the sampling distribution below was generated using 2000 samples of size 20 and bin widths of 45.
+
+_Assign your answer to an object called `answer3.7`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-ad4f0cac123403fd', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+# NOTE: perhaps convert this plot to a picture to hide the code?
+options(repr.plot.width = 9, repr.plot.height = 4) # temp
+set.seed(4746)
+
+apt_ages %>% 
+    rep_sample_n(size = 20, reps = 2000) %>% 
+    group_by(replicate) %>% 
+    summarise(sample_var = var(age_yrs)) %>% 
+    ggplot(aes(x = sample_var)) + 
+    geom_histogram(binwidth = 45, color = 'white') +
+    ggtitle("size = 20, 2000 reps") +
+    xlab("Sample Variance")
+```
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-35cda83f1d9208f9', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer3.7 <- ...
+
+### BEGIN SOLUTION
+answer3.7 <- "true"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-a776642bf4dae7b9', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_3.7()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-2a19d7a7bc919855", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 4. Distributions
+
+So far, in this course, we have looked at many different distributions, each of which falls into one of three different categories:
+
+1. Population distributions
+2. Sample distributions
+3. Sampl**_ing_** distributions (of an estimator)
+
+In this section, we are going to revisit the definitions of each distribution and explore the relationships between them using `apt_buildings` dataset that we introduced at the start of this tutorial. However, this time we will look at the `no_of_storeys` variable and parameters relating to the centre of the population; the median and the mean.
+
+In the code cell below, we have selected only the `no_of_storeys` column and saved the result to a data frame named `apt_storeys` for your convenience; we will define this as our population for this section.
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-6a610402ab257f46', 'locked': True, 'schema_version': 3, 'solution': False, 'task': False}}
+apt_storeys <- apt_buildings %>% 
+    select(no_of_storeys)
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-93214766c0edcabb", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.0**
+<br> {points: 3}
+
+Visualize the population distribution by creating a histogram with bin widths of 2 using `geom_histogram`. Add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `apt_storeys_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-0221ce4a6d88c79e', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+### BEGIN SOLUTION
+apt_storeys_dist <- apt_storeys %>% 
+    ggplot(aes(x = no_of_storeys)) +
+    geom_histogram(binwidth = 2, boundary = 1, color = 'white') +
+    ggtitle("# Storeys In Toronto ABS Apartment Buildings") +
+    xlab("# Storeys")
+### END SOLUTION
+
+apt_storeys_dist
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-1d230c757a56c4d3', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "apt_storeys_dist"', {
+  expect_true(exists("apt_storeys_dist"))
+})
+### BEGIN HIDDEN TESTS
+properties <- c(apt_storeys_dist$layers[[1]]$mapping, apt_storeys_dist$mapping)
+
+test_that("Plot should have no_of_storeys on the x-axis", {
+  expect_true("no_of_storeys" == rlang::get_expr(properties$x))
+})
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(apt_storeys_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+expect_equal(
+  digest(as.integer(mget("stat_params", apt_storeys_dist$layers[[1]])[["stat_params"]][["binwidth"]])),
+  "c01f179e4b57ab8bd9de309e6d576c48"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(digest(nrow(apt_storeys_dist$data)), "fba724f161f023e3109ce285541a026d")
+  expect_equal(digest(as.integer(sum(apt_storeys_dist$data$no_of_storeys))), "f6aeafdd1d60e8cf3500d85e50fade5f")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(apt_storeys_dist$labels$x == "no_of_storeys")
+})
+
+test_that("Plot should have a title", {
+  expect_true("title" %in% names(apt_storeys_dist$labels))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d0409ad1e1b9e058", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.1**
+<br> {points: 3}
+
+Considering the population `apt_storeys` and the population distribution you created in **question 4.0**, which pair of distributions from the following list would you expect to have the **most** similar characteristics?
+
+1. Population distribution of `apt_storeys`
+2. Sample distribution generated using a sample of size 15 from `apt_storeys`
+3. Sample distribution generated using a sample of size 283 from `apt_storeys`
+4. Sampling distribution of sample medians generated using samples of size 9 and 200,000 sample repetitions from `apt_storeys`
+5. Sampling distribution of sample means (generated using samples of size 175 and 200,000 sample repetitions from `apt_storeys`
+
+A. 1 & 2
+
+B. 1 & 3
+
+C. 1 & 4
+
+D. 1 & 5
+
+E. 2 & 3
+
+F. 4 & 5
+
+G. There is not enough information to answer the question.
+
+_Assign your answer to an object called `answer4.1`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-b37888aa62cb71ee', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer4.1 <- ...
+
+### BEGIN SOLUTION
+answer4.1 <- "B"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-415f912ba3f6516c', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer4.1"', {
+  expect_true(exists("answer4.1"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", "D", "E", "F", or "G")', {
+  expect_match(answer4.1, "a|b|c|d|e|f|g", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer4.1)), "ddf100612805359cd81fdc5ce3b9fbba")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a7274b64a2787415", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.2**
+<br> {points: 3}
+
+True or false?
+
+As you increase the sample size used to generate a sample distribution, the variance of the distribution will decrease.
+
+_Assign your answer to an object called `answer4.2`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-997d8932340fa6c7', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer4.2 <- ...
+
+### BEGIN SOLUTION
+answer4.2 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-592172c7a16ff792', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer4.2"', {
+  expect_true(exists("answer4.2"))
+})
+
+test_that('Answer should be "true" or "false"', {
+  expect_match(answer4.2, "true|false", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer4.2)), "d2a90307aac5ae8d0ef58e2fe730d38b")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-3693c9a1d65aa0d5", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.3**
+<br> {points: 3}
+
+**Note:** this question has two parts!
+
+a) Take a single sample from `apt_storeys` of size 100 using the `rep_sample_n` function and a seed of 4524.
+
+_Assign your data frame to an object called `sample`._
+
+<br>
+
+b) Afterwards, visualize the distribution of the sample by creating a histogram with bin widths of 2 using `geom_histogram`. Additionally, add the argument `boundary = 0` to `geom_histogram` to force the histogram bars to start at 0 on the x-axis. Finally, add a title to the plot using `ggtitle` and ensure that the x-axis has a descriptive and human-readable label.
+
+_Assign your plot to an object called `sample_dist`._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-0096b4d2dcdb1e76', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+set.seed(4524)
+
+### BEGIN SOLUTION
+sample <- apt_storeys %>% 
+    rep_sample_n(size = 100, reps = 1)
+
+sample_dist <- sample %>% 
+    ggplot(aes(x = no_of_storeys)) +
+    geom_histogram(binwidth = 2, boundary = 0, color = 'white') +
+    ggtitle("# Storeys In Toronto ABS Apartment Buildings") +
+    xlab("# Storeys")
+### END SOLUTION
+
+head(sample)
+sample_dist
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-30c5d7cb7339ff00', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "sample"', {
+  expect_true(exists("sample"))
+})
+
+test_that('Did not assign answer to an object called "sample_dist"', {
+  expect_true(exists("sample_dist"))
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution should be a data frame", {
+  expect_true("data.frame" %in% class(sample))
+})
+
+expected_colnames <- c("replicate", "no_of_storeys")
+given_colnames <- colnames(sample)
+test_that("Data frame does not have the correct columns", {
+  expect_equal(length(setdiff(
+    union(expected_colnames, given_colnames),
+    intersect(expected_colnames, given_colnames)
+  )), 0)
+})
+
+test_that("Data frame does not contain the correct number of rows", {
+  expect_equal(digest(as.integer(nrow(sample))), "5d6e7fe43b3b73e5fd2961d5162486fa")
+})
+
+test_that("Data frame does not contain the correct data", {
+  expect_equal(digest(as.integer(sum(sample$no_of_storeys))), "2d7a7e3c385cd075b2e9cc5d622b5f7c")
+})
+
+properties <- c(sample_dist$layers[[1]]$mapping, sample_dist$mapping)
+
+test_that("Plot should have no_of_storeys on the x-axis", {
+  expect_true("no_of_storeys" == rlang::get_expr(properties$x))
+})
+
+test_that("Plot is not the correct type", {
+  expect_true("GeomBar" %in% class(sample_dist$layers[[1]]$geom))
+})
+
+test_that("Plot does not have the correct bin width", {
+expect_equal(
+  digest(as.integer(mget("stat_params", sample_dist$layers[[1]])[["stat_params"]][["binwidth"]])),
+  "c01f179e4b57ab8bd9de309e6d576c48"
+  )
+})
+
+test_that("Plot does not use the correct data", {
+  expect_equal(digest(nrow(sample_dist$data)), "5d6e7fe43b3b73e5fd2961d5162486fa")
+  expect_equal(digest(round(sum(sample_dist$data$no_of_storeys))), "d6c3072b7fa3f6036b3b4557015c3935")
+})
+
+test_that("x-axis label should be descriptive and human readable", {
+  expect_false(sample_dist$labels$x == "no_of_storeys")
+})
+
+test_that("Plot should have a title", {
+  expect_true("title" %in% names(sample_dist$labels))
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-2c2a90f042653be6", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.4**
+<br> {points: 3}
+
+**Note:** this question has two parts!
+
+a) Calculate the **mean** of the sample you took in **question 4.3** (`sample`).
+
+_Assign your answer to an object called `sample_mean`. Your answer should be a single number._
+
+<br>
+
+b) Calculate the **median** of the sample you took in **question 4.3** (`sample`).
+
+_Assign your answer to an object called `sample_median`. Your answer should be a single number._
+
+<font color='dodgerblue'> **Hint:** you can convert a 1x1 dataframe to a single number using the `as.numeric()` function!
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-d7ab7f6fe8350cb7', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+### BEGIN SOLUTION
+sample_mean <- mean(sample$no_of_storeys)
+sample_median <- median(sample$no_of_storeys)
+
+# Another viable solution:
+sample_mean <- 
+    sample %>% 
+    summarise(mean = mean(no_of_storeys)) %>% 
+    select(mean) %>% 
+    as.numeric()
+
+sample_median <- 
+    sample %>% 
+    summarise(median = median(no_of_storeys)) %>% 
+    select(median) %>% 
+    as.numeric()
+### END SOLUTION
+
+sample_mean
+sample_median
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-d05853c35df333b2', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "sample_mean"', {
+  expect_true(exists("sample_mean"))
+})
+test_that("Solution should be a number", {
+  expect_false(is.na(as.numeric(sample_mean)))
+})
+
+test_that('Did not assign answer to an object called "sample_median"', {
+  expect_true(exists("sample_median"))
+})
+test_that("Solution should be a number", {
+  expect_false(is.na(as.numeric(sample_median)))
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(as.integer(sample_mean * 100000)), "7f8201dd33e50ceb4cd9315c9055c64f")
+})
+
+test_that("Solution is incorrect", {
+  expect_equal(digest(as.integer(sample_median * 100000)), "e86f88001b3c8253dc6b26537dbf7d8e")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-1d7870dee996de61", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+_Use the value of `sample_mean` and `sample_median` to answer the **next 2 questions**._
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-e868ca2f0c5a7db0", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.5**
+<br> {points: 3}
+
+Assume the sample you took in **question 4.3**, `sample`, was one out of many samples taken from `apt_storeys` and used to generate one of the sampling distributions below.
+
+Given that each was generated using 1000 sample replicates, which histogram below represents a sampling distribution of sample means that **most likely** contains a point estimate from `sample`?
+
+<img src="question4.5.png"/>
+
+_Assign your answer to an object called `answer4.5`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-8b0ce7e5735e78ad', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer4.5 <- ...
+
+### BEGIN SOLUTION
+answer4.5 <- "D"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-a48999f3328bcbd0', 'locked': True, 'points': 3, 'schema_version': 3, 'solution': False, 'task': False}}
+# Here we check to see whether you have given your answer the correct
+# object name. However, all other tests have been hidden so you can
+# practice deciding when you have the correct answer.
+test_that('Did not assign answer to an object called "answer4.5"', {
+  expect_true(exists("answer4.5"))
+})
+
+test_that('Solution should be a single character ("A", "B", "C", or "D")', {
+  expect_match(answer4.5, "a|b|c|d", ignore.case = TRUE)
+})
+### BEGIN HIDDEN TESTS
+test_that("Solution is incorrect", {
+  expect_equal(digest(tolower(answer4.5)), "d110f00cfb1b248e835137025804a23b")
+})
+
+print("Success!")
+### END HIDDEN TESTS
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-d65a150c5fae03d6", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 4.6**
+<br> {points: 3}
+
+Consider the following two distributions:
+1. Sampling distribution of sample means of `apt_storeys`, generated using 50,000 samples of size 250
+2. Sampling distribution of sample medians of `apt_storeys`, generated using 50,000 samples of size 250
+
+Given the values of `sample_mean` and `sample_median`, what should you expect about the position of the mean of distribution 2 in comparison to the mean of distribution 1?
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": true, "grade_id": "cell-e1caed95e00109dc", "locked": false, "points": 3, "schema_version": 3, "solution": true, "task": false} -->
+### BEGIN SOLUTION
+The mean of distribution 2 should fall to the left of (or should be smaller than) the mean of distribution 1.
+### END SOLUTION
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-cc0545fe782efe45", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+## 5. The Reality of Sampling
+
+If you recall from the last worksheet, there were two important points that we should have in the back of our minds as we learn about sampling and sampling distributions:
+> First, you must acknowledge that we don't usually have access to data for the entire population that we are interested in like we have so far. If we did, we could always calculate the population parameter directly. Here, we are taking the opportunity of having access to these entire populations to study sampling distributions. Second, always remember the purpose of learning about sampling distributions. By learning about the properties of sampling distributions, you will be able to understand the inherent variability/error in point estimates. This "error" associated with a point estimate is critical, and in later weeks we will learn how to report it formally.
+
+So, what happens when we don't have access to the entire population? In this section, we'll take a look at two different point estimates, compare them, and introduce ourselves to the problem that we will be able to address next week.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-24d83e70f27a6c55", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+_Use the following scenario to answer the next **3 questions**._
+
+Suppose you are interested in determining the median height of all students at UBC. You do not have the resources to perform a census or take a large number of samples. You end up gathering two different samples and compute a point estimate of the median for each sample. The details of each point estimate are as follows:
+
+1. Using a sample size of 42, you calculate a sample median of 175.3cm (or around 5' 9"). You are certain that the sample is unbiased and representative of the population.
+2. Using a sample size of 7, you calculate a sample median of 167.6cm (or around 5' 6"). You are certain that the sample is unbiased and representative of the population.
+<!-- #endregion -->
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-dd0a789519d115f0", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 5.0**
+<br> {points: 1}
+
+Which point estimate has a **higher chance** of being closer to the true median of all students at UBC?
+
+A. Point estimate 1
+
+B. Point estimate 2
+
+_Assign your answer to an object called `answer5.0`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-c93aa63b25d2e85f', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer5.0 <- ...
+
+### BEGIN SOLUTION
+answer5.0 <- "A"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-7508e66b22ea9921', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_5.0()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-95d4625fca43e5b6", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 5.1**
+<br> {points: 1}
+
+True or false?
+
+One potential justification for the correct answer to the previous question could be: the standard deviation of the sampling distribution containing the first point estimate is larger than the standard deviation of the sampling distribution containing the second point estimate.
+
+_Assign your answer to an object called `answer5.1`. Your answer should be either "true" or "false", surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-8c31f7f568de20b2', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer5.1 <- ...
+
+### BEGIN SOLUTION
+answer5.1 <- "false"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-2a4e3bd34392bce5', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_5.1()
+```
+
+<!-- #region nbgrader={"grade": false, "grade_id": "cell-a3bbdb4b85d6594d", "locked": true, "schema_version": 3, "solution": false, "task": false} -->
+**Question 5.2**
+<br> {points: 1}
+
+Given what you have learned so far in this course and the scenario described above, how could you **quantify** the sampling variance of the two different samples?
+
+A. Take many more samples of size 42 and size 7 and compute the standard error of each sampling distribution.
+
+B. Estimate the standard error by computing the standard deviation of the two samples.
+
+C. There does not seem to be a way to do this using the techniques we have learned so far in this course. However, there must be some way to do this using a single sample. Perhaps we will learn about how to do this next week _(hint: you will)_.
+
+D. None of the above.
+
+_Assign your answer to an object called `answer5.2`. Your answer should be a single character surrounded by quotes._
+<!-- #endregion -->
+
+```{r nbgrader={'grade': False, 'grade_id': 'cell-77c85c7f076e024d', 'locked': False, 'schema_version': 3, 'solution': True, 'task': False}}
+# answer5.2 <- ...
+
+### BEGIN SOLUTION
+answer5.2 <- "C"
+### END SOLUTION
+```
+
+```{r nbgrader={'grade': True, 'grade_id': 'cell-1a178122a934be88', 'locked': True, 'points': 1, 'schema_version': 3, 'solution': False, 'task': False}}
+test_5.2()
+```
