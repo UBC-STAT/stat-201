@@ -105,17 +105,11 @@
                 <ul>
                     <li>Worksheet 04</li>
                     <li>Tutorial 04</li>
-                    <li>Project:
-                        <ul>
-                            <li>All remote</li>
-                        </ul>
-                    </li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
+                    <li>All remote</li>
                 </ul>
             </td>
         </tr>
@@ -124,8 +118,7 @@
             <td>Feb 7 - Feb 11</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-Term #1 (Feb 7th)</li>
-                    <li>Project Work</li>
+                    <li>All remote</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -145,8 +138,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
+                    <li>All remote</li>
                 </ul>
             </td>
         </tr>
@@ -172,8 +164,8 @@
             </td>
             <td style="text-align: left;">
                 <ul>
+                    <li><b>Back to in-person!</b> Monday & Wednesday in-person.</li>
                     <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
