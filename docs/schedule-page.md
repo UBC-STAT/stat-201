@@ -387,6 +387,16 @@ All due dates will be on the last day of the week (Saturday at 23:59).
 
 The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate the technical difficulties experienced in Week 1).
 
+<b>Project deadlines:</b>
+
+<ul>
+    <li>Teamwork Contract: Sat. Feb 12 at 23:59</li>
+    <li>Proposal: Sat. Mar 5 at 23:59</li>
+    <li>Peer Review: Sat. Mar 19 at 23:59</li>
+    <li>Final report: Sat. Apr 9 at 23:59</li>
+    <li>Team evaluation: Sat. Apr 9 at 23:59</li>
+</ul>
+
 <b>Office Hours</b>
 
 The timing for office hours is not the same for all weeks -- check this schedule for the scheduled time. Times are in PT.
