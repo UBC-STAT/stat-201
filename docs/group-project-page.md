@@ -34,7 +34,7 @@ At a minimum, your group contract must address the following:
 #### Expectations
 
 What do we expect of one another regarding attendance at meetings, participation, frequency of communication,
-quality of work, etc.?
+quality of work, etc.? What are our internal deadlines? (Warning: if working on separate parts, do not aim to put all the parts together on the last day -- it takes time to integrate multiple parts.)
 
 #### Policies & Procedures
 
@@ -74,7 +74,7 @@ that someone unfamiliar with it will be prepared to understand the rest
 of your proposal.
 
 Clearly state the question you will try to answer with your project.
-Your question should involve one random variable of interest, spread
+Your question should involve one or more random variables of interest, spread
 across two or more categories that are interesting to compare. For
 example, you could consider the annual maxima river flow at two
 different locations along a river, or perhaps gender diversity at
@@ -90,7 +90,8 @@ than you need – feel free to drop them!
 Also, be sure to frame your question/objectives in terms of what is
 already known in the literature. Be sure to include at least two
 scientific publications that can help frame your study (you will need to
-include these in the References section).
+include these in the References section). We have no specific citation
+style requirements, but be consistent. 
 
 #### Preliminary Results
 
@@ -115,9 +116,8 @@ section with a brief description of “the good things” about this report – 
 Continue by explaining why the plot(s) and estimates that you produced
 are not enough to give to a stakeholder, and what you should provide in
 addition to address this gap. Make sure your plans include at least one
-hypothesis test and one confidence interval, with at least one of these
-being calculated using both bootstrapping and asymptotics for
-comparison (only relevant for situations where we covered the asymptotic distribution in this class).
+hypothesis test and one confidence interval. If possible, compare
+both the bootstrapping and asymptotics methods.
 
 Finish this section by reflecting on how your final report might play out:
 
