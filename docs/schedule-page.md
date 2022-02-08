@@ -165,7 +165,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Office hour remote</li>
+                    <li>All remote</li>
                 </ul>
             </td>
         </tr>
