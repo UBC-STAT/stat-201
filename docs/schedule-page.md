@@ -118,7 +118,7 @@
             <td>Feb 7 - Feb 11</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>All remote</li>
+                    <li>Midterm Exam #1 and Project</li>
                 </ul>
             </td>
             <td style="text-align: left;">
