@@ -148,6 +148,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Hypothesis testing via simulation/randomization</li>
+                    <li><i>Note: we are switching the roles of Monday and Wednesday this week: Monday will be a lab, Wednesday the lecture + worksheet.</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -425,9 +426,11 @@ Who will be in attendance for Wednesday labs:
     <li>Lab for Tutorial 02: Wed. Jan 19: Yifan and Anthony</li>
     <li>Lab for Tutorial 03: Wed. Jan 26: Qiong and Yifan</li>
     <li>Lab for Tutorial 04: Wed. Feb 2 : Anthony and Qiong</li>
+    <li>Lab for Wed. Feb 9: Vincenzo</li>
     <li>Lab for Tutorial 06: Wed. Feb 16: Anthony and Qiong</li>
-    <li>Lab for Tutorial 07: Wed. Mar 1 : Qiong and Yifan</li>
+    <li>Lab for Tutorial 07: <s>Wed.</s> Mon. Feb 28: Qiong and Yifan</li>
     <li>Lab for Tutorial 08: Wed. Mar 9 : Yifan and Anthony</li>
+    <li>Lab for Wed. Mar 16: Vincenzo</li>
     <li>Lab for Tutorial 10: Wed. Mar 23: Anthony and Qiong</li>
     <li>Lab for Tutorial 11: Wed. Mar 30: Qiong and Yifan</li>
 </ul>
