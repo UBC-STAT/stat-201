@@ -131,7 +131,8 @@
                     <li><i>Note: there's no Worksheet and Tutorial 05</i></li>
                     <li>Project:
                         <ul>
-                            <li>Peer Review</li>
+                            <li>Teamwork contract</li>
+                            <li>Start on your project proposals</li>
                         </ul>
                     </li>
                 </ul>
@@ -148,7 +149,6 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Hypothesis testing via simulation/randomization</li>
-                    <li><i>Note: we are switching the roles of Monday and Wednesday this week: Monday will be a lab, Wednesday the lecture + worksheet.</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -199,6 +199,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem</li>
+                    <li><i>Note: we are switching the roles of Monday and Wednesday this week: Monday will be a lab, Wednesday the lecture + worksheet.</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -352,7 +353,7 @@
                     <li>Project:
                         <ul>
                             <li>Final Report</li>
-                            <li>Teammate Evaluation</li>
+                            <li>Team Evaluation</li>
                         </ul>
                     </li>
                 </ul>
