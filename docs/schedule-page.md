@@ -165,7 +165,6 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><b>Back to in-person!</b> Monday & Wednesday in-person.</li>
                     <li>Office hour remote</li>
                 </ul>
             </td>
@@ -221,8 +220,8 @@
             </td>
             <td style="text-align: left;">
                 <ul>
+                    <li><b>Back to in-person!</b> Monday & Wednesday in-person.</li>
                     <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
