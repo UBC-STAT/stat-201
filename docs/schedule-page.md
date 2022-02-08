@@ -394,7 +394,7 @@ The worksheet with the lowest grade will be dropped; the tutorial with the lowes
     <li>Proposal: Sat. Mar 5 at 23:59</li>
     <li>Peer Review: Sat. Mar 19 at 23:59</li>
     <li>Final report: Sat. Apr 9 at 23:59</li>
-    <li>Team evaluation: Sat. Apr 9 at 23:59</li>
+    <li>Team evaluation: Mon. Apr 11 at 23:59</li>
 </ul>
 
 <b>Office Hours</b>
