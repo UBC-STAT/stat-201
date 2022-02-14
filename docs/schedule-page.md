@@ -148,7 +148,7 @@
             <td>Feb 14 - Feb 18</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Hypothesis testing via simulation/randomization</li>
+                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week06.pdf">Hypothesis testing via simulation/randomization</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
