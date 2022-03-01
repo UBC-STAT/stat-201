@@ -83,6 +83,8 @@ parameter (mean, median, quantile, etc.) and one scale parameter
 (standard deviation, inter-quartile range, etc.) that would be useful in
 answering your question. Justify your choices.
 
+**UPDATE (Mar 1, 2022)**: If it doesn't make sense to infer a scale parameter, you can choose another parameter, or choose a second variable altogether. Ultimately, we're looking for a comprehensive inference analysis on one parameter spread across 2+ groups (with at least one hypothesis test), plus a bit more (such as an investigation on the variance, a quantile, or a different variable). In total, you should use both bootstrapping and asymptotics somewhere in your report at least once each. Also, your hypothesis test(s) need not be significant: it is perfectly fine to write a report claiming no significant findings (i.e. your p-value is large).
+
 Identify and describe the dataset that will be used to answer the
 question. Remember, this dataset is allowed to contain more variables
 than you need – feel free to drop them!
