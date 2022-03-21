@@ -299,7 +299,6 @@
                 <ul>
                     <li>Worksheet 10</li>
                     <li>Tutorial 10</li>
-                    <li>P-value activity</li>
                 </ul>
             </td>
             <td style="text-align: left;">
