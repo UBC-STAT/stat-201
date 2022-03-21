@@ -393,7 +393,7 @@ The worksheet with the lowest grade will be dropped; the tutorial with the lowes
 <ul>
     <li>Teamwork Contract: Sat. Feb 12 at 23:59</li>
     <li>Proposal: Sat. Mar 5 at 23:59</li>
-    <li>Peer Review: Sat. Mar 19 at 23:59</li>
+    <li>Peer Review: Sat. Mar ~~19~~ 26 at 23:59</li>
     <li>Final report: Sat. Apr 9 at 23:59</li>
     <li>Team evaluation: Mon. Apr 11 at 23:59</li>
 </ul>
@@ -415,8 +415,8 @@ The timing for office hours is not the same for all weeks -- check this schedule
     <li>Office Hour Fri. Mar 25: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
     <li>Office Hour Fri. Apr 01: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
     <li>Office Hour Fri. Apr 08: 1530-1630. Who: Yifan and Qiong. Focus: Exam/Project</li>
-    <li>Office Hour Fri. Apr 21?? (TBD) Who: ??? and ???. Focus: Exam</li>
-    <li>Office Hour Fri. Apr 25?? (TBD) Who: ??? and ???. Focus: Exam</li>
+    <li>Office Hour Fri. Apr 21: ????-????. Who: Anthony and Qiong. Focus: Exam</li>
+    <li>Office Hour Fri. Apr 25: ????-????. Who: Qiong and Yifan. Focus: Exam</li>
 </ul>
 
 <b>Wednesday labs</b>
@@ -432,7 +432,7 @@ Who will be in attendance for Wednesday labs:
     <li>Lab for Tutorial 06: Wed. Feb 16: Anthony and Qiong</li>
     <li>Lab for Tutorial 07: <s>Wed.</s> Mon. Feb 28: Qiong and Yifan</li>
     <li>Lab for Tutorial 08: Wed. Mar 9 : Yifan and Anthony</li>
-    <li>Lab for Wed. Mar 16: Vincenzo and ????</li>
+    <li>Lab for Wed. Mar 16: Vincenzo and Anthony</li>
     <li>Lab for Tutorial 10: Wed. Mar 23: Anthony and Qiong</li>
     <li>Lab for Tutorial 11: Wed. Mar 30: Qiong and Yifan</li>
 </ul>
