@@ -305,7 +305,8 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
+                    <li>Monday ~~in-person~~ remote</li>
+                    <li>Wednesday in-person</li>
                 </ul>
             </td>
         </tr>
@@ -415,8 +416,8 @@ The timing for office hours is not the same for all weeks -- check this schedule
     <li>Office Hour Fri. Mar 25: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
     <li>Office Hour Fri. Apr 01: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
     <li>Office Hour Fri. Apr 08: 1530-1630. Who: Yifan and Qiong. Focus: Exam/Project</li>
-    <li>Office Hour Fri. Apr 21: ????-????. Who: Anthony and Qiong. Focus: Exam</li>
-    <li>Office Hour Fri. Apr 25: ????-????. Who: Qiong and Yifan. Focus: Exam</li>
+    <li>Office Hour Fri. Apr 21: 1530-1630. Who: Anthony and Qiong. Focus: Exam</li>
+    <li>Office Hour Fri. Apr 25: 1530-1630. Who: Qiong and Yifan. Focus: Exam</li>
 </ul>
 
 <b>Wednesday labs</b>
