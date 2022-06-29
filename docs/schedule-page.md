@@ -31,8 +31,6 @@
                     <li>Worksheet 01</li>
                     <li>Tutorial 01</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#2</td>
@@ -52,8 +50,6 @@
                     <li>Worksheet 02</li>
                     <li>Tutorial 02</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#3</td>
@@ -73,8 +69,6 @@
                     <li>Worksheet 03</li>
                     <li>Tutorial 03</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#4</td>
@@ -94,8 +88,6 @@
                     <li>Worksheet 04</li>
                     <li>Tutorial 04</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#5</td>
@@ -120,8 +112,6 @@
                         </ul>
                     </li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#6</td>
@@ -142,8 +132,6 @@
                     <li>Worksheet 06</li>
                     <li>Tutorial 06</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#7</td>
@@ -169,8 +157,6 @@
                     <li>Worksheet 07</li>
                     <li>Tutorial 07</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#8</td>
@@ -191,8 +177,6 @@
                     <li>Worksheet 08</li>
                     <li>Tutorial 08</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#9</td>
@@ -212,8 +196,6 @@
                 <ul>
                     <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#10</td>
@@ -236,8 +218,6 @@
                     <li>Worksheet 10</li>
                     <li>Tutorial 10</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#11</td>
@@ -257,8 +237,6 @@
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
                 </ul>
-            </td>
-            </td>
         </tr>
         <tr>
             <td>#12</td>
