@@ -20,10 +20,12 @@
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Introduction to Statistical Inference and Sampling</a></li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/7-sampling.html">MD: Chapter 7</a></li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 01</li>
@@ -42,11 +44,13 @@
                 <ul>
                     <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
                 </ul>
-            <td style="text-align: left;">
+             </td>
+             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 02</li>
                     <li>Tutorial 02</li>
                 </ul>
+              </td>
         </tr>
         <tr>
             <td>#3</td>
@@ -55,6 +59,7 @@
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week03.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8 - 8.2 and Chapter 8.7.1</a></li>
@@ -65,7 +70,8 @@
                     <li>Worksheet 03</li>
                     <li>Tutorial 03</li>
                 </ul>
-        </tr>
+            </td>
+            </tr>
         <tr>
             <td>#4</td>
             <td>Jul 11 - 15</td>
@@ -73,6 +79,7 @@
                 <ul>
                     <li>Confidence Intervals via bootstrapping</li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8.3 - 8.7</a></li>
@@ -83,6 +90,7 @@
                     <li>Worksheet 04</li>
                     <li>Tutorial 04</li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#5</td>
@@ -127,6 +135,7 @@
                     <li>Worksheet 06</li>
                     <li>Tutorial 06</li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#7</td>
@@ -152,6 +161,7 @@
                     <li>Worksheet 07</li>
                     <li>Tutorial 07</li>
                 </ul>
+             </td>
         </tr>
         <tr>
             <td>#8</td>
@@ -172,6 +182,7 @@
                     <li>Worksheet 08</li>
                     <li>Tutorial 08</li>
                 </ul>
+             </td>
         </tr>
         <tr>
             <td>#9</td>
@@ -191,6 +202,7 @@
                 <ul>
                     <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#10</td>
@@ -213,6 +225,7 @@
                     <li>Worksheet 10</li>
                     <li>Tutorial 10</li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#11</td>
@@ -232,6 +245,7 @@
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
                 </ul>
+             </td>
         </tr>
         <tr>
             <td>#12</td>
@@ -240,10 +254,12 @@
                 <ul>
                     <li>Project Week</li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>NA</li>
                 </ul>
+            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Project:
@@ -253,7 +269,8 @@
                         </ul>
                     </li>
                 </ul>
-        </tr>
+             </td>
+           </tr>
     </tbody>
 </table>
 
