@@ -13,9 +13,8 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- The lectures will be on Mondays and Wednesdays from 16:00 to 17:30.
-- Office hours will be held on TBD, via Zoom, same link as the lecture.
-- Zoom link available on canvas (for privacy).
+- Classes are on Tuesdays and Thursdays from 1:30 PM to 4:30 PM in ESB 1012.
+
 ### Software Platforms
 
 - Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/).
@@ -54,8 +53,19 @@ statistical inference.
 reproducible and transparent computer scripts.
 
 ### Assessments
+#### Winter Term 1 and 2 semesters:
 Each week there will be two assignments: (1) worksheets; and (2) tutorials.
 The assignments will be due every Saturday, 23:59:59. The worksheets are
+fully autograded with visible tests to help you identify points that need
+more clarification. Therefore, reach out to the teaching team if you don't
+understand why you are getting an answer wrong in the worksheet. On the
+other hand, the tutorials are not fully autograded, and only a few exercises
+will have visible tests. You can access the assignments through Canvas assignments.
+
+#### Summer semester only:
+_Usually_ each week there will be four assignments: (1) two worksheets; and (2) two tutorials.
+However, some weeks will vary. Please see Canvas for the due dates for each week.
+Assignments will be due every Saturday, 23:59:59. The worksheets are
 fully autograded with visible tests to help you identify points that need
 more clarification. Therefore, reach out to the teaching team if you don't
 understand why you are getting an answer wrong in the worksheet. On the
@@ -134,11 +144,10 @@ assignments files.
                 <td>Teammate Evaluation</td>
                 <td>2%</td>
             </tr>
-
-        </tbody>
+ </tbody>
     </table>
-</div>
-
+    <table>
+       
 #### Exams
 All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. For all the exams, the platform used will be Canvas. The types of questions can vary: reasoning, multiple-choice, multiple-answer,
 dropdown, true or false. Although most questions will be about the content, you can expect a few coding
@@ -162,22 +171,19 @@ students must pass the final exam to pass the course.
 ####  Late/Absence
 
 - Regular attendance to lecture and tutorials is expected of students.
-Students who are unavoidably absent because of illness or other reasons
+Students who are unavoidably absent from numerous classes because of illness or other reasons
 should inform the instructor(s) of the course as soon as possible, preferably,
 prior to the start of the lecture/tutorial. 
 - There will be no make-up exams. Students who miss Midterm 1, Midterm 2
 or an assignment and want to request an Academic Concession need to contact
 the Instructor as soon as possible and provide a <a href="">self-declaration form</a>.
-Failing to present a declaration may result in a grade of zero.
+Failing to present a declaration may result in a grade of zero on the assessment.
 - Late submissions of **worksheets** and **tutorials**
-will receive a grade of 0. 
+will receive a grade of 0. Note that one worksheet and one tutorial will be dropped at the end of the semester. 
+If you have extenuating circumstances and need concessions beyond dropping one worksheet and one tutorial, please email the instructor. 
 - For other assessments, late submission is defined as
 any work submitted after the deadline. Late submissions
-will receive a 50% deduction penalty of the original grade
-in the first occurrence. Hence a maximum attainable grade
-for the first piece of work submitted late is 50%. Any additional
-pieces of work that are submitted late will receive a grade of 0
-for subsequent occurrences.
+will receive a late penalty.
 
 ####  Autograder Policy 
 

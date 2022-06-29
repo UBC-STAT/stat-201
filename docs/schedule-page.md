@@ -1,5 +1,6 @@
 ## Schedule
 
+**Note that the schedule in the summer is double the pace of a regular semester. Therefore the "Week" does not necessarily align with the actual week in the 6-week summer course.**
 <table id="course-schedule">
     <caption>Table 1: Course Calendar</caption>
     <thead>
@@ -9,13 +10,12 @@
             <th style="width: 400px;">Topics</th>
             <th style="width: 400px;">Required Reading</th>
             <th style="width: 200px;">Assignments Due</th>
-            <th style="width: 200px;">Mode</th>
         </tr>
     </thead>
     <tbody>
         <tr>
             <td>#1</td>
-            <td>Jan 10 - Jan 15</td>
+            <td>Jul 4 - 8 </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Introduction to Statistical Inference and Sampling</a></li>
@@ -32,15 +32,11 @@
                     <li>Tutorial 01</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#2</td>
-            <td>Jan 17 - Jan 21</td>
+            <td>Jul 4 - 8 </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://ubc-stat.github.io/stat-201/lecs_html/stat201-week02.html#1">Populations and Sampling</a> <a href="https://raw.githubusercontent.com/UBC-STAT/stat-201/website/lec/stat201-week02.Rmd">(.Rmd code for slides)</a></li>
@@ -57,15 +53,11 @@
                     <li>Tutorial 02</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#3</td>
-            <td>Jan 24 - Jan 28</td>
+            <td>Jul 11 - 15</td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week03.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
@@ -82,15 +74,11 @@
                     <li>Tutorial 03</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#4</td>
-            <td>Jan 31 - Feb 4</td>
+            <td>Jul 11 - 15</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals via bootstrapping</li>
@@ -107,15 +95,11 @@
                     <li>Tutorial 04</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#5</td>
-            <td>Feb 7 - Feb 11</td>
+            <td>Jul 18 - 22</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Midterm Exam #1 and Project</li>
@@ -137,15 +121,11 @@
                     </li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#6</td>
-            <td>Feb 14 - Feb 18</td>
+            <td>Jul 18 - 22</td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week06.pdf">Hypothesis testing via simulation/randomization</a></li>
@@ -163,43 +143,14 @@
                     <li>Tutorial 06</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>All remote</li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>NA</td>
-            <td>Feb 21 - Feb 25</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Mid-term break (no classes)</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>NA</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>NA</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>NA</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#7</td>
-            <td>Feb 28 - Mar 4</td>
+            <td>Jul 25 - 29</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem</li>
-                    <li><i>Note: we are switching the roles of Monday and Wednesday this week: Monday will be a lab, Wednesday the lecture + worksheet.</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -219,16 +170,11 @@
                     <li>Tutorial 07</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li><b>Back to in-person!</b> Monday & Wednesday in-person.</li>
-                    <li>Office hour remote</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#8</td>
-            <td>Mar 7 - Mar 11</td>
+            <td>Jul 25 - 29</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Classical Tests Based on Normal and t-Distributions</li>
@@ -246,19 +192,14 @@
                     <li>Tutorial 08</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#9</td>
-            <td>Mar 14 - Mar 18</td>
+            <td>Aug 1 - 5</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 (Mar 14)</li>
+                    <li>Mid-term #2 </li>
                     <li>Methods based on exact and asymptotic distributional theory</li>
                 </ul>
             </td>
@@ -272,16 +213,11 @@
                     <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#10</td>
-            <td>Mar 21 - Mar 25</td>
+            <td>Aug 1 - 5</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Errors in Inference</li>
@@ -301,17 +237,11 @@
                     <li>Tutorial 10</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday ~~in-person~~ remote</li>
-                    <li>Wednesday in-person</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#11</td>
-            <td>Mar 28 - Apr 1</td>
+            <td>Aug 8 - 12</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Beyond Two-Group Comparisons</li>
@@ -328,16 +258,11 @@
                     <li>Tutorial 11</li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
-                </ul>
             </td>
         </tr>
         <tr>
             <td>#12</td>
-            <td>Apr 4 - Apr 8</td>
+            <td>Aug 8 - 12</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Project Week</li>
@@ -358,11 +283,6 @@
                     </li>
                 </ul>
             </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Office hour remote</li>
-                    <li>Monday & Wednesday in-person</li>
-                </ul>
             </td>
         </tr>
     </tbody>
@@ -372,78 +292,23 @@ MD: [Modern Dive](https://moderndive.com/) <br>
 OIS: [Openintro Statistics](https://www.openintro.org/book/os/) <br>
 All due dates will be on the last day of the week (Saturday at 23:59).
 
-<b>Worksheet and Tutorial Deadlines:</b>
+<b>Deadlines:</b>
 
-<ul>
-    <li>Worksheet/Tutorial 01: Sat. Jan 15 at 23:59 (no extension) </li>
-    <li>Worksheet/Tutorial 02: Sat. Jan 22 at 23:59</li>
-    <li>Worksheet/Tutorial 03: Sat. Jan 29 at 23:59</li>
-    <li>Worksheet/Tutorial 04: Sat. Feb 5 at 23:59</li>
-    <li>Worksheet/Tutorial 06: Sat. Feb 19 at 23:59</li>
-    <li>Worksheet/Tutorial 07: Sat. Mar 5 at 23:59</li>
-    <li>Worksheet/Tutorial 08: Sat. Mar 12 at 23:59</li>
-    <li>Worksheet/Tutorial 10: Sat. Mar 26 at 23:59</li>
-    <li>Worksheet/Tutorial 11: Sat. Apr 2 at 23:59</li>
-</ul>
+Please see Canvas for deadlines. The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate
+any students with extenuating circumstances).
 
-The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate the technical difficulties experienced in Week 1).
-
-<b>Project deadlines:</b>
-
-<ul>
-    <li>Teamwork Contract: Sat. Feb 12 at 23:59</li>
-    <li>Proposal: Sat. Mar 5 at 23:59</li>
-    <li>Peer Review: Sat. Mar ~~19~~ 26 at 23:59</li>
-    <li>Final report: Sat. Apr 9 at 23:59</li>
-    <li>Team evaluation: Mon. Apr 11 at 23:59</li>
-</ul>
 
 <b>Office Hours</b>
+Times are in PT.
 
-The timing for office hours is not the same for all weeks -- check this schedule for the scheduled time. Times are in PT.
-
-<ul>
-    <li>Office Hour Fri. Jan 14: 1530-1630. Who: Yifan and Anthony. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Jan 21: 1530-1630. Who: Yifan and Anthony. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Jan 28: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Feb 04: 1530-1630. Who: Anthony and Qiong. Focus: Exam/Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Feb 11: 1530-1630. Who: Anthony and Yifan. Focus: Project</li>
-    <li>Office Hour Fri. Feb 18: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 04: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 11: 1530-1630. Who: Yifan and Anthony. Focus: Exam/Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 18: 1530-1630. Who: Anthony and Qiong. Focus: Project</li>
-    <li>Office Hour Fri. Mar 25: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Apr 01: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Apr 08: 1530-1630. Who: Yifan and Qiong. Focus: Exam/Project</li>
-    <li>Office Hour Fri. Apr 21: 1530-1630. Who: Yifan and Qiong. Focus: Exam</li>
-    <li>Office Hour Fri. Apr 25: 1530-1630. Who: Qiong and Anthony. Focus: Exam</li>
-</ul>
-
-<b>Wednesday labs</b>
-
-Who will be in attendance for Wednesday labs:
-
-<ul>
-    <li>Lab for Tutorial 01: Wed. Jan 12: Yifan and Anthony</li>
-    <li>Lab for Tutorial 02: Wed. Jan 19: Yifan and Anthony</li>
-    <li>Lab for Tutorial 03: Wed. Jan 26: Qiong and Yifan</li>
-    <li>Lab for Tutorial 04: Wed. Feb 2 : Anthony and Qiong</li>
-    <li>Lab for Wed. Feb 9: Vincenzo</li>
-    <li>Lab for Tutorial 06: Wed. Feb 16: Anthony and Qiong</li>
-    <li>Lab for Tutorial 07: <s>Wed.</s> Mon. Feb 28: Qiong and Yifan</li>
-    <li>Lab for Tutorial 08: Wed. Mar 9 : Yifan and Anthony</li>
-    <li>Lab for Wed. Mar 16: Vincenzo and Anthony</li>
-    <li>Lab for Tutorial 10: Wed. Mar 23: Anthony and Qiong</li>
-    <li>Lab for Tutorial 11: Wed. Mar 30: Qiong and Yifan</li>
-</ul>
-
+- TBA
 
 
 #### Test Dates
 
-- Midterm 1: Monday, Feb 7, 2022
-- Midterm 2: Monday, Mar 14, 2022
-- Final Exam: Tue Apr 26 2022 | 15:30 pm  (room TBD)
+- Midterm 1: Jul 21, 2022 (in class) 
+- Midterm 2: Aug 4, 2022 (in class)
+- Final Exam: To be scheduled by Classroom Services
 
 ### Learning Outcomes per Week
 
