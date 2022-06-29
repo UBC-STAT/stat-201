@@ -13,9 +13,8 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- The lectures will be on Mondays and Wednesdays from 16:00 to 17:30.
-- Office hours will be held on TBD, via Zoom, same link as the lecture.
-- Zoom link available on canvas (for privacy).
+- Classes are on Tuesdays and Thursdays from 1:30 PM to 4:30 PM in ESB 1012.
+
 ### Software Platforms
 
 - Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/).
@@ -54,8 +53,19 @@ statistical inference.
 reproducible and transparent computer scripts.
 
 ### Assessments
+#### Winter Term 1 and 2 semesters:
 Each week there will be two assignments: (1) worksheets; and (2) tutorials.
 The assignments will be due every Saturday, 23:59:59. The worksheets are
+fully autograded with visible tests to help you identify points that need
+more clarification. Therefore, reach out to the teaching team if you don't
+understand why you are getting an answer wrong in the worksheet. On the
+other hand, the tutorials are not fully autograded, and only a few exercises
+will have visible tests. You can access the assignments through Canvas assignments.
+
+#### Summer semester only:
+_Usually_ each week there will be four assignments: (1) two worksheets; and (2) two tutorials.
+However, some weeks will vary. Please see Canvas for the due dates for each week.
+Assignments will be due every Saturday, 23:59:59. The worksheets are
 fully autograded with visible tests to help you identify points that need
 more clarification. Therefore, reach out to the teaching team if you don't
 understand why you are getting an answer wrong in the worksheet. On the
