@@ -115,8 +115,9 @@ assignments files.
             </tr>
         </tbody>
     </table>
-      
-<div style="display: flex; height: max-content;">
+</div>
+
+  <div style="display: flex; height: max-content;">
     <table>
         <caption>Table 2: Project</caption>
         <thead>
@@ -148,7 +149,8 @@ assignments files.
             </tr>
  </tbody>
     </table>
-       
+    </div>
+    
 #### Exams
 All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. For all the exams, the platform used will be Canvas. The types of questions can vary: reasoning, multiple-choice, multiple-answer,
 dropdown, true or false. Although most questions will be about the content, you can expect a few coding
