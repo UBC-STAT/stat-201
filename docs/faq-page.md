@@ -2,15 +2,36 @@
 
 ### What is the structure of the class?
 
+#### Winter Term 1 and 2: 
 Each week will have the following pattern:
 
 - Read the required reading materials before lecture. You can find them in <a href="schedule.html">schedule</a>.
-- The worksheets and tutorials will be released on Monday and will be due on Saturday at 11:59pm pacific time.
+- The worksheets and tutorials for that week will be released on the same day and will be due on Saturday at 11:59pm pacific time.
 - In the first lecture of the week, we will begin with a brief lecture to introduce new concepts. Then you will have time to work on the lecture worksheet to practice the concepts.
 - In the second lecture of the week, the TAs will run a tutorial
 to reinforce the concept we learned on Monday. You'll have time in
 this session to work on the tutorial to practice the concept. The
 tutorials are generally harder than the worksheets.
+- Sunday is free day. You'll have nothing to do for this course. Woohoo!
+- 
+This course will have 3 quizzes: two midterms and one final exam.
+The first two (i.e., the midterms) will be held in class, and the
+last one will be during the exam period, but they will all be the
+same format (unless otherwise notified).
+Also, there will be a class project, which you will complete with a
+randomly-assigned group.
+
+#### Summer Term only: 
+Each week will have the following pattern:
+- Read the required reading materials before lecture. You can find them in <a href="schedule.html">schedule</a>.
+- The worksheets and tutorials for that week will be released on the same day and will be due on Saturday at 11:59pm pacific time.
+- On Tuesdays and Thursdays: 
+   - In the first half of lecture, we will begin with a brief lecture to introduce new concepts. Then you will have time to work on the lecture worksheet to practice the concepts.
+   - In the second half of lecture, the TAs will run a tutorial
+to reinforce the concept we learned in the first half. You'll have time in
+this session to work on the tutorial to practice the concept. The
+tutorials are generally harder than the worksheets.
+- Thus you will _usually_ have four assessments (2 lecture worksheets and 2 tutorial worksheets) due at the end of the week. 
 - Sunday is free day. You'll have nothing to do for this course. Woohoo!
    
 This course will have 3 quizzes: two midterms and one final exam.
@@ -49,7 +70,7 @@ for re-evaluation. Please see the syllabus for our policy regarding auto-grading
 
 ### Where do I find due dates?
 
-You can find them in <a href="schedule.html">schedule</a>. They are also listed on Canvas.
+You can find them listed on Canvas.
 
 ### What if I registered late? When are things due?
 
@@ -72,32 +93,31 @@ whenever you need them.
 If you are going to be absent from a quiz, you need to fill out a self-declared
     concession form in a timely manner. See the course policies on the syllabus for details.
 
-### Do I satisfy the math requirement for this class?
+### What is the prerequisite for this class?
 
-Yes. There is no hard math prerequisite; MATH12 (or equivalent) is suggested but not required.
+The prerequisite is DSCI100. 
 
 ### How do I get help in the course?
 
-- During Lectures and Tutorials sessions: you can use lecture and tutorial time to ask questions,
+- **During Lectures and Tutorials sessions**: you can use lecture and tutorial time to ask questions,
 discuss and receive individual feedback regarding your worksheets, tutorials, or group project.
 The instructors, the TAs and your fellow classmates will be available to help you work through
-the problems!
+the problems! This is one of the best ways to get help since troubleshooting code mistakes is easiest in person!
 
-- Office Hours: The TAs and instructors will hold office hours at various times throughout the week
-via Zoom. I encourage you to ask questions about the worksheets, tutorials, the project or any other
+- **Office Hours**: The TAs and instructors will hold office hours at various times throughout the week. I encourage you to ask questions about the worksheets, tutorials, the project or any other
 questions about the course material!
-- Piazza Discussion Board: You can post on the Piazza Discussion board to ask your questions about the
+- **Piazza Discussion Board**: You can post on the Piazza Discussion board to ask your questions about the
 course material. You can also help your classmates by answering their questions!
-- Email: If you have personal questions that do not pertain to the course material itself you can email
+- A note about email: If you have personal questions that do not pertain to the course material itself you can email
 us. For questions about the course material, please post your questions on Piazza! Please note: I
-respond to emails M - F, and I try my best to answer you as promptly as possible, however, given the
+respond to emails Monday to Friday, and I try my best to answer you as promptly as possible, however, given the
 large class size I may take a few days to respond.
 
 ### How do I do well in this course?
 
 - Most importantly: complete the lecture and tutorial worksheets.
 These are designed to help you learn the concepts so you'll do well
-on the project and quizzes. The worksheets tend to be a bit easier
+on the project and midterms. The worksheets tend to be a bit easier
 and provide more guidance. The tutorials are more difficult and give
 you a good sense of how well you've learned the material. Students who
 make an effort to complete all of the worksheets and tutorials tend to
