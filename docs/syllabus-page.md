@@ -116,6 +116,9 @@ assignments files.
         </tbody>
     </table>
     <table>
+      
+<div style="display: flex; height: max-content;">
+    <table>
         <caption>Table 2: Project</caption>
         <thead>
             <tr>
