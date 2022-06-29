@@ -31,6 +31,7 @@
                     <li>Worksheet 01</li>
                     <li>Tutorial 01</li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#2</td>
@@ -115,6 +116,7 @@
                         </ul>
                     </li>
                 </ul>
+            </td>
         </tr>
         <tr>
             <td>#6</td>
