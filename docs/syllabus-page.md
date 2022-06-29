@@ -126,7 +126,7 @@ assignments files.
         <tbody>
             <tr>
                 <td>Team Work Contract</td>
-                <td>2%</td>
+                <td>1%</td>
             </tr>
             <tr>
                 <td>Proposal</td>
@@ -142,7 +142,7 @@ assignments files.
             </tr>
             <tr>
                 <td>Teammate Evaluation</td>
-                <td>2%</td>
+                <td>3%</td>
             </tr>
  </tbody>
     </table>
