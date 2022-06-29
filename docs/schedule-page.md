@@ -283,7 +283,6 @@
                     </li>
                 </ul>
             </td>
-            </td>
         </tr>
     </tbody>
 </table>
