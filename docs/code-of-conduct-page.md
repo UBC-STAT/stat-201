@@ -104,9 +104,7 @@ Participants who are asked to stop any inappropriate behavior are expected to
 
 If someone violates the Code of Conduct during a STAT 201 event or in an online
     space outside of organised events, we ask that you report it to the instructor.
-    The current instructor of STAT 201 is Rodolfo Lourenzutti.
-    An email to lourenzutti@stat.ubc.ca will be seen by Rodolfo.
-    To report a STAT 201 code of conduct violation that will not be seen by Rodolfo,
+    To report a STAT 201 code of conduct violation that will not be seen by your course instructor,
     an alternative contact person is Tiffany Timbers, Professor of Teaching in the
     Department of Statistics at UBC. Her email is tiffany.timbers@stat.ubc.ca.
 
