@@ -144,7 +144,9 @@ assignments files.
                 <td>Teammate Evaluation</td>
                 <td>2%</td>
             </tr>
-
+ </tbody>
+    </table>
+    <table>
        
 #### Exams
 All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. For all the exams, the platform used will be Canvas. The types of questions can vary: reasoning, multiple-choice, multiple-answer,
