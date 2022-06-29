@@ -292,60 +292,16 @@ MD: [Modern Dive](https://moderndive.com/) <br>
 OIS: [Openintro Statistics](https://www.openintro.org/book/os/) <br>
 All due dates will be on the last day of the week (Saturday at 23:59).
 
-<b>Worksheet and Tutorial Deadlines:</b>
+<b>Deadlines:</b>
 
 Please see Canvas for deadlines. The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate
 any students with extenuating circumstances).
 
-<b>Project deadlines:</b>
-
-<ul>
-    <li>Teamwork Contract: Sat. Feb 12 at 23:59</li>
-    <li>Proposal: Sat. Mar 5 at 23:59</li>
-    <li>Peer Review: Sat. Mar ~~19~~ 26 at 23:59</li>
-    <li>Final report: Sat. Apr 9 at 23:59</li>
-    <li>Team evaluation: Mon. Apr 11 at 23:59</li>
-</ul>
 
 <b>Office Hours</b>
+Times are in PT.
 
-The timing for office hours is not the same for all weeks -- check this schedule for the scheduled time. Times are in PT.
-
-<ul>
-    <li>Office Hour Fri. Jan 14: 1530-1630. Who: Yifan and Anthony. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Jan 21: 1530-1630. Who: Yifan and Anthony. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Jan 28: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Feb 04: 1530-1630. Who: Anthony and Qiong. Focus: Exam/Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Feb 11: 1530-1630. Who: Anthony and Yifan. Focus: Project</li>
-    <li>Office Hour Fri. Feb 18: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 04: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 11: 1530-1630. Who: Yifan and Anthony. Focus: Exam/Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Mar 18: 1530-1630. Who: Anthony and Qiong. Focus: Project</li>
-    <li>Office Hour Fri. Mar 25: 1530-1630. Who: Anthony and Qiong. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Apr 01: 1530-1630. Who: Qiong and Yifan. Focus: Worksheet/Tutorial</li>
-    <li>Office Hour Fri. Apr 08: 1530-1630. Who: Yifan and Qiong. Focus: Exam/Project</li>
-    <li>Office Hour Fri. Apr 21: 1530-1630. Who: Yifan and Qiong. Focus: Exam</li>
-    <li>Office Hour Fri. Apr 25: 1530-1630. Who: Qiong and Anthony. Focus: Exam</li>
-</ul>
-
-<b>Wednesday labs</b>
-
-Who will be in attendance for Wednesday labs:
-
-<ul>
-    <li>Lab for Tutorial 01: Wed. Jan 12: Yifan and Anthony</li>
-    <li>Lab for Tutorial 02: Wed. Jan 19: Yifan and Anthony</li>
-    <li>Lab for Tutorial 03: Wed. Jan 26: Qiong and Yifan</li>
-    <li>Lab for Tutorial 04: Wed. Feb 2 : Anthony and Qiong</li>
-    <li>Lab for Wed. Feb 9: Vincenzo</li>
-    <li>Lab for Tutorial 06: Wed. Feb 16: Anthony and Qiong</li>
-    <li>Lab for Tutorial 07: <s>Wed.</s> Mon. Feb 28: Qiong and Yifan</li>
-    <li>Lab for Tutorial 08: Wed. Mar 9 : Yifan and Anthony</li>
-    <li>Lab for Wed. Mar 16: Vincenzo and Anthony</li>
-    <li>Lab for Tutorial 10: Wed. Mar 23: Anthony and Qiong</li>
-    <li>Lab for Tutorial 11: Wed. Mar 30: Qiong and Yifan</li>
-</ul>
-
+- TBA
 
 
 #### Test Dates
