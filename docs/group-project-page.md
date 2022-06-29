@@ -135,7 +135,7 @@ of your data as well.
 
 ### Deliverable 3: Peer Review
 
-For this peer review, you will be **individually providing feedback to another group’s proposal. You will be sent an email with the proposal** to review.
+For this peer review, you will be **individually providing feedback to another group’s proposal. You will be sent the proposal** to review on Canvas.
 
 We deliberately set up the review so that each member of your group is
 assigned to review a *different* group’s proposal. This allows your
