@@ -20,12 +20,10 @@
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Introduction to Statistical Inference and Sampling</a></li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/7-sampling.html">MD: Chapter 7</a></li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 01</li>
@@ -44,7 +42,6 @@
                 <ul>
                     <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Worksheet 02</li>
@@ -58,7 +55,6 @@
                 <ul>
                     <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week03.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8 - 8.2 and Chapter 8.7.1</a></li>
@@ -77,7 +73,6 @@
                 <ul>
                     <li>Confidence Intervals via bootstrapping</li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8.3 - 8.7</a></li>
@@ -245,12 +240,10 @@
                 <ul>
                     <li>Project Week</li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>NA</li>
                 </ul>
-            </td>
             <td style="text-align: left;">
                 <ul>
                     <li>Project:
@@ -260,7 +253,6 @@
                         </ul>
                     </li>
                 </ul>
-            </td>
         </tr>
     </tbody>
 </table>
