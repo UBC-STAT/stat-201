@@ -286,18 +286,6 @@ Please see Canvas for deadlines. The worksheet with the lowest grade will be dro
 any students with extenuating circumstances).
 
 
-<b>Office Hours</b>
-Times are in PT.
-
-- TBA
-
-
-#### Test Dates
-
-- Midterm 1: Jul 21, 2022 (in class) 
-- Midterm 2: Aug 4, 2022 (in class)
-- Final Exam: To be scheduled by Classroom Services
-
 ### Learning Outcomes per Week
 
 #### Week 1: Introduction to Statistical Inference and Sampling
