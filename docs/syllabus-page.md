@@ -15,6 +15,20 @@ computer scripts for analysis and reports.
 
 - Classes are on Tuesdays and Thursdays from 1:30 PM to 4:30 PM in ESB 1012.
 
+
+### Office Hours
+Times are in Pacific Time.
+
+- Jiayang: Tuesdays at 5 - 6 PM (Room: ESB1012)
+- Jintong: Thursdays at 6 - 7 PM (Zoom)
+- Marc: Fridays at noon (Zoom) 
+
+#### Test Dates
+
+- Midterm 1: Jul 21, 2022 (in class) 
+- Midterm 2: Aug 4, 2022 (in class)
+- Final Exam: To be scheduled by Classroom Services
+
 ### Software Platforms
 
 - Students will learn to perform their analysis using the [R programming language](https://cran.r-project.org/).
