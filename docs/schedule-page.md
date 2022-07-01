@@ -1,11 +1,10 @@
 ## Schedule
 
-**Note that the schedule in the summer is double the pace of a regular semester. Therefore the "Week" does not necessarily align with the actual week in the 6-week summer course.**
 <table id="course-schedule">
     <caption>Table 1: Course Calendar</caption>
     <thead>
         <tr>
-            <th style="width: 100px;">Week</th>
+            <th style="width: 100px;">Module</th>
             <th style="width: 150px;">Dates</th>
             <th style="width: 400px;">Topics</th>
             <th style="width: 400px;">Required Reading</th>
@@ -288,7 +287,7 @@ any students with extenuating circumstances).
 
 ### Learning Outcomes per Week
 
-#### Week 1: Introduction to Statistical Inference and Sampling
+#### Module 1: Introduction to Statistical Inference and Sampling
 
 From this section, students are expected to be able to:
 
@@ -303,7 +302,7 @@ population, sample, population parameters, estimate, sampling distribution, samp
 - Write an R script to draw random samples from a finite population (e.g., census data).
 - Write an R script to reveal a sampling distribution from a finite population.
 
-#### Week 2: Populations and Sampling
+#### Module 2: Populations and Sampling
 
 From this section, students are expected to be able to:
 
@@ -316,7 +315,7 @@ distribution.
 - Explain what a sampling distribution is, list its properties, and its purpose in statistical
 inference.
 
-#### Week 3: Bootstrapping and its Relationship to the Sampling Distribution
+#### Module 3: Bootstrapping and its Relationship to the Sampling Distribution
 
 From this section, students are expected to be able to:
 
@@ -326,7 +325,7 @@ From this section, students are expected to be able to:
 - Contrast the bootstrap sampling distribution with an assumed sampling distribution.
 - Estimate the standard error of an estimator using bootstrapping.
 
-#### Week 4: Confidence Intervals via Bootstrapping
+#### Module 4: Confidence Intervals via Bootstrapping
 
 From this section, students are expected to be able to:
 
@@ -339,7 +338,7 @@ bootstrapping.
 - Interpret and explain results from confidence intervals.
 - Discuss the potential limitations of these methods.
 
-#### Week 5: Mid-term #1 and Preparation for Projects
+#### Module 5: Mid-term #1 and Preparation for Projects
 
 In this week, students will write a mid-term exam, and begin working on their projects. Also from this
 section, students are expected to be able to
@@ -350,7 +349,7 @@ section, students are expected to be able to
 contrasting the usefulness of confidence intervals vs. standard error.
 - Calculate, interpret, and visualize prediction intervals.
 
-#### Week 6: Hypothesis Testing via Simulation/Randomization
+#### Module 6: Hypothesis Testing via Simulation/Randomization
 
 From this section, students are expected to be able to:
 
@@ -365,7 +364,7 @@ approaches, as well as interpret the output.
 - Discuss the potential limitations of this simulation approach to hypothesis testing.
 
 
-#### Week 7: Confidence Intervals (of means and proportions) Based on the Assumption of Normality or the Central Limit Theorem
+#### Module 7: Confidence Intervals (of means and proportions) Based on the Assumption of Normality or the Central Limit Theorem
 
 From this section, students are expected to be able to:
 
@@ -377,7 +376,7 @@ Central Limit Theorem.
 - Discuss the potential limitations of these methods.
 - Decide whether to use asymptotic theory or bootstrapping to compute estimator uncertainty.
 
-#### Week 8: Classical Tests Based on Normal and t-Distributions
+#### Module 8: Classical Tests Based on Normal and t-Distributions
 
 From this section, students are expected to be able to:
 
@@ -391,9 +390,9 @@ approaches.
 normality or the Central Limit Theorem.
 - Discuss the potential limitations of these methods.
 
-#### Week 9: Mid-term #2 Introduction of Methods Based on Exact and Asymptotic Distributional Theory
+#### Module 9: Mid-term #2 Introduction of Methods Based on Exact and Asymptotic Distributional Theory
 
-#### Week 10: Errors in Inference
+#### Module 10: Errors in Inference
 
 From this section, students are expected to be able to:
 
@@ -404,7 +403,7 @@ From this section, students are expected to be able to:
 - Measure how these errors amplify when performing multiple hypothesis testing, in the context of
 multiple comparisons.
 
-#### Week 11: Beyond two-group comparisons
+#### Module 11: Beyond two-group comparisons
 
 From this section, students are expected to be able to:
 
@@ -413,7 +412,7 @@ From this section, students are expected to be able to:
 - The value of presenting an entire distribution as a prediction.
 - Estimate a population distribution using simulation (if there's time). Example: [wedding planning](https://www.tomasbeuzen.com/post/party-planning-probability/)
 
-#### Week 12: Project Week
+#### Module 12: Project Week
 
 This week is designed as independent studying where the students will be working on a project that aims at
 answering an inferential question with the material they have learned from weeks 1-11.
