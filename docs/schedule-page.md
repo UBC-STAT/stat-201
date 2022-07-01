@@ -17,7 +17,7 @@
             <td>Jul 4 - 8 </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Introduction to Statistical Inference and Sampling</a></li>
+                    <li> Introduction to Statistical Inference and Sampling </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -37,7 +37,7 @@
             <td>Jul 4 - 8 </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://ubc-stat.github.io/stat-201/lecs_html/stat201-week02.html#1">Populations and Sampling</a> <a href="https://raw.githubusercontent.com/UBC-STAT/stat-201/website/lec/stat201-week02.Rmd">(.Rmd code for slides)</a></li>
+                    <li> Populations and Sampling </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -57,7 +57,7 @@
             <td>Jul 11 - 15</td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week03.pdf">Bootstrapping and its Relationship to the Sampling Distribution</a></li>
+                    <li> Bootstrapping and its Relationship to the Sampling Distribution </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -122,7 +122,7 @@
             <td>Jul 18 - 22</td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week06.pdf">Hypothesis testing via simulation/randomization</a></li>
+                    <li>Hypothesis testing via simulation/randomization</li>
                 </ul>
             </td>
             <td style="text-align: left;">
