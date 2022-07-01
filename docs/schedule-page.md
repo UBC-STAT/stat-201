@@ -415,4 +415,4 @@ From this section, students are expected to be able to:
 #### Module 12: Project Week
 
 This week is designed as independent studying where the students will be working on a project that aims at
-answering an inferential question with the material they have learned from weeks 1-11.
+answering an inferential question with the material they have learned from modules 1-11.
