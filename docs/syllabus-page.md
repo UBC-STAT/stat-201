@@ -21,6 +21,7 @@ Times are in Pacific Time.
 
 - Jiayang: Tuesdays at 5 - 6 PM (Room: ESB1012)
 - Jintong: Thursdays at 6 - 7 PM (Zoom)
+- Melissa: Thursdays at 10 - 11 AM (Zoom) 
 - Marc: Fridays at noon (Zoom) 
 
 #### Test Dates
