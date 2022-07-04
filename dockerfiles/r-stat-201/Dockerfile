@@ -14,8 +14,7 @@ RUN conda install --quiet --yes -c conda-forge \
   r-testthat=2.3* 
 
 RUN Rscript -e "devtools::install_github('UBC-MDS/datateachr@v0.2.1')" \
-    && Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')" \
-    && Rscript -e "devtools::install_github('vincenzocoia/distplyr')" 
+    && Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')" 
 
 USER root
 RUN pip install git+https://github.com/data-8/nbgitpuller \
