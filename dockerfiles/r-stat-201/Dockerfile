@@ -6,7 +6,7 @@ FROM $BASE_CONTAINER
 LABEL maintainer="Tiffany Timbers <tiffany.timbers@gmail.com>"
 
 # R packages on conda-forge
-RUN conda install --quiet --yes -c conda-forge \
+RUN sudo conda install --quiet --yes -c conda-forge \
   r-cowplot=1.* \
   r-ggally=1.5* \
   r-gridextra=2.3* \
