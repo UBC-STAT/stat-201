@@ -97,7 +97,7 @@
             <td>Jul 18 - 22</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Midterm Exam #1 and Project</li>
+                    <li>Midterm Exam #1 and Project (MT is on Jul 21)</li>
                 </ul>
             </td>
             <td style="text-align: left;">
