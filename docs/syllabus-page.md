@@ -22,8 +22,10 @@ computer scripts for analysis and reports.
 ### Office Hours
 Times are in Pacific Time.
 
-- Quan: 10:00-11:00 Fridays (Zoom)
+- Quan: 10:00-11:00 Fridays (Zoom link on Canvas)
 - Lasantha:
+- TA1:
+- TA2:
 
 #### Test Dates
 
