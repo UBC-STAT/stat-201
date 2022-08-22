@@ -43,7 +43,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li>OIS: Chapter 3.4 (up to Section 3.4.2, inclusive)</li>
-                    <li><a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm">Sampling applet</a>/li>
+                    <li><a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm">Sampling applet</a></li>
                 </ul>
              </td>
              <td style="text-align: left;">
