@@ -13,21 +13,19 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- Classes are on Tuesdays and Thursdays from 1:30 PM to 4:30 PM in ESB 1012.
+- Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
 
 
 ### Office Hours
 Times are in Pacific Time.
 
-- Jiayang: Tuesdays at 5 - 6 PM (Room: ESB1012)
-- Jintong: Thursdays at 6 - 7 PM (Zoom)
-- Melissa: Thursdays at 10 - 11 AM (Zoom) 
-- Marc: Fridays at noon (Zoom) 
+- Quan: 10:00-11:00 Fridays (Zoom)
+- Lasantha:
 
 #### Test Dates
 
-- Midterm 1: Jul 21, 2022 (in class) 
-- Midterm 2: Aug 4, 2022 (in class)
+- Midterm 1: TBA, 2022 (in class) 
+- Midterm 2: TBA, 2022 (in class)
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
