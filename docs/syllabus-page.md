@@ -15,6 +15,9 @@ computer scripts for analysis and reports.
 
 - Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
 
+**Note**:
+- Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th
+- Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th
 
 ### Office Hours
 Times are in Pacific Time.
@@ -24,8 +27,8 @@ Times are in Pacific Time.
 
 #### Test Dates
 
-- Midterm 1: TBA, 2022 (in class) 
-- Midterm 2: TBA, 2022 (in class)
+- Midterm 1: Wednesday, Oct 5th, 2022 (in class) 
+- Midterm 2: Wednesday, Nov 2nd, 2022 (in class)
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
