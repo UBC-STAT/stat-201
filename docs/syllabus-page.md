@@ -22,10 +22,10 @@ computer scripts for analysis and reports.
 ### Office Hours
 Times are in Pacific Time.
 
-- Quan: 10:00-11:00 Fridays (Zoom link on Canvas)
-- Lasantha:
-- TA1:
-- TA2:
+- Quan: 10:00-11:00 Fridays (Zoom link on Canvas) Week 1 - Week 5
+- Lasantha: 10:00-11:00 Fridays (Zoom link on Canvas) Week 6 - Week 12
+- Daniel/Marc:Tuesdays 10-11 am (Zoom link on Canvas)
+- Yifan & Prayus:Thursdays 10-11 am (Zoom link on Canvas)
 
 #### Test Dates
 
