@@ -179,7 +179,7 @@ We **are not** trying to test your memory!!! Please don't spend energy trying to
 everything. If you had done the worksheets and tutorial, this should not be a problem for you.
 
 - **Midterms:** two 45-minute mid-terms will be administered at the start
-of the lecture in Weeks 5 and 9 (or Weeks 3 and 5 in Summer Terms). The first midterm will cover
+of the tutorial in Weeks 5 and 9 (or Weeks 3 and 5 in Summer Terms). The first midterm will cover
 Weeks 1 to 4 (i.e., Worksheets/Tutorials 1, 2, 3, and 4, plus
 the readings). The second midterm will <em>focus</em> on Weeks 6, 7, and 8 (i.e.,
 Worksheets/Tutorials 1, 2, 3, and 4, plus
