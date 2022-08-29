@@ -98,7 +98,8 @@
             <td>Oct 03 - 07</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Midterm Exam #1 (Wed Oct 5th) and Team work contract</li>
+                    <li>Week 1-4 review</li>
+                    <li>Midterm Exam #1 (Wed Oct 5th) & Team work contract</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -191,8 +192,8 @@
             <td>Oct 31 - Nov 4</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 (Wed Nov 2nd) </li>
-                    <li>Methods based on exact and asymptotic distributional theory</li>
+                    <li>Week 5-8 review & Group proposal </li>
+                   <li>Mid-term #2 (Wed Nov 2nd) & Group proposal</li>
                 </ul>
             </td>
             <td style="text-align: left;">
