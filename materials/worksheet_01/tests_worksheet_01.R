@@ -393,7 +393,7 @@ test_2.4 <- function() {
   print("Success!")
 }
 
-test_2.6 <- function() {
+test_2.5 <- function() {
   test_that('Did not assign answer to an object called "sample_1_mean"', {
     expect_true(exists("sample_1_mean"))
   })
@@ -418,16 +418,16 @@ test_2.6 <- function() {
   print("Success!")
 }
 
-test_2.7 <- function() {
-  test_that('Did not assign answer to an object called "answer2.7"', {
-    expect_true(exists("answer2.7"))
+test_2.6 <- function() {
+  test_that('Did not assign answer to an object called "answer2.6"', {
+    expect_true(exists("answer2.6"))
   })
 
   test_that('Solution should be a single character ("A", "B", or "C")', {
-    expect_match(answer2.7, "a|b|c", ignore.case = TRUE)
+    expect_match(answer2.6, "a|b|c", ignore.case = TRUE)
   })
   
-  answer <- digest(tolower(answer2.7))
+  answer <- digest(tolower(answer2.6))
   if (answer == "127a2ec00989b9f7faf671ed470be7f8") {
     print("Compare the values of pop_mean and sample_1_mean. Is sample_1_mean close enough to be considered a good guess of pop_mean?")
   } else if (answer == "ddf100612805359cd81fdc5ce3b9fbba") {
@@ -435,13 +435,13 @@ test_2.7 <- function() {
   }
 
   test_that("Solution is incorrect", {
-    expect_equal(digest(tolower(answer2.7)), "6e7a8c1c098e8817e3df3fd1b21149d1")
+    expect_equal(digest(tolower(answer2.6)), "6e7a8c1c098e8817e3df3fd1b21149d1")
   })
 
   print("Success!")
 }
 
-test_2.8 <- function() {
+test_2.7 <- function() {
   test_that('Did not assign answer to an object called "sample_2_dist"', {
     expect_true(exists("sample_2_dist"))
   })
@@ -500,16 +500,16 @@ test_2.8 <- function() {
 }
 
 
-test_2.9 <- function() {
-  test_that('Did not assign answer to an object called "answer2.9"', {
-    expect_true(exists("answer2.9"))
+test_2.8 <- function() {
+  test_that('Did not assign answer to an object called "answer2.8"', {
+    expect_true(exists("answer2.8"))
   })
 
   test_that('Solution should be a single character ("A", "B", "C", or "D")', {
-    expect_match(answer2.9, "a|b|c|d", ignore.case = TRUE)
+    expect_match(answer2.8, "a|b|c|d", ignore.case = TRUE)
   })
 
-  answer <- digest(tolower(answer2.9))
+  answer <- digest(tolower(answer2.8))
   if (answer == "127a2ec00989b9f7faf671ed470be7f8") {
     print("It is very unlikely that we choose the same set of observations from the population across multiple samples.")
   } else if (answer == "ddf100612805359cd81fdc5ce3b9fbba") {
@@ -519,7 +519,7 @@ test_2.9 <- function() {
   }
   
   test_that("Solution is incorrect", {
-    expect_equal(digest(tolower(answer2.9)), "d110f00cfb1b248e835137025804a23b")
+    expect_equal(digest(tolower(answer2.8)), "d110f00cfb1b248e835137025804a23b")
   })
 
   print("Success!")
