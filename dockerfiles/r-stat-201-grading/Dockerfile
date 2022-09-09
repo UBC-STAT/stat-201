@@ -1,5 +1,3 @@
-
-
 # Copyright (c) UBC-STAT Development Team.
 # Distributed under the terms of the Modified BSD License.
 FROM ubcstat/r-stat-201:latest
