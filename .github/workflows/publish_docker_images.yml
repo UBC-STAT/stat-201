@@ -1,4 +1,4 @@
-name: Publish r-dsci-100 on DockerHub
+name: Publish r-stat-201 on DockerHub
 on: 
   push: 
     paths: 
