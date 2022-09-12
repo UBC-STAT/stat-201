@@ -5369,10 +5369,10 @@ span.bp3-icon:empty{
   content:"⌄"; }
 
 .bp3-icon-caret-left::before{
-  content:"〈"; }
+  content:"〈"; }
 
 .bp3-icon-caret-right::before{
-  content:"〉"; }
+  content:"〉"; }
 
 .bp3-icon-caret-up::before{
   content:"⌃"; }
@@ -14663,10 +14663,10 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm&quot; width=1200, height=800&gt;&lt;/iframe&gt; &#39;</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm&quot; width=1000, height=600&gt;&lt;/iframe&gt; &#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14689,7 +14689,7 @@ div.jp-OutputPrompt {
 
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width=1200, height=800></iframe> 
+<iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width=1000, height=600></iframe> 
 </div>
 
 </div>
@@ -14698,7 +14698,40 @@ div.jp-OutputPrompt {
 
 </div>
 
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>What do you notice about the population mean ($\mu$) and the mean of sampling distribution ($\mu_{\bar{x}}$)?</li>
+<li>What do you notice about the population standard deviation ($\sigma$) and the standard deviation of sampling distribution ($\sigma_{\bar{x}}$)</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Things to highlight from applet:</p>
+<ul>
+<li>Distinguish between a sample distribution and a sampling distribution (of point estimates)</li>
+<li>How changes in n influence the sampling distribution</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</aside></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -16373,8 +16406,13 @@ class="
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">sample_size_100</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_population</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Create a sample of size 100, repeated 1000 times</span>
+<span class="n">sample_size_100</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_population</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">)</span>
+
+<span class="c1"># Create a sampling distribution of mean grade</span>
 <span class="n">sampling_dist_100</span> <span class="o">&lt;-</span> <span class="n">sample_size_100</span>  <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span>  <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+
+<span class="c1"># Combine data frame for visualization</span>
 <span class="n">sampling_dist_100</span><span class="o">$</span><span class="n">size</span> <span class="o">&lt;-</span> <span class="m">100</span>
 <span class="n">sampling_dist_10</span><span class="o">$</span><span class="n">size</span> <span class="o">&lt;-</span> <span class="m">10</span>
 <span class="n">sampling_dist_combine</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">sampling_dist_10</span><span class="p">,</span><span class="n">sampling_dist_100</span><span class="p">)</span>
@@ -17943,6 +17981,60 @@ class="
 
 </div>
 
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="True-or-False">True or False<a class="anchor-link" href="#True-or-False">&#182;</a></h2><p>Discuss with your classmates using the following applet (<a href="https://www.statcrunch.com/applets/type3&amp;samplingdist">https://www.statcrunch.com/applets/type3&amp;samplingdist</a>)</p>
+<p>A. The population distribution is always normally distributed (i.e., bell shaped)</p>
+<p>B. The sample distribution is always normally distributed (i.e., bell shaped)</p>
+<p>C. The sampling distribution is always normally distributed (i.e., bell shaped)</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>D. The sample distribution has a similar shape to the population distribution</p>
+<p>E. The sampling distribution has a similar shape to the sampling distribution</p>
+<p>F. The sampling distribution has a similar shape to the population distribution</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>G. The sample mean ($\bar{x}$) is equal to the population mean ($\mu$)</p>
+<p>H. The sampling distribution mean ($\mu_{\bar{x}}$) is equal to the population mean ($\mu$)</p>
+<p>I. The sample mean ($\bar{x}$) is equal to the sampling distribution mean ($\mu_{\bar{x}}$)</p>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Let's-start-working-on-worksheet_02">Let's start working on worksheet_02<a class="anchor-link" href="#Let's-start-working-on-worksheet_02">&#182;</a></h2>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
