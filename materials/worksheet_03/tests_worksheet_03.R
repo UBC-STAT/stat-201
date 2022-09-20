@@ -196,7 +196,7 @@ test_3.1 <- function() {
   })
 
   test_that("Solution is incorrect", {
-    expect_equal(digest(as.integer(answer_as_numeric*1000000000)), "c7f66da1cae4f223b9bae717f05900f7")
+    expect_equal(digest(round(ubc_sample_mean,3)), "baf0148fd27fa92338a8c33829af5128")
   })
 
   print("Success!")
