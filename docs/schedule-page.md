@@ -192,8 +192,7 @@
             <td>Oct 31 - Nov 4</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Week 5-8 review & Group proposal </li>
-                   <li>Mid-term #2 (Wed Nov 2nd) & Group proposal</li>
+                    <li>Errors in Inference </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -203,7 +202,10 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial 09</i></li>
+                     <li><a href="https://moderndive.com/9-hypothesis-testing.html#types-of-errors">MD: Section
+                            9.4.2 Types of errors</a></li>
+                    <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
+                            Section 9.6.3 Problems with p-values</a></li> 
                 </ul>
             </td>
         </tr>
@@ -212,15 +214,12 @@
             <td>Nov 7 - 11</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Errors in Inference</li>
+                    <li>Mid-term #2 (Wed Nov 2nd) & Group proposal</li>
                 </ul>
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><a href="https://moderndive.com/9-hypothesis-testing.html#types-of-errors">MD: Section
-                            9.4.2 Types of errors</a></li>
-                    <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
-                            Section 9.6.3 Problems with p-values</a></li>
+                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
