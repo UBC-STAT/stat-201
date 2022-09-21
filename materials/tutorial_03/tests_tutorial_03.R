@@ -120,9 +120,9 @@ test_2.2 <- function() {
     )
   })
 
-  test_that("Plot does not use the correct data", {
+  test_that("Plot does not use the correct data. Sampling distribution should be drawn by sampling without replacement", {
     expect_equal(digest(nrow(barrier_sampling_dist$data)), "6e96c307060fba1b1d3a36d2410fd595")
-    expect_equal(digest(round(sum(barrier_sampling_dist$data$p))), "f54aaa8281dd34e1324cd9fd71d3e79a")
+    expect_equal(digest(round(sd(barrier_sampling_dist$data$p),7)), "e9db0e152223a01249a4c3225e899af9")
   })
 
   test_that("x-axis label should be descriptive and human readable", {
