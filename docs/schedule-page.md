@@ -197,15 +197,16 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>NA</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
                      <li><a href="https://moderndive.com/9-hypothesis-testing.html#types-of-errors">MD: Section
                             9.4.2 Types of errors</a></li>
                     <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
                             Section 9.6.3 Problems with p-values</a></li> 
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                        <li>Worksheet 10</li>
+                    <li>Tutorial 10</li>
                 </ul>
             </td>
         </tr>
@@ -224,8 +225,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Worksheet 10</li>
-                    <li>Tutorial 10</li>
+                    <li>Note: there's no Worksheet and Tutorial in this week</li>
                 </ul>
             </td>
         </tr>
