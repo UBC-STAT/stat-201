@@ -31,7 +31,7 @@ Times are in Pacific Time.
 #### Test Dates
 
 - Midterm 1: Wednesday, Oct 5th, 2022 (in class) 
-- Midterm 2: Wednesday, Nov 2nd, 2022 (in class)
+- Midterm 2: Monday, Nov 7th, 2022 (in class)
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
