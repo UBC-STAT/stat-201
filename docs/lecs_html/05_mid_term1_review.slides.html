@@ -14725,6 +14725,7 @@ div.jp-OutputPrompt {
 <li>Why do we need bootstrapping?</li>
 <li>How a bootstrap distribution different from: sampling distribution, sample distribution, population distribution?</li>
 <li>How does sample size influence bootstrap distribution?</li>
+<li>Why we should use a bootstrap sample size the same as the original sample size?</li>
 </ul>
 
 </div>
@@ -14773,11 +14774,13 @@ div.jp-OutputPrompt {
 <span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">2022</span><span class="p">)</span>
 
-<span class="c1"># create a bootstrap distribution using the infer workflow</span>
+
+<span class="c1"># create a bootstrap distribution using rep_sample_n</span>
 
 <span class="n">mtcars_bootstrap_dist</span> <span class="o">&lt;-</span> 
 
-<span class="c1"># create a bootstrap distribution using rep_sample_n</span>
+
+<span class="c1"># create a bootstrap distribution using the infer workflow</span>
 
 <span class="n">mtcars_bootstrap_dist</span> <span class="o">&lt;-</span>
 </pre></div>
@@ -14792,19 +14795,12 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[47]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[59]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 <span class="nf">set.seed</span><span class="p">(</span><span class="m">2022</span><span class="p">)</span>
-
-<span class="c1"># create a bootstrap distribution using the infer workflow</span>
-
-<span class="n">mtcars_bootstrap_dist</span> <span class="o">&lt;-</span> <span class="n">mtcars</span>  <span class="o">%&gt;%</span> 
-        <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-        <span class="nf">generate</span><span class="p">(</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;bootstrap&quot;</span><span class="p">)</span>  <span class="o">%&gt;%</span> 
-        <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&quot;mean&quot;</span><span class="p">)</span>
 
 <span class="c1"># create a bootstrap distribution using rep_sample_n</span>
 
@@ -14813,6 +14809,12 @@ div.jp-OutputPrompt {
         <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span> 
         <span class="nf">summarize</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">mpg</span><span class="p">))</span>
 
+<span class="c1"># create a bootstrap distribution using the infer workflow</span>
+
+<span class="n">mtcars_bootstrap_dist</span> <span class="o">&lt;-</span> <span class="n">mtcars</span>  <span class="o">%&gt;%</span> 
+        <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">mpg</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+        <span class="nf">generate</span><span class="p">(</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;bootstrap&quot;</span><span class="p">)</span>  <span class="o">%&gt;%</span> 
+        <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span><span class="o">=</span><span class="s">&quot;mean&quot;</span><span class="p">)</span>
 
 <span class="nf">head</span><span class="p">(</span><span class="n">mtcars_bootstrap_dist</span><span class="p">)</span>
 </pre></div>
@@ -14838,7 +14840,7 @@ div.jp-OutputPrompt {
 
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
 <table class="dataframe">
-<caption>A tibble: 6 × 2</caption>
+<caption>A infer: 6 × 2</caption>
 <thead>
 	<tr><th scope=col>replicate</th><th scope=col>stat</th></tr>
 	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
@@ -14866,7 +14868,7 @@ div.jp-OutputPrompt {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[31]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[60]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">mtcars_bootstrap_dist</span>  <span class="o">%&gt;%</span> <span class="nf">visualize</span><span class="p">()</span>
@@ -15508,7 +15510,11 @@ class="
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># calculate 95% CI using percential approach</span>
 
-<span class="n">perct_ci</span> <span class="o">&lt;-</span>
+<span class="c1"># infer workflow</span>
+
+<span class="n">perct_ci</span> <span class="o">&lt;-</span> 
+
+<span class="c1"># using quantile</span>
 </pre></div>
 
      </div>
@@ -15516,18 +15522,25 @@ class="
 </div>
 </div>
 
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[63]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># calculate 95% CI using percential approach</span>
+<span class="c1"># infer workflow</span>
 
 <span class="n">perct_ci</span> <span class="o">&lt;-</span> <span class="n">mtcars_bootstrap_dist</span> <span class="o">%&gt;%</span> 
         <span class="nf">get_confidence_interval</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="m">0.95</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;percentile&quot;</span><span class="p">)</span>
+<span class="n">perct_ci</span>
+
+<span class="c1"># using quantile</span>
+<span class="n">perct_ci</span> <span class="o">&lt;-</span> <span class="n">mtcars_bootstrap_dist</span> <span class="o">%&gt;%</span> 
+    <span class="nf">summarize</span><span class="p">(</span><span class="n">ci_lower</span> <span class="o">=</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="m">0.025</span><span class="p">),</span>
+              <span class="n">ci_upper</span> <span class="o">=</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">stat</span><span class="p">,</span> <span class="m">0.975</span><span class="p">))</span>
 
 <span class="n">perct_ci</span>
 </pre></div>
@@ -15535,6 +15548,63 @@ class="
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table class="dataframe">
+<caption>A tibble: 1 × 2</caption>
+<thead>
+	<tr><th scope=col>lower_ci</th><th scope=col>upper_ci</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>18.11148</td><td>22.2568</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table class="dataframe">
+<caption>A tibble: 1 × 2</caption>
+<thead>
+	<tr><th scope=col>ci_lower</th><th scope=col>ci_upper</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>18.11148</td><td>22.2568</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
