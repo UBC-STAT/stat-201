@@ -215,7 +215,7 @@
             <td>Nov 7 - 11</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 (Wed Nov 7th) & Group proposal</li>
+                    <li>Mid-term #2 (Monday Nov 7th) & Group proposal</li>
                 </ul>
             </td>
             <td style="text-align: left;">
