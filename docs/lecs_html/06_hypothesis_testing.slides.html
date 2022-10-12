@@ -50,7 +50,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14496,9 +14495,6 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
-.reveal table {
-  font-size: var(--jp-ui-font-size1);
-}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14542,23 +14538,6 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
-.reveal div.highlight {
-  margin: 0;
-}
-
-.reveal div.highlight > pre {
-  margin: 0;
-  width: 100%;
-  font-size: var(--jp-code-font-size);
-}
-
-.reveal div.jp-OutputArea-output > pre {
-  margin: 0;
-  width: 90%;
-  font-size: var(--jp-code-font-size);
-  box-shadow: none;
-}
-
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14599,14 +14578,17 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar * {
-  background: transparent;
+::-webkit-scrollbar *
+{
+  background:transparent;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
   background: #727272 !important;
 }
 </style>
@@ -14633,12 +14615,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14659,8 +14641,9 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="STAT-201---Statistical-Inference-for-Data-Science---Test">STAT 201 - Statistical Inference for Data Science - Test<a class="anchor-link" href="#STAT-201---Statistical-Inference-for-Data-Science---Test">&#182;</a></h1><h2 id="Lecture-6:-Hypothesis-Testing">Lecture 6: Hypothesis Testing<a class="anchor-link" href="#Lecture-6:-Hypothesis-Testing">&#182;</a></h2><p><strong>Attribution:</strong> these slides are adapted from <a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week6.pdf">Rodolfo Lourenzutti's slides</a></p>
-
+<h1 id="STAT-201---Statistical-Inference-for-Data-Science">STAT 201 - Statistical Inference for Data Science<a class="anchor-link" href="#STAT-201---Statistical-Inference-for-Data-Science">&#182;</a></h1><h2 id="Lecture-6:-Hypothesis-Testing-via-simulation/randomization">Lecture 6: Hypothesis Testing via simulation/randomization<a class="anchor-link" href="#Lecture-6:-Hypothesis-Testing-via-simulation/randomization">&#182;</a></h2><!--
+**Attribution:** these slides are adapted from [Rodolfo Lourenzutti's slides]
+-->
 </div>
 </div>
 </div>
@@ -14672,20 +14655,62 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Reminders">Reminders<a class="anchor-link" href="#Reminders">&#182;</a></h2><ul>
-<li>Grades for tutorial 1, 2 and worksheets 3, 4 have been released</li>
-<li>Group contracts are graded</li>
-<li>Solutions for all worksheets, tutorials up to this point are available in your JupyterHub</li>
-<li>Midterm 1 is on Thursday<ul>
-<li>open book (but not collaborative)</li>
-<li>will be served on Canvas</li>
-<li>covers all the material from modules 1 - 4</li>
-<li>make sure you have either Chrome, Firefox, or some other browser compatible with all of Canvas' functionality. Sometimes Safari has trouble loading images and math.</li>
-<li>Download your worksheets/tutorials onto your local computer just in case!</li>
-</ul>
-</li>
-<li>Project proposals due Jul 26</li>
+<li>worksheet 6 and tutorial 6 are due on Saturday </li>
+<li>Solutions for all worksheets, tutorials up to this point are available</li>
+<li>Midterm 2 is on Monday November 7<!-- and ends with {:/comment}. --></li>
 </ul>
 
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Teaching-Team">Teaching Team<a class="anchor-link" href="#Teaching-Team">&#182;</a></h2><h3 id="Instructors:">Instructors:<a class="anchor-link" href="#Instructors:">&#182;</a></h3><ul>
+<li>Quan Nguyen (Week 1 to 5)</li>
+<li>Lasantha Premarathna  (<strong>from week 6</strong>)</li>
+</ul>
+<h3 id="TAs:">TAs:<a class="anchor-link" href="#TAs:">&#182;</a></h3><ul>
+<li>Daniel Zhezlov</li>
+<li>Yifan Yin</li>
+<li>Marc Wettengel</li>
+<li>Prayus Shrestha</li>
+<li>Abhinav Kansal</li>
+</ul>
+<h3 id="Office-Hours:">Office Hours:<a class="anchor-link" href="#Office-Hours:">&#182;</a></h3><ul>
+<li>Quan: 10:00-11:00 Fridays (Zoom link on Canvas) Week 1 - Week 5</li>
+<li>Lasantha: 10:00-11:00 Fridays (Zoom link on Canvas) Week 6 - Week 12</li>
+<li>Daniel/Marc/Abhinav:Tuesdays 10-11 am (Zoom link on Canvas)</li>
+<li>Yifan/Prayus:Thursdays 10-11 am (Zoom link on Canvas)</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Re-cap">Re-cap<a class="anchor-link" href="#Re-cap">&#182;</a></h2><h4 id="Week-1---Introduction-to-Statistical-Inference-and-Sampling">Week 1 - Introduction to Statistical Inference and Sampling<a class="anchor-link" href="#Week-1---Introduction-to-Statistical-Inference-and-Sampling">&#182;</a></h4><ul>
+<li>Understand the terminologies in statistical inferene (Population, Sample, Sampling, Point estimate (sample statistics),  Sample distribution, Sampling distribution, Standard error)</li>
+</ul>
+<h4 id="Week-2---Populations-and-Sampling">Week 2 - Populations and Sampling<a class="anchor-link" href="#Week-2---Populations-and-Sampling">&#182;</a></h4><ul>
+<li>Sampling methodology, Sampling distribution</li>
+</ul>
+<h4 id="Week-3---Bootstrapping-and-its-Relationship-to-the-Sampling-Distribution">Week 3 - Bootstrapping and its Relationship to the Sampling Distribution<a class="anchor-link" href="#Week-3---Bootstrapping-and-its-Relationship-to-the-Sampling-Distribution">&#182;</a></h4><ul>
+<li>Bootstrap distribution</li>
+</ul>
+<h4 id="Week-4---Confidence-Intervals-via-bootstrapping">Week 4 - Confidence Intervals via bootstrapping<a class="anchor-link" href="#Week-4---Confidence-Intervals-via-bootstrapping">&#182;</a></h4><ul>
+<li>Bootstrap confidence interval</li>
+</ul>
+<h4 id="Week-5---Midterm-1">Week 5 - Midterm 1<a class="anchor-link" href="#Week-5---Midterm-1">&#182;</a></h4>
 </div>
 </div>
 </div>
@@ -14711,7 +14736,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol start="3">
+<ol>
 <li><strong>Hypothesis testing</strong>: we make a statement about the value of an unknown population parameter, and we check whether or not the data obtained from the sample provide evidence against this claim.</li>
 </ol>
 
@@ -14727,7 +14752,7 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">&#182;</a></h2><p>Suppose Apple claims that the new Macbook Pro can work for more than 20 hours without a recharge. We could test multiple
 Macbooks and check how long they hold up without a recharge. Is Apple's claim inconsistent with our testing?</p>
-<img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/06/Apple-Macbook-Pro-22.jpg" width=600>
+<p><img src="https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/06/Apple-Macbook-Pro-22.jpg" width=600></p>
 
 </div>
 </div>
@@ -14740,12 +14765,12 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">&#182;</a></h2><ol>
-<li>State hypotheses</li>
-<li>Set significance level</li>
-<li>Collect data</li>
-<li>Calculate test statistic</li>
-<li>Calculate P-value</li>
-<li>Draw a conclusion</li>
+<li>State hypotheses </li>
+<li>Set significance level </li>
+<li>Collect data </li>
+<li>Calculate test statistic </li>
+<li>Calculate P-value </li>
+<li>Draw a conclusion </li>
 </ol>
 
 </div>
@@ -14775,7 +14800,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Null-Hypotheses">Null Hypotheses<a class="anchor-link" href="#Null-Hypotheses">&#182;</a></h2><ul>
 <li>The null hypothesis is the status quo, what you should conclude if there’s no evidence to say otherwise.</li>
-<li>For example unless we see &quot;strong&quot; evidence that a new, untested drug works, we are going to assume that it does not.</li>
+<li>For example unless we see "strong" evidence that a new, untested drug works, we are going to assume that it does not.</li>
 </ul>
 
 </div>
@@ -14790,7 +14815,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In the Macbook example, we want to test</p>
 <ul>
-<li>$H_0: \mu = 20$ hours</li>
+<li>$H_0 : \mu = 20$ hours</li>
 </ul>
 <p>where $\mu$ is the true mean of the battery life of the new Macbook Pro.</p>
 
@@ -14805,10 +14830,8 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Alternative-Hypotheses">Alternative Hypotheses<a class="anchor-link" href="#Alternative-Hypotheses">&#182;</a></h2><ul>
-<li>The alternative hypothesis is the complement of the Null Hypothesis. The</li>
-</ul>
-<p>conclusion we want to make only if there’s evidence supporting it.</p>
-<ul>
+<li>The alternative hypothesis is the complement of the Null Hypothesis. The
+conclusion we want to make only if there’s evidence supporting it.</li>
 <li>For example:<ul>
 <li>In the Macbook example, you could use $H_1: \mu &gt;20$, in which case you are looking for evidence that Apple is not wrong. Or you could set $H_1: \mu &lt; 20$, you will only conclude Apple is wrong if there is evidence supporting that.</li>
 </ul>
@@ -14825,10 +14848,32 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Ex:-Hypothesis-Testing-about-Population-Mean,-$%5Cmu$">Ex: Hypothesis Testing about Population Mean, $\mu$<a class="anchor-link" href="#Ex:-Hypothesis-Testing-about-Population-Mean,-$%5Cmu$">&#182;</a></h3><h4 id="Hypothesis-test-about-the-value-of-a-population-mean-$%5Cmu$-must-be-take-one-of-the-following-3-forms">Hypothesis test about the value of a population mean $\mu$ must be take one of the following 3 forms<a class="anchor-link" href="#Hypothesis-test-about-the-value-of-a-population-mean-$%5Cmu$-must-be-take-one-of-the-following-3-forms">&#182;</a></h4><ul>
+<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_a: \mu &lt; \mu_0 \quad \Leftarrow \; $ one-tailed test (lower tail test)</p>
+</li>
+<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_a: \mu &gt; \mu_0 \quad \Leftarrow \; $ one-tailed test (upper tail test)</p>
+</li>
+<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_a: \mu \neq \mu_0 \quad \Leftarrow \; $ two-tailed test</p>
+</li>
+</ul>
+<p>where  $\mu_0$ is the hypothesized value of the population mean.</p>
+<p>In the Macbook example  $\mu_0 = 20$</p>
+<p>The hypotheses should be formulated before viewing or analyzing the data.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Test-statistic">Test statistic<a class="anchor-link" href="#Test-statistic">&#182;</a></h2><ul>
 <li>We start by collecting a sample and calculating the statistic that we are going to use for the test.</li>
 <li>This statistic is called <strong>test statistic</strong>. A test statistics is a point estimate/sample statistic used for hypothesis testing</li>
-<li>As usual, everything revolves around the distribution of our statistic</li>
+<li>As usual, everything revolves around the distribution of our statistic </li>
 </ul>
 
 </div>
@@ -14841,8 +14886,108 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Null-Hypothesis">Null Hypothesis<a class="anchor-link" href="#Null-Hypothesis">&#182;</a></h2><p>A hypothesis test is like an argument by contradiction.</p>
-<img src="img/stat201-week6_Page_15.png" width=600>
+<h2 id="Test-Procedures:-A-test-procedure-is-specified-by-the-following">Test Procedures: A test procedure is specified by the following<a class="anchor-link" href="#Test-Procedures:-A-test-procedure-is-specified-by-the-following">&#182;</a></h2><ol>
+<li><strong>test statistic</strong> is a function of the data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based. </li>
+</ol>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ol>
+<li><strong>rejection region</strong> is the set of all test statistics values for which $H_0$ will be rejected</li>
+</ol>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>The null hypothesis will be rejected if and only if the observed or computed test statistic value falls in the rejection region. </li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>We also use the test statistic to assess the evidence against the null hypothesis by giving a probability, $p-$value.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="$p-$-value">$p-$ value<a class="anchor-link" href="#$p-$-value">&#182;</a></h2><ul>
+<li><p>$p-$value summarizes the evidence\</p>
+</li>
+<li><p>It describes how unusual the data would be if $H_0$ were true.
+<br /></p>
+</li>
+<li><p>$p-$value is defined as the probability of observing a result as extreme or more extreme towards the alternative hypothesis  than what we observed given that $H_0$ is true.</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Significance-level-$%5Calpha$">Significance level $\alpha$<a class="anchor-link" href="#Significance-level-$%5Calpha$">&#182;</a></h2><ul>
+<li><p>The significance level is a predetermined number such that we reject $H_0$ if the $p-$value  is less than or equal to that number</p>
+</li>
+<li><p>In practice, the most common significance level is $\alpha=0.05$
+<br /></p>
+</li>
+<li><p>When we reject $H_0$, we say the results are <strong>statistically significant</strong>.</p>
+<ul>
+<li>If $p-$value $\leq \alpha\; \Rightarrow$ Reject $H_0$</li>
+<li>If $p-$value $&gt; \alpha\; \Rightarrow$ Do not reject $H_0$</li>
+</ul>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Null-Hypothesis">Null Hypothesis<a class="anchor-link" href="#Null-Hypothesis">&#182;</a></h2><p>A hypothesis test is like an argument by contradiction. 
+<img src="img/stat201-week6_Page_15.png" width=600></p>
 
 </div>
 </div>
@@ -14855,7 +15000,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Null-Hypothesis">Null Hypothesis<a class="anchor-link" href="#Null-Hypothesis">&#182;</a></h2><p>A hypothesis test is like an argument by contradiction.</p>
-<img src="img/stat201-week6_Page_16.png" width=1200>
+<p><img src="img/stat201-week6_Page_16.png" width=1200></p>
 
 </div>
 </div>
@@ -14868,7 +15013,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Null-Hypothesis">Null Hypothesis<a class="anchor-link" href="#Null-Hypothesis">&#182;</a></h2><p>A hypothesis test is like an argument by contradiction.</p>
-<img src="img/stat201-week6_Page_17.png" width=1200>
+<p><img src="img/stat201-week6_Page_17.png" width=1200></p>
 
 </div>
 </div>
@@ -14880,7 +15025,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/stat201-week6_Page_19.png" width=1200>
+<p><img src="img/stat201-week6_Page_19.png" width=1200></p>
 
 </div>
 </div>
@@ -14892,7 +15037,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/stat201-week6_Page_20.png" width=1200>
+<p><img src="img/stat201-week6_Page_20.png" width=1200></p>
 
 </div>
 </div>
@@ -14905,11 +15050,11 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">&#182;</a></h2><ol>
-<li>State hypotheses</li>
-<li>Set significance level</li>
-<li>Collect data</li>
-<li>Calculate test statistic</li>
-<li>Calculate P-value</li>
+<li>State hypotheses </li>
+<li>Set significance level </li>
+<li>Collect data </li>
+<li>Calculate test statistic </li>
+<li>Calculate P-value </li>
 <li>Draw a conclusion about $H_0$</li>
 </ol>
 
@@ -14923,11 +15068,110 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><ul>
-<li></li>
-<li></li>
-<li></li>
+<h2 id="Decisions-and-Types-of-errors-in-Hypothesis-Testing">Decisions and Types of errors in Hypothesis Testing<a class="anchor-link" href="#Decisions-and-Types-of-errors-in-Hypothesis-Testing">&#182;</a></h2><p><img src="img/stat201-week6_fig_1.png" width=1000></p>
+<h3 id="Two-possible-errors-can-be-made-in-any-test">Two possible errors can be made in any test<a class="anchor-link" href="#Two-possible-errors-can-be-made-in-any-test">&#182;</a></h3><h4 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h4><ul>
+<li><p>Type I error is  rejecting $H_0$ when $H_0$ is true</p>
+</li>
+<li><p>Type II error is  not rejecting $H_0$ when $H_0$ is false</p>
+</li>
 </ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h3><ul>
+<li>Type I error is  rejecting $H_0$ when $H_0$ is true</li>
+<li>Type II error is  not rejecting $H_0$ when $H_0$ is false
+<br /></li>
+</ul>
+<h3 id="What-test-is-a--good-test">What test is a  good test<a class="anchor-link" href="#What-test-is-a--good-test">&#182;</a></h3><ul>
+<li>A test that rarely makes type I and type II errors
+<br /></li>
+</ul>
+<h3 id="There-are-probabilities-associated-with-each-type-of-error">There are probabilities associated with each type of error<a class="anchor-link" href="#There-are-probabilities-associated-with-each-type-of-error">&#182;</a></h3><ul>
+<li>$P(\text{Type I error}) = \alpha$</li>
+<li>$P(\text{Type II error}) = \beta$</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h3><ul>
+<li>We can control the probability of type I error by our choice of the significance level, $\alpha$</li>
+<li>It's difficult to control the probability of making type II error</li>
+<li>Statisticians avoid the risk of making a type II error by using `Do not reject' $H_0$ and 'NOT accept' $H_0$</li>
+<li>$1-\beta $ referred to as the <strong>power</strong> of a test</li>
+<li>We want the power to be large</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Power is the probability of correctly rejecting the null hypothesis $H_0$, when $H_0$ is false</p>
+<p><strong>power</strong>  $= P(\text{Reject } H_0 \text{ when } H_0 \text{ is false}) = 1 - \beta $</p>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Hypothesis-testing-with-the-infer-package">Hypothesis testing with the <code>infer</code> package<a class="anchor-link" href="#Hypothesis-testing-with-the-infer-package">&#182;</a></h2><ul>
+<li><code>specify()</code> the variables of interest in your data frame.</li>
+<li><code>generate()</code> replicates of bootstrap resamples with replacement.</li>
+<li><code>calculate()</code> the summary statistic of interest.</li>
+<li><code>visualize()</code> the resulting bootstrap distribution and confidence interval.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Hypothesis-testing-with-the-infer-package">Hypothesis testing with the <code>infer</code> package<a class="anchor-link" href="#Hypothesis-testing-with-the-infer-package">&#182;</a></h2><p><img src="https://d33wubrfki0l68.cloudfront.net/391315f52b3be002b49628738e22cfd6dae7cae1/cff0f/images/flowcharts/infer/ht.png" width=1000></p>
+<p><em>image source: <a href="https://moderndive.com">Modern Dive</a> by Kim &amp; McConville</em></p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><h2 id="--">- <a class="anchor-link" href="#--">&#182;</a></h2><p>-</p>
 
 </div>
 </div>
