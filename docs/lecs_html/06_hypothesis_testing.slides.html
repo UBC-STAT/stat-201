@@ -14657,7 +14657,8 @@ div.jp-OutputPrompt {
 <h2 id="Reminders">Reminders<a class="anchor-link" href="#Reminders">&#182;</a></h2><ul>
 <li>worksheet 6 and tutorial 6 are due on Saturday </li>
 <li>Solutions for all worksheets, tutorials up to this point are available</li>
-<li>Midterm 2 is on Monday November 7<!-- and ends with {:/comment}. --></li>
+<li>Midterm 2 is on Monday November 7</li>
+<li>Please skip Question 4 in worksheet 6. We will adjust the autograder for Q4. Some parts of this question are related to week 9 lectures <!-- and ends with {:/comment}. --></li>
 </ul>
 
 </div>
@@ -14814,9 +14815,7 @@ Macbooks and check how long they hold up without a recharge. Is Apple's claim in
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>In the Macbook example, we want to test</p>
-<ul>
-<li>$H_0 : \mu = 20$ hours</li>
-</ul>
+<p>$H_0: \mu = 20$ hours</p>
 <p>where $\mu$ is the true mean of the battery life of the new Macbook Pro.</p>
 
 </div>
@@ -14943,7 +14942,7 @@ conclusion we want to make only if there’s evidence supporting it.</li>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="$p-$-value">$p-$ value<a class="anchor-link" href="#$p-$-value">&#182;</a></h2><ul>
-<li><p>$p-$value summarizes the evidence\</p>
+<li><p>$p-$value summarizes the evidence</p>
 </li>
 <li><p>It describes how unusual the data would be if $H_0$ were true.
 <br /></p>
@@ -14970,8 +14969,8 @@ conclusion we want to make only if there’s evidence supporting it.</li>
 </li>
 <li><p>When we reject $H_0$, we say the results are <strong>statistically significant</strong>.</p>
 <ul>
-<li>If $p-$value $\leq \alpha\; \Rightarrow$ Reject $H_0$</li>
-<li>If $p-$value $&gt; \alpha\; \Rightarrow$ Do not reject $H_0$</li>
+<li>If $p-$value $\leq \alpha\; \Rightarrow$  Reject $H_0$</li>
+<li>If $p-$value $&gt; \alpha\; \Rightarrow$  Do not reject $H_0$</li>
 </ul>
 </li>
 </ul>
@@ -15110,37 +15109,6 @@ conclusion we want to make only if there’s evidence supporting it.</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h3><ul>
-<li>We can control the probability of type I error by our choice of the significance level, $\alpha$</li>
-<li>It's difficult to control the probability of making type II error</li>
-<li>Statisticians avoid the risk of making a type II error by using `Do not reject' $H_0$ and 'NOT accept' $H_0$</li>
-<li>$1-\beta $ referred to as the <strong>power</strong> of a test</li>
-<li>We want the power to be large</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Power is the probability of correctly rejecting the null hypothesis $H_0$, when $H_0$ is false</p>
-<p><strong>power</strong>  $= P(\text{Reject } H_0 \text{ when } H_0 \text{ is false}) = 1 - \beta $</p>
-
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Hypothesis-testing-with-the-infer-package">Hypothesis testing with the <code>infer</code> package<a class="anchor-link" href="#Hypothesis-testing-with-the-infer-package">&#182;</a></h2><ul>
 <li><code>specify()</code> the variables of interest in your data frame.</li>
 <li><code>generate()</code> replicates of bootstrap resamples with replacement.</li>
@@ -15164,6 +15132,431 @@ conclusion we want to make only if there’s evidence supporting it.</li>
 </div>
 </div>
 </div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Hypothesis-Testing-About-Difference-of-Two-Population-Means,-$%5Cmu_1-%5Cmu_2$">Hypothesis Testing About Difference of Two Population Means, $\mu_1-\mu_2$<a class="anchor-link" href="#Hypothesis-Testing-About-Difference-of-Two-Population-Means,-$%5Cmu_1-%5Cmu_2$">&#182;</a></h2><h3 id="Hypotheses:-takes-one-of-the-following--3-forms">Hypotheses: takes one of the following  3 forms<a class="anchor-link" href="#Hypotheses:-takes-one-of-the-following--3-forms">&#182;</a></h3><p>$H_0:  \mu_1-\mu_2 = \Delta_0 $ vs $ H_a: \mu_1-\mu_2 &lt; \Delta_0 \Leftarrow  $ left-tailed test</p>
+<p>$H_0: \mu_1-\mu_2 = \Delta_0 $ vs $ H_a: \mu_1-\mu_2 &gt; \Delta_0  \Leftarrow  $ right-tailed test</p>
+<p>$H_0: \mu_1-\mu_2 = \Delta_0 $ vs $ H_a: \mu_1-\mu_2 \neq \Delta_0  \Leftarrow  $ two-tailed test</p>
+<p><br /></p>
+<p>where  $\Delta_0$ is the hypothesized value of the population mean.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Example:--if-the-hypotheses-are">Example:  if the hypotheses are<a class="anchor-link" href="#Example:--if-the-hypotheses-are">&#182;</a></h3><p>$H_0: \mu_1 = \mu_2 \;$ vs $\; H_a: \mu_1 &lt; \mu_2$</p>
+<p>Then we can give hypotheses as</p>
+<p>$H_0: \mu_1-\mu_2 = 0 \;$ vs $\; H_a: \mu_1-\mu_2 &lt; 0$</p>
+<p>in this case $\Delta_0$ =0</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Run this cell before continuing</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">cowplot</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">digest</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">gridExtra</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">repr</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
+<span class="nf">library</span><span class="p">(</span><span class="n">datateachr</span><span class="p">)</span>
+<span class="c1">#source(&quot;tests_worksheet_06.R&quot;)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Consider grades of two sections (A, and B) of same class. Create a data set</span>
+<span class="nf">set.seed</span><span class="p">(</span><span class="m">201</span><span class="p">)</span>
+<span class="n">data_grades</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">section</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rep</span><span class="p">(</span><span class="s">&quot;A&quot;</span> <span class="p">,</span><span class="m">100</span><span class="p">),</span> <span class="nf">rep</span><span class="p">(</span><span class="s">&quot;B&quot;</span><span class="p">,</span><span class="m">200</span><span class="p">)),</span> 
+                         <span class="n">grade</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">65</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">12</span><span class="p">),</span>
+                                   <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">75</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">10</span><span class="p">)))</span>
+<span class="nf">head</span><span class="p">(</span><span class="n">data_grades</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">##   Create a side-side boxplots to compare data</span>
+<span class="c1">##   Say historical data shows that average grade of a student for this class is 74. Show it in the grapg</span>
+
+<span class="n">boxplots</span> <span class="o">&lt;-</span> 
+  <span class="n">data_grades</span> <span class="o">%&gt;%</span>  
+  <span class="nf">ggplot</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">section</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">grade</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">geom_boxplot</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="nf">ylab</span><span class="p">(</span><span class="s">&quot;Grade&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Boxplots of Grades of two classes A and B&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">25</span><span class="p">))</span> <span class="o">+</span>
+  <span class="nf">geom_hline</span><span class="p">(</span><span class="n">yintercept</span><span class="o">=</span><span class="m">74</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span>
+
+<span class="n">boxplots</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Calculate mean of the grade for section A</span>
+
+<span class="n">mean_section_A</span> <span class="o">&lt;-</span> 
+  <span class="n">data_grades</span> <span class="o">%&gt;%</span> 
+  <span class="nf">filter</span><span class="p">(</span><span class="n">section</span> <span class="o">==</span> <span class="s">&quot;A&quot;</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_A</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+
+<span class="n">mean_section_A</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Test-the-hypothesis-that-the-population-mean-is-less-than-74-using-section-B-data">Test the hypothesis that the population mean is less than 74 using section B data<a class="anchor-link" href="#Test-the-hypothesis-that-the-population-mean-is-less-than-74-using-section-B-data">&#182;</a></h3><p><strong>$H_0: \mu = 74 \;$ vs $\; H_a: \mu &lt; 74$</strong></p>
+<p><br /></p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Consider the data in section B</p>
+<ul>
+<li><p>Consider section B is a sample of the populaton of grades for this class</p>
+</li>
+<li><p>test statistics is the sample mean</p>
+</li>
+<li><p>we  just cannot compare the test statistic's value with the hypothesized value. Why?</p>
+</li>
+<li><p>therefore find the bootstrapped sampling distribution of sample mean</p>
+</li>
+<li><p>then find the p-value</p>
+</li>
+<li><p>and make the decision</p>
+</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Section B data</span>
+
+<span class="n">data_section_B</span> <span class="o">&lt;-</span>                         
+  <span class="n">data_grades</span> <span class="o">%&gt;%</span>                 
+  <span class="nf">filter</span><span class="p">(</span><span class="n">section</span> <span class="o">==</span> <span class="s">&quot;B&quot;</span><span class="p">)</span> 
+
+<span class="n">data_section_B</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">## bootstrapped sampling distribution of sample mean using 2,000 replications</span>
+
+<span class="n">boots_samp_dist_mean</span> <span class="o">&lt;-</span> 
+  <span class="n">data_section_B</span> <span class="o">%&gt;%</span> 
+  <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">grade</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;bootstrap&quot;</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">2000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span>
+
+<span class="n">boots_samp_dist_mean</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># observed value for the test statistic (sample mean of the section B) </span>
+
+<span class="n">observed_sample_mean</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">data_section_B</span><span class="o">$</span><span class="n">grade</span><span class="p">)</span>
+<span class="n">observed_sample_mean</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">## Plot the bootstrap sampling distribution </span>
+<span class="c1">#Vertical line indicates the observed value for the sample mean.</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="n">boots_samp_dist_plot</span> <span class="o">&lt;-</span> 
+  <span class="n">boots_samp_dist_mean</span> <span class="o">%&gt;%</span> 
+  <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">stat</span><span class="p">),</span> <span class="n">bins</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="n">observed_sample_mean</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">.</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Mean Grade&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">25</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Bootstrapped sampling dist.&quot;</span><span class="p">)</span> 
+
+<span class="n">boots_samp_dist_plot</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">## sampling distribution under null hypothesis ( 𝐻0 ) is called null model or null distribution</span>
+
+<span class="n">null_model</span> <span class="o">&lt;-</span> 
+  <span class="n">boots_samp_dist_mean</span> <span class="o">%&gt;%</span> 
+  <span class="nf">mutate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="n">stat</span> <span class="o">+</span> <span class="p">(</span><span class="m">74</span><span class="o">-</span><span class="n">observed_sample_mean</span><span class="p">))</span>
+
+<span class="n">null_model</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#plot the null model </span>
+
+<span class="n">null_model_plot</span> <span class="o">&lt;-</span>
+  <span class="n">null_model</span> <span class="o">%&gt;%</span> 
+  <span class="nf">ggplot</span><span class="p">()</span> <span class="o">+</span>
+  <span class="nf">geom_histogram</span><span class="p">(</span><span class="nf">aes</span><span class="p">(</span><span class="n">stat</span><span class="p">),</span> <span class="n">bins</span> <span class="o">=</span> <span class="m">15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span> <span class="o">=</span> <span class="n">observed_sample_mean</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;red&quot;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="n">.</span><span class="m">3</span><span class="p">,</span> <span class="n">lwd</span><span class="o">=</span><span class="m">2</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Mean Grade&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">25</span><span class="p">))</span> <span class="o">+</span> 
+  <span class="nf">ggtitle</span><span class="p">(</span><span class="s">&quot;Null distribution-Simulated&quot;</span><span class="p">)</span>
+
+
+<span class="n">null_model_plot</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># Is test statistic (observed mean for section B) plausible to nswer whether population mean is less than 74 using the p-vale</span>
+
+<span class="n">p_value</span> <span class="o">&lt;-</span> <span class="nf">mean</span><span class="p">(</span><span class="n">null_model</span><span class="o">$</span><span class="n">stat</span> <span class="o">&gt;</span> <span class="n">observed_sample_mean</span><span class="p">)</span>
+<span class="n">p_value</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h1 id="Hypothesis-testing-with-the-infer-package">Hypothesis testing with the <em>infer</em> package<a class="anchor-link" href="#Hypothesis-testing-with-the-infer-package">&#182;</a></h1>
+</div>
+</div>
+</div>
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#Hypothesis testing with the infer package</span>
+
+<span class="n">null_infer</span> <span class="o">&lt;-</span> 
+  <span class="n">data_section_B</span> <span class="o">%&gt;%</span> 
+  <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">grade</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">hypothesise</span><span class="p">(</span><span class="n">null</span> <span class="o">=</span> <span class="s">&quot;point&quot;</span><span class="p">,</span> <span class="n">mu</span> <span class="o">=</span> <span class="m">74</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">generate</span><span class="p">(</span><span class="n">type</span><span class="o">=</span><span class="s">&quot;bootstrap&quot;</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">2000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+  <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span>
+
+
+<span class="nf">head</span><span class="p">(</span><span class="n">null_infer</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1"># plot the null model  using infer </span>
+<span class="n">null_plot_infer</span> <span class="o">&lt;-</span> 
+  <span class="n">null_infer</span> <span class="o">%&gt;%</span> 
+  <span class="nf">visualize</span><span class="p">()</span> <span class="o">+</span> 
+  <span class="nf">shade_p_value</span><span class="p">(</span><span class="n">obs_stat</span> <span class="o">=</span> <span class="n">observed_sample_mean</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;right&quot;</span><span class="p">)</span> <span class="o">+</span>
+  <span class="nf">xlab</span><span class="p">(</span><span class="s">&quot;Mean Grade&quot;</span><span class="p">)</span> <span class="o">+</span> 
+  <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="m">20</span><span class="p">))</span>
+
+<span class="n">null_plot_infer</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="c1">#calculate the p value</span>
+
+<span class="n">p_value_infer</span> <span class="o">&lt;-</span> 
+  <span class="n">null_infer</span> <span class="o">%&gt;%</span> 
+  <span class="nf">get_p_value</span><span class="p">(</span><span class="n">obs_stat</span> <span class="o">=</span> <span class="n">observed_sample_mean</span><span class="p">,</span> <span class="n">direction</span> <span class="o">=</span> <span class="s">&quot;right&quot;</span><span class="p">)</span>
+
+<span class="n">p_value_infer</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
