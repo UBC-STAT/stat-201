@@ -64,6 +64,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8 - 8.2 and Chapter 8.7.1</a></li>
+                    <li><a href="https://wise.cgu.edu/portfolio2/bootstrapping/">Interactive applet</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -84,6 +85,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html">MD: Chapter 8.3 - 8.7</a></li>
+                    <li><a href="https://www.lock5stat.com/StatKey/bootstrap_1_quant/bootstrap_1_quant.html">Interactive applet</a></li>
                 </ul>
             </td>
             <td style="text-align: left;">
