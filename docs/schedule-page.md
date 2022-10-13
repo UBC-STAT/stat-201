@@ -204,6 +204,8 @@
                             9.4.2 Types of errors</a></li>
                     <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
                             Section 9.6.3 Problems with p-values</a></li> 
+                    <li><a href="https://www.scribbr.com/statistics/type-i-and-type-ii-errors/">Blog post: Trade off type I & type II errors</a></li>
+                    <li><a href="https://www.scribbr.com/statistics/statistical-power/">Blog post: Statistical power</a></li>
                     <li><a href="https://rpsychologist.com/d3/nhst/">Interactive applet</a></li>
                     <li><a href="https://projects.fivethirtyeight.com/p-hacking/">P-hacking game</a></li> 
                 </ul>
