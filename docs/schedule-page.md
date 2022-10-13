@@ -246,7 +246,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>NA</li>
+                    <li><a href="https://bookdown.org/steve_midway/DAR/understanding-anova-in-r.html">Understanding ANOVA in R</a></li> 
                 </ul>
             </td>
             <td style="text-align: left;">
