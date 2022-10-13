@@ -201,6 +201,8 @@
                             9.4.2 Types of errors</a></li>
                     <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
                             Section 9.6.3 Problems with p-values</a></li> 
+                    <li><a href="https://rpsychologist.com/d3/nhst/">MD:
+                            Interactive applet</a></li> 
                 </ul>
             </td>
             <td style="text-align: left;">
