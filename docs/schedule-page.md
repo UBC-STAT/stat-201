@@ -156,6 +156,7 @@
                             Section 7.5.2 Central Limit Theorem </a></li>
                     <li><a href="https://moderndive.com/8-confidence-intervals.html#theory-ci">MD: Section 8.7.2
                             Theory-based confidence intervals</a></li>
+                    <li><a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm">Interactive applet</a></li>
                     <li>OIS: Section 5.2 Confidence intervals for a proportion</li>
                 </ul>
             </td>
@@ -201,8 +202,7 @@
                             9.4.2 Types of errors</a></li>
                     <li><a href="https://moderndive.com/9-hypothesis-testing.html#problems-with-p-values">MD:
                             Section 9.6.3 Problems with p-values</a></li> 
-                    <li><a href="https://rpsychologist.com/d3/nhst/">
-                            Interactive applet</a></li> 
+                    <li><a href="https://rpsychologist.com/d3/nhst/">Interactive applet</a></li> 
                 </ul>
             </td>
             <td style="text-align: left;">
