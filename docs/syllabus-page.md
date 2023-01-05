@@ -17,8 +17,9 @@ computer scripts for analysis and reports.
 
 **Note**:
 <!-- - Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th -->
-- Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th
-- Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th
+<!-- - Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th -->
+<!-- - Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th -->
+- Feb 20-24th are mid-term breaks
 
 ### Office Hours
 Times are in Pacific Time.
