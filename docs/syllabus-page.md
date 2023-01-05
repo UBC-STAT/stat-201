@@ -16,7 +16,7 @@ computer scripts for analysis and reports.
 - Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
 
 **Note**:
-- Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th
+<!-- - Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th -->
 - Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th
 - Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th
 
