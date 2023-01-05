@@ -16,23 +16,22 @@ computer scripts for analysis and reports.
 - Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
 
 **Note**:
-<!-- - Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th -->
-<!-- - Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th -->
-<!-- - Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th -->
+<!-- - Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
+     - Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th 
+     - Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th           -->
 - Feb 20-24th are mid-term breaks
 
 ### Office Hours
 Times are in Pacific Time.
 
-- Quan: 10:00-11:00 Fridays (Zoom link on Canvas) Week 1 - Week 5
-- Lasantha: 10:00-11:00 Fridays (Zoom link on Canvas) Week 6 - Week 12
+- Lasantha: Wednesday 10:30 - 11:30am (Zoom link on Canvas)
 - Daniel/Marc/Abhinav:Tuesdays 10-11 am (Zoom link on Canvas)
 - Yifan/Prayus:Thursdays 10-11 am (Zoom link on Canvas)
 
 #### Test Dates
 
-- Midterm 1: Wednesday, Oct 5th, 2022 (in class) 
-- Midterm 2: Monday, Nov 7th, 2022 (in class)
+- Midterm 1: Wednesday, Feb 8, 2023 (in class) 
+- Midterm 2: Wednesday, March 15, 2023 (in class)
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
