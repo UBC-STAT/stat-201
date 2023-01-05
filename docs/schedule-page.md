@@ -192,6 +192,25 @@
         </tr>
         <tr>
             <td>#9</td>
+            <td>Nov 7 - 11</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Mid-term #2 (Monday Nov 7th) & Group proposal</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Note: there's no Worksheet and Tutorial in this week</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#</td>
             <td>Oct 31 - Nov 4</td>
             <td style="text-align: left;">
                 <ul>
@@ -217,25 +236,7 @@
                 </ul>
             </td>
         </tr>
-        <tr>
-            <td>#10</td>
-            <td>Nov 7 - 11</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Mid-term #2 (Monday Nov 7th) & Group proposal</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Note: there's no Worksheet and Tutorial in this week</li>
-                </ul>
-            </td>
-        </tr>
+
         <tr>
             <td>#11</td>
             <td>Nov 14 - 18</td>
