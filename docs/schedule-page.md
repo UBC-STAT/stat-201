@@ -279,7 +279,26 @@
                     </li>
                 </ul>
              </td>
-           </tr>
+         </tr>
+         <tr>
+            <td>#13</td>
+            <td>Apr 10- 14</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Independent study time</li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>NA</li>
+                </ul>
+            </td>
+             <td style="text-align: left;">
+                    <ul>
+                        <li>NA</li>
+                    </ul>
+              </td>
+          </tr>
     </tbody>
 </table>
 
