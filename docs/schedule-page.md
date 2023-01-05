@@ -101,7 +101,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Week 1-4 review</li>
-                    <li>Midterm Exam #1 (Wed Oct 5th) & Team work contract</li>
+                    <li>Midterm Exam #1 (Wednesday, Feb 08th) & Team work contract</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -195,7 +195,7 @@
             <td>Mar 13 - 17</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 (Monday Nov 7th) & Group proposal</li>
+                    <li>Mid-term #2 (Wednesday, March 15) & Group proposal</li>
                 </ul>
             </td>
             <td style="text-align: left;">
