@@ -14,7 +14,7 @@
     <tbody>
         <tr>
             <td>#1</td>
-            <td>Sep 5 - 9 </td>
+            <td>Jan 9 - 13 </td>
             <td style="text-align: left;">
                 <ul>
                     <li> Introduction to Statistical Inference and Sampling </li>
@@ -34,7 +34,7 @@
         </tr>
         <tr>
             <td>#2</td>
-            <td>Sep 12 - 16 </td>
+            <td>Jan 16 - 20 </td>
             <td style="text-align: left;">
                 <ul>
                     <li> Populations and Sampling </li>
@@ -55,7 +55,7 @@
         </tr>
         <tr>
             <td>#3</td>
-            <td>Sep 19 - 23</td>
+            <td>Jan 23 - 27</td>
             <td style="text-align: left;">
                 <ul>
                     <li> Bootstrapping and its Relationship to the Sampling Distribution </li>
@@ -76,7 +76,7 @@
             </tr>
         <tr>
             <td>#4</td>
-            <td>Sep 26 - 30</td>
+            <td>Jan 30 - Feb 3</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals via bootstrapping</li>
@@ -97,7 +97,7 @@
         </tr>
         <tr>
             <td>#5</td>
-            <td>Oct 03 - 07</td>
+            <td>Feb 6 - 10</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Week 1-4 review</li>
@@ -123,7 +123,7 @@
         </tr>
         <tr>
             <td>#6</td>
-            <td>Oct 10 - 14</td>
+            <td>Feb 13 - 17</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Hypothesis testing via simulation/randomization</li>
@@ -144,7 +144,7 @@
         </tr>
         <tr>
             <td>#7</td>
-            <td>Oct 17 - 21</td>
+            <td>Feb 27 - Mar 3</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem</li>
@@ -171,7 +171,7 @@
         </tr>
         <tr>
             <td>#8</td>
-            <td>Oct 24 - 28</td>
+            <td>Mar 6 - 10</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Classical Tests Based on Normal and t-Distributions</li>
@@ -192,7 +192,7 @@
         </tr>
         <tr>
             <td>#9</td>
-            <td>Nov 7 - 11</td>
+            <td>Mar 13 - 17</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Mid-term #2 (Monday Nov 7th) & Group proposal</li>
@@ -211,7 +211,7 @@
         </tr>
         <tr>
             <td>#10</td>
-            <td>Oct 31 - Nov 4</td>
+            <td>Mar 20 - 24</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Errors in Inference </li>
@@ -238,7 +238,7 @@
         </tr>
         <tr>
             <td>#11</td>
-            <td>Nov 14 - 18</td>
+            <td>Mar 27 - 31</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Beyond Two-Group Comparisons</li>
@@ -258,7 +258,7 @@
         </tr>
         <tr>
             <td>#12</td>
-            <td>Nov 21 - 25</td>
+            <td>Apr 3- 7</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Project Week</li>
