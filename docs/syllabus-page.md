@@ -24,9 +24,12 @@ computer scripts for analysis and reports.
 ### Office Hours
 Times are in Pacific Time.
 
-- Lasantha: Wednesday 10:30 - 11:30am (Zoom link on Canvas)
-- Daniel/Marc/Abhinav:Tuesdays 10-11 am (Zoom link on Canvas)
-- Yifan/Prayus:Thursdays 10-11 am (Zoom link on Canvas)
+- Tue: Marc (time: TBA) - Zoom link on Canvas
+- Wednesday: Lasantha (11am-12pm) - Zoom link on Canvas
+- Thursday: Yifan (time:TBA) - Zoom link on Canvas
+- Friday: Daniel (10-11am) - Zoom link on Canvas
+- Friday: Abhinav(5:30-6:30pm) - Zoom link on Canvas
+
 
 #### Test Dates
 
