@@ -111,7 +111,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial 05</i></li>
+                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
                     <li>Project:
                         <ul>
                             <li>Teamwork contract</li>
@@ -206,6 +206,11 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Note: there's no Worksheet and Tutorial in this week</li>
+                    <li>Project:
+                        <ul>
+                            <li>Project proposals</li>
+                        </ul>
+                    </li>
                 </ul>
             </td>
         </tr>
