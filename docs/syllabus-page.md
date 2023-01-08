@@ -15,11 +15,14 @@ computer scripts for analysis and reports.
 
 - Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
 
-**Note**:
-<!--  Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
-      Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th 
-      Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th           -->
-- Feb 20-24th is the  mid-term break
+### Teaching Team
+- Instructor: Dr. Lasanatha Premarathna (wpremara@stat.ubc.ca)
+
+### Teaching Assistants
+ - Marc Wettengel
+ - Yifan Yin
+ - Daniel Zhezlov 
+ - Abhinav Kansal 
 
 ### Office Hours
 Times are in Pacific Time.
@@ -30,6 +33,11 @@ Times are in Pacific Time.
 - Friday: Daniel (10-11am) - Zoom link on Canvas
 - Friday: Abhinav(5:30-6:30pm) - Zoom link on Canvas
 
+**Note**:
+<!--  Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
+      Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th 
+      Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th           -->
+- Feb 20-24th is the  mid-term break
 
 #### Test Dates
 
