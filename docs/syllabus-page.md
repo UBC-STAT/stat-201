@@ -18,7 +18,7 @@ computer scripts for analysis and reports.
 ### Teaching Team
 - Instructor: Dr. Lasanatha Premarathna (wpremara@stat.ubc.ca)
 
- # Teaching Assistants
+ #### Teaching Assistants
  - Marc Wettengel
  - Yifan Yin
  - Daniel Zhezlov 
