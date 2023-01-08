@@ -208,7 +208,7 @@
                     <li>Note: there's no Worksheet and Tutorial in this week</li>
                     <li>Project:
                         <ul>
-                            <li>Project proposals</li>
+                            <li>Project proposals</li> 
                         </ul>
                     </li>
                 </ul>
