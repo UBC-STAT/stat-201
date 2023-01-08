@@ -19,14 +19,14 @@ computer scripts for analysis and reports.
 <!--  Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
       Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th 
       Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th           -->
-- Feb 20-24th are mid-term breaks
+- Feb 20-24th is the  mid-term break
 
 ### Office Hours
 Times are in Pacific Time.
 
 - Tue: Marc (time: TBA) - Zoom link on Canvas
 - Wednesday: Lasantha (11am-12pm) - Zoom link on Canvas
-- Thursday: Yifan (time:TBA) - Zoom link on Canvas
+- Thursday: Yifan (10am - 11am) - Zoom link on Canvas
 - Friday: Daniel (10-11am) - Zoom link on Canvas
 - Friday: Abhinav(5:30-6:30pm) - Zoom link on Canvas
 
@@ -187,7 +187,7 @@ Weeks 1 to 4 (i.e., Worksheets/Tutorials 1, 2, 3, and 4, plus
 the readings). The second midterm will <em>focus</em> on Weeks 6, 7, and 8 (i.e.,
 Worksheets/Tutorials 1, 2, 3, and 4, plus
 the readings), however, the content is cumulative as the concepts are dependent.
-- **Final Exam:** The final exam will be a two-hour exam and it will cover the material of
+- **Final Exam:** The final exam will be a 90-minute exam and it will cover the material of
 the entire course. Notwithstanding the grading weights <a href="#course-breakdown">above</a>,
 students must pass the final exam to pass the course.
 
