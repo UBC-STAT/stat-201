@@ -260,7 +260,7 @@
                     <li>Tutorial 11</li>
                     <li>Project:
                         <ul>
-                            <li>Peer Review</li>
+                            <li>Peer Review</li> 
                         </ul>
                     </li>
                 </ul>
