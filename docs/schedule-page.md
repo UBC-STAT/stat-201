@@ -258,6 +258,11 @@
                 <ul>
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
+                    <li>Project:
+                        <ul>
+                            <li>Peer Review</li>
+                        </ul>
+                    </li>
                 </ul>
              </td>
         </tr>
