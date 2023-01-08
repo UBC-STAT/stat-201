@@ -31,7 +31,7 @@ Times are in Pacific Time.
 - Wednesday: Lasantha (11am-12pm) - Zoom link on Canvas
 - Thursday: Yifan (10am - 11am) - Zoom link on Canvas
 - Friday: Daniel (10-11am) - Zoom link on Canvas
-- Friday: Abhinav(5:30-6:30pm) - Zoom link on Canvas
+- Friday: Abhinav (5:30-6:30pm) - Zoom link on Canvas
 
 **Note**:
 <!--  Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
