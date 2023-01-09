@@ -27,7 +27,7 @@ computer scripts for analysis and reports.
 ### Office Hours
 Times are in Pacific Time.
 
-- Tue: Marc (time: TBA) - Zoom link on Canvas
+- Tue: Marc (9am - 10am) - Zoom link on Canvas
 - Wednesday: Lasantha (11am-12pm) - Zoom link on Canvas
 - Thursday: Yifan (10am - 11am) - Zoom link on Canvas
 - Friday: Daniel (10-11am) - Zoom link on Canvas
