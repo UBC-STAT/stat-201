@@ -26,7 +26,7 @@ computer scripts for analysis and reports.
  - Shruti Seetharam
 
 ### Office Hours
-Times are in Pacific Time. To Be Announced
+Please see Canvas for times and locations. 
 
 
 #### Test Dates
