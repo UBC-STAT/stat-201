@@ -13,36 +13,26 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- Classes are on Mondays and Wednesdays from 4:00 PM to 5:30 PM in CHEM B250
+- Lectures are on Tuesdays from 1:30 to 4:30 PM in ESB 1012
+- Tutorials are on Thursdays from 1:30 to 4:30 PM in ESB 1012
 
 ### Teaching Team
-- Instructor: Dr. Lasanatha Premarathna (wpremara@stat.ubc.ca)
+- Instructor: Melissa Lee (melissa.lee@stat.ubc.ca)
 
  #### Teaching Assistants
- - Marc Wettengel
- - Yifan Yin
- - Daniel Zhezlov 
- - Abhinav Kansal 
+ - Parsa Delavari
+ - Abhinav Kansal
+ - Thu Nguyen
+ - Shruti Seetharam
 
 ### Office Hours
-Times are in Pacific Time.
+Times are in Pacific Time. To Be Announced
 
-- Tue: Marc (9am - 10am) - Zoom link on Canvas
-- Wednesday: Lasantha (11am-12pm) - Zoom link on Canvas
-- Thursday: Yifan (10am - 11am) - Zoom link on Canvas
-- Friday: Daniel (10-11am) - Zoom link on Canvas
-- Friday: Abhinav (5:30-6:30pm) - Zoom link on Canvas
-
-**Note**:
-<!--  Monday Sep 5th is UBC Imagine Day, so we will have both lecture + tutorial on Wednesday Sep 7th 
-      Monday Oct 10th is Thanksgiving, so we will have both lecture + tutorial on Wednesday Oct 12th 
-      Nov 9-11th are mid-term breaks, so we will have both lecture + tutorial on Monday Nov 7th           -->
-- Feb 20-24th is the  mid-term break
 
 #### Test Dates
 
-- Midterm 1: Wednesday, Feb 8, 2023 (in class) 
-- Midterm 2: Wednesday, March 15, 2023 (in class)
+- Midterm 1: Thursday, Jul 20, 2023 (in class) 
+- Midterm 2: Thursday, Aug 3, 2023 (in class)
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
@@ -93,7 +83,7 @@ other hand, the tutorials are not fully autograded, and only a few exercises
 will have visible tests. You can access the assignments through Canvas assignments.
 
 #### Summer semester only:
-_Usually_ each week there will be four assignments: (1) two worksheets; and (2) two tutorials.
+_Usually_ each week, there will be four assignments: (1) two worksheets; and (2) two tutorials.
 However, some weeks will vary. Please see Canvas for the due dates for each week.
 Assignments will be due every Saturday, 23:59:59. The worksheets are
 fully autograded with visible tests to help you identify points that need
