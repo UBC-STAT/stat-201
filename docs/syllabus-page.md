@@ -155,16 +155,12 @@ assignments files.
                 <td>4%</td>
             </tr>
             <tr>
-                <td>Peer review</td>
-                <td>3%</td>
-            </tr>
-            <tr>
                 <td>Final Report</td>
-                <td>9%</td>
+                <td>10%</td>
             </tr>
             <tr>
                 <td>Teammate Evaluation</td>
-                <td>3%</td>
+                <td>5%</td>
             </tr>
  </tbody>
     </table>
