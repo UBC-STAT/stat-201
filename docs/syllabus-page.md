@@ -83,7 +83,7 @@ other hand, the tutorials are not fully autograded, and only a few exercises
 will have visible tests. You can access the assignments through Canvas assignments.
 
 #### Summer semester only:
-_Usually_ each week, there will be four assignments: two worksheets and two tutorials.
+Usually, each week, there will be four assignments: two worksheets and two tutorials.
 However, some weeks will vary. Please see Canvas for the due dates for each week.
 The worksheets are fully autograded with visible tests to help you identify points that need
 more clarification. Therefore, reach out to the teaching team if you don't
