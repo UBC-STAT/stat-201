@@ -114,7 +114,7 @@ assignments files.
             </tr>
             <tr>
                 <td>Tutorials</td>
-                <td>15%</td>
+                <td>10%</td>
             </tr>
             <tr>
                 <td>Group project</td>
@@ -130,7 +130,7 @@ assignments files.
             </tr>
             <tr>
                 <td>Final Exam</td>
-                <td>30%</td>
+                <td>35%</td>
             </tr>
         </tbody>
     </table>
