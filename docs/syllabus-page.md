@@ -85,8 +85,7 @@ will have visible tests. You can access the assignments through Canvas assignmen
 #### Summer semester only:
 _Usually_ each week, there will be four assignments: (1) two worksheets; and (2) two tutorials.
 However, some weeks will vary. Please see Canvas for the due dates for each week.
-Assignments will be due every Saturday, 23:59:59. The worksheets are
-fully autograded with visible tests to help you identify points that need
+The worksheets are fully autograded with visible tests to help you identify points that need
 more clarification. Therefore, reach out to the teaching team if you don't
 understand why you are getting an answer wrong in the worksheet. On the
 other hand, the tutorials are not fully autograded, and only a few exercises
