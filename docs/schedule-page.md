@@ -3,6 +3,7 @@
 <table id="course-schedule">
     <caption>Table 1: Topics & Readings </caption>
     <thead>
+        <ul>
         <tr>
             <th style="width: 100px;">Module</th>
             <th style="width: 400px;">Topics</th>
@@ -94,7 +95,6 @@
             <td>#5</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Module 1-4 review</li>
                     <li>Midterm Exam #1 & Teamwork contract</li>
                 </ul>
             </td>
