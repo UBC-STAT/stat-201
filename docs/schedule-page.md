@@ -1,7 +1,7 @@
-## Topics
+## Topics & Readings
 
 <table id="course-schedule">
-    <caption>Table 1: Topics</caption>
+    <caption>Table 1: Topics & Readings </caption>
     <thead>
         <tr>
             <th style="width: 100px;">Module</th>
@@ -94,8 +94,8 @@
             <td>#5</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Week 1-4 review</li>
-                    <li>Midterm Exam #1 & Team work contract</li>
+                    <li>Module 1-4 review</li>
+                    <li>Midterm Exam #1 & Teamwork contract</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -105,7 +105,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
+                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
                     <li>Project:
                         <ul>
                             <li>Teamwork contract</li>
@@ -190,7 +190,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial in this week</i></li>
+                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -280,12 +280,10 @@
 
 MD: [Modern Dive](https://moderndive.com/) <br>
 OIS: [Openintro Statistics](https://www.openintro.org/book/os/) <br>
-All due dates will be on the last day of the week (Saturday at 23:59).
 
 <b>Deadlines:</b>
 
-Please see Canvas for deadlines. The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate
-any students with extenuating circumstances).
+Please see Canvas for deadlines. The worksheet with the lowest grade will be dropped; the tutorial with the lowest grade will be dropped (to accommodate any students with extenuating circumstances).
 
 
 ### Learning Outcomes per Week
