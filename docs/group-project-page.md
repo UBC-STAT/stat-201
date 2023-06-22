@@ -133,35 +133,36 @@ At least two citations of literature relevant to the project. The citation
 format is your choice – just be consistent. Make sure to cite the source
 of your data as well.
 
-### Deliverable 3: Peer Review
+[comment]: <> (Commenting out Peer review for Summer section only)
+[comment]: <> (### Deliverable 3: Peer Review)
 
-For this peer review, you will be **individually providing feedback to another group’s proposal. You will be sent the proposal** to review on Canvas.
+[comment]: <> (For this peer review, you will be **individually providing feedback to another group’s proposal. You will be sent the proposal** to review on Canvas.)
 
-We deliberately set up the review so that each member of your group is
+[comment]: <> (We deliberately set up the review so that each member of your group is
 assigned to review a *different* group’s proposal. This allows your
-group to collectively see a larger variety of proposals.
+group to collectively see a larger variety of proposals.)
 
-#### Instructions
+[comment]: <> (#### Instructions)
 
-Bundle all of your feedback into a single document of your choice, and
+[comment]: <> (Bundle all of your feedback into a single document of your choice, and
 submit that to canvas. There is no page limit. The teaching team will
-deliver the feedback to your reviewee.
+deliver the feedback to your reviewee.)
 
-Your review should contain the following elements:
+[comment]: <> (Your review should contain the following elements:)
 
-- As you read through the proposal, point out anything that you think is confusing, or is not
+[comment]: <> (- As you read through the proposal, point out anything that you think is confusing, or is not
 communicated effectively. When possible, provide suggestions for improvement. If everything looks
-good to you, say why it looks good.
-- What part of the proposal is the most effective, and why?
-- What part of the proposal is the least effective, and why? Provide a suggestion for improvement.
-- Provide feedback on English, spelling, and grammar (if applicable).
+good to you, say why it looks good.)
+[comment]: <> (- What part of the proposal is the most effective, and why?)
+[comment]: <> (- What part of the proposal is the least effective, and why? Provide a suggestion for improvement.)
+[comment]: <> (- Provide feedback on English, spelling, and grammar, if applicable.)
 
-The rubric can be found on canvas. In short, *mechanics* (10%) evaluates
-the composition of your submission, *reasoning* (70%) evaluates your
-feedback, and *writing* (20%) evaluates your English, spelling, and
-grammar.
+[comment]: <> (The rubric can be found on canvas. In short, *mechanics* \(10%\) evaluates
+the composition of your submission, *reasoning* \(70%\) evaluates your
+feedback, and *writing* \(20%\) evaluates your English, spelling, and
+grammar.)
 
-### Deliverable 4: Final Report
+### Deliverable 3: Final Report
 
 Each group will create a final electronic report (max 2000 written
 words, not including citations) using Jupyter to communicate the
@@ -226,7 +227,7 @@ previous section with respect to the main question/goal of your project.
 The same instructions for your proposal also applies here. You only need
 to make changes if necessary (e.g., if feedback indicates so).
 
-### Deliverable 5: Team Evaluation
+### Deliverable 4: Team Evaluation
 
 Evaluate each member of your group (including yourself) in terms of how they/you participated,
 prepared, helped the group excel, and was a team player.
