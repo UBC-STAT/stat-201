@@ -1,11 +1,10 @@
-## Schedule
+## Topics
 
 <table id="course-schedule">
-    <caption>Table 1: Course Calendar</caption>
+    <caption>Table 1: Topics</caption>
     <thead>
         <tr>
             <th style="width: 100px;">Module</th>
-            <th style="width: 150px;">Dates</th>
             <th style="width: 400px;">Topics</th>
             <th style="width: 400px;">Required Reading</th>
             <th style="width: 200px;">Assignments Due</th>
@@ -14,7 +13,6 @@
     <tbody>
         <tr>
             <td>#1</td>
-            <td>Jan 9 - 13 </td>
             <td style="text-align: left;">
                 <ul>
                     <li> Introduction to Statistical Inference and Sampling </li>
@@ -34,7 +32,6 @@
         </tr>
         <tr>
             <td>#2</td>
-            <td>Jan 16 - 20 </td>
             <td style="text-align: left;">
                 <ul>
                     <li> Populations and Sampling </li>
@@ -55,7 +52,6 @@
         </tr>
         <tr>
             <td>#3</td>
-            <td>Jan 23 - 27</td>
             <td style="text-align: left;">
                 <ul>
                     <li> Bootstrapping and its Relationship to the Sampling Distribution </li>
@@ -76,7 +72,6 @@
             </tr>
         <tr>
             <td>#4</td>
-            <td>Jan 30 - Feb 3</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals via bootstrapping</li>
@@ -97,11 +92,10 @@
         </tr>
         <tr>
             <td>#5</td>
-            <td>Feb 6 - 10</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Week 1-4 review</li>
-                    <li>Midterm Exam #1 (Wednesday, Feb 08th) & Team work contract</li>
+                    <li>Midterm Exam #1 & Team work contract</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -123,7 +117,6 @@
         </tr>
         <tr>
             <td>#6</td>
-            <td>Feb 13 - 17</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Hypothesis testing via simulation/randomization</li>
@@ -144,7 +137,6 @@
         </tr>
         <tr>
             <td>#7</td>
-            <td>Feb 27 - Mar 3</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Confidence Intervals (of means and proportions) based on the assumption of Normality or the Central Limit Theorem</li>
@@ -171,7 +163,6 @@
         </tr>
         <tr>
             <td>#8</td>
-            <td>Mar 6 - 10</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Classical Tests Based on Normal and t-Distributions</li>
@@ -192,10 +183,9 @@
         </tr>
         <tr>
             <td>#9</td>
-            <td>Mar 13 - 17</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 (Wednesday, March 15) & Group proposal</li>
+                    <li>Mid-term #2 & Group proposal</li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -205,7 +195,7 @@
             </td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Note: there's no Worksheet and Tutorial in this week</li>
+                    <li>Note: there's no Worksheet and Tutorial in this module</li>
                     <li>Project:
                         <ul>
                             <li>Project proposals</li> 
@@ -216,7 +206,6 @@
         </tr>
         <tr>
             <td>#10</td>
-            <td>Mar 20 - 24</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Errors in Inference </li>
@@ -243,7 +232,6 @@
         </tr>
         <tr>
             <td>#11</td>
-            <td>Mar 27 - 31</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Beyond Two-Group Comparisons</li>
@@ -258,17 +246,12 @@
                 <ul>
                     <li>Worksheet 11</li>
                     <li>Tutorial 11</li>
-                    <li>Project:
-                        <ul>
-                            <li>Peer Review</li> 
-                        </ul>
                     </li>
                 </ul>
              </td>
         </tr>
         <tr>
             <td>#12</td>
-            <td>Apr 3- 7</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Project Week</li>
@@ -291,24 +274,7 @@
              </td>
          </tr>
          <tr>
-            <td>#13</td>
-            <td>Apr 10- 14</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Independent study time</li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>NA</li>
-                </ul>
-            </td>
-             <td style="text-align: left;">
-                    <ul>
-                        <li>NA</li>
-                    </ul>
-              </td> 
-          </tr>
+           </tr>
     </tbody>
 </table>
 
