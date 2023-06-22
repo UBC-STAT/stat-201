@@ -95,7 +95,7 @@
             <td>#5</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Midterm Exam #1 & Teamwork contract</li>
+                    <li>Midterm Exam #1 </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -106,10 +106,6 @@
             <td style="text-align: left;">
                 <ul>
                     <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
-                    <li>Project:
-                        <ul>
-                            <li>Teamwork contract</li>
-                            <li>Start on your project proposals</li>
                         </ul>
                     </li>
                 </ul>
@@ -185,7 +181,7 @@
             <td>#9</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 & Group proposal</li>
+                    <li>Mid-term #2 </li>
                 </ul>
             </td>
             <td style="text-align: left;">
@@ -196,9 +192,7 @@
             <td style="text-align: left;">
                 <ul>
                     <li>Note: there's no Worksheet and Tutorial in this module</li>
-                    <li>Project:
                         <ul>
-                            <li>Project proposals</li> 
                         </ul>
                     </li>
                 </ul>
