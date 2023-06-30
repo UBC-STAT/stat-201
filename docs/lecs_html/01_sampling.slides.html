@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14641,7 +14659,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="Welcome-to-STAT-201---Statistical-Inference-for-Data-Science!">Welcome to STAT 201 - Statistical Inference for Data Science!<a class="anchor-link" href="#Welcome-to-STAT-201---Statistical-Inference-for-Data-Science!">&#182;</a></h1><h2 id="Lecture-1">Lecture 1<a class="anchor-link" href="#Lecture-1">&#182;</a></h2><p><img src="img/programming_women.jpg" width=700></p>
+<h1 id="Welcome-to-STAT-201---Statistical-Inference-for-Data-Science!">Welcome to STAT 201 - Statistical Inference for Data Science!<a class="anchor-link" href="#Welcome-to-STAT-201---Statistical-Inference-for-Data-Science!">&#182;</a></h1><h2 id="Lecture-1">Lecture 1<a class="anchor-link" href="#Lecture-1">&#182;</a></h2><img src="img/programming_women.jpg" width=700>
 <p><em>Photos/Images by #WOCinTech/#WOCinTech Chat (<a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>)</em></p>
 <p><strong>Attribution:</strong> these slides are adapted from <a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week1.pdf">Vincenzo Coia's slides</a></p>
 
@@ -14656,22 +14674,14 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Teaching-Team">Teaching Team<a class="anchor-link" href="#Teaching-Team">&#182;</a></h2><h3 id="Instructors:">Instructors:<a class="anchor-link" href="#Instructors:">&#182;</a></h3><ul>
-<li>Lasantha Premarathna</li>
+<li>Melissa Lee</li>
 </ul>
 <h3 id="TAs:">TAs:<a class="anchor-link" href="#TAs:">&#182;</a></h3><ul>
-<li>Daniel Zhezlov</li>
-<li>Yifan Yin</li>
-<li>Marc Wettengel</li>
+<li>Parsa Delavari</li>
 <li>Abhinav Kansal</li>
+<li>Thu Nguyen</li>
 </ul>
-<h3 id="Office-Hours-(online):">Office Hours (online):<a class="anchor-link" href="#Office-Hours-(online):">&#182;</a></h3><p>Zoom link for online office hours can be found through the Zoom tab in the Canvas page. Times are in Pacific Time.</p>
-<ul>
-<li>Tue: Marc (9am - 10am) </li>
-<li>Wednesday: Lasantha (11am - 12pm) </li>
-<li>Thursday: Yifan (10am - 11am) </li>
-<li>Friday: Daniel (10am - 11am) </li>
-<li>Friday: Abhinav (5:30pm - 6:30pm) </li>
-</ul>
+<p>-Shruti Seetharam</p>
 
 </div>
 </div>
@@ -14692,11 +14702,24 @@ div.jp-OutputPrompt {
 <li>Value diversity, respect everyone's ideas</li>
 <li>Be aware of how much you are contributing to class<ul>
 <li>If you tend to speak often, allow others to speak</li>
-<li>If you tend to stay quiet, challenge yourself to share ideas so others can learn from you </li>
+<li>If you tend to stay quiet, challenge yourself to share ideas so others can learn from you</li>
 </ul>
 </li>
-<li>Listen actively, and be mindful of each other's differences </li>
-<li>Avoid demeaning, devaluing, or "putting down" people </li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Listen actively, and be mindful of each other's differences</li>
+<li>Avoid demeaning, devaluing, or &quot;putting down&quot; people</li>
 <li>Trust that people are doing the best they can. Be as patient as possible with the learning processes of others</li>
 <li>Respect your teaching team, and expect professionalism and respect in return</li>
 </ul>
@@ -14711,7 +14734,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Brief-Canvas-walkthrough:">Brief Canvas walkthrough:<a class="anchor-link" href="#Brief-Canvas-walkthrough:">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/110110">https://canvas.ubc.ca/courses/110110</a></p>
+<h2 id="Brief-Canvas-walkthrough:">Brief Canvas walkthrough:<a class="anchor-link" href="#Brief-Canvas-walkthrough:">&#182;</a></h2><p>https://canvas.ubc.ca/courses/119247</p>
 <p>Read the <a href="https://ubc-stat.github.io/stat-201/">Course Website</a> pages carefully!</p>
 
 </div>
@@ -14725,24 +14748,24 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Lecture/Tutorial-Structure">Lecture/Tutorial Structure<a class="anchor-link" href="#Lecture/Tutorial-Structure">&#182;</a></h3><ul>
-<li>Readings for each class are posted in the <a href="https://ubc-stat.github.io/stat-201/schedule.html">class schedule</a>.  </li>
-<li>I will kick off each lecture with a little intro</li>
-<li><p>In each week you will have two <em>graded</em> assignments:</p>
+<li><p>Readings for each class are posted in the <a href="https://ubc-stat.github.io/stat-201/schedule.html">reading list</a>.</p>
+</li>
+<li><p>I will kick off each lecture with a little intro</p>
+</li>
+<li><p>In each week you will often have:</p>
 <ul>
-<li>Mondays: <ul>
+<li>Tuesdays:<ul>
 <li>Lecture worksheet run by instructor</li>
 </ul>
 </li>
-<li>Wednesdays: <ul>
+<li>Thursdays:<ul>
 <li>Tutorial worksheet run by TAs</li>
 </ul>
 </li>
 </ul>
 </li>
-<li><p>All assignments will be due <strong>Saturday 11:59pm</strong></p>
+<li><p>There are exceptions in some weeks so please see the <a href="https://canvas.ubc.ca/courses/119247/pages/lecture-schedule?module_item_id=5769466">lecture schedule</a> for lecture dates</p>
 </li>
-<li>Try, if you can, to complete your assignments throughout the week</li>
-<li><strong>I do not recommend you leaving all two assignments to the last minute!</strong> </li>
 </ul>
 
 </div>
@@ -14755,15 +14778,39 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Note-about-the-schedule-on-SSC">Note about the schedule on SSC<a class="anchor-link" href="#Note-about-the-schedule-on-SSC">&#182;</a></h2><p><img src="img/ssc2.png" alt=""></p>
-<p><strong>IGNORE</strong> the STAT 201 T1A Tue 8:00-9:00</p>
-<p>We will have our <strong>tutorials on Wednesdays</strong></p>
+<h3 id="Assignments">Assignments<a class="anchor-link" href="#Assignments">&#182;</a></h3><ul>
+<li><p>You will usually have <strong>four</strong> assignments due each week.</p>
+</li>
+<li><p>Lectures on Tuesdays.</p>
+<ul>
+<li>Lecture worksheets are usually due <strong>Thursdays at 1:20 PM</strong> <em>(There are exceptions in some weeks, please see Canvas Calendar for exact due dates)</em></li>
+<li>e.g. <code>worksheet_01</code> and <code>worksheet_02</code> we will work through today and they are both due Thursday</li>
+</ul>
+</li>
+</ul>
 
 </div>
 </div>
 </div>
-</div><aside class="notes">
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Tutorials on Thursdays.<ul>
+<li>Tutorial worksheets are usually due <strong>Sundays at 11:59pm</strong> <em>(There are exceptions in some weeks, please see Canvas Calendar for exact due dates)</em></li>
+<li>e.g. <code>tutorial_01</code> and <code>tutorial_02</code> you will work through on Thursday and they are both due Sunday</li>
+</ul>
+</li>
+</ul>
 
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14771,30 +14818,37 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Assignments">Assignments<a class="anchor-link" href="#Assignments">&#182;</a></h3><ul>
-<li>Lectures on Mondays. <ul>
-<li>Lecture worksheets (e.g. <code>worksheet_01</code>) are due <strong>Saturdays at 11:59pm</strong> </li>
-</ul>
-</li>
-<li>Tutorials on Wednesdays. <ul>
-<li>Tutorial worksheets (e.g. <code>tutorial_01</code>) are due <strong>Saturdays at 11:59pm</strong> </li>
-</ul>
-</li>
-<li>no "submit button" - our server takes a snapshot at the due date/time </li>
-<li>please make sure you <strong>manually save your work! Do not rely on automatic checkpoints!</strong>  </li>
+<li>no &quot;submit button&quot; - our server takes a snapshot at the due date/time</li>
+<li>please make sure you <strong>manually save your work! Do not rely on automatic checkpoints!</strong></li>
 <li>the server should basically be on 24 / 7. I will give notice before I shut it down (barring any emergencies).</li>
 <li>see the course syllabus for common mistakes to avoid for autograded assignments</li>
-<li>Each worksheet is not worth a lot of points -- they are designed to help you learn, not evaluate you. <ul>
+<li>Each worksheet is not worth a lot of points -- they are designed to help you learn, not evaluate you.<ul>
 <li><strong>please do collaborate, but do not copy!</strong></li>
 </ul>
 </li>
+<li><strong>Please do not rename or move the worksheets or tutorials</strong></li>
 <li>We will drop the lowest grade for each worksheet and tutorial at the end of the semester.</li>
 </ul>
 
 </div>
 </div>
 </div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-</aside></section></section><section><section>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>Try, if you can, to complete your assignments throughout the week</li>
+<li><strong>I do not recommend you leaving assignments to the last minute!</strong></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14802,8 +14856,8 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Main-Evaluations">Main Evaluations<a class="anchor-link" href="#Main-Evaluations">&#182;</a></h3><ul>
-<li>2 midterms and a final exam </li>
-<li>Midterm 1 and midterm 2 will take place during class and will be <strong>in person</strong> </li>
+<li>2 midterms and a final exam</li>
+<li>Midterm 1 and midterm 2 will take place during class and will be <strong>in person</strong></li>
 <li>a group project</li>
 </ul>
 
@@ -14817,13 +14871,27 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Getting-help">Getting help<a class="anchor-link" href="#Getting-help">&#182;</a></h2><h3 id="Office-Hours:">Office Hours:<a class="anchor-link" href="#Office-Hours:">&#182;</a></h3><p><a href="https://canvas.ubc.ca/courses/119247/pages/office-hours?module_item_id=5732680">Office hours are posted on Canvas</a></p>
+<ul>
+<li>We encourage you to go to office hours and ask questions about the material!</li>
+</ul>
+<h3 id="Piazza-discussion-board">Piazza discussion board<a class="anchor-link" href="#Piazza-discussion-board">&#182;</a></h3><p>Sign up link: 
+https://piazza.com/ubc.ca/summer2023/stat2012022023s2</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="Collaborate!">Collaborate!<a class="anchor-link" href="#Collaborate!">&#182;</a></h3><ul>
 <li>Talk to each other (in class, on Piazza) as you work through the worksheets and tutorials</li>
-</ul>
-<p>⭐ BONUS 1% to the Top 10 Student Answerers</p>
-<ul>
 <li>Group project at middle-end of course</li>
-<li>You will be working with the same people every week <ul>
+<li>You will be working with the same people every week<ul>
 <li>get to know one another; let's build a community where we help each other learn both during and outside of class!</li>
 </ul>
 </li>
@@ -14839,14 +14907,11 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Icebreaker-group-activity">Icebreaker group activity<a class="anchor-link" href="#Icebreaker-group-activity">&#182;</a></h2><ol>
-<li>Make sure you are sitting with your group mates<br>
-Check your project group on Canvas (under "People") and refer to the seating plan on Canvas.</li>
-<li>Introduce yourselves to your groupmates   </li>
-<li>As a group, <strong>find one thing that all members of your group have in common.</strong>  </li>
-<li>Each member of the group say: what is your best study tip?</li>
+<h1 id="Icebreaker">Icebreaker<a class="anchor-link" href="#Icebreaker">&#182;</a></h1><ol>
+<li>Make sure you are sitting with your group mates</li>
 </ol>
-<p><img src="img/seating_plan.png" width=700></p>
+<p>Check your project group on Canvas (under &quot;People&quot;) and refer to the seating plan on Canvas.
+2. Introduce yourselves to your groupmates</p>
 
 </div>
 </div>
@@ -14872,13 +14937,14 @@ Check your project group on Canvas (under "People") and refer to the seating pla
 <h3 id="Idea-behind-the-course">Idea behind the course<a class="anchor-link" href="#Idea-behind-the-course">&#182;</a></h3><p>Suppose you want to know the average grade for all students who have taken this course. 
 You survey some STAT201 students, calculate the average grade, and present the number. 
 What’s the problem with this?</p>
-<p><img src="https://oli.cmu.edu/repository/webcontent/72712ec00a0001dc418a87e73e8ebb77/_u5_inference/webcontent/big_picture_inference.gif" width=600></p>
+<img src="https://oli.cmu.edu/repository/webcontent/72712ec00a0001dc418a87e73e8ebb77/_u5_inference/webcontent/big_picture_inference.gif" width=800>
 <p>Image source: <a href="http://oli.cmu.edu">Carnegie Mellon University open learning statistics course</a></p>
 
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div><aside class="notes">
+
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14888,13 +14954,14 @@ What’s the problem with this?</p>
 <ul>
 <li>It is impossible to collect data from everyone in our population</li>
 <li>We take a sample, and then make <strong>inferences</strong> about the whole population</li>
-<li>But our sample is not perfect, it comes with <strong>errors</strong> </li>
+<li>But our sample is not perfect, it comes with <strong>errors</strong></li>
 </ul>
 
 </div>
 </div>
 </div>
-</div><aside class="notes">
+</div>
+</aside><aside class="notes">
 
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14927,7 +14994,7 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 </div>
 </div>
 </div>
-</aside></div></section></section><section><section>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14936,7 +15003,8 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h3 id="I-am-interested-in-the-proportion-of-red-balls-in-this-bowl">I am interested in the proportion of red balls in this bowl<a class="anchor-link" href="#I-am-interested-in-the-proportion-of-red-balls-in-this-bowl">&#182;</a></h3><center>
 <img src = "img/population.PNG" width="800"/>
-</center><p><em>image source: <a href="https://moderndive.com/7-sampling.html">Modern Dive</a> by Kim &amp; McConville</em></p>
+</center>
+<p><em>image source: <a href="https://moderndive.com/7-sampling.html">Modern Dive</a> by Kim &amp; McConville</em></p>
 
 </div>
 </div>
@@ -14952,6 +15020,7 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 <center>
 <img src = "img/parameter.PNG" width="800"/>
 </center>
+
 </div>
 </div>
 </div>
@@ -14965,6 +15034,7 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 <center>
 <img src = "img/sampling.PNG" width="800"/>
 </center>
+
 </div>
 </div>
 </div>
@@ -14978,6 +15048,7 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 <center>
 <img src = "img/sample.PNG" width="800"/>
 </center>
+
 </div>
 </div>
 </div>
@@ -14990,455 +15061,12 @@ Two-group comparisons leads to more advanced courses (like STAT 301)</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>We will denote our <code>point estimate</code> (proportion of red balls in our sample) as $\hat{p}$</p>
 <center>
-<img src = "img/estimate.PNG" width="700"/>
+<img src = "img/estimate.PNG" width="800"/>
 </center>
-</div>
-</div>
-</div>
-</div><div class="fragment">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>What do you think our <code>sample distribution</code> woud look like?</p>
 
 </div>
 </div>
 </div>
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[37]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="nf">hist</span><span class="p">(</span><span class="nf">rbinom</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">1</span><span class="p">,</span> <span class="n">p</span> <span class="o">=</span> <span class="m">0.34</span><span class="p">),</span> <span class="n">main</span> <span class="o">=</span> <span class="s">&quot;Sample distribution&quot;</span><span class="p">,</span> <span class="n">col</span><span class="o">=</span><span class="nf">c</span><span class="p">(</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;white&quot;</span><span class="p">,</span><span class="s">&quot;red&quot;</span><span class="p">),</span><span class="n">labels</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="s">&quot;33&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="s">&quot;17&quot;</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-
-<div class="jp-OutputArea-child">
-
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-
-<div class="jp-RenderedImage jp-OutputArea-output ">
-<img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA0gAAANICAIAAAByhViMAAAACXBIWXMAABJ0AAASdAHeZh94
-AAAgAElEQVR4nOzdeWBU5d3w/ROysoRNWRIISyEqSt1AcUOpCyooIrjW4iOIFrdabqWKCgIu
-1K3FAnrjU5VC71ZBcBf7VKugKIsKVAFRAREUxArIDgHm/WP6zp0GyCbJkIvP56/JNWdmfjkE
-8uXMnJmUWCwWAQBQ9VVL9gAAAOwbwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4A
-IBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIO
-ACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDC
-DgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIO2N89
-99xzKSkpKSkpWVlZFfpAL7zwQvyB0tLSKv/Ri3m4Sp4hKY8I7BPCDg4Ia9eufeihh84888zc
-3NzMzMyMjIyDDjro+OOP/81vfrNs2bJkTwfAvpFW8iZAFTdt2rQePXp8//33hRfXrFmzZs2a
-2bNnjxw58plnnrnggguSNd5+7uijj/79738fRVHhw3il9+233zZp0mTnzp0LFy487LDDKvrh
-ymGPE1b+GMA+4W8sBG7t2rWJqsvKyurRo8ehhx66devWuXPn/u1vf9u1a9fWrVt79eq1ePHi
-Bg0aJHvY/VHr1q1//etfl/vmEyZM2LlzZ6U9XDnsccLKHwPYJ4QdBO6FF16IV11aWtrMmTOP
-PPLIwlddeOGFURRt2LBh3Lhxt9xyS9KmDNezzz6b7BFKsP9PCJSe19hB4BIvocvLyytcdVEU
-de/e/d57733kkUeef/75nj17JtZjsdgzzzxz9tlnN2zYMD09vXbt2h06dBg5cmTh4zpPPfVU
-/MX1p556ahRFzz333DHHHFOjRo0WLVrcddddBQUFURQtXLiwW7du9erVq1WrVufOnefPn5+4
-+ZNPPhm/+RFHHBFF0YQJE0455ZQ6derUrl37rLPOeu+990r53S1atKhfv375+flZWVm1a9c+
-7rjj/vCHP+zYsaM0tx07dmz79u1r1qxZv379rl27fvDBBykpKbtvtrfTCHbs2PHEE0+ceeaZ
-8b3UsGHD4447bvjw4f/617/iG5x33nkpKSnTp0+Pf9mmTZuUlJT4YbDE3jvttNN27Nhx8803
-N2jQoFGjRsU8XFy1atWiKHr++edPPfXU+O762c9+9vbbbxfe5q677orfwwknnFB4ffdTQ4qZ
-sJgx1q9ff//9959wwgn169fPyMho1KjR2Wef/fTTTxc57FfkJ+Sdd94566yz4j8MHTt2fOON
-N/byxwL8ODEgaI899lj8L3u1atWmTJlSmptcccUVe/zn4rzzztu1a1d8m2eeeSa+2LZt2wkT
-JhRJohtuuGHJkiUHH3xw4cUGDRqsW7cufvM///nP8cXc3NyHHnqoyAOlpaX97W9/S8wzceLE
-+HpmZmbhOSdNmrTH+jn99NO3bNlS/Pe4++HJzMzMu+66K345NTW1+Effvn17p06d9riXfvKT
-n3zxxRexWKxr1667X3vzzTfHYrG//OUv8S+PPPLIRx55pPCD7vHhEou1atV6/PHHi9xntWrV
-XnnllcTGd955Z3y9Q4cOhb/l559/vsh3V8yEe9vnc+fObdKkyR6/8RNPPPFf//pXYsvCPyF/
-+9vfMjIyCm+cmpr6xhtvFP9nBJSDsIPALVq0KDU1NfHbtEuXLmPGjJk/f34i0Yp4+eWXE7nw
-2GOPffzxx08++WTiGM+ECRPimyV+8efk5DRt2rRbt2433nhjnTp1EjVw7rnn5ubm3nzzzR06
-dEj8Ov/9738fv3ni6b/MzMzMzMz/83/+z1//+tf777+/Vq1a8fXmzZtv3769yGMVjowlS5ZU
-r149vj5gwIBFixbNnj37tNNOi68MHDiwmH0yc+bMxEinn3765MmTX3rppXPOOSfxbZYYdom6
-Ouyww/7617++9957r7/+euKo52mnnRaLxebPn//iiy8mHuh//ud/3nnnnSVLlhS+zxYtWuTl
-5aWnpx999NGHHnro3h6u8GJ2dnbfvn3/+te/Pvjgg4kdnpeXt23btvjGpQ+70kxYeIw1a9Yk
-qq5ly5aPP/74Cy+8cNtttyX2W9euXXefOScnp0WLFkcfffTAgQM7d+6ceLjjjz++mD8joHyE
-HYTv/vvvj3ZTr169888//4knnli/fn3hjUeNGtW1a9euXbvGj9zEdevWLX6rK6+8Mr6S+LUd
-RdHFF18cX5w0aVJiMSsra/HixbFYbNu2bYceemh88fzzz9/95n369Ek8UOIwTxRFiYN2e4yM
-G2+8Mb7YqVOnxOJ3330XT8Ps7OxiDtpdc8018ds2aNBg48aN8cWCgoLEOaElht1VV10VX3zk
-kUcSi9u3b7/88stvvPHG3/72tzt37ozFYitXrkx8OwsXLtz9PqMoys/PX758efEPV3j7fv36
-Jdafe+65xPprr70WXyx92JVmwsJjDB06NL5Yu3btr7/+OrE+fvz4xJ188MEHu8/csWPHxB9H
-4nhwtWrVEu0O7CteYwfhGzhw4JQpUzp27Fj4CdO1a9e+/PLL1157bbNmzcaOHZtYv+GGG155
-5ZVXXnllxIgRicXmzZvHL6xatWr3+x8wYED8wvnnn5+ZmRm/fOGFF/7kJz+JoigjI+P888+P
-Ly5fvnz3m//qV79KXO7Zs2d2dnb88vvvv1/MNzVlypT4hZNPPnnr/69WrVrHHntsFEUbNmxI
-vHRsd++++25i4Jo1a8Yvp6Wl7e056N3Vrl07fuHRRx8dP378t99+G0VRenr6X/7yl5EjR952
-223xF8OVxtChQ5s2bVrKjaMouuGGGxKXu3fvnphkxowZpb+T8pk8eXL8Qo8ePXJzcxPrl19+
-eb169eKXX3vttd1vOHTo0MST5r17945f2LVr1zfffFOB48IBSdjBAeGcc86ZNm3a8uXLx40b
-98tf/vLII49MRN66det69+6d+J0dRdEbb7zRvXv3Vq1aZWVlxV//PnLkyPhVe3znjrZt28Yv
-pKenJ94zpfCJGjk5OfELGzZsKHLb9PT0n/70p4kv09LSWrduHb9czDsnx2KxpUuXxi/fd999
-1QuZNm1afL3wuRpFfPnll/EL+fn5hdfjZ3KURu/evWvUqBFF0VdffXXllVc2bty4devWffv2
-nTx5cpne3CSKotNPP730G6enpx9++OGJL1NTUxO766uvvirT45ZVLBZL7NLCf2TxMRIHOxcu
-XLj7bdu3b5+4nPhPQrSnnwfgRxJ2cABp0qRJr169/vu//3vevHlfffXVHXfckXj53aBBg+IX
-Hn/88bPOOuvFF19csmRJWlpamzZtjjrqqCKnQRSWmZmZeK1b/Mv4hbp16yYWi7xwvrCaNWsW
-ObiVOIS2efPmvd1q8+bNu3bt2tu1cWvWrNnjeiwW27JlS/xyPM4SinxZjKOPPvrVV18tHIKL
-Fy9+8skne/bs2bp16+KPNRaWmppaprcP3H13JWZOfFMVZPPmzYnTjRMvhSw8WPzC7q0Wf11g
-4kufUQYVStjBAaGgoCAWixVeadq06X333Tds2LD4lwsWLNiyZcvGjRtvvfXW+MrPf/7z7777
-bsGCBXPnzr3kkksqaLDdc2TTpk3xC4lW2F2NGjUSSTpixIg9vtBkyJAhe7xt4bfwSDxW3Pr1
-60s/eadOnT7++OP33ntv2LBh55xzTuI8hi+//PKCCy4ocs97k5aWVvonbaMoir9SrfBKMbtr
-27Zthb9cvXp16R9odzVq1EicJLH7jkr0XGI/AEkh7CBkS5Ys6dmzZ5s2bWrUqPHmm2/uvkHi
-SdIoilJSUubMmZM4TjZgwIDEobhFixZV0ITbtm374osvEl/u2LHj888/j19u0aLF3m6VkpLS
-qlWr+OXEc7Kl16xZs/iFTz/9tPD6nDlzynQ/KSkpJ5544qBBg6ZMmfL999+/+OKL8Zeafffd
-d4lnhPetbdu2Ff6z2LFjR2LvJXZX4nDaN998U7gCP/roox/z0CkpKYnn3OfOnVv4qoKCggUL
-FsQvF3mvRKCSCTsIWW5u7ttvv/3pp5/u2LGjb9++n3zySeFrV69enXjxXJs2bbKysgof44m/
-yXAURQsWLHjrrbeKLO5DTz75ZOLySy+9tHHjxvjlU045pZhbnX322fELEydOTMTozp07r7ji
-ij59+gwcOPDrr7/e221PPPHExMOtXbs2fnnjxo2Fz+4sxpYtW4YPH967d+8LLrgg8Yxwampq
-t27djjvuuPiX8T1Z+GyVxBsX/0hPPPFE4vLkyZMTh8oSuytxKsbq1atfffXV+OVPP/10j99d
-mSbs0aNH/MILL7ywYsWKxPrYsWPjY6SkpHTv3r0s3w2wj/lIMQhZVlbWvffee/3110dRtGzZ
-siOPPPKEE05o1apVLBb7+uuv33vvve3bt8e3jL9h7+GHH16tWrV4rNxzzz3333//0qVLr7vu
-uvz8/PiBorlz586YMSN+uus+kZaW9sgjj2RmZnbq1GnhwoWJl/odeuih8U8s2Jtf//rXf/zj
-H7ds2fLNN9907tz5jjvuSEtLGzNmTPwskCOOOOLee+/d22179+79pz/9KYqidevWnXXWWQMG
-DNi2bduoUaPWrVsX36DI051FVK9efcKECfGjVpdccsnVV1/dsGHDzZs3v/XWW/ECzszMPOmk
-k6IoOvjgg9PT0+M1fMcdd9x000116tQp/F5upVQ4H0ePHh1FUadOnb744ovE+48U3l0nnXRS
-SkpK/Fu47LLLfvGLX2RnZz/11FNHH3307h/pUaYJb7rppieeeGLFihWbNm362c9+1r9//8aN
-G8+YMeMPf/hDfIOrr776kEMOKet3B+xLlfOuKkAS3X///YlXR+0uNTV18ODBiY1vuummIhvk
-5uYuXbq08Ntb3H333Xv7ZILEM6SPP/54YjFxXDDelLFCb3JWr16922+/vcgjZmVlTZ8+PXHz
-vT3WxIkTE+dqFNakSZPCb8m2R4k33UioWbPmqFGjEl/G34hub4/+8ccf7+09SqpVq/bkk08m
-tjz33HMLXxt/C9+9fUd7uyrxQR0NGza87777it9dsVisX79+RbbJz89PvMlLSkpK4benLtOE
-xXzyRI8ePQq/d+De7qHwW958/PHHxf8xAWXlqVgI38CBAxctWnTnnXeedNJJDRo0SE9Pz8jI
-aNCgwcknn3z77bfPnz8/ceAniqJHHnnkgQceOPzww6tXr96kSZO+ffvOnj27RYsWf/rTnw49
-9NC0tLSmTZu2adNmX822ffv24cOHjxkz5uijj87KyqpXr163bt1mzpwZP+JVvIsuumjOnDl9
-+vRp2bJlZmZmjRo12rZte+edd3788ceJd9/Ymz/+8Y+PPPLIoYcempGR0bBhw4suumjmzJk/
-+9nPEhsUf/ZD27ZtP/jgg3vuuad9+/aNGjVKT0+vUaPGYYcddu2118ZHSmz5f//v/+3evXvd
-unWzsrJatmxZmu9rd1u3bo1fqF+//h133PH0008X3l0zZswocrejRo0aPnx4fn5+RkZGkyZN
-rr322nfffTfxIrxYofOCyzrhUUcdtWDBgnvvvfe4446rU6dOenp6Tk7OhRde+NJLL+3tE96A
-yvTvw/UAlem55567+OKLoyjKzMxMVAsAP5IjdgAAgRB2AACBEHYAAIEQdgAAgXDyBABAIByx
-AwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiE
-sAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAI
-hLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMACISwAwAIhLADAAiEsAMA
-CISwAwAIhLADAAiEsAMACISwY8+WLFly7bXXtmrVKjMzs0GDBt27d581a1aZNgAAKllKLBZL
-9gzsdxYtWnTyySdv2LDhkksuadWq1RdffDFhwoQoiqZOnXriiSeWZgMAoPKlJXsA9kc33XTT
-mjVr3n777VNPPTW+0rNnzx49eowYMSLebSVuAABUPmHHHnTo0KF9+/aJaIuiqFu3bunp6YsW
-LSrlBgBA5RN27ME999xTZGXVqlUFBQUtW7Ys5QYAQOVz8gQl2Lx589tvv92lS5fs7Ow777yz
-HBsAAJVD2FGcunXr1qxZ82c/+9mRRx45d+7c9u3bl3UDAKDSpA4ZMiTZM7D/+uGHHw4//PDM
-zMwpU6Z8+OGHnTp1qlevXpk2AAAqjbc7oVTefvvt8847r1WrVnPmzKlWbQ8HekvcAACoaH4B
-UyqdOnW64IIL/vnPf+7tvNcSNwAAKpqwo6ivv/76qKOOuvLKK4usb926NYqiTZs2lbhB5cwJ
-ABThqVj2IC8vb/Xq1dOmTevQoUN85bPPPmvXrl0URd99911WVlaJGyRrcgA4kHkfO/Zg5MiR
-F110UceOHXv27NmqVauvv/564sSJmzZtGjVqVDzaStwAAKh8jtixZzNnzvztb387ffr0NWvW
-ZGdnt2/f/le/+tX5559f+g0AgEom7AAAAuHkCQCAQAg7AIBACDsAgEAIOwCAQAg7AIBAeB+7
-yrZy5cr58+cne4oD2hFHHJGTk5PsKQBg3/N2J5Wtb9++48ePr1mzZrIHOUBt2rSpV69ef/zj
-H5M9CADse47YVbadO3f+/Oc/f/rpp5M9yAGqd+/eO3fuTPYUAFAhvMYOACAQwg4AIBDCDgAg
-EMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4A
-IBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIO
-ACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDC
-DgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQ
-wg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAg
-EMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4A
-IBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIO
-ACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDC
-DgAgEMIOACAQwg4AIBDCDgAgEMIOACAQwg4AIBDCDgAgEGnJHqDMYrHY0qVLlyxZsmHDhiiK
-6tSpk5+fn5eXl+y5AACSrCqF3dq1a++7777x48evXr26yFXNmjXr27fvrbfeWr169aTMBgCQ
-dFUm7FauXHnyyScvXbo0Pz+/S5cuzZs3r1mzZhRF69evX7x48dSpUwcPHjxp0qS33nqrXr16
-yR4WACAJqkzYDRo0aMWKFRMmTLj44ot3v3bnzp1jxoy58cYbhw4dOmLEiMofDwAg6arMyROv
-vvpqr1699lh1URSlpqZef/31l1xyyeTJkyt5MACA/USVCbvvv/++VatWxW/Tpk2bb7/9tnLm
-AQDY31SZsMvNzZ03b17x28yZMyc3N7dy5gEA2N9UmbDr3r37xIkTH3744W3btu1+7aZNm+6+
-++4XX3zx0ksvrfzZAAD2B1Xm5IkhQ4a88847AwYMGDZs2PHHH5+Xl1erVq1YLLZx48Zly5bN
-mjVr8+bNHTt2vOuuu5I9KQBAclSZsKtbt+77778/evTocePGvf322zt37kxclZ6e3q5duz59
-+vTp0yc1NTWJQwIAJFGVCbsoijIyMvr379+/f/+tW7cuX748/skTtWvXbtasWUZGRvnuc8WK
-FRdddNGOHTuK2Wb79u3ffPPN6tWrq1WrMs9cAwAHoKoUdglZWVn5+fnxyzt37vzss882bdrU
-tm3brKysst5VgwYNrr322uLDbvHixQ8++OCOHTvKnY8AAJWgKoXde++9N2LEiM8++6xly5aD
-Bg069thjv/jiiwsvvPCTTz6Joig7O/u3v/3t9ddfX6b7zMzM7NOnT4mP++CDD5Z/bgCASlFl
-wm7mzJmdOnUqKChIT0+fN2/eP/7xjzlz5lx11VVLly694oortmzZ8v/+3/+74YYb8vLyzj//
-/GQPCwCQBFXmRWP33ntvFEWTJ0/esmXLihUrmjdvfvfdd8+YMeP111//85//PGnSpA8//LBm
-zZp/+MMfkj0pAEByVJmwe//99y+99NILL7wwNTW1SZMmI0aM+POf/3zyySefcsop8Q0OOeSQ
-iy+++MMPP0zunAAAyVJlwm79+vWFP1KsQ4cOURQdfvjhhbfJzc2NnyoLAHAAqjJh17Rp06VL
-lya+rFmzZp06derWrVt4m8WLFx900EGVPhoAwH6hyoTd6aef/uyzz7777ruJlXXr1g0fPjzx
-5YwZMyZPnpx4ZhYA4EBTZcLu9ttvr1GjxqmnnnrHHXfsfm2vXr1OPfXUWCx22223Vf5sAAD7
-gyoTdq1bt54+ffoZZ5yxxw8NmzdvXuPGjSdNmnTcccdV/mwAAPuDKvM+dlEUtWnT5u9///se
-r3r99ddzc3MreR4AgP1KlTliVzxVBwAQSNgBACDsAAACIewAAAIh7AAAAiHsAAACIewAAAIh
-7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAAC
-IewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAA
-AiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewA
-AAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHs
-AAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh
-7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAAC
-IewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAA
-AiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewA
-AAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHs
-AAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh
-7AAAAiHsAAACIewAAAIh7AAAAiHsAAACUXLYnXjiiWPGjPnhhx8qYRoAAMqt5LD74IMP+vXr
-l5OT8/Of//zvf//7rl27KmEsAADKquSwW7Vq1ZgxY0466aQJEyZ07ty5RYsWd9111xdffFEJ
-wwEAUHolh91BBx107bXXvvHGGytXrnz88cdbt249fPjw/Pz8jh07Pvnkkxs2bKiEKQEAKFEZ
-Tp5o0KBBv379/vGPf6xYseL3v//9hg0b+vbt27hx4+uuu+6zzz6ruBEBACiNMp8Vu2XLlunT
-p7/77rvxmDv44IOffPLJtm3bDh06NBaLVcCEAACUShnCbvr06ddcc03jxo0vvvji1157rUeP
-Hm+99dayZcsWL17crVu3IUOGDB06tOIGBQCgeGklbrF8+fJx48b96U9/+vzzz6MoOuaYY66+
-+uorrriibt268Q3y8vImTpzYuXPnxx9/fMiQIRU6LgAAe1Ny2LVo0WLXrl116tTp169f3759
-27Vrt/s2KSkp3bt3f/PNNytgQgAASqXksDv55JOvvvrqSy65pHr16sVsdvbZZ0+aNGnfDQYA
-QNmUHHbTpk2Lomj+/PmNGjU6+OCD44vz58/fvn37Mccck9isdevWrVu3rqApAQAoUcknTxQU
-FFx99dVt27b95JNPEotvvfXWscce27t37507d1bkeAAAlFbJYTdy5Minnnqqa9euzZs3Tyye
-ddZZl1566dixY0eNGlWR4wEAUFolPxU7duzY88477+WXXy68eOihhz7zzDMbNmwYNWrUzTff
-XGHj7UEsFlu6dOmSJUviH3pRp06d/Pz8vLy8ypwBAGA/VHLYffHFF1ddddUer+rUqdPf//73
-fTzR3q1du/a+++4bP3786tWri1zVrFmzvn373nrrrcWf4QEAELCSw6527dpffvnlHq/68ssv
-69evv48n2ouVK1eefPLJS5cuzc/P79KlS/PmzWvWrBlF0fr16xcvXjx16tTBgwdPmjTprbfe
-qlevXuWMBACwXyk57Lp27frkk0+ec845Xbp0SSwWFBSMHTv2iSeeuPzyyytyvP81aNCgFStW
-TJgw4eKLL9792p07d44ZM+bGG28cOnToiBEjKmckAID9Sslhd++9906ZMqVr167NmjU79NBD
-MzMz161bt2DBgjVr1uTk5Nx7772VMGUURa+++mqvXr32WHVRFKWmpl5//fXTpk2bPHmysAMA
-DkwlnxWbk5MzZ86cfv36bdq06e9///srr7zy7rvvpqamXnPNNbNnz27WrFklTBlF0ffff9+q
-Vavit2nTps23335bOfMAAOxvSj5iF0VRo0aNHn/88ccee2zlypVbtmxp3Lhx/AVVVP4AACAA
-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
-zMkTQ4YMeeeddwYMGDBs2LDjjz8+Ly+vVq1asVhs48aNy5YtmzVr1ubNmzt27HjXXXcle1IA
-gOSoMmFXt27d999/f/To0ePGjXv77bd37tyZuCo9Pb1du3Z9+vTp06dPampqEocEAEiiKhN2
-URRlZGT079+/f//+W7duXb58efyTJ2rXrt2sWbOMjIzy3eeyZctOPPHErVu3FrPNjh07oiiK
-xWLlewgAgMpRlcIuISsrKz8/f/f177//fu3ata1bty79XTVt2vTxxx/fvn17MdssWrRo0KBB
-KSkpZR4UAKASVcmw25uHHnrogQceKNOhtdTU1AsuuKD4bd57771Bgwb9uNEAACpclTkrFgCA
-4gk7AIBAVJmnYtu3b1/iNl9//XUlTAIAsH+qMmE3Z86cKIrS09OL2SZ++ioAwIGpyjwVO2DA
-gJo1a37yySdb9+7WW29N9pgAAElTZcLunnvuad269eWXX15QUJDsWQAA9kdVJuzS09P/53/+
-Z/78+XfccUeyZwEA2B9VmdfYRVHUpk2bVatWFfNCunPPPbdu3bqVORIAwP6jKoVdFEW1a9cu
-5trTTjvttNNOq7RhAAD2K1XmqVgAAIon7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh
-7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAAC
-IewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAA
-AiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewA
-AAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHs
-AAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh
-7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAAC
-IewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAA
-AiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewAAAIh7AAAAiHsAAACIewA
-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
-XnjRvzzlU47936FDhyiKCv/7E4vFateu3aJFiwocNFDff//9LbfcEt+ZpQy7UH//eo3dPrN1
-69aPP/74+OOPz8zMLLx+yimnrF69eunSpfvkJuxN+Xbm73//+zfeeCM9PT2xsn379h07djRt
-2rRixw3Oj/lhXrx48dChQ/v163fCCSdU8JjBKt/+f+ONN6pXr3766adHUbRt27b169dHUZSS
-klIJAwemfPv/sMMOi6Jo0aJFiZV//etfGzdubNOmTYVOG6T69es//PDDhf8xL17Av3+F3T6z
-fPnynTt35uXlFVlv3rx5FEVLlizZJzdhb/bVzhwzZkxBQcFll122j+cL3Y/Z/7/85S/r1q07
-fPjwCpwvdOXb/59++mnLli0/+eSTU045pXr16nXq1GnduvXYsWMretrwlG//33bbbfXq1fvF
-L37x7rvvrlq1as6cOZdddllWVtbdd99d4RMf8AL+/Svs9pkNGzZEUVSzZs0i67Vq1Upc++Nv
-wt7sk505derUAQMGnHLKKf369dvnE4at3Pt/7Nixb7755siRI+vUqVOhE4atfPt/zZo1mzZt
-6tq16wknnDBx4sRHH320oKCgd+/ef/nLXyp64MCUb/+3adPm/fffLygo6NixY05OzrHHHvv5
-55+/8cYb8adoqVAB//5NS/YAodn9WYxYLLbH9R9zE/bmx+zMv/71r717927btu2LL76Yluav
-RnmUdf+vXr36lltuOe+883r27Fnhwx0Ayrr/t2/fvmzZsj/96U9XXnllfOXiiy8+5JBDbrnl
-lksvvTR+kjKlV9b9v3Dhwq5du+7YseORRx455JBDVq9e/bvf/e7cc8997rnnzjzzzAofl0B/
-//rttc/Url072lPmx1+2kp2dvU9uwt78mJ0Zi8WGDBkybNiwc845Z8KECfZ8OZRv/998883b
-t28fPXp0RY8XvPLt/1q1au3YseOiiy5KrOTk5Jx77rkTJ05csGDBT3/60wqbNzTl2/99+vT5
-9ttvP/vssyZNmsRXLrvsskMOOeSqq65aunRp6V8uRjkE/PvXU7H7TLNmzdLS0pYtW1ZkffHi
-xVEU5efn75ObsDfl3pmxWKxv377Dhg276aabXnnllSr99zmJyrH/p0yZ8swzz/Tv379atWor
-VqxYsWLFN998E0XR5s2bV6xYEf/nlVIq389//E0ciwREgwYNoir+VFTlK8f+37hx48yZMzt0
-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"
-width=420
-height=420
-class="
-"
->
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15462,12 +15090,14 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <center>
-<img src = "img/observation.PNG" width="600"/>
+<img src = "img/observation.PNG" width="800"/>
 </center>
+
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div><aside class="notes">
+
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15482,7 +15112,8 @@ class="
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15493,10 +15124,11 @@ class="
 <li>Use the shovel to remove 50 balls each.</li>
 <li>Compute the proportion of balls that are red.</li>
 <li>Return the balls into the bowl.</li>
-<li>Mix the contents of the bowl a little<center>
-<img src = "img/resample.png" width="450"/>
-</center></li>
+<li>Mix the contents of the bowl a little</li>
 </ul>
+<center>
+<img src = "img/resample.png" width="450"/>
+</center>
 
 </div>
 </div>
@@ -15508,35 +15140,13 @@ class="
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<table>
-<thead><tr>
-<th>Sample</th>
-<th>Point estimate $\hat{p}$</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>0.323</td>
-</tr>
-<tr>
-<td>2</td>
-<td>0.332</td>
-</tr>
-<tr>
-<td>3</td>
-<td>0.341</td>
-</tr>
-<tr>
-<td>...</td>
-<td></td>
-</tr>
-<tr>
-<td>33</td>
-<td>0.333</td>
-</tr>
-</tbody>
-</table>
+<p>| Sample | Point estimate $\hat{p}$ |
+|--------|--------------------------|
+| 1      | 0.323                    |
+| 2      | 0.332                    |
+| 3      | 0.341                    |
+| ...    |                          |
+| 33     | 0.333                    |</p>
 
 </div>
 </div>
@@ -15549,8 +15159,9 @@ class="
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <center>
-<img src = "img/sample_dist.png" width="500"/>
+<img src = "img/sample_dist.png" width="800"/>
 </center>
+
 </div>
 </div>
 </div>
@@ -15566,7 +15177,7 @@ class="
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15580,7 +15191,7 @@ $$E(\hat{p}) = p$$</p>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15589,11 +15200,11 @@ $$E(\hat{p}) = p$$</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="How-can-we-quantify-the-errors-of-point-estimates?">How can we quantify the errors of point estimates?<a class="anchor-link" href="#How-can-we-quantify-the-errors-of-point-estimates?">&#182;</a></h2><left>
 <img src = "img/sample_dist.png" width="350"/>
-</left><p>We compute the standard deviation of point estimates (aka <strong>standard error</strong>!)</p>
-$$\sigma_{\hat{p}} = \frac{\sigma}{\sqrt{n}}$$<p></p>
-<ul>
+</left>
+<p>We compute the standard deviation of point estimates (aka <strong>standard error</strong>!)</p>
+$$\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$$<ul>
 <li>$\sigma_{\hat{p}}$: standard deviation of point estimates</li>
-<li>$\sigma$: standard deviation of population (given)</li>
+<li>$p$: population proportion</li>
 <li>n: sample size</li>
 </ul>
 
@@ -15618,7 +15229,7 @@ $$\sigma_{\hat{p}} = \frac{\sigma}{\sqrt{n}}$$<p></p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">moderndive</span><span class="p">)</span>
@@ -15627,14 +15238,14 @@ $$\sigma_{\hat{p}} = \frac{\sigma}{\sqrt{n}}$$<p></p>
 <span class="n">df</span> <span class="o">&lt;-</span> <span class="n">bowl</span> <span class="o">%&gt;%</span> 
     <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span><span class="n">reps</span><span class="o">=</span><span class="m">33</span><span class="p">)</span><span class="o">%&gt;%</span> 
     <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">summarize</span><span class="p">(</span><span class="n">red</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="s">&quot;red&quot;</span><span class="p">))</span> <span class="o">%&gt;%</span> 
+    <span class="nf">summarize</span><span class="p">(</span><span class="n">red</span> <span class="o">=</span> <span class="nf">sum</span><span class="p">(</span><span class="n">color</span> <span class="o">==</span> <span class="s">"red"</span><span class="p">))</span> <span class="o">%&gt;%</span> 
     <span class="nf">mutate</span><span class="p">(</span><span class="n">prop_red</span> <span class="o">=</span> <span class="n">red</span> <span class="o">/</span> <span class="m">50</span><span class="p">)</span>
 <span class="nf">ggplot</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="n">prop_red</span><span class="p">))</span> <span class="o">+</span>
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Proportion of 50 balls that were red&quot;</span><span class="p">,</span> 
-         <span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Distribution of 33 sample proportions&quot;</span><span class="p">,</span> 
-                       <span class="s">&quot;, M=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">prop_red</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
-                       <span class="s">&quot;, SD=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">prop_red</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.05</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Proportion of 50 balls that were red"</span><span class="p">,</span> 
+         <span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">"Distribution of 33 sample proportions"</span><span class="p">,</span> 
+                       <span class="s">", M="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">prop_red</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
+                       <span class="s">", SD="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">df</span><span class="o">$</span><span class="n">prop_red</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15648,20 +15259,16 @@ $$\sigma_{\hat{p}} = \frac{\sigma}{\sqrt{n}}$$<p></p>
 
 
 <div class="jp-OutputArea jp-Cell-outputArea">
-
 <div class="jp-OutputArea-child">
-
     
     <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 
 
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-Error in library(moderndive): there is no package called &#39;moderndive&#39;
-Traceback:
 
-1. library(moderndive)</pre>
+<div class="jp-RenderedSVG jp-OutputArea-output " data-mime-type="image/svg+xml">
+b'<svg width="504pt" height="504pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n  \n\n\n  \n  \n  \n  \n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n  \n  \n  \n  \n  \n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n</svg>\n'
 </div>
+
 </div>
 
 </div>
@@ -15676,57 +15283,15 @@ Traceback:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Terminology">Terminology<a class="anchor-link" href="#Terminology">&#182;</a></h2><p>Imagine we are interested in estimating the average income of UBC graduates within 5 year in Canada. We sent out 3 surveys (each survey to 200 random UBC alumni). Discuss with your classmates and define the following terms &amp; give example when appropriate:</p>
-<ul>
-<li>Population</li>
-<li>Sampling</li>
-<li>Sample</li>
-<li>Sample distribution</li>
-<li>Point estimate (sample statistics)</li>
-<li>Sampling distribution</li>
-<li>Standard error</li>
-</ul>
+<p>Which of the following is an example of an inferential question?</p>
+<p>A. How many candy stores are there in Kitsilano?</p>
+<p>B. Does the average sleep duration of individuals who consume melatonin 30 minutes before bed differ from those who do not?</p>
+<p>C. If I study 28 hours, what score will I obtain on this exam?</p>
+<p>D. Does owning a houseplant lead to the adoption of a puppy?</p>
 
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[4]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="c1">## Review R code for sampling  </span>
-<span class="nf">set.seed</span><span class="p">(</span><span class="m">201</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
-<span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-
-<span class="n">student_population</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">student</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10000</span><span class="p">,</span> <span class="n">grade</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">70</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div><aside class="notes">
 
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
@@ -15735,13 +15300,7 @@ Traceback:
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-
-<pre><code>student_population %&gt;% 
-    ggplot(aes(x = grade)) + 
-    geom_histogram()
-pop_parameter &lt;- student_population  %&gt;% summarize(mean_grade = mean(grade))
-sample &lt;- rep_sample_n(student_population, size = 20) 
-sample  %&gt;% summarize(sample_mean = mean(grade))</code></pre>
+<p>B</p>
 
 </div>
 </div>
@@ -15772,32 +15331,30 @@ sample  %&gt;% summarize(sample_mean = mean(grade))</code></pre>
 <p>If you get stuck:</p>
 <ul>
 <li>Discuss with your neighbours, the TAs &amp; Instructors, and consult the textbook reading to help you get unstuck when needed!</li>
-<li>Ask your group mates if you need help with any questions </li>
-<li>The TAs and myself will walk around and answer questions </li>
+<li>Ask your group mates if you need help with any questions</li>
+<li>The TAs and myself will walk around and answer questions</li>
 </ul>
 
 </div>
 </div>
 </div>
-</div><aside class="notes">
-
+</div></div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><strong>Note:</strong> You will all be using a shiny brand new server that we host in the Statistics department. We do a lot of things that no other course does behind the scenes. So:</p>
+<p><strong>Note:</strong> You will all be using a server that we host in the Statistics department. We do a lot of things that no other course does behind the scenes. So:</p>
 <ul>
 <li>be patient if things don't work. I will do my best to debug things as quickly as possible</li>
-<li>I will always be fair about deadlines/grading/etc when our hardware acts up. Please bring up issues to me after class as soon as you can </li>
+<li>I will always be fair about deadlines/grading/etc when our hardware acts up. Please bring up issues to me after class as soon as you can</li>
 </ul>
 
 </div>
 </div>
 </div>
-</div>
-</aside></div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15805,7 +15362,8 @@ sample  %&gt;% summarize(sample_mean = mean(grade))</code></pre>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><ul>
-<li>Understand the process of statistical inference</li>
+<li><p>Understand the process of statistical inference</p>
+</li>
 <li><p>Understand the terminologies in statistical inference</p>
 <ul>
 <li>Population</li>
@@ -15829,35 +15387,11 @@ sample  %&gt;% summarize(sample_mean = mean(grade))</code></pre>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Glossary">Glossary<a class="anchor-link" href="#Glossary">&#182;</a></h2><table>
-<thead><tr>
-<th>Unknown population parameter</th>
-<th>Symbol</th>
-<th>Point estimates</th>
-<th>Symbol</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Population mean</td>
-<td>$\mu$</td>
-<td>Sample mean</td>
-<td>$\bar{x}$</td>
-</tr>
-<tr>
-<td>Population standard deviation</td>
-<td>$\sigma$</td>
-<td>Sample standard deviation</td>
-<td>$s$</td>
-</tr>
-<tr>
-<td>Population proportion</td>
-<td>$p$</td>
-<td>Sample proportion</td>
-<td>$\hat{p}$</td>
-</tr>
-</tbody>
-</table>
+<h2 id="Glossary">Glossary<a class="anchor-link" href="#Glossary">&#182;</a></h2><p>| Unknown population parameter  | Symbol | Point estimates           | Symbol |
+|-------------------------------|--------|---------------------------|--------|
+| Population mean               | $\mu$       | Sample mean               |  $\bar{x}$      |
+| Population standard deviation | $\sigma$| Sample standard deviation |    $s$    |<br />
+| Population proportion         | $p$       | Sample proportion         | $\hat{p}$       |</p>
 
 </div>
 </div>
@@ -15878,22 +15412,6 @@ sample  %&gt;% summarize(sample_mean = mean(grade))</code></pre>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span>
-</pre></div>
-
-     </div>
-</div>
-</div>
-</div>
-
 </div></section></section>
 </div>
 </div>
