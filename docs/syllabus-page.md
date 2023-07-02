@@ -109,12 +109,16 @@ assignments files.
         </thead>
         <tbody>
             <tr>
+                <td>Clickers</td>
+                <td>2%</td>
+            </tr>
+            <tr>
                 <td>Worksheets</td>
                 <td>5%</td>
             </tr>
             <tr>
                 <td>Tutorials</td>
-                <td>10%</td>
+                <td>8%</td>
             </tr>
             <tr>
                 <td>Group project</td>
@@ -148,7 +152,7 @@ assignments files.
         <tbody>
             <tr>
                 <td>Team Work Contract</td>
-                <td>1%</td>
+                <td>2%</td>
             </tr>
             <tr>
                 <td>Proposal</td>
@@ -159,8 +163,8 @@ assignments files.
                 <td>10%</td>
             </tr>
             <tr>
-                <td>Teammate Evaluation</td>
-                <td>5%</td>
+                <td>Teammate Evaluations</td>
+                <td>4%</td>
             </tr>
  </tbody>
     </table>
