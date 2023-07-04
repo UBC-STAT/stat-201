@@ -14878,12 +14878,12 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[1]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">201</span><span class="p">)</span>
@@ -14900,60 +14900,6 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 </div>
 </div>
 
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>── <span class="ansi-bold">Attaching packages</span> ─────────────────────────────────────── tidyverse 1.3.2 ──
-<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">ggplot2</span> 3.3.6      <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">purrr  </span> 0.3.4 
-<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tibble </span> 3.1.8      <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">dplyr  </span> 1.0.10
-<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tidyr  </span> 1.2.1      <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">stringr</span> 1.4.1 
-<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">readr  </span> 2.1.2      <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">forcats</span> 0.5.2 
-── <span class="ansi-bold">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──
-<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">filter()</span> masks <span class="ansi-blue-fg">stats</span>::filter()
-<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">lag()</span>    masks <span class="ansi-blue-fg">stats</span>::lag()
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A tibble: 6 × 2</caption>
-<thead>
-	<tr><th scope=col>student</th><th scope=col>grade</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>1</td><td>72.86061</td></tr>
-	<tr><td>2</td><td>66.55454</td></tr>
-	<tr><td>3</td><td>73.25764</td></tr>
-	<tr><td>4</td><td>53.03419</td></tr>
-	<tr><td>5</td><td>57.14517</td></tr>
-	<tr><td>6</td><td>69.24968</td></tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -14965,58 +14911,21 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">sample_size_10</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_population</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">10</span><span class="p">,</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">sample_size_10</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_population</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span><span class="kc">...</span><span class="p">,</span> <span class="n">reps</span><span class="o">=</span><span class="kc">...</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">sample_size_10</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A grouped_df: 6 × 3</caption>
-<thead>
-	<tr><th scope=col>replicate</th><th scope=col>student</th><th scope=col>grade</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td>1</td><td>3780</td><td>68.30325</td></tr>
-	<tr><td>1</td><td>3496</td><td>69.82744</td></tr>
-	<tr><td>1</td><td>3646</td><td>62.66211</td></tr>
-	<tr><td>1</td><td>9303</td><td>68.02052</td></tr>
-	<tr><td>1</td><td>7370</td><td>69.82783</td></tr>
-	<tr><td>1</td><td>5148</td><td>72.67902</td></tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></section></section><section><section>
@@ -15030,115 +14939,23 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">sampling_dist_10</span> <span class="o">&lt;-</span> <span class="n">sample_size_10</span>  <span class="o">%&gt;%</span> 
                         <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-                        <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+                        <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">...</span><span class="p">(</span><span class="kc">...</span><span class="p">))</span>
 <span class="n">sampling_dist_10</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A tibble: 1000 × 2</caption>
-<thead>
-	<tr><th scope=col>replicate</th><th scope=col>mean_grade</th></tr>
-	<tr><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td> 1</td><td>67.46656</td></tr>
-	<tr><td> 2</td><td>75.18868</td></tr>
-	<tr><td> 3</td><td>66.35769</td></tr>
-	<tr><td> 4</td><td>67.38724</td></tr>
-	<tr><td> 5</td><td>66.21495</td></tr>
-	<tr><td> 6</td><td>70.24300</td></tr>
-	<tr><td> 7</td><td>73.49634</td></tr>
-	<tr><td> 8</td><td>71.00714</td></tr>
-	<tr><td> 9</td><td>69.70353</td></tr>
-	<tr><td>10</td><td>74.63334</td></tr>
-	<tr><td>11</td><td>64.95345</td></tr>
-	<tr><td>12</td><td>69.07251</td></tr>
-	<tr><td>13</td><td>66.46986</td></tr>
-	<tr><td>14</td><td>69.42048</td></tr>
-	<tr><td>15</td><td>69.88434</td></tr>
-	<tr><td>16</td><td>67.62031</td></tr>
-	<tr><td>17</td><td>71.17600</td></tr>
-	<tr><td>18</td><td>63.95388</td></tr>
-	<tr><td>19</td><td>69.15572</td></tr>
-	<tr><td>20</td><td>69.27949</td></tr>
-	<tr><td>21</td><td>67.24253</td></tr>
-	<tr><td>22</td><td>66.66165</td></tr>
-	<tr><td>23</td><td>68.42935</td></tr>
-	<tr><td>24</td><td>68.65105</td></tr>
-	<tr><td>25</td><td>72.69989</td></tr>
-	<tr><td>26</td><td>71.98538</td></tr>
-	<tr><td>27</td><td>70.89614</td></tr>
-	<tr><td>28</td><td>76.29557</td></tr>
-	<tr><td>29</td><td>75.93422</td></tr>
-	<tr><td>30</td><td>65.66692</td></tr>
-	<tr><td>⋮</td><td>⋮</td></tr>
-	<tr><td> 971</td><td>76.23533</td></tr>
-	<tr><td> 972</td><td>69.43397</td></tr>
-	<tr><td> 973</td><td>75.87628</td></tr>
-	<tr><td> 974</td><td>76.28389</td></tr>
-	<tr><td> 975</td><td>70.86530</td></tr>
-	<tr><td> 976</td><td>73.69306</td></tr>
-	<tr><td> 977</td><td>72.21310</td></tr>
-	<tr><td> 978</td><td>72.98794</td></tr>
-	<tr><td> 979</td><td>69.24933</td></tr>
-	<tr><td> 980</td><td>69.72911</td></tr>
-	<tr><td> 981</td><td>77.07957</td></tr>
-	<tr><td> 982</td><td>74.42935</td></tr>
-	<tr><td> 983</td><td>66.47234</td></tr>
-	<tr><td> 984</td><td>70.71029</td></tr>
-	<tr><td> 985</td><td>70.47422</td></tr>
-	<tr><td> 986</td><td>71.87128</td></tr>
-	<tr><td> 987</td><td>71.98787</td></tr>
-	<tr><td> 988</td><td>70.90022</td></tr>
-	<tr><td> 989</td><td>74.26826</td></tr>
-	<tr><td> 990</td><td>77.23201</td></tr>
-	<tr><td> 991</td><td>70.17955</td></tr>
-	<tr><td> 992</td><td>69.94998</td></tr>
-	<tr><td> 993</td><td>64.40425</td></tr>
-	<tr><td> 994</td><td>71.85329</td></tr>
-	<tr><td> 995</td><td>72.24001</td></tr>
-	<tr><td> 996</td><td>70.30444</td></tr>
-	<tr><td> 997</td><td>60.81640</td></tr>
-	<tr><td> 998</td><td>69.97586</td></tr>
-	<tr><td> 999</td><td>70.53264</td></tr>
-	<tr><td>1000</td><td>68.14234</td></tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></section></section><section><section>
@@ -15152,12 +14969,12 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">sampling_dist_10</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mean_grade</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span><span class="o">+</span> 
@@ -15167,39 +14984,6 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.
-
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedSVG jp-OutputArea-output " data-mime-type="image/svg+xml">
-b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n  \n  \n  \n  \n  \n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n</svg>\n'
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></section></section><section><section>
@@ -15213,19 +14997,21 @@ b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[6]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">sample_size_100</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_population</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="m">100</span><span class="p">,</span><span class="n">reps</span><span class="o">=</span><span class="m">1000</span><span class="p">)</span>
-<span class="n">sampling_dist_100</span> <span class="o">&lt;-</span> <span class="n">sample_size_100</span>  <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span>  <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+<span class="n">sampling_dist_100</span> <span class="o">&lt;-</span> <span class="n">sample_size_100</span>  <span class="o">%&gt;%</span> 
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span>  
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
 <span class="n">sampling_dist_100</span><span class="o">$</span><span class="n">size</span> <span class="o">&lt;-</span> <span class="m">100</span>
 <span class="n">sampling_dist_10</span><span class="o">$</span><span class="n">size</span> <span class="o">&lt;-</span> <span class="m">10</span>
-<span class="n">sampling_dist_combine</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">sampling_dist_10</span><span class="p">,</span><span class="n">sampling_dist_100</span><span class="p">)</span>
+<span class="n">sampling_dist_combine</span> <span class="o">&lt;-</span> <span class="nf">rbind</span><span class="p">(</span><span class="n">sampling_dist_10</span><span class="p">,</span> <span class="n">sampling_dist_100</span><span class="p">)</span>
 <span class="nf">ggplot</span><span class="p">(</span><span class="n">sampling_dist_combine</span><span class="p">,</span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mean_grade</span><span class="p">))</span> <span class="o">+</span> <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span><span class="o">=</span><span class="m">0.5</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span><span class="o">+</span> 
         <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">25</span><span class="p">))</span> <span class="o">+</span> <span class="nf">facet_wrap</span><span class="p">(</span><span class="o">~</span> <span class="n">size</span><span class="p">,</span> <span class="n">ncol</span> <span class="o">=</span> <span class="m">1</span><span class="p">)</span>
 </pre></div>
@@ -15233,28 +15019,6 @@ b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedSVG jp-OutputArea-output " data-mime-type="image/svg+xml">
-b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n  \n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n  \n  \n  \n\n\n\n\n\n  \n  \n\n\n\n\n\n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n  \n\n\n  \n\n\n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n\n\n\n\n\n  \n\n\n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n  \n  \n  \n\n\n\n\n\n\n\n  \n  \n  \n  \n  \n  \n  \n  \n  \n  \n\n\n  \n  \n  \n  \n  \n\n\n</svg>\n'
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></section></section><section><section>
@@ -15268,53 +15032,22 @@ b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">sampling_dist_combine</span>  <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="o">%&gt;%</span>  <span class="nf">summarise</span><span class="p">(</span><span class="n">standard_error</span><span class="o">=</span><span class="nf">sd</span><span class="p">(</span><span class="n">mean_grade</span><span class="p">))</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">sampling_dist_combine</span>  <span class="o">%&gt;%</span> 
+    <span class="nf">group_by</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>  <span class="o">%&gt;%</span>  
+    <span class="nf">summarise</span><span class="p">(</span><span class="n">standard_error</span><span class="o">=</span><span class="nf">sd</span><span class="p">(</span><span class="n">mean_grade</span><span class="p">))</span>
 </pre></div>
 
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-
-<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
-<table class="dataframe">
-<caption>A tibble: 2 × 2</caption>
-<thead>
-	<tr><th scope=col>size</th><th scope=col>standard_error</th></tr>
-	<tr><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
-</thead>
-<tbody>
-	<tr><td> 10</td><td>3.228472</td></tr>
-	<tr><td>100</td><td>1.004032</td></tr>
-</tbody>
-</table>
-
-</div>
-
-</div>
-
-</div>
-
 </div>
 
 </div></section></section><section><section>
@@ -15327,6 +15060,26 @@ b'<svg width="1080pt" height="648pt">\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\
 <h2 id="Summary">Summary<a class="anchor-link" href="#Summary">&#182;</a></h2><ul>
 <li>Understand how sample size affects sampling distribution</li>
 <li>Understand the sampling methodology (representative, generalized, unbiased, random)</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Get-started-on-worksheet-2!">Get started on worksheet 2!<a class="anchor-link" href="#Get-started-on-worksheet-2!">&#182;</a></h2><ul>
+<li>Navigate to Canvas, open <code>worksheet_02</code></li>
+</ul>
+<p>If you get stuck:</p>
+<ul>
+<li>Discuss with your neighbours, the TAs &amp; Instructors, and consult the textbook reading to help you get unstuck when needed!</li>
+<li>Ask your group mates if you need help with any questions</li>
+<li>The TAs and myself will walk around and answer questions</li>
 </ul>
 
 </div>
