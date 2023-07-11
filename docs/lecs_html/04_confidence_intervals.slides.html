@@ -14670,6 +14670,37 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Point-Estimation-vs.-Confidence-Intervals">Point Estimation vs. Confidence Intervals<a class="anchor-link" href="#Point-Estimation-vs.-Confidence-Intervals">&#182;</a></h2><img src="https://d33wubrfki0l68.cloudfront.net/45f6d2e16255dbcb42de86336e1e49ef732aa5da/8bcd0/images/shutterstock/point_estimate_vs_conf_int.png" width=1000>
+<p><em>image source: <a href="https://moderndive.com/7-sampling.html">Modern Dive</a> by Kim &amp; McConville</em></p>
+
+</div>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals">&#182;</a></h2><ul>
+<li>You learned about point estimates</li>
+<li>Then, you studied the impacts of sampling variability and modelled it using ….?</li>
+<li>However, given a point estimate, we have no idea how good (how to close to the parameter it actually is).</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Review">Review<a class="anchor-link" href="#Review">&#182;</a></h2><img src="https://datasciencebook.ca/img/intro-bootstrap.jpeg" width=1000>
 <p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
@@ -14700,8 +14731,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Suppose the true population mean age of Canadian Seniors = 79.3 years</p>
-<img src="img/pop_vs_sample.png" width=1200>
+<img src="img/pop_vs_sample_prices.png" width=1500>
+<p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
 </div>
 </div>
@@ -14713,44 +14744,14 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Sampling-distribution-vs-bootstrap-distribution">Sampling distribution vs bootstrap distribution<a class="anchor-link" href="#Sampling-distribution-vs-bootstrap-distribution">&#182;</a></h2><p>True population mean = 79.3 years. The mean of our sample is 77.46 years.</p>
-<img src="img/sampling_vs_boostrap_dist.png" width=1400/>
+<h2 id="Sampling-distribution-vs-bootstrap-distribution">Sampling distribution vs bootstrap distribution<a class="anchor-link" href="#Sampling-distribution-vs-bootstrap-distribution">&#182;</a></h2><p>True population mean = 154.51. The mean of our sample is 155.8.</p>
+<img src="img/sampling_vs_boostrap_dist_prices.png" width=1400/>
+<p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
 </div>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Point-Estimation-vs.-Confidence-Intervals">Point Estimation vs. Confidence Intervals<a class="anchor-link" href="#Point-Estimation-vs.-Confidence-Intervals">&#182;</a></h2><img src="https://d33wubrfki0l68.cloudfront.net/45f6d2e16255dbcb42de86336e1e49ef732aa5da/8bcd0/images/shutterstock/point_estimate_vs_conf_int.png" width=1000>
-<p><em>image source: <a href="https://moderndive.com/7-sampling.html">Modern Dive</a> by Kim &amp; McConville</em></p>
-
-</div>
-</div>
-</div>
-</div><aside class="notes">
-
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Confidence-intervals">Confidence intervals<a class="anchor-link" href="#Confidence-intervals">&#182;</a></h2><ul>
-<li>You learned about point estimates</li>
-<li>Then, you studied the impacts of sampling variability and modelled it using ….?</li>
-<li>However, given a point estimate, we have no idea how good (how to close to the parameter it actually is).</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div>
-</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14794,13 +14795,41 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Q.-If-we-want-to-calculate-a-90%25-confidence-interval-we-should-find-the..">Q. If we want to calculate a 90% confidence interval we should find the..<a class="anchor-link" href="#Q.-If-we-want-to-calculate-a-90%25-confidence-interval-we-should-find-the..">&#182;</a></h2><p>A. 2.5th percentile and 97.5th percentile</p>
+<p>B. 5th percentile and 95th percentile</p>
+<p>C. 10th percentile and 90th percentile</p>
+
+</div>
+</div>
+</div>
+</div><aside class="notes">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>B</p>
+
+</div>
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="infer-package-workflow-for-bootstrapping"><code>infer</code> package workflow for bootstrapping<a class="anchor-link" href="#infer-package-workflow-for-bootstrapping">&#182;</a></h2><ul>
 <li><code>infer</code> package is an R: used for statistical inference</li>
 <li>provides functions with intuitive verb-like names to perform statistical inference</li>
 </ul>
 <ol>
 <li><code>specify()</code>: choose which variables will be the focus of the statistical inference</li>
-<li><code>generate()</code>: main argument is <code>reps</code> (how many different repetitions we would like)</li>
+<li><code>generate()</code>: here our main argument is <code>reps</code> (how many different repetitions we would like)</li>
 <li><code>calculate()</code>: return observed statistic specified with <code>stat</code> argument</li>
 </ol>
 
@@ -14847,14 +14876,15 @@ div.jp-OutputPrompt {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">## Bootstrapping with old method</span>
-<span class="n">boostrap_dist</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_sample</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+<span class="n">bootstrap_dist</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">student_sample</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">50</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
     <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span>  <span class="o">%&gt;%</span>    
     <span class="nf">summarize</span><span class="p">(</span><span class="n">sample_mean</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
 
-<span class="c1">#boostrap_dist</span>
+<span class="c1"># boostrap_dist</span>
 <span class="c1"># 90% confidence interval</span>
-<span class="c1"># bootstrap_dist  %&gt;% summarize(ci_lower = ...(...), </span>
-<span class="c1">#    ci_upper = ...(...))</span>
+<span class="n">ci</span> <span class="o">&lt;-</span> <span class="n">bootstrap_dist</span> <span class="o">%&gt;%</span> 
+    <span class="nf">summarize</span><span class="p">(</span><span class="n">ci_lower</span> <span class="o">=</span> <span class="kc">...</span><span class="p">,</span> 
+    <span class="n">ci_upper</span> <span class="o">=</span>  <span class="kc">...</span><span class="p">)</span>
 
 
 <span class="n">bootstrap_dist</span>  <span class="o">%&gt;%</span> 
@@ -15034,7 +15064,7 @@ ci; ci2
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Confidence-Interval-interpretation">Confidence Interval interpretation<a class="anchor-link" href="#Confidence-Interval-interpretation">&#182;</a></h2><ul>
 <li>Did our 90% confidence interval for the true mean based on our sample contain the true value of the population mean (i.e. 70)?</li>
-<li>Will <em>every</em> 90% confidence interval for the true mean capture this value (i.e. 70)? If we had a different sample of 50 students and constructed a different confidence interval, would it necessarily contain the true population mean?</li>
+<li>Will <em>every</em> 90% confidence interval for the true mean capture this value (i.e. 70)? In other words, if we had a different sample of 50 students and constructed a different confidence interval, would it necessarily contain the true population mean?</li>
 </ul>
 
 </div>
@@ -15083,7 +15113,7 @@ ci; ci2
 </div>
 </div>
 </div>
-</aside>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
