@@ -14880,11 +14880,11 @@ div.jp-OutputPrompt {
     <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span>  <span class="o">%&gt;%</span>    
     <span class="nf">summarize</span><span class="p">(</span><span class="n">sample_mean</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
 
-<span class="c1"># boostrap_dist</span>
+<span class="c1"># bootstrap_dist</span>
 <span class="c1"># 90% confidence interval</span>
 <span class="n">ci</span> <span class="o">&lt;-</span> <span class="n">bootstrap_dist</span> <span class="o">%&gt;%</span> 
-    <span class="nf">summarize</span><span class="p">(</span><span class="n">ci_lower</span> <span class="o">=</span> <span class="kc">...</span><span class="p">,</span> 
-    <span class="n">ci_upper</span> <span class="o">=</span>  <span class="kc">...</span><span class="p">)</span>
+    <span class="nf">summarize</span><span class="p">(</span><span class="n">ci_lower</span> <span class="o">=</span> <span class="nf">quantile</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">,</span> <span class="m">0.05</span><span class="p">),</span> 
+    <span class="n">ci_upper</span> <span class="o">=</span>  <span class="nf">quantile</span><span class="p">(</span><span class="n">sample_mean</span><span class="p">,</span> <span class="m">0.95</span><span class="p">))</span>
 
 
 <span class="n">bootstrap_dist</span>  <span class="o">%&gt;%</span> 
@@ -14941,9 +14941,9 @@ div.jp-OutputPrompt {
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># bootstrapping using infer package </span>
 <span class="n">bootstrap_dist2</span> <span class="o">&lt;-</span> <span class="n">student_sample</span> <span class="o">%&gt;%</span> 
-    <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="kc">...</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="kc">...</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="kc">...</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="kc">...</span><span class="p">)</span> 
+    <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">grade</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">"bootstrap"</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"mean"</span><span class="p">)</span> 
 
 <span class="c1">#bootstrap_dist; bootstrap_dist2</span>
 
@@ -15167,7 +15167,31 @@ ci; ci2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Let's-start-working-on-worksheet_04">Let's start working on <code>worksheet_04</code><a class="anchor-link" href="#Let's-start-working-on-worksheet_04">&#182;</a></h2>
+<h3 id="Deliverable-1:-Team-Contract">Deliverable 1: Team Contract<a class="anchor-link" href="#Deliverable-1:-Team-Contract">&#182;</a></h3><p>A group contract is a document to help you formalize the expectations you have for your group members and what they can expect of you. It will help you think about what you need from each other to work effectively as a team! You will create and agree on this contract as a team. Each member should “sign” (you can just type out your name) at the bottom of the submission. At a minimum, your group contract must address the following:</p>
+<h4 id="Goals">Goals<a class="anchor-link" href="#Goals">&#182;</a></h4><ul>
+<li>What are our team goals for this project?</li>
+<li>What do we want to accomplish?</li>
+<li>What skills do we want to develop or refine?</li>
+</ul>
+<h4 id="Expectations">Expectations<a class="anchor-link" href="#Expectations">&#182;</a></h4><p>What do we expect of one another regarding attendance at meetings, participation, frequency of communication, quality of work, etc.? What are our internal deadlines? (<strong>Warning: if working on separate parts, do not aim to put all the parts together on the last day – it takes time to integrate multiple parts.</strong>)</p>
+<h6 id="Policies-&amp;-Procedures">Policies &amp; Procedures<a class="anchor-link" href="#Policies-&amp;-Procedures">&#182;</a></h6><p>What rules can we agree on to help us meet our goals and expectations?</p>
+<h6 id="Consequences:">Consequences:<a class="anchor-link" href="#Consequences:">&#182;</a></h6><p>How will we address non-performance regarding these goals, expectations, policies and procedures?</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Teamwork-contract">Teamwork contract<a class="anchor-link" href="#Teamwork-contract">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/119247/assignments/1569299?module_item_id=5732727">Teamwork contracts</a> are due Jul 16</p>
+<ul>
+<li>In your groups, work on your teamwork contracts</li>
+</ul>
+<h2 id="When-you-are-done-you-can-work-on-worksheet_04">When you are done you can work on <code>worksheet_04</code><a class="anchor-link" href="#When-you-are-done-you-can-work-on-worksheet_04">&#182;</a></h2>
 </div>
 </div>
 </div>

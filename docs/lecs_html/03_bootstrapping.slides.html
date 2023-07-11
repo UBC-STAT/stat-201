@@ -14954,7 +14954,7 @@ distribution)</p>
 <span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
 <span class="n">sample</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">1</span><span class="o">:</span><span class="m">5</span><span class="p">))</span>
-<span class="n">sample</span>
+<span class="c1">#sample</span>
 
 <span class="n">sample</span>  <span class="o">%&gt;%</span> 
     <span class="nf">summarize</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
@@ -14973,7 +14973,7 @@ distribution)</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">bootstrap_samples</span> <span class="o">&lt;-</span> <span class="kc">...</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">bootstrap_samples</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">sample</span><span class="p">,</span> <span class="n">size</span> <span class="o">=</span> <span class="m">5</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">3000</span><span class="p">,</span> <span class="n">replace</span> <span class="o">=</span> <span class="bp">T</span><span class="p">)</span>
 <span class="nf">head</span><span class="p">(</span><span class="n">bootstrap_samples</span><span class="p">,</span><span class="m">10</span><span class="p">)</span>
 </pre></div>
 
@@ -15041,9 +15041,7 @@ distribution)</p>
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">bootstrap_sampling_dist</span> <span class="o">&lt;-</span> <span class="kc">...</span>
-
-<span class="nf">head</span><span class="p">(</span><span class="n">bootstrap_sampling_dist</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">bootstrap_sampling_dist</span> <span class="o">&lt;-</span> <span class="n">bootstrap_samples</span>  <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span>  <span class="o">%&gt;%</span> <span class="nf">summarize</span><span class="p">(</span><span class="n">mean_x</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">x</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15234,11 +15232,13 @@ distribution)</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">2022</span><span class="p">)</span>
 <span class="n">population</span> <span class="o">&lt;-</span> <span class="nf">tibble</span><span class="p">(</span><span class="n">student</span> <span class="o">=</span> <span class="m">1</span><span class="o">:</span><span class="m">10000</span><span class="p">,</span> <span class="n">grade</span> <span class="o">=</span> <span class="nf">rnorm</span><span class="p">(</span><span class="n">n</span> <span class="o">=</span> <span class="m">10000</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">70</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">10</span><span class="p">))</span>
-
+<span class="c1">#population</span>
 <span class="c1"># sampling distribution</span>
 <span class="c1"># Draw multiple samples of size 200</span>
-<span class="n">samples</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="kc">...</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">...</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span><span class="kc">...</span><span class="p">)</span>
-<span class="n">sampling_dist</span> <span class="o">&lt;-</span> <span class="kc">...</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="kc">...</span><span class="p">))</span>
+<span class="n">samples</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">F</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span><span class="m">3000</span><span class="p">)</span>
+
+<span class="n">sampling_dist</span> <span class="o">&lt;-</span> <span class="n">samples</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+<span class="c1">#sampling_dist</span>
 </pre></div>
 
      </div>
@@ -15256,9 +15256,13 @@ distribution)</p>
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># bootstrapping</span>
 <span class="c1"># Draw a single sample of size 200</span>
-<span class="n">single_sample</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="kc">...</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">...</span><span class="p">)</span>
-<span class="n">bootstrap_samples</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="kc">...</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="kc">...</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span><span class="kc">...</span><span class="p">)</span>
-<span class="n">bootstrap_dist</span> <span class="o">&lt;-</span> <span class="n">bootstrap_samples</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="kc">...</span><span class="p">))</span>
+<span class="n">single_sample</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span><span class="bp">F</span><span class="p">)</span>
+
+<span class="c1">#single_sample</span>
+<span class="n">bootstrap_samples</span> <span class="o">&lt;-</span> <span class="nf">rep_sample_n</span><span class="p">(</span><span class="n">single_sample</span><span class="p">,</span> <span class="n">size</span><span class="o">=</span> <span class="m">200</span><span class="p">,</span> <span class="n">replace</span><span class="o">=</span> <span class="bp">T</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span><span class="m">3000</span><span class="p">)</span>
+<span class="n">bootstrap_dist</span> <span class="o">&lt;-</span> <span class="n">bootstrap_samples</span> <span class="o">%&gt;%</span> <span class="nf">group_by</span><span class="p">(</span><span class="n">replicate</span><span class="p">)</span> <span class="o">%&gt;%</span> <span class="nf">summarise</span><span class="p">(</span><span class="n">mean_grade</span> <span class="o">=</span> <span class="nf">mean</span><span class="p">(</span><span class="n">grade</span><span class="p">))</span>
+
+<span class="c1">#bootstrap_dist</span>
 </pre></div>
 
      </div>
@@ -15377,32 +15381,6 @@ distribution)</p>
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="TRUE-OR-FALSE">TRUE OR FALSE<a class="anchor-link" href="#TRUE-OR-FALSE">&#182;</a></h2><h3 id="Q4.-Bootstrap-distribution-mean-is-a-good-estimate-of-sampling-distribution-mean">Q4. Bootstrap distribution mean is a good estimate of sampling distribution mean<a class="anchor-link" href="#Q4.-Bootstrap-distribution-mean-is-a-good-estimate-of-sampling-distribution-mean">&#182;</a></h3><p>A. True</p>
-<p>B. False</p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Q5.-Bootstrap-standard-error-is-a-good-estimate-of-sampling-standard-error">Q5. Bootstrap standard error is a good estimate of sampling standard error<a class="anchor-link" href="#Q5.-Bootstrap-standard-error-is-a-good-estimate-of-sampling-standard-error">&#182;</a></h3><p>A. True</p>
-<p>B. False</p>
-
-</div>
-</div>
-</div>
 </div><aside class="notes">
 
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
@@ -15496,17 +15474,6 @@ distribution)</p>
 <li>In your groups, work on your teamwork contracts</li>
 </ul>
 <h2 id="When-you-are-done-you-can-start-working-on-worksheet_03">When you are done you can start working on <code>worksheet_03</code><a class="anchor-link" href="#When-you-are-done-you-can-start-working-on-worksheet_03">&#182;</a></h2>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Take-a-break!">Take a break!<a class="anchor-link" href="#Take-a-break!">&#182;</a></h2><h3 id="2:45-PM---3:00-PM">2:45 PM - 3:00 PM<a class="anchor-link" href="#2:45-PM---3:00-PM">&#182;</a></h3>
 </div>
 </div>
 </div>
