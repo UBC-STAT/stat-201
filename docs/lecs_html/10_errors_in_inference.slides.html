@@ -50,6 +50,7 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
+.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14495,6 +14496,9 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
+.reveal table {
+  font-size: var(--jp-ui-font-size1);
+}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14538,6 +14542,23 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
+.reveal div.highlight {
+  margin: 0;
+}
+
+.reveal div.highlight > pre {
+  margin: 0;
+  width: 100%;
+  font-size: var(--jp-code-font-size);
+}
+
+.reveal div.jp-OutputArea-output > pre {
+  margin: 0;
+  width: 90%;
+  font-size: var(--jp-code-font-size);
+  box-shadow: none;
+}
+
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14578,17 +14599,14 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar
-{
+::-webkit-scrollbar {
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar *
-{
-  background:transparent;
+::-webkit-scrollbar * {
+  background: transparent;
 }
-::-webkit-scrollbar-thumb
-{
+::-webkit-scrollbar-thumb {
   background: #727272 !important;
 }
 </style>
@@ -14615,12 +14633,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: { 
-                    automatic: true 
+                    linebreaks: {
+                    automatic: true
                     }
                 }
             });
-        
+
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14653,18 +14671,42 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Reminders">Reminders<a class="anchor-link" href="#Reminders">&#182;</a></h2><ul>
-<li>worksheet_10 and tutorial_10 are due on Saturday</li>
-<li>Grades and Solutions for all worksheets, tutorials up to this point are available</li>
-<li>Solutions for all worksheets/tutorials should be available to you in the JupyterHub</li>
+<li><code>worksheet_10</code> and <code>worksheet_11</code> are due on Sunday</li>
+<li>Midterm 1 grades are posted</li>
+<li><strong>Midterm 2 - Thursday Aug 3</strong><ul>
+<li>covers all the material from modules 6, 7, 8 (however, the content is cumulative as the concepts are dependent)</li>
 </ul>
-<ul>
-<li><strong>Project Peer review (March 18-25)</strong><ul>
-<li>Instructions under "Deliverable 3: Peer Review" on the <a href="https://ubc-stat.github.io/stat-201/group-project.html">course website</a></li>
+</li>
+<li>Final exam:<ul>
+<li>Wed Aug 16 2023 | 19:00 pm</li>
+<li>LIFE 2201</li>
+<li>90-minute exam and it will cover the material of the entire course</li>
+</ul>
+</li>
+<li>Student Experience of Instruction survey due August 14<ul>
+<li>Login to https://canvas.ubc.ca</li>
+<li>Access STAT 201</li>
+<li>From within your course, navigate to the Course Evaluation sub-tab.</li>
 </ul>
 </li>
 </ul>
-<ul>
-<li><strong>Final Exam: Wednesday, April 26 at 3:30 pm</strong></li>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Remainder-of-the-term">Remainder of the term<a class="anchor-link" href="#Remainder-of-the-term">&#182;</a></h2><ul>
+<li>Thursday Aug 3: Midterm 2</li>
+<li>Tuesday Aug 8: Tutorial 10 + 11</li>
+<li>Thursday Aug 10: Project working session</li>
+<li>Sunday Aug 13: Final report and teamwork evaluation due</li>
+<li>Wednesday Aug 16: Final exam</li>
 </ul>
 
 </div>
@@ -14678,17 +14720,17 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">&#182;</a></h2><ol>
-<li>State hypotheses </li>
-<li>Set significance level </li>
-<li>Collect data </li>
+<li>State hypotheses</li>
+<li>Set significance level</li>
+<li>Collect data</li>
 <li>Calculate test statistic</li>
 <li>Calculate P-value</li>
-<li>Draw a conclusion: <ul>
-<li>$P$-value $&lt; \alpha$: Reject $H_0$ <ul>
+<li>Draw a conclusion:<ul>
+<li>Reject $H_0$<ul>
 <li>we conclude the population parameter is significantly different/smaller than/larger than the value specified under $H_0$.</li>
 </ul>
 </li>
-<li>$P$-value $\ge \alpha$: Fail to reject $H_0$  <ul>
+<li>Fail to reject $H_0$<ul>
 <li>we conclude the population parameter is not significantly different/smaller than/larger than the value specified under $H_0$.</li>
 </ul>
 </li>
@@ -14706,68 +14748,15 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Hypotheses">Hypotheses<a class="anchor-link" href="#Hypotheses">&#182;</a></h2><p>A hypothesis is a statement about the population.</p>
-<ul>
-<li>In general, we have two hypothesis $H_0$, called the <strong>null hypothesis</strong>, and $H_1$ (or $H_A$), the <strong>alternative hypothesis</strong>.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Test-Procedures:-A-test-procedure-is-specified-by-the-following">Test Procedures: A test procedure is specified by the following<a class="anchor-link" href="#Test-Procedures:-A-test-procedure-is-specified-by-the-following">&#182;</a></h2><ol>
-<li><strong>test statistic</strong> is a function of the data on which the decision (reject $H_0$ or do not reject $H_0$) is to be based. </li>
-</ol>
-<ol>
-<li><strong>rejection region</strong> is the set of all test statistics values for which $H_0$ will be rejected</li>
-</ol>
-<p><br /></p>
-<p>We also use the test statistic to assess the evidence against the null hypothesis by giving a probability,  𝑝− value.</p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="$p-$-value">$p-$ value<a class="anchor-link" href="#$p-$-value">&#182;</a></h2><ul>
-<li><p>$p-$value summarizes the evidence</p>
-</li>
-<li><p>It describes how unusual the data would be if $H_0$ were true.
-<br /></p>
-</li>
-<li><p>$p-$value is defined as the probability of observing a result as extreme or more extreme towards the alternative hypothesis  than what we observed given that $H_0$ is true.</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Significance-level-$%5Calpha$">Significance level $\alpha$<a class="anchor-link" href="#Significance-level-$%5Calpha$">&#182;</a></h2><ul>
-<li><p>The significance level is a predetermined number such that we reject $H_0$ if the $p-$value  is less than or equal to that number</p>
+<li><p>The significance level is a predetermined number such that we reject $H_0$ if the $p$-value  is less than or equal to that number</p>
 </li>
-<li><p>In practice, the most common significance level is $\alpha=0.05$
-<br /></p>
+<li><p>In practice, common significance levels are $\alpha=0.01, 0.05$ or $0.10$</p>
 </li>
-<li><p>When we reject $H_0$, we say the results are <strong>statistically significant</strong>.</p>
+</ul>
+<br />
 <ul>
+<li>When we reject $H_0$, we say the results are <strong>statistically significant</strong>.<ul>
 <li>If $p-$value $\leq \alpha\; \Rightarrow$  Reject $H_0$</li>
 <li>If $p-$value $&gt; \alpha\; \Rightarrow$  Do not reject $H_0$</li>
 </ul>
@@ -14784,53 +14773,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="img/stat201-week6_Page_19.png" width=1200></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h3 id="Ex:-Hypothesis-Testing-about-Population-Mean,-$%5Cmu$">Ex: Hypothesis Testing about Population Mean, $\mu$<a class="anchor-link" href="#Ex:-Hypothesis-Testing-about-Population-Mean,-$%5Cmu$">&#182;</a></h3><h4 id="Hypothesis-test-about-the-value-of-a-population-mean-$%5Cmu$-must-be-take-one-of-the-following-3-forms">Hypothesis test about the value of a population mean $\mu$ must be take one of the following 3 forms<a class="anchor-link" href="#Hypothesis-test-about-the-value-of-a-population-mean-$%5Cmu$-must-be-take-one-of-the-following-3-forms">&#182;</a></h4><ul>
-<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_1: \mu &lt; \mu_0 \quad \Leftarrow \; $ one-tailed test (lower tail test)</p>
-</li>
-<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_1: \mu &gt; \mu_0 \quad \Leftarrow \; $ one-tailed test (upper tail test)</p>
-</li>
-<li><p>$H_0: \mu = \mu_0 \;$ vs $\; H_1: \mu \neq \mu_0 \quad \Leftarrow \; $ two-tailed test</p>
-</li>
-</ul>
-<p>where  $\mu_0$ is the hypothesized value of the population mean.</p>
-<p>The hypotheses should be formulated before viewing or analyzing the data.</p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p><img src="img/stat201-week6_Page_20.png" width=1200></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Decisions-and-Types-of-errors-in-Hypothesis-Testing">Decisions and Types of errors in Hypothesis Testing<a class="anchor-link" href="#Decisions-and-Types-of-errors-in-Hypothesis-Testing">&#182;</a></h2><h2 id="Four-possible-outcomes">Four possible outcomes<a class="anchor-link" href="#Four-possible-outcomes">&#182;</a></h2><ul>
-<li>Reject $H_0$ <ul>
+<li>Reject $H_0$<ul>
 <li>In reality null is false: we've made the correct decision!</li>
 <li>In reality null is true: we've made an error</li>
 </ul>
@@ -14865,33 +14809,15 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Decisions-and-Types-of-errors-in-Hypothesis-Testing">Decisions and Types of errors in Hypothesis Testing<a class="anchor-link" href="#Decisions-and-Types-of-errors-in-Hypothesis-Testing">&#182;</a></h2><p><img src="img/stat201-week6_fig_1.png" width=900></p>
-<h3 id="Two-possible-errors-can-be-made-in-any-test">Two possible errors can be made in any test<a class="anchor-link" href="#Two-possible-errors-can-be-made-in-any-test">&#182;</a></h3><h4 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h4><ul>
-<li><p><strong>Type I error</strong>:  rejecting $H_0$ when $H_0$ is true</p>
-</li>
-<li><p><strong>Type II error</strong>: not rejecting $H_0$ when $H_0$ is actually false</p>
-</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h2><ul>
 <li>Type I error is  rejecting $H_0$ when $H_0$ is true</li>
-<li>Type II error is  not rejecting $H_0$ when $H_0$ is false
-<br /></li>
+<li>Type II error is  not rejecting $H_0$ when $H_0$ is false</li>
 </ul>
+<br />
 <h3 id="What-test-is-a--good-test">What test is a  good test<a class="anchor-link" href="#What-test-is-a--good-test">&#182;</a></h3><ul>
-<li>A test that rarely makes type I and type II errors
-<br /></li>
+<li>A test that rarely makes type I and type II errors</li>
 </ul>
+<br />
 <h3 id="There-are-probabilities-associated-with-each-type-of-error">There are probabilities associated with each type of error<a class="anchor-link" href="#There-are-probabilities-associated-with-each-type-of-error">&#182;</a></h3><ul>
 <li>$P(\text{Type I error}) = \alpha$</li>
 <li>$P(\text{Type II error}) = \beta$</li>
@@ -14907,13 +14833,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Type-I-and-Type-II-errors">Type I and Type II errors<a class="anchor-link" href="#Type-I-and-Type-II-errors">&#182;</a></h2><ul>
-<li>We can control the probability of type I error by our choice of the significance level, $\alpha$</li>
-<li>It's difficult to control the probability of making type II error</li>
-<li>Statisticians avoid the risk of making a type II error by using `Do not reject' $H_0$ and 'NOT accept' $H_0$</li>
-<li>$1-\beta $ referred to as the <strong>power</strong> of a test</li>
-<li>We want the power to be large</li>
-</ul>
+<h2 id="Type-I-error">Type I error<a class="anchor-link" href="#Type-I-error">&#182;</a></h2><p>Suppose $H_0: \mu = 10$ vs. $H_A: \mu &gt; 10$ and $\alpha = 5\%$. The picture below is the null model.</p>
+<img src="img/rejection_region.png" width=900>
 
 </div>
 </div>
@@ -14925,8 +14846,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Power is the probability of correctly rejecting the null hypothesis $H_0$, when $H_0$ is false</p>
-<p><strong>power</strong>  $= P(\text{Reject } H_0 \text{ when } H_0 \text{ is false}) = 1 - \beta $</p>
+<p>If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the time would we wrongly reject $H_0$?</p>
+<p><em>image source: <a href="https://www.geo.fu-berlin.de/en/v/soga/Basics-of-statistics/Hypothesis-Tests/Introduction-to-Hypothesis-Testing/Critical-Value-and-the-p-Value-Approach/index.html">Hartmann, K., Krois, J., Waske, B. (2018): E-Learning Project SOGA: Statistics and Geospatial Data Analysis. Department of Earth Sciences, Freie Universitaet Berlin.</a></em></p>
 
 </div>
 </div>
@@ -14938,22 +14859,10 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Type-I-error">Type I error<a class="anchor-link" href="#Type-I-error">&#182;</a></h2><p>Suppose $H_0: \mu = 10$ vs. $H_A: \mu &gt; 10$ and $\alpha = 5\%$. 
-If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the time would we wrongly reject $H_0$?</p>
-<p><img src="img/rejection_region.png" width=900></p>
-<p><em>image source: <a href="https://www.geo.fu-berlin.de/en/v/soga/Basics-of-statistics/Hypothesis-Tests/Introduction-to-Hypothesis-Testing/Critical-Value-and-the-p-Value-Approach/index.html">Hartmann, K., Krois, J., Waske, B. (2018): E-Learning Project SOGA: Statistics and Geospatial Data Analysis. Department of Earth Sciences, Freie Universitaet Berlin.</a></em></p>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="How-do-we-choose-the-significance-level?">How do we choose the significance level?<a class="anchor-link" href="#How-do-we-choose-the-significance-level?">&#182;</a></h2><p>A doctor tests a patient for a disease. The null hypothesis is that the patient is healthy. What type of error is worse?</p>
+<h2 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h2><p>A doctor tests a patient for a disease. The null hypothesis is that the patient is healthy.</p>
+<p>What type of error is worse?</p>
+<p>A. Type I error</p>
+<p>B. Type II error</p>
 
 </div>
 </div>
@@ -14968,7 +14877,7 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
 <li>Type I error: test shows patient has a disease when in fact the patient does not have the disease.</li>
-<li>Type II error: test shows the patient does not have the disease when in fact they do. </li>
+<li>Type II error: test shows the patient does not have the disease when in fact they do.</li>
 </ul>
 
 </div>
@@ -14976,21 +14885,6 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div>
 </div>
 </aside></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="How-do-we-choose-the-significance-level?">How do we choose the significance level?<a class="anchor-link" href="#How-do-we-choose-the-significance-level?">&#182;</a></h2><ul>
-<li>The probability of a Type I Error occurring is the significance level of the hypothesis test (denoted by $\alpha$)</li>
-<li>The probability of a Type II Error is denoted by $\beta$. The value of $1 - \beta$ is the <strong>power</strong> of a hypothesis test, which is the probability of correctly rejecting the null hypothesis.</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15010,7 +14904,22 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>If the sample size is fixed, decreasing the significance level ($\alpha$) will increase $\beta$</li>
+<li>If we want both $\alpha$ and $\beta$ to decrease we should increase the sample size</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15018,7 +14927,7 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Type-II-error">Type II error<a class="anchor-link" href="#Type-II-error">&#182;</a></h2><p>Suppose $H_0: \mu = 10$ vs. $H_A: \mu &gt; 10$</p>
-<p><img src="https://static.wingify.com/gcp/uploads/sites/3/2020/12/graphical-representation-of-type-1-and-type-2-errors.png" width=800></p>
+<img src="https://static.wingify.com/gcp/uploads/sites/3/2020/12/graphical-representation-of-type-1-and-type-2-errors.png" width=800>
 <p><em>image source: <a href="https://towardsdatascience.com/bootstrapping-statistics-what-it-is-and-why-its-used-e2fa29577307">https://vwo.com/</a></em></p>
 
 </div>
@@ -15031,26 +14940,60 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Understanding-Statistical-Power-and-Significance-Testing">Understanding Statistical Power and Significance Testing<a class="anchor-link" href="#Understanding-Statistical-Power-and-Significance-Testing">&#182;</a></h2><h3 id="an-interactive-visualization">an interactive visualization<a class="anchor-link" href="#an-interactive-visualization">&#182;</a></h3>
+<h2 id="Power">Power<a class="anchor-link" href="#Power">&#182;</a></h2>$$Power = P(\text{Reject } H_0 \text{ when } H_0 \text{ is false}) = 1 - \beta$$<p>$\beta$ = probability of committing a Type II error</p>
+
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-     <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://rpsychologist.com/d3/nhst&quot; width=1000, height=650 iframe&gt;&#39;</span><span class="p">)</span>
-</pre></div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>The probability of correctly rejecting the null hypothesis (i.e. probability of rejecting the null hypothesis, given that the null hypothesis is false).</li>
+</ul>
 
-     </div>
 </div>
 </div>
 </div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<ul>
+<li>A number of things affect the power of a test:<ul>
+<li>sample size</li>
+<li>standard error</li>
+<li>difference between the sample statistic and the hypothesized parameter</li>
+<li>alpha level</li>
+<li>using a left- or right-tailed test instead of a two-tailed test would increase power</li>
+</ul>
+</li>
+</ul>
 
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><p>Suppose the IQ of adults follow a Normal distribution with unknown mean $\mu$ and standard deviation $\sigma = 16$. We take a random sample of $n = 16$ people. We set the significance level $\alpha = 0.05$ and we want to test:</p>
+$$H_0:\mu = 100 \; vs. \; H_A: \mu &gt; 100$$<p>Suppose we want to find the power of the test if the true mean is 108.</p>
+<p><em>Source: https://online.stat.psu.edu/stat415/lesson/25/25.2</em></p>
+
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
@@ -15058,12 +15001,56 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-did-we-learn-today?">What did we learn today?<a class="anchor-link" href="#What-did-we-learn-today?">&#182;</a></h2><h2 id="--">- <a class="anchor-link" href="#--">&#182;</a></h2><p>-</p>
+<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><p>Suppose the IQ of adults follow a Normal distribution with unknown mean $\mu$ and standard deviation $\sigma = 16$. We take a random sample of $n = 16$ people. We set the significance level $\alpha = 0.05$ and we want to test: $H_0:\mu = 100 \; vs. \; H_A: \mu &gt; 100$</p>
+<h2 id="Question">Question<a class="anchor-link" href="#Question">&#182;</a></h2><p>What is the probability of committing Type I error?</p>
+<p>A. 5%</p>
+<p>B. 10%</p>
+<p>C. 100%</p>
+<p>D. We cannot determine from the information given</p>
 
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><aside class="notes">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>A.</p>
+
+</div>
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Example">Example<a class="anchor-link" href="#Example">&#182;</a></h2><p>Suppose the IQ of adults follow a Normal distribution with unknown mean $\mu$ and standard deviation $\sigma = 16$. We take a random sample of $n = 16$ people. We set the significance level $\alpha = 0.05$ and we want to test: $H_0:\mu = 100 \; vs. \; H_A: \mu &gt; 100$.</p>
+<p>For what values of $Z$ will we reject $H_0$?</p>
+
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>We reject $H_0$ when Z is greater than...</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15071,7 +15058,7 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span>
+<div class=" highlight hl-r"><pre><span></span><span class="nf">...</span><span class="p">(</span><span class="kc">...</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="kc">...</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15079,6 +15066,230 @@ If our null hypothesis $H_0: \mu = 10$ was actually true, what percent of the ti
 </div>
 </div>
 
+</div><aside class="notes">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.05</span><span class="p">,</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+</aside></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>For what values of $\bar{X}$ will we reject $H_0$?</p>
+
+</div>
+</div>
+</div>
+</div></div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<p>Reject $H_0$ when $\bar{X} \ge 1.645\times\frac{16}{\sqrt{16}} + 100 = 106.58$</p>
+
+</div>
+</div>
+</div>
+</div><aside class="notes">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.05</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">100</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">16</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">16</span><span class="p">),</span> <span class="n">lower.tail</span> <span class="o">=</span> <span class="bp">F</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+</aside></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-is-the-Type-II-error?">What is the Type II error?<a class="anchor-link" href="#What-is-the-Type-II-error?">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+\begin{align}
+P(\text{Type II error}) &amp;=P(\bar{X} &lt; 106.58 \text{ when } \mu = 108) \\
+&amp;= P(Z &lt; \frac{106.58 - 108}{16/\sqrt{16}}) \\
+&amp; = P(Z &lt; -0.355)
+\end{align}
+</div>
+</div>
+</div>
+</div></div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><aside class="notes">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">-0.355</span><span class="p">)</span>
+<span class="nf">pnorm</span><span class="p">(</span><span class="m">106.58</span><span class="p">,</span> <span class="n">mean</span> <span class="o">=</span> <span class="m">108</span><span class="p">,</span> <span class="n">sd</span> <span class="o">=</span> <span class="m">16</span><span class="o">/</span><span class="nf">sqrt</span><span class="p">(</span><span class="m">16</span><span class="p">))</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+</aside></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-is-the-power?">What is the power?<a class="anchor-link" href="#What-is-the-power?">&#182;</a></h2>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="kc">...</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div><aside class="notes">
+<div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span><span class="m">1</span> <span class="o">-</span> <span class="nf">pnorm</span><span class="p">(</span><span class="m">-0.355</span><span class="p">)</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+</aside><aside class="notes">
+
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+\begin{align}
+Power &amp;=P(\bar{X} \ge 106.58 \text{ when } \mu = 108) \\
+&amp;= P(Z \ge \frac{106.58 - 108}{16/\sqrt{16}}) \\
+&amp; = P(Z\ge -0.355)
+\end{align}
+</div>
+</div>
+</div>
+</div>
+</aside></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Relationship-between-confidence-intervals-and-two-tailed-hypothesis-tests">Relationship between confidence intervals and two-tailed hypothesis tests<a class="anchor-link" href="#Relationship-between-confidence-intervals-and-two-tailed-hypothesis-tests">&#182;</a></h2><p>If we have a two-sided hypothesis test $H_0:\mu = \mu_0 \; vs. \; H_A: \mu \ne \mu_0$ with significance level $\alpha$, the null hypothesis is rejected if the $100\times(1 - \alpha)$% confidence interval does not include $\mu_0$.</p>
+<p>E.g. Suppose a 95% confidence interval for the mean is 10 to 12. Suppose we want to test $H_0: \mu = 13$ vs. $H_0: \mu \ne 13$, then we would reject the null hypothesis at a 5% significance level since the hypothesized value is not captured by the interval.</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="What-did-we-learn-today?">What did we learn today?<a class="anchor-link" href="#What-did-we-learn-today?">&#182;</a></h2><ul>
+<li></li>
+<li></li>
+<li></li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Take-a-break!">Take a break!<a class="anchor-link" href="#Take-a-break!">&#182;</a></h2><p>Come back at 3:00 PM</p>
+
+</div>
+</div>
+</div>
 </div></section></section>
 </div>
 </div>
