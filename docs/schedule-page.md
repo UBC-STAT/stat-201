@@ -110,7 +110,7 @@
                 </ul>
             </td>
         </tr>
-                <tr>
+        <tr>
             <td>#6</td>
             <td style="text-align: left;">
                 <ul>
@@ -180,27 +180,6 @@
             <td>#9</td>
             <td style="text-align: left;">
                 <ul>
-                    <li>Mid-term #2 </li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Note: there's no Worksheet and Tutorial in this module</li>
-                        <ul>
-                        </ul>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
-            <td>#10</td>
-            <td style="text-align: left;">
-                <ul>
                     <li>Errors in Inference </li>
                 </ul>
             </td>
@@ -220,6 +199,27 @@
                 <ul>
                         <li>Worksheet 10</li>
                     <li>Tutorial 10</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>#10</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Mid-term #2 </li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Note: there's no Worksheet and Tutorial in this module</li>
+                        <ul>
+                        </ul>
+                    </li>
                 </ul>
             </td>
         </tr>
