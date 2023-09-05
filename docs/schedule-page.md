@@ -91,7 +91,7 @@
             </td>
         </tr>
         <tr>
-            <td>#6</td>
+            <td>#5</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Hypothesis testing via simulation/randomization</li>
@@ -111,7 +111,7 @@
             </td>
         </tr>
                 <tr>
-            <td>#5</td>
+            <td>#6</td>
             <td style="text-align: left;">
                 <ul>
                     <li>Midterm Exam #1 </li>
