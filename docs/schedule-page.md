@@ -91,26 +91,6 @@
             </td>
         </tr>
         <tr>
-            <td>#5</td>
-            <td style="text-align: left;">
-                <ul>
-                    <li>Midterm Exam #1 </li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
-                </ul>
-            </td>
-            <td style="text-align: left;">
-                <ul>
-                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
-                        </ul>
-                    </li>
-                </ul>
-            </td>
-        </tr>
-        <tr>
             <td>#6</td>
             <td style="text-align: left;">
                 <ul>
@@ -127,6 +107,26 @@
                 <ul>
                     <li>Worksheet 06</li>
                     <li>Tutorial 06</li>
+                </ul>
+            </td>
+        </tr>
+                <tr>
+            <td>#5</td>
+            <td style="text-align: left;">
+                <ul>
+                    <li>Midterm Exam #1 </li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><a href="https://vincenzocoia.com/post/missing_question/">Vincenzo's Blog Post</a></li>
+                </ul>
+            </td>
+            <td style="text-align: left;">
+                <ul>
+                    <li><i>Note: there's no Worksheet and Tutorial in this module</i></li>
+                        </ul>
+                    </li>
                 </ul>
             </td>
         </tr>
