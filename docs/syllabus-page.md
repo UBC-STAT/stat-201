@@ -14,6 +14,7 @@ computer scripts for analysis and reports.
 ### When and where?
 
 - Lectures and Tutorials are on Monday and Wednesday from 4:00pm to 5:20pm
+    - Because of holidays during the term its hard to have consistancey for lectures and tutorial days. Please refere the canvas course page see the lecture day and the tutorial day for each week.
 - Location: CHEM B250
 
 ### Teaching Team
