@@ -179,10 +179,12 @@ familiarity with the main functions and packages we use in the course.
 We **are not** trying to test your memory!!! Please don't spend energy trying to memorize
 everything. If you had done the worksheets and tutorial, this should not be a problem for you.
 
-- **Midterms:** two 45-minute mid-terms will be administered at the start
-of the tutorial in Weeks 5 and 9 (or Weeks 3 and 5 in Summer Terms). The first midterm will cover
+- **Midterms:** two 45-60 minute mid-terms will be administered at the start
+of the tutorial in Weeks 5 and 9  (or Weeks 3 and 5 in Summer Terms). There can be some changes to the 
+exact week of the midterm exams depending on number of holidays during the semester. 
+The first midterm will cover
 Weeks 1 to 4 (i.e., Worksheets/Tutorials 1, 2, 3, and 4, plus
-the readings). The second midterm will <em>focus</em> on Weeks 6, 7, and 8 (i.e.,
+the readings). The second midterm will <em>focus</em> on Weeks 6, 7, 8 and may be 9 (i.e.,
 Worksheets/Tutorials 1, 2, 3, and 4, plus
 the readings), however, the content is cumulative as the concepts are dependent.
 - **Final Exam:** The final exam will be a 90-minute exam and it will cover the material of
