@@ -21,13 +21,13 @@ computer scripts for analysis and reports.
 
 
  #### Teaching Assistants
- - Parsa Delavari
+ - Daniel Zhezlov 
  - Abhinav Kansal
- - Thu Nguyen
- - Shruti Seetharam
+ - Yifan Yin
+ - Jenkin Tsui
 
 ### Office Hours
-Please see Canvas for times and locations. 
+Please see Canvas course page for times and locations. 
 
 
 #### Test Dates
