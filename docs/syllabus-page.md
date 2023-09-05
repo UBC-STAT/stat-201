@@ -13,8 +13,8 @@ computer scripts for analysis and reports.
 
 ### When and where?
 
-- Lectures are on Tuesdays from 1:30 to 4:30 PM in ESB 1012
-- Tutorials are on Thursdays from 1:30 to 4:30 PM in ESB 1012
+- Lectures and Tutorials are on Monday and Wednesday from 4:00pm to 5:20pm
+- Location: CHEM B250
 
 ### Teaching Team
 - Instructor: Melissa Lee (melissa.lee@stat.ubc.ca)
