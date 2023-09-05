@@ -17,7 +17,7 @@ computer scripts for analysis and reports.
 - Location: CHEM B250
 
 ### Teaching Team
-- Instructor: Melissa Lee (melissa.lee@stat.ubc.ca)
+- Instructor: Lasantha Premarathna (wpremara@stat.ubc.ca)
 
 
  #### Teaching Assistants
