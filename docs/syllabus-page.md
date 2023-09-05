@@ -32,8 +32,8 @@ Please see Canvas for times and locations.
 
 #### Test Dates
 
-- Midterm 1: Wednesday, Octomer 18, 2023 (in class) 
-- Midterm 2: Wednesday, November 22, 2023 (in class) 
+- Midterm 1:  Wednesday, October 18, 2023 (in class) 
+- Midterm 2:  Wednesday, November 22, 2023 (in class) 
 - Final Exam: To be scheduled by Classroom Services
 
 ### Software Platforms
