@@ -173,7 +173,8 @@ assignments files.
     </div>
     
 #### Exams
-All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. You are **not allowed** to use ChatGPT during midterms or exams. For all the exams, the platform used will be Canvas. The types of questions can vary: reasoning, multiple-choice, multiple-answer,
+<!--- All the exams will be open-book. You can use whatever (*but not whoever*) you want. You **are not allowed** to communicate with another person during the exams. You are **not allowed** to use ChatGPT during midterms or exams. For all the exams, the platform used will be Canvas. -->
+The types of questions can vary: reasoning, multiple-choice, multiple-answer,
 dropdown, true or false. Although most questions will be about the content, you can expect a few coding
 questions. That being said, the coding question will not be overly complicated, and we will only check your
 familiarity with the main functions and packages we use in the course.
