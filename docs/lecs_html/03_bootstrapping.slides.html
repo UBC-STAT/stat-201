@@ -50,7 +50,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14496,9 +14495,6 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
-.reveal table {
-  font-size: var(--jp-ui-font-size1);
-}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14542,23 +14538,6 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
-.reveal div.highlight {
-  margin: 0;
-}
-
-.reveal div.highlight > pre {
-  margin: 0;
-  width: 100%;
-  font-size: var(--jp-code-font-size);
-}
-
-.reveal div.jp-OutputArea-output > pre {
-  margin: 0;
-  width: 90%;
-  font-size: var(--jp-code-font-size);
-  box-shadow: none;
-}
-
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14599,14 +14578,17 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar * {
-  background: transparent;
+::-webkit-scrollbar *
+{
+  background:transparent;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
   background: #727272 !important;
 }
 </style>
@@ -14633,12 +14615,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14659,7 +14641,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h1 id="STAT-201---Statistical-Inference-for-Data-Science">STAT 201 - Statistical Inference for Data Science<a class="anchor-link" href="#STAT-201---Statistical-Inference-for-Data-Science">&#182;</a></h1><h2 id="Lecture-3:-Estimating-the-Sampling-Distribution-with-the-Bootstrap">Lecture 3: Estimating the Sampling Distribution with the Bootstrap<a class="anchor-link" href="#Lecture-3:-Estimating-the-Sampling-Distribution-with-the-Bootstrap">&#182;</a></h2><img src="img/programming_women.jpg" width=800>
+<h1 id="STAT-201---Statistical-Inference-for-Data-Science">STAT 201 - Statistical Inference for Data Science<a class="anchor-link" href="#STAT-201---Statistical-Inference-for-Data-Science">&#182;</a></h1><h2 id="Lecture-3:-Estimating-the-Sampling-Distribution-with-the-Bootstrap">Lecture 3: Estimating the Sampling Distribution with the Bootstrap<a class="anchor-link" href="#Lecture-3:-Estimating-the-Sampling-Distribution-with-the-Bootstrap">&#182;</a></h2><p><img src="img/programming_women.jpg" width=800></p>
 <p><em>Photos/Images by #WOCinTech/#WOCinTech Chat (<a href="https://creativecommons.org/licenses/by/2.0/">CC-BY</a>)</em></p>
 <p><strong>Attribution:</strong> these slides are adapted from <a href="https://github.com/UBC-STAT/stat-201/blob/website/lec/stat201-week3.pdf">Vincenzo Coia's slides</a></p>
 
@@ -14673,44 +14655,14 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Reminders">Reminders<a class="anchor-link" href="#Reminders">&#182;</a></h2><ul>
-<li>I reformed some of the groups -- double check your groups on Canvas and make sure you are sitting with your group members</li>
-<li>Late registrants: check your due dates on Canvas</li>
-<li>Worksheets will be returned after the late registration worksheet due date</li>
-<li>Tutorials may take some time for TAs to mark</li>
-<li>I may need to reform some groups after today depending on how many students drop the course</li>
-</ul>
-
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Midterm-1">Midterm 1<a class="anchor-link" href="#Midterm-1">&#182;</a></h2><ul>
-<li>Practice problems for mid-term 1 - Please find under Midterm 1 module on Canvas</li>
-<li>Midterm 1 is on Thursday July 20 at 1:30 PM in ESB 1012<ul>
-<li>open book (but not collaborative)</li>
-<li>will be served on Canvas</li>
-<li>covers all the material from modules 1 - 4</li>
-<li>make sure you have either Chrome, Firefox, or some other browser compatible with all of Canvas functionality.
-Sometimes Safari has trouble loading images and math.</li>
-<li>Download your previous worksheets/tutorials onto your local computer just in case! Do not try to access online during the exam.</li>
-</ul>
-</li>
-</ul>
-<h2 id="Course-policy-on-plagiarism.">Course policy on plagiarism.<a class="anchor-link" href="#Course-policy-on-plagiarism.">&#182;</a></h2><ul>
-<li>The quiz (midterm 1) format is open-book, that means you can consult the course textbook, previous worksheets, and other information online.</li>
-<li>However, that does NOT mean you can copy/paste from the textbook/worksheets/online information to your answer in the quiz.</li>
-<li>That will be consider plagiarism and will have severe consequences including receiving 0 on the quiz and will be reported to UBC Science.</li>
-<li>You can find more information on what happens if you violate academic integrity here: https://science.ubc.ca/students/blog/academic-integrity-what-is-cheating-consequences to an external site.</li>
-<li>In short, write the answer in your own words! Do not copy &amp; paste from any sources.</li>
-<li>This also applies to worksheets/tutorials</li>
-<li>ChatGPT is NOT allowed</li>
+<h2 id="Announcements/Reminders">Announcements/Reminders<a class="anchor-link" href="#Announcements/Reminders">&#182;</a></h2><ul>
+<li>I reformed some of the groups -- double check your groups on Canvas and make sure you are sitting with your group members </li>
+<li>Worksheet 2 and Tutorial 2 are available and those are due on Saturday, September 23</li>
+<li>Worksheet 3 and Tutorial 3 are available and those are due on Saturday, September 30</li>
+<li>Late registrants: check your due dates on Canvas </li>
+<li>Grades will be available after the late registration worksheet due date</li>
+<li>Tutorials may take some time for TAs to mark </li>
+<li>Solutions will be  posted in your Jupyter Hub</li>
 </ul>
 
 </div>
@@ -14725,11 +14677,11 @@ Sometimes Safari has trouble loading images and math.</li>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Group-Project"><a href="https://ubc-stat.github.io/stat-201/group-project.html">Group Project</a><a class="anchor-link" href="#Group-Project">&#182;</a></h2><h3 id="Goal:">Goal:<a class="anchor-link" href="#Goal:">&#182;</a></h3><p>Complete a Data Science project from the beginning (downloading data from the web) to the end (communicating methods and conclusions in a report).</p>
 <h3 id="Key-points:">Key points:<a class="anchor-link" href="#Key-points:">&#182;</a></h3><ul>
-<li>Formulate and answer an <em>inferential question</em> about a data set of your choice</li>
+<li>Formulate and answer an <em>inferential question</em> about a data set of your choice </li>
 <li>Draw conclusions (such as computing an estimate) and communicate the evidence and uncertainty associated with your conclusion</li>
 </ul>
 <h3 id="End-product:">End product:<a class="anchor-link" href="#End-product:">&#182;</a></h3><ul>
-<li>Electronic report in the form of a Jupyter notebook</li>
+<li>Electronic report in the form of a Jupyter notebook </li>
 <li>We must be able to run your notebook from beginning to end (i.e. download dataset from the web)</li>
 </ul>
 
@@ -14743,14 +14695,39 @@ Sometimes Safari has trouble loading images and math.</li>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Project-Deliverables">Project Deliverables<a class="anchor-link" href="#Project-Deliverables">&#182;</a></h2><p>| Deliverable         |Weight|
-|---------------------|------|
-| Team Work Contract  |	2%   |
-| Proposal            |	4%   |
-| Final Report        |	10%   |
-| Teammate Evaluation |	4%   |
-|---------------------|------|
-| Total               | 20%  |</p>
+<h2 id="Project-Deliverables">Project Deliverables<a class="anchor-link" href="#Project-Deliverables">&#182;</a></h2><table>
+<thead><tr>
+<th>Deliverable</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Team Work Contract</td>
+<td>2%</td>
+</tr>
+<tr>
+<td>Proposal</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>Final Report</td>
+<td>10%</td>
+</tr>
+<tr>
+<td>Teammate Evaluation</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>---------------------</td>
+<td>------</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
 
 </div>
 </div>
@@ -14766,20 +14743,44 @@ Sometimes Safari has trouble loading images and math.</li>
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[12]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm" width=800, height=700&gt;&lt;/iframe&gt; '</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm&quot; width=800, height=700&gt;&lt;/iframe&gt; &#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm" width=800, height=700></iframe> 
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div><aside class="notes">
@@ -14797,10 +14798,12 @@ Sometimes Safari has trouble loading images and math.</li>
 <li>Imagine we repeat this process multiple times to get a <strong>sampling distribution</strong> of point estimates</li>
 <li>The sampling distribution gives us all the possible values of point estimates and the frequency of occurence</li>
 <li>We can quantify the uncertainty of our estimates by computing the standard deviation of sample means, also called standard error</li>
-<li>The sampling distribution has some nice properties:</li>
+<li>The sampling distribution has some nice properties:<ul>
 <li>It centers around the population parameter</li>
 <li>With sufficiently large n, the sampling distribution follow a bell-shaped curve (i.e., CLT)</li>
 <li>If the sampling distribution is bell-shaped, then 95% of the estimates fall within 2 SE of the population parameter (we will revisit this later in week 7)</li>
+</ul>
+</li>
 </ul>
 
 </div>
@@ -14818,11 +14821,25 @@ Sometimes Safari has trouble loading images and math.</li>
 <em>Estimate a population parameter, along with how certain you are.</em></p>
 <p>The sampling distribution shows us:</p>
 <ol>
-<li>What point estimates are possible (even more: their probabilities of occurring,</li>
+<li>What point estimates are possible (even more: their probabilities of occurring,
+too)</li>
+<li>Where the true parameter is (e.g. for means it lies at the mean of the sampling
+distribution)</li>
 </ol>
-<p>too)
-2. Where the true parameter is (e.g. for means it lies at the mean of the sampling
-distribution)</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="True-or-False:">True or False:<a class="anchor-link" href="#True-or-False:">&#182;</a></h3><p>Given a population and a sample size $n$, there is only one possible sampling
+distribution of a point estimator (e.g., doesn't depend on the actual sample
+drawn).</p>
 
 </div>
 </div>
@@ -14849,15 +14866,17 @@ distribution)</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Motivation-for-Today's-Topic">Motivation for Today's Topic<a class="anchor-link" href="#Motivation-for-Today's-Topic">&#182;</a></h2><ul>
-<li>The sampling distribution is never known in practice, just as the population</li>
-</ul>
-<p>parameter is unknown.
-    - We often don't have the resources to collect infinite number of samples. We can have access to a single sample
-    - There are different sample statistics (e.g., percentile, median, variance) where the underlying sampling distribution is unknown (i.e., cannot apply CLT)</p>
+<li><p>The sampling distribution is never known in practice, just as the population
+parameter is unknown.</p>
 <ul>
-<li>If we knew the sampling distribution, there would be no need to estimate the</li>
+<li>We often don't have the resources to collect infinite number of samples. We can have access to a single sample</li>
+<li>There are different sample statistics (e.g., percentile, median, variance) where the underlying sampling distribution is unknown (i.e., cannot apply CLT)</li>
 </ul>
-<p>population parameter. Why?</p>
+</li>
+<li><p>If we knew the sampling distribution, there would be no need to estimate the
+population parameter. Why?</p>
+</li>
+</ul>
 
 </div>
 </div>
@@ -14870,9 +14889,9 @@ distribution)</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <ul>
-<li>Our goal: to estimate the sampling distribution, and interpret it differently from the</li>
+<li>Our goal: to estimate the sampling distribution, and interpret it differently from the
+actual sampling distribution.</li>
 </ul>
-<p>actual sampling distribution.</p>
 
 </div>
 </div>
@@ -14884,7 +14903,7 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/point_estimation.png" width=1000>
+<p><img src="img/point_estimation.png" width=1000></p>
 
 </div>
 </div>
@@ -14896,7 +14915,7 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/stat201-week3_Page_09.png" width=1000>
+<p><img src="img/stat201-week3_Page_09.png" width=1000></p>
 
 </div>
 </div>
@@ -14909,7 +14928,7 @@ distribution)</p>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="What-is-(non-parametric)-bootstrapping?">What is (non-parametric) bootstrapping?<a class="anchor-link" href="#What-is-(non-parametric)-bootstrapping?">&#182;</a></h2><p>(non-parametric) Bootstrapping is a type of resampling where samples of the same size are repeatedly drawn, <strong>with replacement</strong>, from a single original sample</p>
-<img src = "img/bootstrap.png" width="600"/>
+<p><img src = "img/bootstrap.png" width="600"/></p>
 
 </div>
 </div>
@@ -14941,12 +14960,12 @@ distribution)</p>
 </div>
 </div>
 </div>
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[16]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="c1">## Demo  </span>
@@ -14963,6 +14982,40 @@ distribution)</p>
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<table class="dataframe">
+<caption>A tibble: 1 × 1</caption>
+<thead>
+	<tr><th scope=col>mean(x)</th></tr>
+	<tr><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>3</td></tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
@@ -15026,9 +15079,9 @@ distribution)</p>
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Bootstrap-distribution">Bootstrap distribution<a class="anchor-link" href="#Bootstrap-distribution">&#182;</a></h2><ul>
 <li>For each bootstrapped sample, compute the point estimate (e.g., mean GPA)</li>
-<li>Plot the distribution of these point estimates.</li>
+<li>Plot the distribution of these point estimates. </li>
 </ul>
-<img src = "img/bootstrap_dist.png" width="1000"/>
+<p><img src = "img/bootstrap_dist.png" width="1000"/></p>
 
 </div>
 </div>
@@ -15078,8 +15131,8 @@ distribution)</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">ggplot</span><span class="p">(</span><span class="n">bootstrap_sampling_dist</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mean_x</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Sample means"</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">"Bootstrap distribution"</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.4</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Sample means&quot;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Bootstrap distribution&quot;</span><span class="p">)</span><span class="o">+</span> 
     <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
 </pre></div>
 
@@ -15125,7 +15178,7 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol start="2">
+<ol>
 <li>Bootstrap distribution is centered around the sample mean</li>
 </ol>
 <p>A. True</p>
@@ -15155,7 +15208,7 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<ol start="3">
+<ol>
 <li>Bootstrap distribution gets narrower as the sample size increases</li>
 </ol>
 <p>A. True</p>
@@ -15178,20 +15231,44 @@ distribution)</p>
 </div>
 </div>
 </div>
-</aside></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</aside></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[11]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://wise.cgu.edu/portfolio2/bootstrapping/" width=1000, height=600&gt;&lt;/iframe&gt; '</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://wise.cgu.edu/portfolio2/bootstrapping/&quot; width=1000, height=600&gt;&lt;/iframe&gt; &#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
 </div>
 </div>
+</div>
+
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+
+
+<div class="jp-OutputArea jp-Cell-outputArea">
+
+<div class="jp-OutputArea-child">
+
+    
+    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+
+
+
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output " data-mime-type="text/html">
+<iframe src="https://wise.cgu.edu/portfolio2/bootstrapping/" width=1000, height=600></iframe> 
+</div>
+
+</div>
+
+</div>
+
 </div>
 
 </div><aside class="notes">
@@ -15305,24 +15382,24 @@ distribution)</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">p1</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">sampling_dist</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mean_grade</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Sample means"</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">"Sampling distribution"</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Sample means&quot;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Sampling distribution&quot;</span><span class="p">)</span><span class="o">+</span> 
     <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> <span class="o">+</span>
     <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">68</span><span class="p">,</span><span class="m">73</span><span class="p">))</span><span class="o">+</span>
-    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span> <span class="o">+</span> 
-    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">"Sampling distribution"</span><span class="p">,</span> 
-                       <span class="s">", M="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
-                       <span class="s">", SD="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> 
+    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span> <span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Sampling distribution&quot;</span><span class="p">,</span> 
+                       <span class="s">&quot;, M=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
+                       <span class="s">&quot;, SD=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">sampling_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> 
 
 <span class="n">p2</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">mean_grade</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Sample means"</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">"Bootstrap distribution"</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Sample means&quot;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Bootstrap distribution&quot;</span><span class="p">)</span><span class="o">+</span> 
     <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> <span class="o">+</span>
     <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">68</span><span class="p">,</span><span class="m">73</span><span class="p">))</span> <span class="o">+</span>
-    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span><span class="o">+</span> 
-    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">"Bootstrap distribution"</span><span class="p">,</span> 
-                       <span class="s">", M="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
-                       <span class="s">", SD="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
+    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Bootstrap distribution&quot;</span><span class="p">,</span> 
+                       <span class="s">&quot;, M=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
+                       <span class="s">&quot;, SD=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">bootstrap_dist</span><span class="o">$</span><span class="n">mean_grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15339,24 +15416,24 @@ distribution)</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="n">p3</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">single_sample</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">grade</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Grade"</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">"Sample distribution"</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">0.2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Grade&quot;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Sample distribution&quot;</span><span class="p">)</span><span class="o">+</span> 
     <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> <span class="o">+</span>
     <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">68</span><span class="p">,</span><span class="m">73</span><span class="p">))</span> <span class="o">+</span>
-    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span><span class="o">+</span> 
-    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">"Sample distribution"</span><span class="p">,</span> 
-                       <span class="s">", M="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
-                       <span class="s">", SD="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> 
+    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Sample distribution&quot;</span><span class="p">,</span> 
+                       <span class="s">&quot;, M=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
+                       <span class="s">&quot;, SD=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> 
 
 <span class="n">p4</span> <span class="o">&lt;-</span> <span class="nf">ggplot</span><span class="p">(</span><span class="n">population</span><span class="p">,</span> <span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">grade</span><span class="p">))</span> <span class="o">+</span> 
-    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">"white"</span><span class="p">)</span> <span class="o">+</span>
-    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">"Grade"</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">"Population distribution"</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">geom_histogram</span><span class="p">(</span><span class="n">binwidth</span> <span class="o">=</span> <span class="m">2</span><span class="p">,</span> <span class="n">boundary</span> <span class="o">=</span> <span class="m">0.5</span><span class="p">,</span> <span class="n">color</span> <span class="o">=</span> <span class="s">&quot;white&quot;</span><span class="p">)</span> <span class="o">+</span>
+    <span class="nf">labs</span><span class="p">(</span><span class="n">x</span> <span class="o">=</span> <span class="s">&quot;Grade&quot;</span><span class="p">,</span><span class="n">title</span> <span class="o">=</span> <span class="s">&quot;Population distribution&quot;</span><span class="p">)</span><span class="o">+</span> 
     <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span> <span class="o">+</span>
     <span class="nf">coord_cartesian</span><span class="p">(</span><span class="n">xlim</span> <span class="o">=</span> <span class="nf">c</span><span class="p">(</span><span class="m">56</span><span class="p">,</span><span class="m">93</span><span class="p">))</span> <span class="o">+</span>
-    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">"red"</span><span class="p">)</span><span class="o">+</span> 
-    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">"Population distribution"</span><span class="p">,</span> 
-                       <span class="s">", M="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">population</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
-                       <span class="s">", SD="</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">population</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
+    <span class="nf">geom_vline</span><span class="p">(</span><span class="n">xintercept</span><span class="o">=</span><span class="nf">mean</span><span class="p">(</span><span class="n">single_sample</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span> <span class="n">size</span><span class="o">=</span><span class="m">1.5</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s">&quot;red&quot;</span><span class="p">)</span><span class="o">+</span> 
+    <span class="nf">labs</span><span class="p">(</span><span class="n">title</span> <span class="o">=</span> <span class="nf">paste</span><span class="p">(</span><span class="s">&quot;Population distribution&quot;</span><span class="p">,</span> 
+                       <span class="s">&quot;, M=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">mean</span><span class="p">(</span><span class="n">population</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">),</span>
+                       <span class="s">&quot;, SD=&quot;</span><span class="p">,</span><span class="nf">round</span><span class="p">(</span><span class="nf">sd</span><span class="p">(</span><span class="n">population</span><span class="o">$</span><span class="n">grade</span><span class="p">),</span><span class="m">3</span><span class="p">)))</span><span class="o">+</span> <span class="nf">theme</span><span class="p">(</span><span class="n">text</span> <span class="o">=</span> <span class="nf">element_text</span><span class="p">(</span><span class="n">size</span> <span class="o">=</span> <span class="m">15</span><span class="p">))</span>
 </pre></div>
 
      </div>
@@ -15373,7 +15450,7 @@ distribution)</p>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">options</span><span class="p">(</span><span class="n">repr.plot.width</span><span class="o">=</span><span class="m">15</span><span class="p">,</span> <span class="n">repr.plot.height</span><span class="o">=</span><span class="m">10</span><span class="p">)</span>
-<span class="n">cowplot</span><span class="o">::</span><span class="nf">plot_grid</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s">"h"</span><span class="p">)</span>
+<span class="n">cowplot</span><span class="o">::</span><span class="nf">plot_grid</span><span class="p">(</span><span class="n">p4</span><span class="p">,</span><span class="n">p2</span><span class="p">,</span><span class="n">p1</span><span class="p">,</span><span class="n">p3</span><span class="p">,</span> <span class="n">ncol</span><span class="o">=</span><span class="m">2</span><span class="p">,</span> <span class="n">align</span><span class="o">=</span><span class="s">&quot;h&quot;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15406,7 +15483,7 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/stat201-week3_Page_12.png" width=800>
+<p><img src="img/stat201-week3_Page_12.png" width=800></p>
 
 </div>
 </div>
@@ -15469,9 +15546,9 @@ distribution)</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Teamwork-contract">Teamwork contract<a class="anchor-link" href="#Teamwork-contract">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/119247/assignments/1569299?module_item_id=5732727">Teamwork contracts</a> are due Jul 16</p>
+<h2 id="Teamwork-contract">Teamwork contract<a class="anchor-link" href="#Teamwork-contract">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/126181/assignments/1637261?module_item_id=6003218">Teamwork contracts</a> are due Jul 16</p>
 <ul>
-<li>In your groups, work on your teamwork contracts</li>
+<li>In your groups, work on your teamwork contracts </li>
 </ul>
 <h2 id="When-you-are-done-you-can-start-working-on-worksheet_03">When you are done you can start working on <code>worksheet_03</code><a class="anchor-link" href="#When-you-are-done-you-can-start-working-on-worksheet_03">&#182;</a></h2>
 </div>
