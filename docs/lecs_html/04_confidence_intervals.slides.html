@@ -50,7 +50,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14496,9 +14495,6 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
-.reveal table {
-  font-size: var(--jp-ui-font-size1);
-}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14542,23 +14538,6 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
-.reveal div.highlight {
-  margin: 0;
-}
-
-.reveal div.highlight > pre {
-  margin: 0;
-  width: 100%;
-  font-size: var(--jp-code-font-size);
-}
-
-.reveal div.jp-OutputArea-output > pre {
-  margin: 0;
-  width: 90%;
-  font-size: var(--jp-code-font-size);
-  box-shadow: none;
-}
-
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14599,14 +14578,17 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar * {
-  background: transparent;
+::-webkit-scrollbar *
+{
+  background:transparent;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
   background: #727272 !important;
 }
 </style>
@@ -14633,12 +14615,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14670,7 +14652,160 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Point-Estimation-vs.-Confidence-Intervals">Point Estimation vs. Confidence Intervals<a class="anchor-link" href="#Point-Estimation-vs.-Confidence-Intervals">&#182;</a></h2><img src="https://d33wubrfki0l68.cloudfront.net/45f6d2e16255dbcb42de86336e1e49ef732aa5da/8bcd0/images/shutterstock/point_estimate_vs_conf_int.png" width=1000>
+<h2 id="Announcements/Reminders">Announcements/Reminders<a class="anchor-link" href="#Announcements/Reminders">&#182;</a></h2><ul>
+<li>Worksheet 1 and  2 grades are available.  We need to wait until the  late registration worksheet due date</li>
+<li>Tutorials 1, and 2, grades will be posted next week</li>
+<li>Solutions are posted in your Jupyter Hub</li>
+<li>Late registrants: double check that your grade is correct</li>
+<li>Worksheet 3 and Tutorial 3 are available and those are due on Saturday, September 30</li>
+<li>Worksheet 4 and Tutorial 4 are available and those are due on Saturday, October 7</li>
+<li>Group Project Teamwork contracts are due October 7th!</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Course-policy-on-plagiarism.">Course policy on plagiarism.<a class="anchor-link" href="#Course-policy-on-plagiarism.">&#182;</a></h2><ul>
+<li>The quiz (Midterm 1) format is closed-book, that means you can NOT refere the course textbook, previous worksheets, or other information online. </li>
+<li>One side of a letter sized paper is allowed as a cheat sheet (either typed or hand written).</li>
+<li>When you complete worksheet/tutorials project etc. write the answer in your own words! Do not copy &amp; paste from any sources.</li>
+<li>That will be consider plagiarism if you copy &amp; paste from any sources and will have severe consequences including receiving 0 on the quiz and will be reported to UBC Science.</li>
+<li>You can find more information on what happens if you violate academic integrity here: <a href="https://science.ubc.ca/students/blog/academic-integrity-what-is-cheating-consequences">https://science.ubc.ca/students/blog/academic-integrity-what-is-cheating-consequences</a> to an external site.</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Group-Project"><a href="https://ubc-stat.github.io/stat-201/group-project.html">Group Project</a><a class="anchor-link" href="#Group-Project">&#182;</a></h2><h3 id="Goal:">Goal:<a class="anchor-link" href="#Goal:">&#182;</a></h3><p>Complete a Data Science project from the beginning (downloading data from the web) to the end (communicating methods and conclusions in a report).</p>
+<h3 id="Key-points:">Key points:<a class="anchor-link" href="#Key-points:">&#182;</a></h3><ul>
+<li>Formulate and answer an <em>inferential question</em> about a data set of your choice </li>
+<li>Draw conclusions (such as computing an estimate) and communicate the evidence and uncertainty associated with your conclusion</li>
+</ul>
+<h3 id="End-product:">End product:<a class="anchor-link" href="#End-product:">&#182;</a></h3><ul>
+<li>Electronic report in the form of a Jupyter notebook </li>
+<li>We must be able to run your notebook from beginning to end (i.e. download dataset from the web)</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Project-Deliverables">Project Deliverables<a class="anchor-link" href="#Project-Deliverables">&#182;</a></h2><table>
+<thead><tr>
+<th>Deliverable</th>
+<th>Weight</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Team Work Contract</td>
+<td>1%</td>
+</tr>
+<tr>
+<td>Proposal</td>
+<td>4%</td>
+</tr>
+<tr>
+<td>Peer review</td>
+<td>3%</td>
+</tr>
+<tr>
+<td>Final Report</td>
+<td>9%</td>
+</tr>
+<tr>
+<td>Teammate Evaluation</td>
+<td>3%</td>
+</tr>
+<tr>
+<td>---------------------</td>
+<td>------</td>
+</tr>
+<tr>
+<td>Total</td>
+<td>20%</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Let's-play-a-game">Let's play a game<a class="anchor-link" href="#Let's-play-a-game">&#182;</a></h2><p>Can you guess what is the average number of hours that UBC students spend on social media on a daily basis?</p>
+<p>Let's call that unknown population parameter $\mu$ and your guess is $\bar{x}$</p>
+<p>You have 3 options</p>
+<ol>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 1h, I will give you \$10</li>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 2h, I will give you \$5</li>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 3h, I will give you \$1</li>
+</ol>
+<p>Which option do you choose to play and what is your guess?</p>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Let's-play-a-game">Let's play a game<a class="anchor-link" href="#Let's-play-a-game">&#182;</a></h2><p>Can you guess what is the average number of hours that UBC students spend on social media on a daily basis?</p>
+<p>Let's call that unknown population parameter $\mu$ and your guess is $\bar{x}$</p>
+<p>You have 3 options</p>
+<ol>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 1h, I will give you \$10</li>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 2h, I will give you \$5</li>
+<li>If $\mu$ is within $\bar{x}$ $\pm$ 3h, I will give you \$1</li>
+</ol>
+<p>Which option do you choose to play and what is your guess?</p>
+<ul>
+<li>Option 2, 2h [0,4]</li>
+<li>Option 1, 4h [3,5]</li>
+<li>Option 2, 6h [4,8]</li>
+<li>Option 1, 5h [4,6]</li>
+<li>Option 3, 4h [1,7]</li>
+</ul>
+
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Point-Estimation-vs.-Confidence-Intervals">Point Estimation vs. Confidence Intervals<a class="anchor-link" href="#Point-Estimation-vs.-Confidence-Intervals">&#182;</a></h2><p><img src="https://d33wubrfki0l68.cloudfront.net/45f6d2e16255dbcb42de86336e1e49ef732aa5da/8bcd0/images/shutterstock/point_estimate_vs_conf_int.png" width=1000></p>
 <p><em>image source: <a href="https://moderndive.com/7-sampling.html">Modern Dive</a> by Kim &amp; McConville</em></p>
 
 </div>
@@ -14701,7 +14836,8 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Review">Review<a class="anchor-link" href="#Review">&#182;</a></h2><img src="https://datasciencebook.ca/img/intro-bootstrap.jpeg" width=1000>
+<h2 id="Review----Bootrap-Distribution">Review  - Bootrap Distribution<a class="anchor-link" href="#Review----Bootrap-Distribution">&#182;</a></h2><p><img src="https://datasciencebook.ca/img/intro-bootstrap.jpeg" width=1000>
+<img src = "img/bootstrap_dist.png" width="1000"/></p>
 <p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
 </div>
@@ -14731,7 +14867,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="img/pop_vs_sample_prices.png" width=1500>
+<p><img src="img/pop_vs_sample_prices.png" width=1500></p>
 <p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
 </div>
@@ -14745,7 +14881,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Sampling-distribution-vs-bootstrap-distribution">Sampling distribution vs bootstrap distribution<a class="anchor-link" href="#Sampling-distribution-vs-bootstrap-distribution">&#182;</a></h2><p>True population mean = 154.51. The mean of our sample is 155.8.</p>
-<img src="img/sampling_vs_boostrap_dist_prices.png" width=1400/>
+<p><img src="img/sampling_vs_boostrap_dist_prices.png" width=1400/></p>
 <p><em>image source: <a href="https://datasciencebook.ca">Data Science: A First Introduction</a> by Timbers, Campbell &amp; Lee</em></p>
 
 </div>
@@ -14775,7 +14911,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<img src="https://datasciencebook.ca/_main_files/figure-html/11-bootstrapping9-1.png" width=800>
+<p><img src="https://datasciencebook.ca/_main_files/figure-html/11-bootstrapping9-1.png" width=800></p>
 <p>We can use our bootstrap distribution to calculate the plausible range of values for the population parameter:</p>
 <ul>
 <li>$a$ is the 2.5% percentile (the value such that 2.5% of the bootstrap point estimates fall below)</li>
@@ -14847,8 +14983,8 @@ div.jp-OutputPrompt {
 <div class=" highlight hl-r"><pre><span></span><span class="nf">set.seed</span><span class="p">(</span><span class="m">201</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">infer</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
-<span class="c1">#install.packages("vctrs")</span>
-<span class="c1">#install.packages("readr")</span>
+<span class="c1">#install.packages(&quot;vctrs&quot;)</span>
+<span class="c1">#install.packages(&quot;readr&quot;)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">vctrs</span><span class="p">)</span>
 <span class="nf">library</span><span class="p">(</span><span class="n">readr</span><span class="p">)</span>
 
@@ -14942,13 +15078,13 @@ div.jp-OutputPrompt {
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># bootstrapping using infer package </span>
 <span class="n">bootstrap_dist2</span> <span class="o">&lt;-</span> <span class="n">student_sample</span> <span class="o">%&gt;%</span> 
     <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">grade</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">"bootstrap"</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"mean"</span><span class="p">)</span> 
+    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;bootstrap&quot;</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span> 
 
 <span class="c1">#bootstrap_dist; bootstrap_dist2</span>
 
 <span class="n">ci2</span> <span class="o">&lt;-</span> <span class="n">bootstrap_dist2</span> <span class="o">%&gt;%</span> 
-    <span class="nf">get_confidence_interval</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="m">0.90</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">"percentile"</span><span class="p">)</span> 
+    <span class="nf">get_confidence_interval</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="m">0.90</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;percentile&quot;</span><span class="p">)</span> 
 
 <span class="n">ci2</span>
 </pre></div>
@@ -14970,13 +15106,13 @@ div.jp-OutputPrompt {
 <div class=" highlight hl-r"><pre><span></span><span class="c1"># bootstrapping using infer package </span>
 <span class="n">bootstrap_dist2</span> <span class="o">&lt;-</span> <span class="n">student_sample</span> <span class="o">%&gt;%</span> 
     <span class="nf">specify</span><span class="p">(</span><span class="n">response</span> <span class="o">=</span> <span class="n">grade</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">"bootstrap"</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
-    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">"mean"</span><span class="p">)</span> 
+    <span class="nf">generate</span><span class="p">(</span><span class="n">type</span> <span class="o">=</span> <span class="s">&quot;bootstrap&quot;</span><span class="p">,</span> <span class="n">reps</span> <span class="o">=</span> <span class="m">10000</span><span class="p">)</span> <span class="o">%&gt;%</span> 
+    <span class="nf">calculate</span><span class="p">(</span><span class="n">stat</span> <span class="o">=</span> <span class="s">&quot;mean&quot;</span><span class="p">)</span> 
 
 <span class="c1">#bootstrap_dist; bootstrap_dist2</span>
 
 <span class="n">ci2</span> <span class="o">&lt;-</span> <span class="n">bootstrap_dist2</span> <span class="o">%&gt;%</span> 
-    <span class="nf">get_confidence_interval</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="m">0.90</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">"percentile"</span><span class="p">)</span> 
+    <span class="nf">get_confidence_interval</span><span class="p">(</span><span class="n">level</span> <span class="o">=</span> <span class="m">0.90</span><span class="p">,</span> <span class="n">type</span> <span class="o">=</span> <span class="s">&quot;percentile&quot;</span><span class="p">)</span> 
 
 <span class="n">ci2</span>
 </pre></div>
@@ -14995,6 +15131,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
 <pre><code>set.seed(201)
 library(infer)
 library(tidyverse)
@@ -15022,16 +15159,15 @@ bootstrap_dist  %&gt;%
 # bootstrapping using infer package 
 bootstrap_dist2 &lt;- student_sample %&gt;% 
     specify(response = grade) %&gt;% 
-    generate(type = &quot;bootstrap&quot;, reps = 10000) %&gt;% 
-    calculate(stat = &quot;mean&quot;)
+    generate(type = "bootstrap", reps = 10000) %&gt;% 
+    calculate(stat = "mean")
 
 #bootstrap_dist; bootstrap_dist2
 
 ci2 &lt;- bootstrap_dist2 %&gt;% 
-    get_confidence_interval(level = 0.90, type = &quot;percentile&quot;)
+    get_confidence_interval(level = 0.90, type = "percentile")
 
-ci; ci2
-</code></pre>
+ci; ci2</code></pre>
 
 </div>
 </div>
@@ -15063,7 +15199,7 @@ ci; ci2
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Confidence-Interval-interpretation">Confidence Interval interpretation<a class="anchor-link" href="#Confidence-Interval-interpretation">&#182;</a></h2><ul>
-<li>Did our 90% confidence interval for the true mean based on our sample contain the true value of the population mean (i.e. 70)?</li>
+<li>Did our 90% confidence interval for the true mean based on our sample contain the true value of the population mean (i.e. 70)? </li>
 <li>Will <em>every</em> 90% confidence interval for the true mean capture this value (i.e. 70)? In other words, if we had a different sample of 50 students and constructed a different confidence interval, would it necessarily contain the true population mean?</li>
 </ul>
 
@@ -15187,9 +15323,9 @@ ci; ci2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Teamwork-contract">Teamwork contract<a class="anchor-link" href="#Teamwork-contract">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/119247/assignments/1569299?module_item_id=5732727">Teamwork contracts</a> are due Jul 16</p>
+<h2 id="Teamwork-contract">Teamwork contract<a class="anchor-link" href="#Teamwork-contract">&#182;</a></h2><p><a href="https://canvas.ubc.ca/courses/119247/assignments/1569299?module_item_id=5732727">Teamwork contracts</a> are due October 7</p>
 <ul>
-<li>In your groups, work on your teamwork contracts</li>
+<li>In your groups, work on your teamwork contracts </li>
 </ul>
 <h2 id="When-you-are-done-you-can-work-on-worksheet_04">When you are done you can work on <code>worksheet_04</code><a class="anchor-link" href="#When-you-are-done-you-can-work-on-worksheet_04">&#182;</a></h2>
 </div>
@@ -15202,11 +15338,7 @@ ci; ci2
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><ul>
-<li></li>
-<li></li>
-<li></li>
-</ul>
+<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><h2 id="--">- <a class="anchor-link" href="#--">&#182;</a></h2><p>-</p>
 
 </div>
 </div>
