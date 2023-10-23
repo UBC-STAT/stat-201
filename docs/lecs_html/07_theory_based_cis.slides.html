@@ -50,7 +50,6 @@ span.linenos.special { color: #000000; background-color: #ffffc0; padding-left: 
 .highlight .m { color: var(--jp-mirror-editor-number-color) } /* Literal.Number */
 .highlight .s { color: var(--jp-mirror-editor-string-color) } /* Literal.String */
 .highlight .ow { color: var(--jp-mirror-editor-operator-color); font-weight: bold } /* Operator.Word */
-.highlight .pm { color: var(--jp-mirror-editor-punctuation-color) } /* Punctuation.Marker */
 .highlight .w { color: var(--jp-mirror-editor-variable-color) } /* Text.Whitespace */
 .highlight .mb { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Bin */
 .highlight .mf { color: var(--jp-mirror-editor-number-color) } /* Literal.Number.Float */
@@ -14496,9 +14495,6 @@ a.anchor-link {
 .reveal {
   font-size: 160%;
 }
-.reveal table {
-  font-size: var(--jp-ui-font-size1);
-}
 .reveal pre {
   width: inherit;
   padding: 0.4em;
@@ -14542,23 +14538,6 @@ div.jp-OutputPrompt {
   margin: 5px 5px 0 0;
 }
 
-.reveal div.highlight {
-  margin: 0;
-}
-
-.reveal div.highlight > pre {
-  margin: 0;
-  width: 100%;
-  font-size: var(--jp-code-font-size);
-}
-
-.reveal div.jp-OutputArea-output > pre {
-  margin: 0;
-  width: 90%;
-  font-size: var(--jp-code-font-size);
-  box-shadow: none;
-}
-
 /* Reveal navigation controls */
 
 .reveal .controls .navigate-left,
@@ -14599,14 +14578,17 @@ div.jp-OutputPrompt {
 
 /* Scrollbars */
 
-::-webkit-scrollbar {
+::-webkit-scrollbar
+{
   width: 6px;
   height: 6px;
 }
-::-webkit-scrollbar * {
-  background: transparent;
+::-webkit-scrollbar *
+{
+  background:transparent;
 }
-::-webkit-scrollbar-thumb {
+::-webkit-scrollbar-thumb
+{
   background: #727272 !important;
 }
 </style>
@@ -14633,12 +14615,12 @@ div.jp-OutputPrompt {
                 },
                 displayAlign: 'center',
                 CommonHTML: {
-                    linebreaks: {
-                    automatic: true
+                    linebreaks: { 
+                    automatic: true 
                     }
                 }
             });
-
+        
             MathJax.Hub.Queue(["Typeset", MathJax.Hub]);
         }
     }
@@ -14672,16 +14654,12 @@ div.jp-OutputPrompt {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Reminders">Reminders<a class="anchor-link" href="#Reminders">&#182;</a></h2><ul>
-<li><strong>Midterm 2 - Thursday Aug 3</strong><ul>
-<li>covers all the material from modules 6, 7, 8 (however, the content is cumulative as the concepts are dependent)</li>
+<li>Worksheet 7 and tutorial 7 are due on Saturday, October 28 </li>
+<li>Project Proposal due on November 4th  <ul>
+<li>Instructions under "Deliverable 2: Project Proposal" on the <a href="https://ubc-stat.github.io/stat-201/group-project.html">course website</a> </li>
 </ul>
 </li>
-<li>Please email me if it shows 0 in the canvas grade book for homework/tutorial even though you completed before the due date</li>
 </ul>
-<br />
-- Project Proposal due Jul 30  
-    - Instructions under "Deliverable 2: Project Proposal" on the [course website](https://ubc-stat.github.io/stat-201/group-project.html) 
-<br />
 
 </div>
 </div>
@@ -14709,7 +14687,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Review:-Bootstrapping">Review: Bootstrapping<a class="anchor-link" href="#Review:-Bootstrapping">&#182;</a></h2><img src="https://miro.medium.com/max/1575/1*SgeDm_wb2QNSF0CSYVmhuw.jpeg" width=2000>
+<h2 id="Review:-Bootstrapping">Review: Bootstrapping<a class="anchor-link" href="#Review:-Bootstrapping">&#182;</a></h2><p><img src="https://miro.medium.com/max/1575/1*SgeDm_wb2QNSF0CSYVmhuw.jpeg" width=2000></p>
 <p><em>image source: <a href="https://towardsdatascience.com/bootstrapping-statistics-what-it-is-and-why-its-used-e2fa29577307">Towards Data Science</a></em></p>
 
 </div>
@@ -14722,7 +14700,7 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Today:-Traditional-methods">Today: Traditional methods<a class="anchor-link" href="#Today:-Traditional-methods">&#182;</a></h2><img src="https://miro.medium.com/max/1575/1*QpDvUNXHTSDbgwXP2kVBsA.jpeg" width=2000>
+<h2 id="Today:-Traditional-methods">Today: Traditional methods<a class="anchor-link" href="#Today:-Traditional-methods">&#182;</a></h2><p><img src="https://miro.medium.com/max/1575/1*QpDvUNXHTSDbgwXP2kVBsA.jpeg" width=2000></p>
 <p><em>image source: <a href="https://towardsdatascience.com/bootstrapping-statistics-what-it-is-and-why-its-used-e2fa29577307">Towards Data Science</a></em></p>
 
 </div>
@@ -14735,12 +14713,46 @@ div.jp-OutputPrompt {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Sampling-Scenarios">Sampling Scenarios<a class="anchor-link" href="#Sampling-Scenarios">&#182;</a></h2><p>| Scenario | Population parameter                | Symbol     | Point estimate | Symbol(s)|
-|----------|:------------------------------------|:------------|:--------------|:---------|
-| 1	       | Population proportion               |  $p$  <img width=100/>| Sample proportion | $\hat{p}$ | 	 
-| 2	       | Population mean                     | $\mu$      | Sample mean | $\bar{x}$ | 	 
-| 3	       | Difference in population proportions| $p_1 - p_2$| Difference in sample proportions | $\hat{p}_1 - \hat{p}_2$ | 	 
-| 4	       | Difference in population means      | $\mu_1 - \mu_2$ | Difference in sample means	| $\bar{x}_1- \bar{x}_2$      |</p>
+<h2 id="Sampling-Scenarios">Sampling Scenarios<a class="anchor-link" href="#Sampling-Scenarios">&#182;</a></h2><table>
+<thead><tr>
+<th>Scenario</th>
+<th style="text-align:left">Population parameter</th>
+<th style="text-align:left">Symbol</th>
+<th style="text-align:left">Point estimate</th>
+<th style="text-align:left">Symbol(s)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td style="text-align:left">Population proportion</td>
+<td style="text-align:left">$p$  <img width=100/></td>
+<td style="text-align:left">Sample proportion</td>
+<td style="text-align:left">$\hat{p}$</td>
+</tr>
+<tr>
+<td>2</td>
+<td style="text-align:left">Population mean</td>
+<td style="text-align:left">$\mu$</td>
+<td style="text-align:left">Sample mean</td>
+<td style="text-align:left">$\bar{x}$</td>
+</tr>
+<tr>
+<td>3</td>
+<td style="text-align:left">Difference in population proportions</td>
+<td style="text-align:left">$p_1 - p_2$</td>
+<td style="text-align:left">Difference in sample proportions</td>
+<td style="text-align:left">$\hat{p}_1 - \hat{p}_2$</td>
+</tr>
+<tr>
+<td>4</td>
+<td style="text-align:left">Difference in population means</td>
+<td style="text-align:left">$\mu_1 - \mu_2$</td>
+<td style="text-align:left">Difference in sample means</td>
+<td style="text-align:left">$\bar{x}_1- \bar{x}_2$</td>
+</tr>
+</tbody>
+</table>
 <p>TABLE 7.5: Scenarios of sampling for inference from <a href="https://moderndive.com/7-sampling.html#sampling-conclusion-central-limit-theorem">Modern Dive</a> by Kim &amp; McConville</p>
 
 </div>
@@ -14755,15 +14767,15 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Normal-(Gaussian)-distribution">Normal (Gaussian) distribution<a class="anchor-link" href="#Normal-(Gaussian)-distribution">&#182;</a></h2><p>A distribution defined by two values:</p>
 <ol>
-<li>the mean $\mu$ (&quot;mu&quot;) and</li>
-<li>the standard deviation $\sigma$ (&quot;sigma&quot;)</li>
+<li>the mean $\mu$ ("mu") and </li>
+<li>the standard deviation $\sigma$ ("sigma") </li>
 </ol>
 <p>A normal distribution is:</p>
 <ul>
 <li>Unimodal (one peak) and bell-shaped;</li>
 <li>Symmetric around the mean, $\mu$</li>
 </ul>
-<img src="https://www.restore.ac.uk/srme/www/fac/soc/wie/research-new/srme/modules/mod1/8/normal_curve.jpg" width=600>
+<p><img src="https://www.restore.ac.uk/srme/www/fac/soc/wie/research-new/srme/modules/mod1/8/normal_curve.jpg" width=600></p>
 
 </div>
 </div>
@@ -14776,7 +14788,7 @@ div.jp-OutputPrompt {
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width=1000, height=550iframe&gt;'</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm&quot; width=1000, height=550iframe&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14796,7 +14808,7 @@ div.jp-OutputPrompt {
 <li>The standard deviation $\sigma$, controls the spread of the curve (wider or narrower)</li>
 <li>We give a normal distribution with a mean $\mu = 0$ and the standard deviation $\sigma = 1$ a special name. It's called the <strong>standard normal distribution</strong>.</li>
 </ul>
-<img src="img/stat201-week7_Page_10.png" width=1800>
+<p><img src="img/stat201-week7_Page_10.png" width=1800></p>
 
 </div>
 </div>
@@ -14810,13 +14822,12 @@ div.jp-OutputPrompt {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="68-95-99.7%25-rule-(Empirical-rule)">68-95-99.7% rule (Empirical rule)<a class="anchor-link" href="#68-95-99.7%25-rule-(Empirical-rule)">&#182;</a></h2><p>If a variable follows a Normal distribution, there are three rules of thumb we can use:</p>
 <ul>
-<li>approximately 68% of values will lie within $\pm1$ standard deviation of the mean</li>
-<li>approximately 95% of values will lie within $\pm2$ standard deviation of the mean</li>
-<li>approximately 99.7% of values will lie within $\pm3$ standard deviation of the mean</li>
+<li>approximately 68% of values will lie within $\pm1$ standard deviation of the mean </li>
+<li>approximately 95% of values will lie within $\pm2$ standard deviation of the mean </li>
+<li>approximately 99.7% of values will lie within $\pm3$ standard deviation of the mean<p align="center">
+  <img src="https://andymath.com/wp-content/uploads/2019/12/empirical-rule-normdist2.jpg" width=1000>
+</p></li>
 </ul>
-<p align="center">
-    <img src="https://andymath.com/wp-content/uploads/2019/12/empirical-rule-normdist2.jpg" width=1000>
-</p>
 <p><em>image source: <a href="https://andymath.com/normal-distribution-empirical-rule/">Andymath.com</a></em></p>
 
 </div>
@@ -14833,17 +14844,14 @@ div.jp-OutputPrompt {
 <li><p>We can use software packages to get the desired probability or quantiles.</p>
 </li>
 <li><p>Probabilities: e.g., $P(X \le 0)$</p>
+<blockquote><p>pnorm(0, mu, sigma)</p>
+</blockquote>
+</li>
+<li><p>Quantiles: e.g., $P(X \le x) = 0.25$</p>
+<blockquote><p>qnorm(0.25, mu, sigma)</p>
+</blockquote>
 </li>
 </ul>
-<blockquote>
-<p>pnorm(0, mu, sigma)</p>
-</blockquote>
-<ul>
-<li>Quantiles: e.g., $P(X \le x) = 0.25$</li>
-</ul>
-<blockquote>
-<p>qnorm(0.25, mu, sigma)</p>
-</blockquote>
 
 </div>
 </div>
@@ -14862,30 +14870,27 @@ div.jp-OutputPrompt {
      <div style="flex:1;padding-left:10px;">
           <img src="img/qnorm.png" width="800"/>
      </div>
-</div>
-<p><em>image source: <a href="https://diggingdeeperwithstats.wordpress.com/2021/05/21/visual-guide-to-pnorm-dnorm-qnorm-and-rnorm-functions-in-r/">Visual guide to pnorm, dnorm, qnorm, and rnorm functions in R</a></em></p>
+</div><p><em>image source: <a href="https://diggingdeeperwithstats.wordpress.com/2021/05/21/visual-guide-to-pnorm-dnorm-qnorm-and-rnorm-functions-in-r/">Visual guide to pnorm, dnorm, qnorm, and rnorm functions in R</a></em></p>
 
 </div>
 </div>
 </div>
-</div><aside class="notes">
-
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+
 <pre><code>pnorm(0)
 pnorm(-2, 0, 1)
-qnorm(0.84)
-</code></pre>
+qnorm(0.84)</code></pre>
 
 </div>
 </div>
 </div>
-</div>
-</aside></div></section></section><section><section>
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -14958,7 +14963,7 @@ qnorm(0.84)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Clicker-Question-2">Clicker Question 2<a class="anchor-link" href="#Clicker-Question-2">&#182;</a></h2><p>Suppose the lengths of fish in a certain lake follow approximately a Normal distribution with mean $\mu = 100$ mm and standard deviation $\sigma = 10$ mm.</p>
-<p>How big is the length such that only 2.5% of fish fall above?</p>
+<p>How big is the length such that only 2.5\% of fish fall above?</p>
 <p>A. 100 mm</p>
 <p>B. 110 mm</p>
 <p>C. 120 mm</p>
@@ -15064,7 +15069,7 @@ qnorm(0.84)
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Let $x_1, x_2, ..., x_n$ be independent values of a random sample from some population with mean $\mu$ and standard deviation $\sigma$. The Central Limit Theorem (CLT) states that for large sample sizes ($n$) the sampling distribution of the sample mean is approximately Normally distributed, regardless of the distribution of the population one samples from with</p>
 <ul>
-<li>mean $\mu$ and</li>
+<li>mean $\mu$ and </li>
 <li>standard error $\frac{\sigma}{\sqrt{n}}$</li>
 </ul>
 
@@ -15094,7 +15099,7 @@ qnorm(0.84)
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -15102,7 +15107,7 @@ qnorm(0.84)
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm" width=800, height=550iframe&gt;'</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm&quot; width=800, height=550iframe&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15110,7 +15115,7 @@ qnorm(0.84)
 </div>
 </div>
 
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -15118,14 +15123,14 @@ qnorm(0.84)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Assumptions-&amp;-conditions">Assumptions &amp; conditions<a class="anchor-link" href="#Assumptions-&amp;-conditions">&#182;</a></h2><ul>
-<li>The sample is randomly drawn from the population.</li>
+<li>The sample is randomly drawn from the population. </li>
 <li>The sample values are independent. In general, if your sample size is greater than 10% of the population size, there will be a severe violation of independence.</li>
 <li>The sample size must be large enough.<ul>
-<li>For proportions:<ul>
+<li>For proportions: <ul>
 <li>check $n\times p \ge 10$ and $n\times(1-p) \ge 10$.</li>
 </ul>
 </li>
-<li>For means:<ul>
+<li>For means: <ul>
 <li>there is no universal guideline, and we might need a large sample size. Usually, however, sample sizes larger than 30 are enough to get a reasonable approximation (but it is not guaranteed).</li>
 </ul>
 </li>
@@ -15144,11 +15149,13 @@ qnorm(0.84)
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Recall">Recall<a class="anchor-link" href="#Recall">&#182;</a></h2><p>The <strong>standard error</strong> is the standard deviation of point estimates</p>
-$$\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$$<ul>
+$$\sigma_{\hat{p}} = \sqrt{\frac{p(1-p)}{n}}$$<p></p>
+<ul>
 <li>$\sigma_{\hat{p}}$: standard deviation of sample proportions (i.e. standard error)</li>
 <li>$p$: population proportion</li>
 </ul>
-$$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
+$$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<p></p>
+<ul>
 <li>$\sigma_{\bar{x}}$: standard deviation of sample mean (i.e. standard error)</li>
 <li>$\sigma$: standard deviation of population</li>
 </ul>
@@ -15167,7 +15174,7 @@ $$\sigma_{\bar{x}} = \frac{\sigma}{\sqrt{n}}$$<ul>
 <li>We don't know the value of the population proportion ($p$) so we estimate $p$ using the sample proportion ($\hat{p}$). Thus we estimate $\sigma_{\hat{p}}$ (variability of $\hat{p}$) using:</li>
 </ul>
 $$\sigma_{\hat{p}} = \sqrt{\frac{\hat{p} \times (1-\hat{p})}{n}}$$<ul>
-<li>We don't know the value of the population standard deviation ($\sigma$) so we estimate $\sigma$ using the sample standard deviation ($s$). Thus we estimate $\sigma_{\bar{x}}$ using</li>
+<li>We don't know the value of the population standard deviation ($\sigma$) so we estimate $\sigma$ using the sample standard deviation ($s$). Thus we estimate $\sigma_{\bar{x}}$ using </li>
 </ul>
 $$\sigma_{\bar{X}} = \frac{s}{\sqrt{n}}$$
 </div>
@@ -15181,11 +15188,10 @@ $$\sigma_{\bar{X}} = \frac{s}{\sqrt{n}}$$
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Idea-behind-confidence-intervals">Idea behind confidence intervals<a class="anchor-link" href="#Idea-behind-confidence-intervals">&#182;</a></h2><ul>
-<li>By the 68-95-99.7 rule, approximately 95% of $\hat{p}$ will fall between $p \pm 2 \times \sigma_{\hat{p}}$</li>
+<li>By the 68-95-99.7 rule, approximately 95% of $\hat{p}$ will fall between $p \pm 2 \times \sigma_{\hat{p}}$ </li>
 </ul>
 <p align="center"> <img src=img/sampling_dist_p.png width=1200>
 </p>
-
 </div>
 </div>
 </div>
@@ -15199,7 +15205,6 @@ $$\sigma_{\bar{X}} = \frac{s}{\sqrt{n}}$$
 <h2 id="Confidence-Intervals">Confidence Intervals<a class="anchor-link" href="#Confidence-Intervals">&#182;</a></h2><p>Today the confidence intervals for population parameters we will be learning about today take the following form:</p>
 <p style="text-align: center;"> statistic $\pm$ margin of error </p>
 <p style="text-align: center;"> statistic $\pm$ critical value $\times$ standard error </p>
-
 </div>
 </div>
 </div>
@@ -15229,7 +15234,7 @@ $$\hat{p} \pm z^* \times \sigma_{\hat{p}}$$$$\hat{p} \pm z^* \times \sqrt{\frac{
 <li><p>$z^∗$ is the value such that the upper tail area (area to the right of $z^*$) under the standard normal curve equals to $\frac{1 - C}{2}$ (where $C$ is the confidence level).</p>
 </li>
 </ul>
-<img src="http://www.stat.yale.edu/Courses/1997-98/101/confdiag.gif" width=800>
+<p><img src="http://www.stat.yale.edu/Courses/1997-98/101/confdiag.gif" width=800></p>
 
 </div>
 </div>
@@ -15254,11 +15259,10 @@ $$\hat{p} \pm z^* \times \sigma_{\hat{p}}$$$$\hat{p} \pm z^* \times \sqrt{\frac{
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <p>Recall:</p>
 <ul>
-<li>Quantiles: e.g., $P(X \le x) = 0.25$</li>
-</ul>
-<blockquote>
-<p>qnorm(0.25, mu, sigma)</p>
+<li>Quantiles: e.g., $P(X \le x) = 0.25$ <blockquote><p>qnorm(0.25, mu, sigma)</p>
 </blockquote>
+</li>
+</ul>
 
 </div>
 </div>
@@ -15275,12 +15279,12 @@ $$\hat{p} \pm z^* \times \sigma_{\hat{p}}$$$$\hat{p} \pm z^* \times \sqrt{\frac{
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell   ">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[2]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-r"><pre><span></span><span class="nf">qnorm</span><span class="p">(</span><span class="kc">...</span><span class="p">)</span>
@@ -15289,29 +15293,6 @@ $$\hat{p} \pm z^* \times \sigma_{\hat{p}}$$$$\hat{p} \pm z^* \times \sqrt{\frac{
      </div>
 </div>
 </div>
-</div>
-
-<div class="jp-Cell-outputWrapper">
-<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
-</div>
-
-
-<div class="jp-OutputArea jp-Cell-outputArea">
-<div class="jp-OutputArea-child">
-    
-    <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-
-
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr">
-<pre>
-Error in eval(expr, envir, enclos): &#39;...&#39; used in an incorrect context
-Traceback:
-</pre>
-</div>
-</div>
-
-</div>
-
 </div>
 
 </div><aside class="notes">
@@ -15354,9 +15335,9 @@ $$\bar{x} \pm z^* \times \sigma_{\bar{x}}$$$$\bar{x} \pm z^* \times \frac{s}{\sq
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Assumptions-&amp;-conditions-for-constructing-confidence-intervals">Assumptions &amp; conditions for constructing confidence intervals<a class="anchor-link" href="#Assumptions-&amp;-conditions-for-constructing-confidence-intervals">&#182;</a></h2><ul>
-<li>The sample is randomly drawn from the population.</li>
+<li>The sample is randomly drawn from the population. </li>
 <li>The sample values are independent. In general, if your sample size is greater than 10% of the population size, there will be a severe violation of independence.</li>
-<li>The sample size must be large enough.<ul>
+<li>The sample size must be large enough. <ul>
 <li>For proportions: Check $n\times \hat{p} \ge 10$ and $n\times(1-\hat{p}) \ge 10$ (Remember we don't know $p$!)</li>
 <li>For means: Usually, sample sizes larger than 30 are enough to get a reasonable approximation (but it is not guaranteed).</li>
 </ul>
@@ -15402,7 +15383,7 @@ $$\bar{x} \pm z^* \times \sigma_{\bar{x}}$$$$\bar{x} \pm z^* \times \frac{s}{\sq
 <div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm" width=800, height=550iframe&gt;'</span><span class="p">)</span>
+<div class=" highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">&#39;&lt;iframe src=&quot;https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm&quot; width=800, height=550iframe&gt;&#39;</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -15437,27 +15418,27 @@ $$\bar{x} \pm z^* \times \sigma_{\bar{x}}$$$$\bar{x} \pm z^* \times \frac{s}{\sq
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><ul>
-<li></li>
-<li></li>
-<li></li>
-</ul>
+<h2 id="What-did-you-learn-today?">What did you learn today?<a class="anchor-link" href="#What-did-you-learn-today?">&#182;</a></h2><h2 id="---">-  <a class="anchor-link" href="#---">&#182;</a></h2><p>-</p>
 
 </div>
 </div>
 </div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
 <div class="jp-Cell-inputWrapper">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Take-a-break!">Take a break!<a class="anchor-link" href="#Take-a-break!">&#182;</a></h2><p>Come back at 3:00 PM</p>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[&nbsp;]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-r"><pre><span></span>
+</pre></div>
 
+     </div>
 </div>
 </div>
 </div>
+
 </div></section></section>
 </div>
 </div>
