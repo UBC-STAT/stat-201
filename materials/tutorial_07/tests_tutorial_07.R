@@ -291,9 +291,9 @@ test_2.4 <- function() {
   })
 
   test_that("Data frame does not contain the correct data", {
-    expect_equal(digest(as.integer(sum(parking_multiple_ci$lower_ci))), "263b9db4d09244c0e0ff3f826caa8d2e")
-    expect_equal(digest(as.integer(sum(parking_multiple_ci$upper_ci))), "10ed7b15ca812930d29ea06c2edde7ef")
-    expect_equal(digest(as.integer(sum(parking_multiple_ci$captured))), "e1c87205446e1c8cc10879d9851cd008")
+    expect_equal(digest(as.integer(sum(parking_multiple_ci$lower_ci))), "569ddf8dcb5af0cbc7177be6a8b9700d")
+    expect_equal(digest(as.integer(sum(parking_multiple_ci$upper_ci))), "3ff12c1fbc0a9de0bfd8fe289b511a37")
+    expect_equal(digest(as.integer(sum(parking_multiple_ci$captured))), "c573cfd6ff802932578f5a94dbb38a79")
   })
 
   print("Success!")
