@@ -93,7 +93,7 @@ To get a zipped copy of all of your work at the end of term:
 
 2. Enter the following command into the terminal:
 ```
-cd /home/jovyan/work/ && zip -r dsci100jupyterlab.zip *
+cd /home/jovyan/work/ && zip -r backupjupyterlab.zip *
 ```
 If you received a `Disk quota exceeded` error, then there are too many files. Delete any files or folders that you don't need (especially large .csv files) and try the command again.
 
@@ -102,8 +102,6 @@ If you received a `Disk quota exceeded` error, then there are too many files. De
 ## FAQs
 
 ### Why did I get a zero/low-mark when I submitted everything on time?
-
-Ensure that you are aware of the correct due date. For example, if an assignment is due on Sunday morning at 12:01am then your assignment should be finished by Saturday night and not Sunday night.
 
 If you are aware of the above, then make sure that you are opening another notebook tab [in the correct way](#open-multiple-notebook-tabs). If you opened another browser tab with JupyterLab, then there is a chance your notebook was overwritten.
 
