@@ -18,6 +18,7 @@ This guide contains tips and FAQs which help to avoid common issues that arise w
 4. [Why did I get a zero on a question when all the tests passed?](#why-did-i-get-a-zero-on-a-question-when-all-the-tests-passed)
 5. [Why did I get a low mark on a question when all the tests passed?](#why-did-i-get-a-low-mark-on-a-question-when-all-the-tests-passed)
 6. [I made a typo in my code, can I still get marks for the question?](#i-made-a-typo-in-my-code-can-i-still-get-marks-for-the-question)
+7. [I am getting a 400 (Bad Request) or 404 (Not Found) error, how do I fix it?](#i-am-getting-a-400-bad-request-or-404-not-found-error-how-do-i-fix-it)
 
 ## Tips
 
@@ -143,5 +144,26 @@ Examine the feedback for the question carefully to see if hidden tests were run 
 
 We will not be making exceptions for typos in autograded coding questions.
 
+Read the questions carefully as some questions request answers of a certain type (e.g. String).
+
 The questions include tests that give instant feedback on your code. Run those tests frequently to ensure that you haven't made any typos.
 
+### I am getting a 400 (Bad Request) or 404 (Not Found) error, how do I fix it?
+
+Before continuing with the instructions below, try JupyterLab again after restarting your browser.
+
+The errors could be due to your browser's cache and it may need to be cleared.
+
+Instructions:
+
+[For Edge](https://www.microsoft.com/en-us/edge/learning-center/how-to-manage-and-clear-your-cache-and-cookies?form=MA13I2)
+
+[For Chrome](https://support.google.com/accounts/answer/32050?hl=en&co=GENIE.Platform%3DDesktop)
+
+[For Firefox](https://support.mozilla.org/en-US/kb/how-clear-firefox-cache)
+
+After clearing your browser's cache, restart the browser and try opening JupyterLab again.
+
+If it still has the same error, try using Incognito or Private Browsing on your browser.
+
+Lastly, disable any browser extensions as they could interfere with JupyterLab. Also check that your browser is updated to its latest version.
