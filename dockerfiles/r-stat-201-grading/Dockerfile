@@ -1,17 +1,15 @@
 # Copyright (c) UBC-STAT Development Team.
 # Distributed under the terms of the Modified BSD License.
-FROM ubcstat/r-stat-201:latest
+# TODO: For testing purposes only, change to ubcstat/r-stat-201:latest
+FROM ubcstatit/r-stat-201-student:latest
 
-LABEL maintainer="Tiffany Timbers <tiffany.timbers@stat.ubc.ca>"
+LABEL maintainer="Brian Kim <brian.kim@stat.ubc.ca>"
 
-# install the rise slides extension
-RUN mamba install --quiet --yes "rise"
+# install rise slides extension, nbgrader, clean cache
+RUN mamba install --quiet --yes \
+    'nbgrader=0.8.2' && \
+    mamba clean --all -f -y
 
-# install nbgrader
-RUN mamba install --quiet --yes "nbgrader=0.7.1" \
-    && jupyter nbextension install --sys-prefix --py nbgrader --overwrite \
-    && jupyter nbextension enable --sys-prefix --py nbgrader \
-    && jupyter serverextension enable --sys-prefix --py nbgrader 
+# re-upgrade jupyter-server (mamba downgrades it)
+RUN pip install --upgrade jupyter-server
 
-# Clean the cache
-RUN mamba clean --all -f -y 
