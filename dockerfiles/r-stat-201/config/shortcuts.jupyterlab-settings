@@ -1,0 +1,31 @@
+{
+    "shortcuts": [
+        {
+            "args": {},
+            "command": "notebook:merge-cell-above",
+            "keys": [
+                "Ctrl Backspace"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled": true
+        },
+        {
+            "args": {},
+            "command": "notebook:merge-cell-below",
+            "keys": [
+                "Ctrl Shift M"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled": true
+        },
+        {
+            "args": {},
+            "command": "notebook:merge-cells",
+            "keys": [
+                "Shift M"
+            ],
+            "selector": ".jp-Notebook:focus",
+            "disabled": true
+        }
+    ]
+}
