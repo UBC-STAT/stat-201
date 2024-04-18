@@ -34,8 +34,8 @@ COPY conda-linux-64.lock /tmp/conda-linux-64.lock
 # Install R packages from lock file.
 RUN mamba update --quiet --file /tmp/conda-linux-64.lock && \
 	mamba clean --all -y -f && \
-	# fix-permissions "${CONDA_DIR}" && \
-	# fix-permissions "/home/${NB_USER}" && \
+	fix-permissions "${CONDA_DIR}" && \
+	fix-permissions "/home/${NB_USER}" && \
 	Rscript -e "devtools::install_github('UBC-MDS/datateachr@v0.2.1')" && \
 	Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')" 
 
