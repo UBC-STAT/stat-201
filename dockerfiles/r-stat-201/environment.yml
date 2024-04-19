@@ -4,13 +4,14 @@ channels:
  - r 
  - nodefaults
 dependencies:
-  - anyio=3.7.1
-  - jupyterlab=3.6.6
+  - anyio
+  - jupyterlab
   - jupyterlab-git
-  - jupyter-resource-usage<1.0.0
-  - jupyterlab_rise=0.2.0
+  - jupyter-resource-usage
+  - jupyterlab_rise
   - jupytext
   - nbgitpuller
+  - python=3.11
   - r-aer 
   - r-base 
   - r-binom 

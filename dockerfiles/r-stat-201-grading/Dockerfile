@@ -13,3 +13,6 @@ RUN mamba install --quiet --yes \
 # re-upgrade jupyter-server (mamba downgrades it)
 RUN pip install --upgrade jupyter-server
 
+# Allow all shortcuts
+RUN rm -f /home/${NB_USER}/.jupyter/lab/user-settings/\@jupyterlab/shortcuts-extension/shortcuts.jupyterlab-settings
+
