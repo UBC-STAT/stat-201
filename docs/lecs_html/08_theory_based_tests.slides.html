@@ -7433,12 +7433,12 @@ main {
 <body class="jp-Notebook" data-jp-theme-light="true" data-jp-theme-name="JupyterLab Light">
 <main>
 <div class="reveal">
-<div class="slides"><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+<div class="slides"><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-r"><pre><span></span><span class="nf">library</span><span class="p">(</span><span class="n">tidyverse</span><span class="p">)</span>
@@ -7457,6 +7457,28 @@ main {
 <span class="n">pvalue_plot</span><span class="w"> </span><span class="o">&lt;-</span><span class="w"> </span><span class="n">null_model</span><span class="w"> </span><span class="o">+</span><span class="w">  </span><span class="nf">geom_ribbon</span><span class="p">(</span><span class="n">.</span><span class="w"> </span><span class="o">%&gt;%</span><span class="w"> </span><span class="nf">filter</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">&gt;</span><span class="w"> </span><span class="nf">qnorm</span><span class="p">(</span><span class="m">0.84</span><span class="p">,</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="m">0.05</span><span class="p">)),</span>
 <span class="w">                </span><span class="n">mapping</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nf">aes</span><span class="p">(</span><span class="n">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">x</span><span class="p">,</span><span class="w"> </span><span class="n">ymax</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="n">density</span><span class="p">,</span><span class="w"> </span><span class="n">ymin</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">),</span><span class="w"> </span><span class="n">alpha</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0.5</span><span class="p">,</span><span class="w"> </span><span class="n">fill</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="s">"red"</span><span class="p">)</span>
 </pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="application/vnd.jupyter.stderr" tabindex="0">
+<pre>── <span class="ansi-bold">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">dplyr    </span> 1.1.4     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">readr    </span> 2.1.4
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">forcats  </span> 1.0.0     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">stringr  </span> 1.5.1
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">ggplot2  </span> 3.4.4     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tibble   </span> 3.2.1
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">lubridate</span> 1.9.3     <span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">tidyr    </span> 1.3.0
+<span class="ansi-green-fg">✔</span> <span class="ansi-blue-fg">purrr    </span> 1.0.2     
+── <span class="ansi-bold">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">filter()</span> masks <span class="ansi-blue-fg">stats</span>::filter()
+<span class="ansi-red-fg">✖</span> <span class="ansi-blue-fg">dplyr</span>::<span class="ansi-green-fg">lag()</span>    masks <span class="ansi-blue-fg">stats</span>::lag()
+<span class="ansi-cyan-fg">ℹ</span> Use the conflicted package (<span class="ansi-blue-fg">&lt;http://conflicted.r-lib.org/&gt;</span>) to force all conflicts to become errors
+</pre>
 </div>
 </div>
 </div>
@@ -7503,25 +7525,6 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">¶</a></h2><p>Steps are the same as what we learned so far:</p>
-<ol>
-<li>State hypotheses</li>
-<li>Test statistic</li>
-<li>Distribution of test statistic under null</li>
-<li>P-value</li>
-<li>Draw a conclusion</li>
-</ol>
-<p>Basic process remains the same as we learned in module 6! We just need to make a few tweaks.</p>
-</div>
-</div>
-</div>
-</div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Standardizing-a-variable">Standardizing a variable<a class="anchor-link" href="#Standardizing-a-variable">¶</a></h2><h3 id="Discussion-question:">Discussion question:<a class="anchor-link" href="#Discussion-question:">¶</a></h3><p>Suppose you and your friend wrote a test. You got a score of 82 and your friend got 91. However, you are in different sections. The average and standard deviation for your section's test was 80 and 1 respectively, and for your friend's section it was 90 and 1.</p>
 <p>If test scores follows roughly normal distributions, Who did better relatively?</p>
 <p>A. You did</p>
@@ -7549,6 +7552,25 @@ main {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Z-score">Z-score<a class="anchor-link" href="#Z-score">¶</a></h2><p>$z = \frac{x - \mu}{\sigma}$</p>
 <p>where $x$ represents one value of a variable, $\mu$ represents the mean of that variable, and $\sigma$ represents the standard deviation of that variable.</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Hypothesis-testing">Hypothesis testing<a class="anchor-link" href="#Hypothesis-testing">¶</a></h2><p>Steps are the same as what we learned so far:</p>
+<ol>
+<li>State hypotheses</li>
+<li>Test statistic</li>
+<li>Distribution of test statistic under null</li>
+<li>P-value</li>
+<li>Draw a conclusion</li>
+</ol>
+<p>Basic process remains the same as we learned in module 6! We just need to make a few tweaks.</p>
 </div>
 </div>
 </div>
@@ -7922,7 +7944,8 @@ Pennsylvania State University</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Null-model">Null model<a class="anchor-link" href="#Null-model">¶</a></h2><p>If the sample is taken at random, independent and $np\ge10$ and $n(1-p) \ge 10$, then</p>
+<h2 id="Null-model">Null model<a class="anchor-link" href="#Null-model">¶</a></h2><p>$$H_0:p_1 = p_2 \;$$</p>
+<p>If the sample is taken at random, independent and $np\ge10$ and $n(1-p) \ge 10$, then</p>
 <p>$$\hat{p}_1 - \hat{p}_2 \sim N\bigg(0, \sqrt{p(1-p) \big(\frac{1}{n_1} + \frac{1}{n_2}}\big) \bigg)$$</p>
 </div>
 </div>
@@ -8103,47 +8126,6 @@ $$\bar{X} \sim N(\mu, \frac{\sigma}{\sqrt{n}})$$ approx</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Function-in-R-for-the-t-Distribution">Function in R for the t Distribution<a class="anchor-link" href="#Function-in-R-for-the-t-Distribution">¶</a></h2><ul>
-<li><p>We can use software packages to get the desired probability or quantiles.</p>
-</li>
-<li><p>Probabilities:</p>
-</li>
-</ul>
-<blockquote>
-<p>pt(q, df)</p>
-</blockquote>
-<ul>
-<li>Quantiles:</li>
-</ul>
-<blockquote>
-<p>qt(p, df)</p>
-</blockquote>
-</div>
-</div>
-</div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
-<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
-<div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-r"><pre><span></span><span class="nf">pt</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">)</span><span class="w">  </span><span class="c1"># df =12</span>
-<span class="nf">qt</span><span class="p">(</span><span class="m">0.975</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">)</span><span class="w"> </span><span class="c1">## df =12</span>
-<span class="nf">qnorm</span><span class="p">(</span><span class="m">0.975</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-</div>
-</div>
-</div></div></section></section><section><section>
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Assumptions-and-conditions">Assumptions and conditions<a class="anchor-link" href="#Assumptions-and-conditions">¶</a></h2><ul>
 <li>The sample is randomly drawn from the population.</li>
 <li>The sample values are independent. In general, if your sample size is greater than 10% of the population size, there will be a severe violation of independence.</li>
@@ -8202,6 +8184,71 @@ $$\bar{x} \pm z^* \times \frac{\sigma}{\sqrt{n}}$$</p>
 <li>We replace the $Z$-score by the slightly larger score $t$-score</li>
 </ul>
 <p>$$\bar{x} \pm t^{*}_{n-1} \times \frac{s}{\sqrt{n}}$$</p>
+</div>
+</div>
+</div>
+</div></div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Function-in-R-for-the-t-Distribution">Function in R for the t Distribution<a class="anchor-link" href="#Function-in-R-for-the-t-Distribution">¶</a></h2><ul>
+<li><p>We can use software packages to get the desired probability or quantiles.</p>
+</li>
+<li><p>Probabilities:</p>
+</li>
+</ul>
+<blockquote>
+<p>pt(q, df)</p>
+</blockquote>
+<ul>
+<li>Quantiles:</li>
+</ul>
+<blockquote>
+<p>qt(p, df)</p>
+</blockquote>
+</div>
+</div>
+</div>
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+<div class="cm-editor cm-s-jupyter">
+<div class="highlight hl-r"><pre><span></span><span class="nf">pt</span><span class="p">(</span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">)</span><span class="w">  </span><span class="c1"># df =12</span>
+<span class="nf">qt</span><span class="p">(</span><span class="m">0.975</span><span class="p">,</span><span class="w"> </span><span class="m">12</span><span class="p">)</span><span class="w"> </span><span class="c1">## df =12</span>
+<span class="nf">qnorm</span><span class="p">(</span><span class="m">0.975</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+0.5
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+2.17881282966723
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+1.95996398454005
+</div>
 </div>
 </div>
 </div>
@@ -8310,6 +8357,18 @@ where $n$ represents the number of pairs.</p>
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<h2 id="Confidence-intervals-for-the-mean-difference-between-two-paired-groups">Confidence intervals for the mean difference between two paired groups<a class="anchor-link" href="#Confidence-intervals-for-the-mean-difference-between-two-paired-groups">¶</a></h2><p>$$\bar{d} \pm t^{*}_{n-1} \times \frac{s_n}{\sqrt{n}}$$</p>
+<p>where $n$ represents the number of pairs</p>
+</div>
+</div>
+</div>
+</div></section></section><section><section>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Assumptions-and-conditions-for-validity-of-using-the-t-model:">Assumptions and conditions for validity of using the t-model:<a class="anchor-link" href="#Assumptions-and-conditions-for-validity-of-using-the-t-model:">¶</a></h2><ol>
 <li>The n pairs are randomly drawn from the population.</li>
 <li>The n pairs are independent of each other, i.e. any two distinct pairs are independent of each other. It suffices to check that the number of pairs $n$ is no greater than 10% of the population size.</li>
@@ -8365,7 +8424,6 @@ where $n$ represents the number of pairs.</p>
 <p>If you get stuck:</p>
 <ul>
 <li>Discuss with your neighbours, the TAs &amp; Instructors, and consult the textbook reading to help you get unstuck when needed!</li>
-<li>Ask your group mates if you need help with any questions</li>
 <li>The TAs and myself will walk around and answer questions</li>
 </ul>
 </div>

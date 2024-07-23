@@ -7456,8 +7456,19 @@ main {
 <li>Module 8: Hypothesis tests based on distributional assumptions</li>
 </ul>
 <h2 id="Reminders:">Reminders:<a class="anchor-link" href="#Reminders:">¶</a></h2><ul>
+<li>Midterm 1 suggested solutions have been released<ul>
+<li>We are still marking midterm 1!</li>
+</ul>
+</li>
 <li>Midterm 2 - Thursday Aug 1 (in class)<ul>
 <li>covers everything up to module 8 (the content is cumulative as the concepts are dependent), however I will place an emphasis on modules 6 - 8</li>
+<li>1 hour</li>
+<li>closed book</li>
+<li>will be served on Canvas with LockDown Browser</li>
+<li>one A4 double-sided cheat sheet (should be on paper, not on your computer!). Can be handwritten or printed</li>
+<li>make sure you have either Chrome, Firefox, or some other browser compatible with all of Canvas functionality. Sometimes Safari has trouble loading images and math.</li>
+<li>If any issues please let us know during the test (rather than waiting until the end)</li>
+<li>We will be using LockDown Browser for the midterm. Please make sure you follow these instructions for downloading the software before the midterm: <a href="https://lthub.ubc.ca/guides/lockdown-browser-student-guide/">https://lthub.ubc.ca/guides/lockdown-browser-student-guide/</a></li>
 </ul>
 </li>
 </ul>
@@ -7555,17 +7566,29 @@ main {
 </div>
 </div>
 </div>
-</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width=1000, height=550iframe&gt;'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<iframe height="550iframe" src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width="1000,">
+</iframe></div>
 </div>
 </div>
 </div>
@@ -7632,7 +7655,7 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment">
+</div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7651,7 +7674,7 @@ main {
 </div>
 </div>
 </div>
-</div></div></section></section><section><section><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
@@ -7660,14 +7683,14 @@ main {
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-r"><pre><span></span><span class="nf">pnorm</span><span class="p">(</span><span class="m">0</span><span class="p">)</span>
-<span class="nf">pnorm</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
-<span class="nf">qnorm</span><span class="p">(</span><span class="m">0.84</span><span class="p">)</span>
+<span class="nf">pnorm</span><span class="p">(</span><span class="m">-2</span><span class="p">,</span><span class="w"> </span><span class="n">mean</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">0</span><span class="p">,</span><span class="w"> </span><span class="n">sd</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="m">1</span><span class="p">)</span>
+<span class="nf">qnorm</span><span class="p">(</span><span class="m">0.25</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7704,20 +7727,9 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>C</p>
 <pre><code>pnorm(90, mean = 100, sd = 10)
 </code></pre>
-</div>
-</div>
-</div>
-</div>
-</aside><aside class="notes">
-<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
-<div class="jp-Cell-inputWrapper" tabindex="0">
-<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
-</div>
-<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
-</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<p>C</p>
 </div>
 </div>
 </div>
@@ -7765,7 +7777,7 @@ main {
 </div>
 </div>
 </div>
-</aside></div><div class="fragment">
+</aside></div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7779,7 +7791,7 @@ main {
 </div>
 </div>
 </div>
-</div></div><div class="fragment">
+</div><div class="fragment">
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -7837,17 +7849,29 @@ main {
 </div>
 </div>
 </div>
-</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="fragment"><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm" width=800, height=550iframe&gt;'</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+</div>
+</div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<iframe height="550iframe" src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CLT.htm" width="800,">
+</iframe></div>
 </div>
 </div>
 </div>
@@ -7863,7 +7887,7 @@ main {
 <li>The sample values are independent. In general, if your sample size is greater than 10% of the population size, there will be a violation of independence.</li>
 <li>The sample size must be large enough.<ul>
 <li>For means:<ul>
-<li>there is no universal guideline, and we might need a large sample size. Usually, however, sample sizes larger than 30 are enough to get a reasonable approximation (but it is not guaranteed).</li>
+<li>there is no universal guideline for how big $n$ should be. Usually, however, sample sizes larger than 30 are enough to get a reasonable approximation (but it is not guaranteed).</li>
 </ul>
 </li>
 <li>For proportions:<ul>
@@ -7907,11 +7931,10 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Standard-Error">Standard Error<a class="anchor-link" href="#Standard-Error">¶</a></h2><p>The <strong>standard error</strong> is the standard deviation of point estimates</p>
-<p>$$\frac{\sigma}{\sqrt{n}}$$</p>
-<p>where $\sigma$ is the standard deviation of population</p>
-<p>$$\sqrt{\frac{p(1-p)}{n}}$$</p>
-<p>where $p$ is the population proportion</p>
+<h2 id="Standard-Error">Standard Error<a class="anchor-link" href="#Standard-Error">¶</a></h2><p>The <strong>standard error</strong> is the standard deviation of point estimates:</p>
+<p>$$\sigma_\bar{X} = \frac{\sigma}{\sqrt{n}}$$ where $\sigma$ is the standard deviation of population</p>
+<br/>
+<p>$$\sigma_\hat{p} = \sqrt{\frac{p(1-p)}{n}}$$ where $p$ is the population proportion</p>
 </div>
 </div>
 </div>
@@ -8048,7 +8071,7 @@ main {
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
 <h2 id="Clicker-question-3">Clicker question 3<a class="anchor-link" href="#Clicker-question-3">¶</a></h2><p>A manufacturer is producing a chocolate bar. The factory manager wants to find out about the true proportion of the bars that are overweight (i.e. the weight is larger than the labeled weight). They take a random sample of 100 bars and find that 20 out of 100 are overweight.</p>
-<p>A 95% confidence interval for the true proportion of the bars that are overweight is:</p>
+<p>A 95% confidence interval for the true proportion of the bars that are overweight is (using the 68-95-99.7 rule):</p>
 <p>A. $0.20 \pm 0.04$</p>
 <p>B. $0.20 \pm 0.08$</p>
 <p>C. $100 \pm 0.04$</p>
@@ -8056,7 +8079,19 @@ main {
 </div>
 </div>
 </div>
-</div></section></section><section><section>
+</div><aside class="notes">
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper" tabindex="0">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
+<p>B</p>
+</div>
+</div>
+</div>
+</div>
+</aside></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
@@ -8082,12 +8117,12 @@ main {
 </div>
 </div>
 </div>
-</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs">
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-r"><pre><span></span><span class="n">IRdisplay</span><span class="o">::</span><span class="nf">display_html</span><span class="p">(</span><span class="s">'&lt;iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm" width=800, height=550iframe&gt;'</span><span class="p">)</span>
@@ -8096,6 +8131,18 @@ main {
 </div>
 </div>
 </div>
+<div class="jp-Cell-outputWrapper">
+<div class="jp-Collapser jp-OutputCollapser jp-Cell-outputCollapser">
+</div>
+<div class="jp-OutputArea jp-Cell-outputArea">
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<iframe height="550iframe" src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/CIMean.htm" width="800,">
+</iframe></div>
+</div>
+</div>
+</div>
 </div></section></section><section><section>
 <div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
 <div class="jp-Cell-inputWrapper" tabindex="0">
@@ -8103,7 +8150,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Confidence-Intervals:-Difference-in-means">Confidence Intervals: Difference in means<a class="anchor-link" href="#Confidence-Intervals:-Difference-in-means">¶</a></h2><img alt="No description has been provided for this image" src="img/stat201-week7_Page_22.png" width="1000"/>
+<h2 id="Confidence-Intervals:-Difference-in-means-for-independent-groups">Confidence Intervals: Difference in means for independent groups<a class="anchor-link" href="#Confidence-Intervals:-Difference-in-means-for-independent-groups">¶</a></h2><img alt="No description has been provided for this image" src="img/stat201-week7_Page_22.png" width="1000"/>
 </div>
 </div>
 </div>
@@ -8114,7 +8161,7 @@ main {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput" data-mime-type="text/markdown">
-<h2 id="Confidence-Intervals:-Difference-in-means">Confidence Intervals: Difference in means<a class="anchor-link" href="#Confidence-Intervals:-Difference-in-means">¶</a></h2><img alt="No description has been provided for this image" src="img/stat201-week7_Page_23.png" width="1000"/>
+<h2 id="Confidence-Intervals:-Difference-in-means-for-independent-groups">Confidence Intervals: Difference in means for independent groups<a class="anchor-link" href="#Confidence-Intervals:-Difference-in-means-for-independent-groups">¶</a></h2><img alt="No description has been provided for this image" src="img/stat201-week7_Page_23.png" width="1000"/>
 </div>
 </div>
 </div>
@@ -8153,7 +8200,6 @@ main {
 <p>If you get stuck:</p>
 <ul>
 <li>Discuss with your neighbours, the TAs &amp; Instructors, and consult the textbook reading to help you get unstuck when needed!</li>
-<li>Ask your group mates if you need help with any questions</li>
 <li>The TAs and myself will walk around and answer questions</li>
 </ul>
 </div>
