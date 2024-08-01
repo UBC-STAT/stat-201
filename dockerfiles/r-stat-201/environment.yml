@@ -8,7 +8,6 @@ dependencies:
   - jupyterlab
   - jupyterlab-git
   - jupyter-resource-usage
-  - jupyterlab_rise
   - jupytext
   - nbgitpuller
   - python=3.11
