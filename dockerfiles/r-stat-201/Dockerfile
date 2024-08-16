@@ -40,7 +40,8 @@ RUN mamba update --quiet --file /tmp/conda-linux-64.lock \
 	&& Rscript -e "devtools::install_github('UBC-MDS/taxyvr@0.1.0')" 
 
 # Install pexpect from main branch to fix asyncio issue with jupyterlab_git
-RUN pip install --no-cache pexpect==4.9.0
+# Install setuptools==69.0.0 to fix issue with nbgrader and "from backports import tarfile"
+RUN pip install --no-cache pexpect==4.9.0 setuptools==69.0.0
 
 # Disable the cell toolbar (which ignores metadata and students often accidentally click + delete grading cells)
 RUN jupyter labextension disable @jupyterlab/cell-toolbar-extension
