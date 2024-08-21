@@ -1,0 +1,8914 @@
+<!DOCTYPE html>
+<html lang="en"><head>
+<script src="lecture01_files/libs/clipboard/clipboard.min.js"></script>
+<script src="lecture01_files/libs/quarto-html/tabby.min.js"></script>
+<script src="lecture01_files/libs/quarto-html/popper.min.js"></script>
+<script src="lecture01_files/libs/quarto-html/tippy.umd.min.js"></script>
+<link href="lecture01_files/libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="lecture01_files/libs/quarto-html/light-border.css" rel="stylesheet">
+<link href="lecture01_files/libs/quarto-html/quarto-html.min.css" rel="stylesheet" data-mode="light">
+<link href="lecture01_files/libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles"><meta charset="utf-8">
+  <meta name="generator" content="quarto-1.5.56">
+
+  <title>lecture01</title>
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+  <link rel="stylesheet" href="lecture01_files/libs/revealjs/dist/reset.css">
+  <link rel="stylesheet" href="lecture01_files/libs/revealjs/dist/reveal.css">
+  <style>
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+      vertical-align: middle;
+    }
+    /* CSS for syntax highlighting */
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    .sourceCode { overflow: visible; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      { color: #003b4f; background-color: #f1f3f5; }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span { color: #003b4f; } /* Normal */
+    code span.al { color: #ad0000; } /* Alert */
+    code span.an { color: #5e5e5e; } /* Annotation */
+    code span.at { color: #657422; } /* Attribute */
+    code span.bn { color: #ad0000; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #003b4f; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #20794d; } /* Char */
+    code span.cn { color: #8f5902; } /* Constant */
+    code span.co { color: #5e5e5e; } /* Comment */
+    code span.cv { color: #5e5e5e; font-style: italic; } /* CommentVar */
+    code span.do { color: #5e5e5e; font-style: italic; } /* Documentation */
+    code span.dt { color: #ad0000; } /* DataType */
+    code span.dv { color: #ad0000; } /* DecVal */
+    code span.er { color: #ad0000; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #ad0000; } /* Float */
+    code span.fu { color: #4758ab; } /* Function */
+    code span.im { color: #00769e; } /* Import */
+    code span.in { color: #5e5e5e; } /* Information */
+    code span.kw { color: #003b4f; font-weight: bold; } /* Keyword */
+    code span.op { color: #5e5e5e; } /* Operator */
+    code span.ot { color: #003b4f; } /* Other */
+    code span.pp { color: #ad0000; } /* Preprocessor */
+    code span.sc { color: #5e5e5e; } /* SpecialChar */
+    code span.ss { color: #20794d; } /* SpecialString */
+    code span.st { color: #20794d; } /* String */
+    code span.va { color: #111111; } /* Variable */
+    code span.vs { color: #20794d; } /* VerbatimString */
+    code span.wa { color: #5e5e5e; font-style: italic; } /* Warning */
+  </style>
+  <link rel="stylesheet" href="lecture01_files/libs/revealjs/dist/theme/quarto.css">
+  <link href="lecture01_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.css" rel="stylesheet">
+  <link href="lecture01_files/libs/revealjs/plugin/reveal-menu/menu.css" rel="stylesheet">
+  <link href="lecture01_files/libs/revealjs/plugin/reveal-menu/quarto-menu.css" rel="stylesheet">
+  <link href="lecture01_files/libs/revealjs/plugin/reveal-chalkboard/font-awesome/css/all.css" rel="stylesheet">
+  <link href="lecture01_files/libs/revealjs/plugin/reveal-chalkboard/style.css" rel="stylesheet">
+  <link href="lecture01_files/libs/revealjs/plugin/quarto-support/footer.css" rel="stylesheet">
+  <style type="text/css">
+
+  .callout {
+    margin-top: 1em;
+    margin-bottom: 1em;  
+    border-radius: .25rem;
+  }
+
+  .callout.callout-style-simple { 
+    padding: 0em 0.5em;
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+    display: flex;
+  }
+
+  .callout.callout-style-default {
+    border-left: solid #acacac .3rem;
+    border-right: solid 1px silver;
+    border-top: solid 1px silver;
+    border-bottom: solid 1px silver;
+  }
+
+  .callout .callout-body-container {
+    flex-grow: 1;
+  }
+
+  .callout.callout-style-simple .callout-body {
+    font-size: 1rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-style-default .callout-body {
+    font-size: 0.9rem;
+    font-weight: 400;
+  }
+
+  .callout.callout-titled.callout-style-simple .callout-body {
+    margin-top: 0.2em;
+  }
+
+  .callout:not(.callout-titled) .callout-body {
+      display: flex;
+  }
+
+  .callout:not(.no-icon).callout-titled.callout-style-simple .callout-content {
+    padding-left: 1.6em;
+  }
+
+  .callout.callout-titled .callout-header {
+    padding-top: 0.2em;
+    margin-bottom: -0.2em;
+  }
+
+  .callout.callout-titled .callout-title  p {
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+    
+  .callout.callout-titled.callout-style-simple .callout-content  p {
+    margin-top: 0;
+  }
+
+  .callout.callout-titled.callout-style-default .callout-content  p {
+    margin-top: 0.7em;
+  }
+
+  .callout.callout-style-simple div.callout-title {
+    border-bottom: none;
+    font-size: .9rem;
+    font-weight: 600;
+    opacity: 75%;
+  }
+
+  .callout.callout-style-default  div.callout-title {
+    border-bottom: none;
+    font-weight: 600;
+    opacity: 85%;
+    font-size: 0.9rem;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-default div.callout-content {
+    padding-left: 0.5em;
+    padding-right: 0.5em;
+  }
+
+  .callout.callout-style-simple .callout-icon::before {
+    height: 1rem;
+    width: 1rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 1rem 1rem;
+  }
+
+  .callout.callout-style-default .callout-icon::before {
+    height: 0.9rem;
+    width: 0.9rem;
+    display: inline-block;
+    content: "";
+    background-repeat: no-repeat;
+    background-size: 0.9rem 0.9rem;
+  }
+
+  .callout-title {
+    display: flex
+  }
+    
+  .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  .callout.no-icon::before {
+    display: none !important;
+  }
+
+  .callout.callout-titled .callout-body > .callout-content > :last-child {
+    padding-bottom: 0.5rem;
+    margin-bottom: 0;
+  }
+
+  .callout.callout-titled .callout-icon::before {
+    margin-top: .5rem;
+    padding-right: .5rem;
+  }
+
+  .callout:not(.callout-titled) .callout-icon::before {
+    margin-top: 1rem;
+    padding-right: .5rem;
+  }
+
+  /* Callout Types */
+
+  div.callout-note {
+    border-left-color: #4582ec !important;
+  }
+
+  div.callout-note .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEU0lEQVRYCcVXTWhcVRQ+586kSUMMxkyaElstCto2SIhitS5Ek8xUKV2poatCcVHtUlFQk8mbaaziwpWgglJwVaquitBOfhQXFlqlzSJpFSpIYyXNjBNiTCck7x2/8/LeNDOZxDuEkgOXe++553zfefee+/OYLOXFk3+1LLrRdiO81yNqZ6K9cG0P3MeFaMIQjXssE8Z1JzLO9ls20MBZX7oG8w9GxB0goaPrW5aNMp1yOZIa7Wv6o2ykpLtmAPs/vrG14Z+6d4jpbSKuhdcSyq9wGMPXjonwmESXrriLzFGOdDBLB8Y6MNYBu0dRokSygMA/mrun8MGFN3behm6VVAwg4WR3i6FvYK1T7MHo9BK7ydH+1uurECoouk5MPRyVSBrBHMYwVobG2aOXM07sWrn5qgB60rc6mcwIDJtQrnrEr44kmy+UO9r0u9O5/YbkS9juQckLed3DyW2XV/qWBBB3ptvI8EUY3I9p/67OW+g967TNr3Sotn3IuVlfMLVnsBwH4fsnebJvyGm5GeIUA3jljERmrv49SizPYuq+z7c2H/jlGC+Ghhupn/hcapqmcudB9jwJ/3jvnvu6vu5lVzF1fXyZuZZ7U8nRmVzytvT+H3kilYvH09mLWrQdwFSsFEsxFVs5fK7A0g8gMZjbif4ACpKbjv7gNGaD8bUrlk8x+KRflttr22JEMRUbTUwwDQScyzPgedQHZT0xnx7ujw2jfVfExwYHwOsDTjLdJ2ebmeQIlJ7neo41s/DrsL3kl+W2lWvAga0tR3zueGr6GL78M3ifH0rGXrBC2aAR8uYcIA5gwV8zIE8onoh8u0Fca/ciF7j1uOzEnqcIm59sEXoGc0+z6+H45V1CvAvHcD7THztu669cnp+L0okAeIc6zjbM/24LgGM1gZk7jnRu1aQWoU9sfUOuhrmtaPIO3YY1KLLWZaEO5TKUbMY5zx8W9UJ6elpLwKXbsaZ4EFl7B4bMtDv0iRipKoDQT2sNQI9b1utXFdYisi+wzZ/ri/1m7QfDgEuvgUUEIJPq3DhX/5DWNqIXDOweC2wvIR90Oq3lDpdMIgD2r0dXvGdsEW5H6x6HLRJYU7C69VefO1x8Gde1ZFSJLfWS1jbCnhtOPxmpfv2LXOA2Xk2tvnwKKPFuZ/oRmwBwqRQDcKNeVQkYcOjtWVBuM/JuYw5b6isojIkYxyYAFn5K7ZBF10fea52y8QltAg6jnMqNHFBmGkQ1j+U43HMi2xMar1Nv0zGsf1s8nUsmUtPOOrbFIR8bHFDMB5zL13Gmr/kGlCkUzedTzzmzsaJXhYawnA3UmARpiYj5ooJZiUoxFRtK3X6pgNPv+IZVPcnwbOl6f+aBaO1CNvPW9n9LmCp01nuSaTRF2YxHqZ8DYQT6WsXT+RD6eUztwYLZ8rM+rcPxamv1VQzFUkzFXvkiVrySGQgJNvXHJAxiU3/NwiC03rSf05VBaPtu/Z7/B8Yn/w7eguloAAAAAElFTkSuQmCC');
+  }
+
+  div.callout-note.callout-style-default .callout-title {
+    background-color: #dae6fb
+  }
+
+  div.callout-important {
+    border-left-color: #d9534f !important;
+  }
+
+  div.callout-important .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAEKklEQVRYCcVXTWhcVRS+575MJym48A+hSRFr00ySRQhURRfd2HYjk2SSTokuBCkU2o0LoSKKraKIBTcuFCoidGFD08nkBzdREbpQ1EDNIv8qSGMFUboImMSZd4/f9zJv8ibJMC8xJQfO3HPPPef7zrvvvnvviIkpC9nsw0UttFunbUhpFzFtarSd6WJkStVMw5xyVqYTvkwfzuf/5FgtkVoB0729j1rjXwThS7Vio+Mo6DNnvLfahoZ+i/o32lULuJ3NNiz7q6+pyAUkJaFF6JwaM2lUJlV0MlnQn5aTRbEu0SEqHUa0A4AdiGuB1kFXRfVyg5d87+Dg4DL6m2TLAub60ilj7A1Ec4odSAc8X95sHh7+ZRPCFo6Fnp7HfU/fBng/hi10CjCnWnJjsxvDNxWw0NfV6Rv5GgP3I3jGWXumdTD/3cbEOP2ZbOZp69yniG3FQ9z1jD7bnBu9Fc2tKGC2q+uAJOQHBDRiZX1x36o7fWBs7J9ownbtO+n0/qWkvW7UPIfc37WgT6ZGR++EOJyeQDSb9UB+DZ1G6DdLDzyS+b/kBCYGsYgJbSQHuThGKRcw5xdeQf8YdNHsc6ePXrlSYMBuSIAFTGAtQo+VuALo4BX83N190NWZWbynBjhOHsmNfFWLeL6v+ynsA58zDvvAC8j5PkbOcXCMg2PZFk3q8MjI7WAG/Dp9AwP7jdGBOOQkAvlFUB+irtm16I1Zw9YBcpGTGXYmk3kQIC/Cds55l+iMI3jqhjAuaoe+am2Jw5GT3Nbz3CkE12NavmzN5+erJW7046n/CH1RO/RVa8lBLozXk9uqykkGAyRXLWlLv5jyp4RFsG5vGVzpDLnIjTWgnRy2Rr+tDKvRc7Y8AyZq10jj8DqXdnIRNtFZb+t/ZRtXcDiVnzpqx8mPcDWxgARUqx0W1QB9MeUZiNrV4qP+Ehc+BpNgATsTX8ozYKL2NtFYAHc84fG7ndxUPr+AR/iQSns7uSUufAymwDOb2+NjK27lEFocm/EE2WpyIy/Hi66MWuMKJn8RvxIcj87IM5Vh9663ziW36kR0HNenXuxmfaD8JC7tfKbrhFr7LiZCrMjrzTeGx+PmkosrkNzW94ObzwocJ7A1HokLolY+AvkTiD/q1H0cN48c5EL8Crkttsa/AXQVDmutfyku0E7jShx49XqV3MFK8IryDhYVbj7Sj2P2eBxwcXoe8T8idsKKPRcnZw1b+slFTubwUwhktrfnAt7J++jwQtLZcm3sr9LQrjRzz6cfMv9aLvgmnAGvpoaGLxM4mAEaLV7iAzQ3oU0IvD5x9ix3yF2RAAuYAOO2f7PEFWCXZ4C9Pb2UsgDeVnFSpbFK7/IWu7TPTvBqzbGdCHOJQSxiEjt6IyZmxQyEJHv6xyQsYk//moVFsN2zP6fRImjfq7/n/wFDguUQFNEwugAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-important.callout-style-default .callout-title {
+    background-color: #f7dddc
+  }
+
+  div.callout-warning {
+    border-left-color: #f0ad4e !important;
+  }
+
+  div.callout-warning .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAAETklEQVRYCeVWW2gcVRg+58yaTUnizqbipZeX4uWhBEniBaoUX1Ioze52t7sRq6APio9V9MEaoWlVsFasRq0gltaAPuxms8lu0gcviE/FFOstVbSIxgcv6SU7EZqmdc7v9+9mJtNks51NTUH84ed889/PP+cmxP+d5FIbMJmNbpREu4WUkiTtCicKny0l1pIKmBzovF2S+hIJHX8iEu3hZJ5lNZGqyRrGSIQpq15AzF28jgpeY6yk6GVdrfFqdrD6Iw+QlB8g0YS2g7dyQmXM/IDhBhT0UCiRf59lfqmmDvzRt6kByV/m4JjtzuaujMUM2c5Z2d6JdKrRb3K2q6mA+oYVz8JnDdKPmmNthzkAk/lN63sYPgevrguc72aZX/L9C6x09GYyxBgCX4NlvyGUHOKELlm5rXeR1kchuChJt4SSwyddZRXgvwMGvYo4QSlk3/zkHD8UHxwVJA6zjZZqP8v8kK8OWLnIZtLyCAJagYC4rTGW/9Pqj92N/c+LUaAj27movwbi19tk/whRCIE7Q9vyI6yvRpftAKVTdUjOW40X3h5OXsKCdmFcx0xlLJoSuQngnrJe7Kcjm4OMq9FlC7CMmScQANuNvjfP3PjGXDBaUQmbp296S5L4DrpbrHN1T87ZVEZVCzg1FF0Ft+dKrlLukI+/c9ENo+TvlTDbYFvuKPtQ9+l052rXrgKoWkDAFnvh0wTOmYn8R5f4k/jN/fZiCM1tQx9jQQ4ANhqG4hiL0qIFTGViG9DKB7GYzgubnpofgYRwO+DFjh0Zin2m4b/97EDkXkc+f6xYAPX0KK2I/7fUQuwzuwo/L3AkcjugPNixC8cHf0FyPjWlItmLxWw4Ou9YsQCr5fijMGoD/zpdRy95HRysyXA74MWOnscpO4j2y3HAVisw85hX5+AFBRSHt4ShfLFkIMXTqyKFc46xdzQM6XbAi702a7sy04J0+feReMFKp5q9esYLCqAZYw/k14E/xcLLsFElaornTuJB0svMuJINy8xkIYuL+xPAlWRceH6+HX7THJ0djLUom46zREu7tTkxwmf/FdOZ/sh6Q8qvEAiHpm4PJ4a/doJe0gH1t+aHRgCzOvBvJedEK5OFE5jpm4AGP2a8Dxe3gGJ/pAutug9Gp6he92CsSsWBaEcxGx0FHytmIpuqGkOpldqNYQK8cSoXvd+xLxXADw0kf6UkJNFtdo5MOgaLjiQOQHcn+A6h5NuL2s0qsC2LOM75PcF3yr5STuBSAcGG+meA14K/CI21HcS4LBT6tv0QAh8Dr5l93AhZzG5ZJ4VxAqdZUEl9z7WJ4aN+svMvwHHL21UKTd1mqvChH7/Za5xzXBBKrUcB0TQ+Ulgkfbi/H/YT5EptrGzsEK7tR1B7ln9BBwckYfMiuSqklSznIuoIIOM42MQO+QnduCoFCI0bpkzjCjddHPN/F+2Yu+sd9bKNpVwHhbS3LluK/0zgfwD0xYI5dXuzlQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-warning.callout-style-default .callout-title {
+    background-color: #fcefdc
+  }
+
+  div.callout-tip {
+    border-left-color: #02b875 !important;
+  }
+
+  div.callout-tip .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAADr0lEQVRYCe1XTWgTQRj9ZjZV8a9SPIkKgj8I1bMHsUWrqYLVg4Ue6v9BwZOxSYsIerFao7UiUryIqJcqgtpimhbBXoSCVxUFe9CTiogUrUp2Pt+3aUI2u5vdNh4dmMzOzHvvezuz8xNFM0mjnbXaNu1MvFWRXkXEyE6aYOYJpdW4IXuA4r0fo8qqSMDBU0v1HJUgVieAXxzCsdE/YJTdFcVIZQNMyhruOMJKXYFoLfIfIvVIMWdsrd+Rpd86ZmyzzjJmLStqRn0v8lzkb4rVIXvnpScOJuAn2ACC65FkPzEdEy4TPWRLJ2h7z4cArXzzaOdKlbOvKKX25Wl00jSnrwVxAg3o4dRxhO13RBSdNvH0xSARv3adTXbBdTf64IWO2vH0LT+cv4GR1DJt+DUItaQogeBX/chhbTBxEiZ6gftlDNXTrvT7co4ub5A6gp9HIcHvzTa46OS5fBeP87Qm0fQkr4FsYgVQ7Qg+ZayaDg9jhg1GkWj8RG6lkeSacrrHgDaxdoBiZPg+NXV/KifMuB6//JmYH4CntVEHy/keA6x4h4CU5oFy8GzrBS18cLJMXcljAKB6INjWsRcuZBWVaS3GDrqB7rdapVIeA+isQ57Eev9eCqzqOa81CY05VLd6SamW2wA2H3SiTbnbSxmzfp7WtKZkqy4mdyAlGx7ennghYf8voqp9cLSgKdqNfa6RdRsAAkPwRuJZNbpByn+RrJi1RXTwdi8RQF6ymDwGMAtZ6TVE+4uoKh+MYkcLsT0Hk8eAienbiGdjJHZTpmNjlbFJNKDVAp2fJlYju6IreQxQ08UJDNYdoLSl6AadO+fFuCQqVMB1NJwPm69T04Wv5WhfcWyfXQB+wXRs1pt+nCknRa0LVzSA/2B+a9+zQJadb7IyyV24YAxKp2Jqs3emZTuNnKxsah+uabKbMk7CbTgJx/zIgQYErIeTKRQ9yD9wxVof5YolPHqaWo7TD6tJlh7jQnK5z2n3+fGdggIOx2kaa2YI9QWarc5Ce1ipNWMKeSG4DysFF52KBmTNMmn5HqCFkwy34rDg05gDwgH3bBi+sgFhN/e8QvRn8kbamCOhgrZ9GJhFDgfcMHzFb6BAtjKpFhzTjwv1KCVuxHvCbsSiEz4CANnj84cwHdFXAbAOJ4LTSAawGWFn5tDhLMYz6nWeU2wJfIhmIJBefcd/A5FWQWGgrWzyORZ3Q6HuV+Jf0Bj+BTX69fm1zWgK7By1YTXchFDORywnfQ7GpzOo6S+qECrsx2ifVQAAAABJRU5ErkJggg==');
+  }
+
+  div.callout-tip.callout-style-default .callout-title {
+    background-color: #ccf1e3
+  }
+
+  div.callout-caution {
+    border-left-color: #fd7e14 !important;
+  }
+
+  div.callout-caution .callout-icon::before {
+    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAERlWElmTU0AKgAAAAgAAYdpAAQAAAABAAAAGgAAAAAAA6ABAAMAAAABAAEAAKACAAQAAAABAAAAIKADAAQAAAABAAAAIAAAAACshmLzAAACV0lEQVRYCdVWzWoUQRCuqp2ICBLJXgITZL1EfQDBW/bkzUMUD7klD+ATSHBEfAIfQO+iXsWDxJsHL96EHAwhgzlkg8nBg25XWb0zIb0zs9muYYWkoKeru+vn664fBqElyZNuyh167NXJ8Ut8McjbmEraKHkd7uAnAFku+VWdb3reSmRV8PKSLfZ0Gjn3a6Xlcq9YGb6tADjn+lUfTXtVmaZ1KwBIvFI11rRXlWlatwIAAv2asaa9mlB9wwygiDX26qaw1yYPzFXg2N1GgG0FMF8Oj+VIx7E/03lHx8UhvYyNZLN7BwSPgekXXLribw7w5/c8EF+DBK5idvDVYtEEwMeYefjjLAdEyQ3M9nfOkgnPTEkYU+sxMq0BxNR6jExrAI31H1rzvLEfRIdgcv1XEdj6QTQAS2wtstEALLG1yEZ3QhH6oDX7ExBSFEkFINXH98NTrme5IOaaA7kIfiu2L8A3qhH9zRbukdCqdsA98TdElyeMe5BI8Rs2xHRIsoTSSVFfCFCWGPn9XHb4cdobRIWABNf0add9jakDjQJpJ1bTXOJXnnRXHRf+dNL1ZV1MBRCXhMbaHqGI1JkKIL7+i8uffuP6wVQAzO7+qVEbF6NbS0LJureYcWXUUhH66nLR5rYmva+2tjRFtojkM2aD76HEGAD3tPtKM309FJg5j/K682ywcWJ3PASCcycH/22u+Bh7Aa0ehM2Fu4z0SAE81HF9RkB21c5bEn4Dzw+/qNOyXr3DCTQDMBOdhi4nAgiFDGCinIa2owCEChUwD8qzd03PG+qdW/4fDzjUMcE1ZpIAAAAASUVORK5CYII=');
+  }
+
+  div.callout-caution.callout-style-default .callout-title {
+    background-color: #ffe5d0
+  }
+
+  </style>
+  <style type="text/css">
+    .reveal div.sourceCode {
+      margin: 0;
+      overflow: auto;
+    }
+    .reveal div.hanging-indent {
+      margin-left: 1em;
+      text-indent: -1em;
+    }
+    .reveal .slide:not(.center) {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide.scrollable {
+      overflow-y: auto;
+    }
+    .reveal .footnotes {
+      height: 100%;
+      overflow-y: auto;
+    }
+    .reveal .slide .absolute {
+      position: absolute;
+      display: block;
+    }
+    .reveal .footnotes ol {
+      counter-reset: ol;
+      list-style-type: none; 
+      margin-left: 0;
+    }
+    .reveal .footnotes ol li:before {
+      counter-increment: ol;
+      content: counter(ol) ". "; 
+    }
+    .reveal .footnotes ol li > p:first-child {
+      display: inline-block;
+    }
+    .reveal .slide ul,
+    .reveal .slide ol {
+      margin-bottom: 0.5em;
+    }
+    .reveal .slide ul li,
+    .reveal .slide ol li {
+      margin-top: 0.4em;
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide ul[role="tablist"] li {
+      margin-bottom: 0;
+    }
+    .reveal .slide ul li > *:first-child,
+    .reveal .slide ol li > *:first-child {
+      margin-block-start: 0;
+    }
+    .reveal .slide ul li > *:last-child,
+    .reveal .slide ol li > *:last-child {
+      margin-block-end: 0;
+    }
+    .reveal .slide .columns:nth-child(3) {
+      margin-block-start: 0.8em;
+    }
+    .reveal blockquote {
+      box-shadow: none;
+    }
+    .reveal .tippy-content>* {
+      margin-top: 0.2em;
+      margin-bottom: 0.7em;
+    }
+    .reveal .tippy-content>*:last-child {
+      margin-bottom: 0.2em;
+    }
+    .reveal .slide > img.stretch.quarto-figure-center,
+    .reveal .slide > img.r-stretch.quarto-figure-center {
+      display: block;
+      margin-left: auto;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-left,
+    .reveal .slide > img.r-stretch.quarto-figure-left  {
+      display: block;
+      margin-left: 0;
+      margin-right: auto; 
+    }
+    .reveal .slide > img.stretch.quarto-figure-right,
+    .reveal .slide > img.r-stretch.quarto-figure-right  {
+      display: block;
+      margin-left: auto;
+      margin-right: 0; 
+    }
+  </style>
+  <script type="module" src="lecture01_files/libs/quarto-ojs/quarto-ojs-runtime.js"></script>
+  <link href="lecture01_files/libs/quarto-ojs/quarto-ojs.css" rel="stylesheet">
+</head>
+<body class="quarto-light">
+  <div class="reveal">
+    <div class="slides">
+
+
+<section>
+<section id="introduction-to-inference-for-data-science" class="title-slide slide level1 center">
+<h1>Introduction to Inference for Data Science</h1>
+<p>STAT 201 - Lecture 01</p>
+<!-- Adding these lines to load the imgs when publishing -->
+<p><img src="imgs/fish1.svg" height="0" style="visibility: collapse;"> <img src="imgs/fish2.svg" height="0" style="visibility: collapse;"> <img src="imgs/fish3.svg" height="0" style="visibility: collapse;"> <img src="imgs/fish4.svg" height="0" style="visibility: collapse;"></p>
+</section>
+<section id="population-and-parameters" class="slide level2">
+<h2>Population and parameters</h2>
+<ul>
+<li><p><strong>Population:</strong> The set of all units we want to study;</p></li>
+<li><p><strong>Parameter:</strong> A quantity that summarizes the population (e.g., mean, median, std. dev., quantiles, min, max, proportion);</p>
+<ul>
+<li>Parameters are constant (not random!);</li>
+<li>Parameters are usually <em>unknown</em>;</li>
+</ul></li>
+<li><p><strong>Variable:</strong> A variable is an attribute of the elements in the population.</p></li>
+</ul>
+</section>
+<section id="example-aquarium" class="slide level2">
+<h2>Example: Aquarium</h2>
+<p>An aquarium has 20 fish. We are interested in the average weight of the fish in the aquarium.</p>
+<div class="tight-list">
+<ul>
+<li class="fragment"><strong>Population</strong>: 20 fish in the aquarium;</li>
+<li class="fragment"><strong>Variable of interest</strong>: weight;</li>
+<li class="fragment"><strong>Parameter</strong>: average weight of the 20 fish in the aquarium (denoted by <span class="math inline">\(\mu\)</span>);</li>
+</ul>
+</div>
+</section>
+<section id="example-aquarium-1" class="slide level2">
+<h2>Example: Aquarium</h2>
+<div id="aquarium" style="position: relative; border: solid 1px black; background-color: #d4f1f9; height: 250px; width: 75%; border-top: none; border-radius: 4em; margin: .25em auto; ">
+
+</div>
+<div class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb1" data-startfrom="56" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 55;"><span id="cb1-56"><a href=""></a>{</span>
+<span id="cb1-57"><a href=""></a></span>
+<span id="cb1-58"><a href=""></a>  <span class="kw">function</span> <span class="fu">getRandom</span>(min<span class="op">,</span> max) {</span>
+<span id="cb1-59"><a href=""></a>    <span class="co">//Generates a number from U(min, max)</span></span>
+<span id="cb1-60"><a href=""></a>    <span class="cf">return</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">random</span>() <span class="op">*</span> (max <span class="op">-</span> min) <span class="op">+</span> min<span class="op">;</span></span>
+<span id="cb1-61"><a href=""></a>  }</span>
+<span id="cb1-62"><a href=""></a></span>
+<span id="cb1-63"><a href=""></a>  <span class="co">// This code append the images to the aquarium</span></span>
+<span id="cb1-64"><a href=""></a>  <span class="kw">const</span> N <span class="op">=</span> <span class="dv">20</span><span class="op">;</span> <span class="co">// how many images to append</span></span>
+<span id="cb1-65"><a href=""></a>  <span class="kw">const</span> div <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#aquarium"</span>)<span class="op">;</span></span>
+<span id="cb1-66"><a href=""></a>  </span>
+<span id="cb1-67"><a href=""></a>  <span class="cf">for</span> (<span class="kw">let</span> i<span class="op">=</span><span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> N<span class="op">;</span> i<span class="op">++</span>){</span>
+<span id="cb1-68"><a href=""></a>     <span class="kw">let</span> img_file<span class="op">;</span></span>
+<span id="cb1-69"><a href=""></a>     <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">0</span>) img_file <span class="op">=</span> <span class="st">'imgs/fish1.svg'</span><span class="op">;</span></span>
+<span id="cb1-70"><a href=""></a>     <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">1</span>) img_file <span class="op">=</span> <span class="st">'imgs/fish2.svg'</span><span class="op">;</span></span>
+<span id="cb1-71"><a href=""></a>     <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">2</span>) img_file <span class="op">=</span> <span class="st">'imgs/fish3.svg'</span><span class="op">;</span></span>
+<span id="cb1-72"><a href=""></a>     <span class="cf">if</span> (i <span class="op">%</span> <span class="dv">4</span> <span class="op">==</span> <span class="dv">3</span>) img_file <span class="op">=</span> <span class="st">'imgs/fish4.svg'</span><span class="op">;</span></span>
+<span id="cb1-73"><a href=""></a>     <span class="kw">let</span> img <span class="op">=</span> <span class="fu">html</span><span class="vs">`&lt;img src="</span><span class="sc">${</span>img_file<span class="sc">}</span><span class="vs">" height="</span><span class="sc">${</span><span class="fu">getRandom</span>(<span class="dv">20</span><span class="op">,</span><span class="dv">75</span>)<span class="sc">}</span><span class="vs">px" width=auto style='position: absolute; left: </span><span class="sc">${</span><span class="fu">getRandom</span>(<span class="dv">13</span><span class="op">,</span> <span class="dv">67</span>)<span class="sc">}</span><span class="vs">%; top: </span><span class="sc">${</span><span class="fu">getRandom</span>(<span class="dv">0</span><span class="op">,</span> <span class="dv">75</span>)<span class="sc">}</span><span class="vs">%; padding:0; margin:0;'&gt;&lt;/img&gt;`</span><span class="op">;</span></span>
+<span id="cb1-74"><a href=""></a>     div<span class="op">.</span><span class="fu">append</span>(img)<span class="op">;</span></span>
+<span id="cb1-75"><a href=""></a>  }</span>
+<span id="cb1-76"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-1" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<table id="table-fish-weights">
+<caption>
+<strong>Table 1:</strong><em> The weight of the 20 fish in the aquarium. (Note 1dkg = 10g).</em>
+</caption>
+<thead>
+<tr><th>
+Fish
+</th>
+<th>
+Weight (dkg)
+</th>
+<th>
+Fish
+</th>
+<th>
+Weight (dkg)
+</th>
+<th>
+Fish
+</th>
+<th>
+Weight (dkg)
+</th>
+<th>
+Fish
+</th>
+<th>
+Weight (dkg)
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+Fish #1
+</td>
+<td>
+43
+</td>
+<td>
+Fish #6
+</td>
+<td>
+44
+</td>
+<td>
+Fish #11
+</td>
+<td>
+26
+</td>
+<td>
+Fish #16
+</td>
+<td>
+42
+</td>
+</tr>
+<tr>
+<td>
+Fish #2
+</td>
+<td>
+46
+</td>
+<td>
+Fish #7
+</td>
+<td>
+41
+</td>
+<td>
+Fish #12
+</td>
+<td>
+47
+</td>
+<td>
+Fish #17
+</td>
+<td>
+36
+</td>
+</tr>
+<tr>
+<td>
+Fish #3
+</td>
+<td>
+47
+</td>
+<td>
+Fish #8
+</td>
+<td>
+40
+</td>
+<td>
+Fish #13
+</td>
+<td>
+37
+</td>
+<td>
+Fish #18
+</td>
+<td>
+36
+</td>
+</tr>
+<tr>
+<td>
+Fish #4
+</td>
+<td>
+59
+</td>
+<td>
+Fish #9
+</td>
+<td>
+43
+</td>
+<td>
+Fish #14
+</td>
+<td>
+42
+</td>
+<td>
+Fish #19
+</td>
+<td>
+61
+</td>
+</tr>
+<tr>
+<td>
+Fish #5
+</td>
+<td>
+24
+</td>
+<td>
+Fish #10
+</td>
+<td>
+58
+</td>
+<td>
+Fish #15
+</td>
+<td>
+60
+</td>
+<td>
+Fish #20
+</td>
+<td>
+37
+</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="sample-and-statistics" class="slide level2">
+<h2>Sample and statistics</h2>
+<ul>
+<li><p><strong>Random Sample:</strong> a randomly selected subset of the population;</p></li>
+<li><p><strong>Statistic:</strong> a quantity calculated based on a sample (e.g., sample mean and sample std. dev.);</p>
+<ul>
+<li>statistics used to estimate parameters;</li>
+<li>statistics are random quantities (they depend on the sample drawn);</li>
+</ul></li>
+</ul>
+</section>
+<section id="example-aquarium-2" class="slide level2">
+<h2>Example: Aquarium</h2>
+<ul>
+<li><p>Suppose we randomly choose 3 fish from the aquarium to weigh them;</p></li>
+<li><p>We can calculate the sample mean (denoted by <span class="math inline">\(\overline{y}\)</span>), to estimate the population mean, <span class="math inline">\(\mu\)</span>.</p></li>
+</ul>
+<div>
+<ul>
+<li class="fragment">The problem is: there are 1140 possible samples of 3 fish we could select.
+<ul>
+<li class="fragment">How close will <span class="math inline">\(\overline{y}\)</span> be to <span class="math inline">\(\mu\)</span>?</li>
+</ul></li>
+</ul>
+</div>
+</section>
+<section id="example-sampling-distribution" class="slide level2">
+<h2>Example: Sampling Distribution</h2>
+<div style="font-size: 13px; margin-top: -30px; color: red;">
+<p>You might need to refresh this page to show the plot</p>
+</div>
+<table id="all-samples-fish" style="margin-bottom: 2em;">
+<caption>
+<strong>Table 2:</strong> <em>All possible samples of three fish from the aquarium and their respective sample mean.</em>
+</caption>
+<thead>
+<tr><th>
+Sample
+</th>
+<th>
+Sample Mean (dkg)
+</th>
+<th>
+Sample
+</th>
+<th>
+Sample Mean (dkg)
+</th>
+<th>
+Sample
+</th>
+<th>
+Sample Mean (dkg)
+</th>
+<th>
+Sample
+</th>
+<th>
+Sample Mean (dkg)
+</th>
+</tr></thead>
+<tbody>
+<tr>
+<td>
+(#1, #2, #3)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#1, #2, #4)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#1, #2, #5)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#1, #2, #6)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #2, #7)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#1, #2, #8)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#1, #2, #9)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#1, #2, #10)
+</td>
+<td>
+49.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #2, #11)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#1, #2, #12)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#1, #2, #13)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #2, #14)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #2, #15)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#1, #2, #16)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#1, #2, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#1, #2, #18)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #2, #19)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#1, #2, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #3, #4)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#1, #3, #5)
+</td>
+<td>
+38.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #3, #6)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#1, #3, #7)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#1, #3, #8)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#1, #3, #9)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #3, #10)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#1, #3, #11)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#1, #3, #12)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#1, #3, #13)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #3, #14)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#1, #3, #15)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#1, #3, #16)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#1, #3, #17)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #3, #18)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #3, #19)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#1, #3, #20)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#1, #4, #5)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #4, #6)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#1, #4, #7)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#1, #4, #8)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#1, #4, #9)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #4, #10)
+</td>
+<td>
+53.33
+</td>
+<td>
+(#1, #4, #11)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#1, #4, #12)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#1, #4, #13)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #4, #14)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#1, #4, #15)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#1, #4, #16)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#1, #4, #17)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #4, #18)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#1, #4, #19)
+</td>
+<td>
+54.33
+</td>
+<td>
+(#1, #4, #20)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#1, #5, #6)
+</td>
+<td>
+37.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #5, #7)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#1, #5, #8)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#1, #5, #9)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#1, #5, #10)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #5, #11)
+</td>
+<td>
+31.00
+</td>
+<td>
+(#1, #5, #12)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#1, #5, #13)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#1, #5, #14)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #5, #15)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#1, #5, #16)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#1, #5, #17)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#1, #5, #18)
+</td>
+<td>
+34.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #5, #19)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#1, #5, #20)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#1, #6, #7)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#1, #6, #8)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #6, #9)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#1, #6, #10)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#1, #6, #11)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#1, #6, #12)
+</td>
+<td>
+44.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #6, #13)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#1, #6, #14)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#1, #6, #15)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#1, #6, #16)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #6, #17)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#1, #6, #18)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#1, #6, #19)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#1, #6, #20)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #7, #8)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#1, #7, #9)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#1, #7, #10)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#1, #7, #11)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #7, #12)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#1, #7, #13)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #7, #14)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #7, #15)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #7, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #7, #17)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#1, #7, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#1, #7, #19)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #7, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #8, #9)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #8, #10)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#1, #8, #11)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #8, #12)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#1, #8, #13)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#1, #8, #14)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#1, #8, #15)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #8, #16)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#1, #8, #17)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#1, #8, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#1, #8, #19)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #8, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#1, #9, #10)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#1, #9, #11)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#1, #9, #12)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #9, #13)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#1, #9, #14)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#1, #9, #15)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#1, #9, #16)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #9, #17)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#1, #9, #18)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#1, #9, #19)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#1, #9, #20)
+</td>
+<td>
+41.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #10, #11)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#1, #10, #12)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#1, #10, #13)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#1, #10, #14)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #10, #15)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#1, #10, #16)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#1, #10, #17)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#1, #10, #18)
+</td>
+<td>
+45.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #10, #19)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#1, #10, #20)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#1, #11, #12)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#1, #11, #13)
+</td>
+<td>
+35.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #11, #14)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#1, #11, #15)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#1, #11, #16)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#1, #11, #17)
+</td>
+<td>
+35.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #11, #18)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#1, #11, #19)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#1, #11, #20)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#1, #12, #13)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #12, #14)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#1, #12, #15)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#1, #12, #16)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#1, #12, #17)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#1, #12, #18)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#1, #12, #19)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#1, #12, #20)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#1, #13, #14)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #13, #15)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#1, #13, #16)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#1, #13, #17)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#1, #13, #18)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #13, #19)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#1, #13, #20)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#1, #14, #15)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#1, #14, #16)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#1, #14, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #14, #18)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #14, #19)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#1, #14, #20)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #15, #16)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#1, #15, #17)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#1, #15, #18)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#1, #15, #19)
+</td>
+<td>
+54.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #15, #20)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#1, #16, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #16, #18)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#1, #16, #19)
+</td>
+<td>
+48.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #16, #20)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#1, #17, #18)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#1, #17, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#1, #17, #20)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#1, #18, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#1, #18, #20)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#1, #19, #20)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#2, #3, #4)
+</td>
+<td>
+50.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #3, #5)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#2, #3, #6)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#2, #3, #7)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#2, #3, #8)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #3, #9)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#2, #3, #10)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#2, #3, #11)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#2, #3, #12)
+</td>
+<td>
+46.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #3, #13)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #3, #14)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#2, #3, #15)
+</td>
+<td>
+51.00
+</td>
+<td>
+(#2, #3, #16)
+</td>
+<td>
+45.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #3, #17)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #3, #18)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #3, #19)
+</td>
+<td>
+51.33
+</td>
+<td>
+(#2, #3, #20)
+</td>
+<td>
+43.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #4, #5)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #4, #6)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#2, #4, #7)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#2, #4, #8)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #4, #9)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#2, #4, #10)
+</td>
+<td>
+54.33
+</td>
+<td>
+(#2, #4, #11)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#2, #4, #12)
+</td>
+<td>
+50.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #4, #13)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#2, #4, #14)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#2, #4, #15)
+</td>
+<td>
+55.00
+</td>
+<td>
+(#2, #4, #16)
+</td>
+<td>
+49.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #4, #17)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#2, #4, #18)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#2, #4, #19)
+</td>
+<td>
+55.33
+</td>
+<td>
+(#2, #4, #20)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #5, #6)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#2, #5, #7)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#2, #5, #8)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#2, #5, #9)
+</td>
+<td>
+37.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #5, #10)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#2, #5, #11)
+</td>
+<td>
+32.00
+</td>
+<td>
+(#2, #5, #12)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#2, #5, #13)
+</td>
+<td>
+35.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #5, #14)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#2, #5, #15)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #5, #16)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#2, #5, #17)
+</td>
+<td>
+35.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #5, #18)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#2, #5, #19)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#2, #5, #20)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#2, #6, #7)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #6, #8)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #6, #9)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#2, #6, #10)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#2, #6, #11)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #6, #12)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#2, #6, #13)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#2, #6, #14)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#2, #6, #15)
+</td>
+<td>
+50.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #6, #16)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#2, #6, #17)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#2, #6, #18)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#2, #6, #19)
+</td>
+<td>
+50.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #6, #20)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#2, #7, #8)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#2, #7, #9)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #7, #10)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #7, #11)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#2, #7, #12)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#2, #7, #13)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#2, #7, #14)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #7, #15)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#2, #7, #16)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #7, #17)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#2, #7, #18)
+</td>
+<td>
+41.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #7, #19)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#2, #7, #20)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#2, #8, #9)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #8, #10)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #8, #11)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#2, #8, #12)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#2, #8, #13)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#2, #8, #14)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #8, #15)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#2, #8, #16)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#2, #8, #17)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#2, #8, #18)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #8, #19)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#2, #8, #20)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#2, #9, #10)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#2, #9, #11)
+</td>
+<td>
+38.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #9, #12)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#2, #9, #13)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#2, #9, #14)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#2, #9, #15)
+</td>
+<td>
+49.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #9, #16)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#2, #9, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #9, #18)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #9, #19)
+</td>
+<td>
+50.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #9, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#2, #10, #11)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #10, #12)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#2, #10, #13)
+</td>
+<td>
+47.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #10, #14)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#2, #10, #15)
+</td>
+<td>
+54.67
+</td>
+<td>
+(#2, #10, #16)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#2, #10, #17)
+</td>
+<td>
+46.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #10, #18)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#2, #10, #19)
+</td>
+<td>
+55.00
+</td>
+<td>
+(#2, #10, #20)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#2, #11, #12)
+</td>
+<td>
+39.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #11, #13)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#2, #11, #14)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#2, #11, #15)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#2, #11, #16)
+</td>
+<td>
+38.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #11, #17)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#2, #11, #18)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#2, #11, #19)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#2, #11, #20)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #12, #13)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #12, #14)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#2, #12, #15)
+</td>
+<td>
+51.00
+</td>
+<td>
+(#2, #12, #16)
+</td>
+<td>
+45.00
+</td>
+</tr>
+<tr>
+<td>
+(#2, #12, #17)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #12, #18)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#2, #12, #19)
+</td>
+<td>
+51.33
+</td>
+<td>
+(#2, #12, #20)
+</td>
+<td>
+43.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #13, #14)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #13, #15)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#2, #13, #16)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #13, #17)
+</td>
+<td>
+39.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #13, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#2, #13, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#2, #13, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#2, #14, #15)
+</td>
+<td>
+49.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #14, #16)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#2, #14, #17)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#2, #14, #18)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#2, #14, #19)
+</td>
+<td>
+49.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #14, #20)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #15, #16)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#2, #15, #17)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#2, #15, #18)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #15, #19)
+</td>
+<td>
+55.67
+</td>
+<td>
+(#2, #15, #20)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#2, #16, #17)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#2, #16, #18)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#2, #16, #19)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#2, #16, #20)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#2, #17, #18)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#2, #17, #19)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#2, #17, #20)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#2, #18, #19)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#2, #18, #20)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#2, #19, #20)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #4, #5)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#3, #4, #6)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#3, #4, #7)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#3, #4, #8)
+</td>
+<td>
+48.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #4, #9)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#3, #4, #10)
+</td>
+<td>
+54.67
+</td>
+<td>
+(#3, #4, #11)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#3, #4, #12)
+</td>
+<td>
+51.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #4, #13)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#3, #4, #14)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#3, #4, #15)
+</td>
+<td>
+55.33
+</td>
+<td>
+(#3, #4, #16)
+</td>
+<td>
+49.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #4, #17)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#3, #4, #18)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#3, #4, #19)
+</td>
+<td>
+55.67
+</td>
+<td>
+(#3, #4, #20)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #5, #6)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#3, #5, #7)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#3, #5, #8)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#3, #5, #9)
+</td>
+<td>
+38.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #5, #10)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#3, #5, #11)
+</td>
+<td>
+32.33
+</td>
+<td>
+(#3, #5, #12)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#3, #5, #13)
+</td>
+<td>
+36.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #5, #14)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#3, #5, #15)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #5, #16)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#3, #5, #17)
+</td>
+<td>
+35.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #5, #18)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#3, #5, #19)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#3, #5, #20)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#3, #6, #7)
+</td>
+<td>
+44.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #6, #8)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #6, #9)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#3, #6, #10)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#3, #6, #11)
+</td>
+<td>
+39.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #6, #12)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#3, #6, #13)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#3, #6, #14)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#3, #6, #15)
+</td>
+<td>
+50.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #6, #16)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#3, #6, #17)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#3, #6, #18)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#3, #6, #19)
+</td>
+<td>
+50.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #6, #20)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#3, #7, #8)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#3, #7, #9)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #7, #10)
+</td>
+<td>
+48.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #7, #11)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#3, #7, #12)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#3, #7, #13)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#3, #7, #14)
+</td>
+<td>
+43.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #7, #15)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#3, #7, #16)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#3, #7, #17)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#3, #7, #18)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #7, #19)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#3, #7, #20)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#3, #8, #9)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#3, #8, #10)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #8, #11)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#3, #8, #12)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#3, #8, #13)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#3, #8, #14)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #8, #15)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#3, #8, #16)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#3, #8, #17)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#3, #8, #18)
+</td>
+<td>
+41.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #8, #19)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#3, #8, #20)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#3, #9, #10)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#3, #9, #11)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #9, #12)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#3, #9, #13)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#3, #9, #14)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#3, #9, #15)
+</td>
+<td>
+50.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #9, #16)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#3, #9, #17)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #9, #18)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #9, #19)
+</td>
+<td>
+50.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #9, #20)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#3, #10, #11)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #10, #12)
+</td>
+<td>
+50.67
+</td>
+<td>
+(#3, #10, #13)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #10, #14)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#3, #10, #15)
+</td>
+<td>
+55.00
+</td>
+<td>
+(#3, #10, #16)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#3, #10, #17)
+</td>
+<td>
+47.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #10, #18)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#3, #10, #19)
+</td>
+<td>
+55.33
+</td>
+<td>
+(#3, #10, #20)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#3, #11, #12)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #11, #13)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#3, #11, #14)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#3, #11, #15)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#3, #11, #16)
+</td>
+<td>
+38.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #11, #17)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#3, #11, #18)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#3, #11, #19)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#3, #11, #20)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #12, #13)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #12, #14)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#3, #12, #15)
+</td>
+<td>
+51.33
+</td>
+<td>
+(#3, #12, #16)
+</td>
+<td>
+45.33
+</td>
+</tr>
+<tr>
+<td>
+(#3, #12, #17)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#3, #12, #18)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#3, #12, #19)
+</td>
+<td>
+51.67
+</td>
+<td>
+(#3, #12, #20)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #13, #14)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #13, #15)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#3, #13, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #13, #17)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #13, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#3, #13, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#3, #13, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#3, #14, #15)
+</td>
+<td>
+49.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #14, #16)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#3, #14, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#3, #14, #18)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#3, #14, #19)
+</td>
+<td>
+50.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #14, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #15, #16)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#3, #15, #17)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#3, #15, #18)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #15, #19)
+</td>
+<td>
+56.00
+</td>
+<td>
+(#3, #15, #20)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#3, #16, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#3, #16, #18)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#3, #16, #19)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#3, #16, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#3, #17, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#3, #17, #19)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#3, #17, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#3, #18, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#3, #18, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#3, #19, #20)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #5, #6)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#4, #5, #7)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#4, #5, #8)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#4, #5, #9)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #5, #10)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#4, #5, #11)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#4, #5, #12)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#4, #5, #13)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #5, #14)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#4, #5, #15)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #5, #16)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#4, #5, #17)
+</td>
+<td>
+39.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #5, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#4, #5, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#4, #5, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#4, #6, #7)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #6, #8)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #6, #9)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#4, #6, #10)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#4, #6, #11)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #6, #12)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#4, #6, #13)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#4, #6, #14)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#4, #6, #15)
+</td>
+<td>
+54.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #6, #16)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#4, #6, #17)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#4, #6, #18)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#4, #6, #19)
+</td>
+<td>
+54.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #6, #20)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#4, #7, #8)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#4, #7, #9)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #7, #10)
+</td>
+<td>
+52.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #7, #11)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#4, #7, #12)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#4, #7, #13)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#4, #7, #14)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #7, #15)
+</td>
+<td>
+53.33
+</td>
+<td>
+(#4, #7, #16)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#4, #7, #17)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#4, #7, #18)
+</td>
+<td>
+45.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #7, #19)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#4, #7, #20)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#4, #8, #9)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#4, #8, #10)
+</td>
+<td>
+52.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #8, #11)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#4, #8, #12)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#4, #8, #13)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#4, #8, #14)
+</td>
+<td>
+47.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #8, #15)
+</td>
+<td>
+53.00
+</td>
+<td>
+(#4, #8, #16)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#4, #8, #17)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#4, #8, #18)
+</td>
+<td>
+45.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #8, #19)
+</td>
+<td>
+53.33
+</td>
+<td>
+(#4, #8, #20)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#4, #9, #10)
+</td>
+<td>
+53.33
+</td>
+<td>
+(#4, #9, #11)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #9, #12)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#4, #9, #13)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#4, #9, #14)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#4, #9, #15)
+</td>
+<td>
+54.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #9, #16)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#4, #9, #17)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #9, #18)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #9, #19)
+</td>
+<td>
+54.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #9, #20)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#4, #10, #11)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #10, #12)
+</td>
+<td>
+54.67
+</td>
+<td>
+(#4, #10, #13)
+</td>
+<td>
+51.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #10, #14)
+</td>
+<td>
+53.00
+</td>
+<td>
+(#4, #10, #15)
+</td>
+<td>
+59.00
+</td>
+<td>
+(#4, #10, #16)
+</td>
+<td>
+53.00
+</td>
+<td>
+(#4, #10, #17)
+</td>
+<td>
+51.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #10, #18)
+</td>
+<td>
+51.00
+</td>
+<td>
+(#4, #10, #19)
+</td>
+<td>
+59.33
+</td>
+<td>
+(#4, #10, #20)
+</td>
+<td>
+51.33
+</td>
+<td>
+(#4, #11, #12)
+</td>
+<td>
+44.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #11, #13)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#4, #11, #14)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#4, #11, #15)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#4, #11, #16)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #11, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#4, #11, #18)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#4, #11, #19)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#4, #11, #20)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #12, #13)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #12, #14)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#4, #12, #15)
+</td>
+<td>
+55.33
+</td>
+<td>
+(#4, #12, #16)
+</td>
+<td>
+49.33
+</td>
+</tr>
+<tr>
+<td>
+(#4, #12, #17)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#4, #12, #18)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#4, #12, #19)
+</td>
+<td>
+55.67
+</td>
+<td>
+(#4, #12, #20)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #13, #14)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #13, #15)
+</td>
+<td>
+52.00
+</td>
+<td>
+(#4, #13, #16)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #13, #17)
+</td>
+<td>
+44.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #13, #18)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#4, #13, #19)
+</td>
+<td>
+52.33
+</td>
+<td>
+(#4, #13, #20)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#4, #14, #15)
+</td>
+<td>
+53.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #14, #16)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#4, #14, #17)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#4, #14, #18)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#4, #14, #19)
+</td>
+<td>
+54.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #14, #20)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #15, #16)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#4, #15, #17)
+</td>
+<td>
+51.67
+</td>
+<td>
+(#4, #15, #18)
+</td>
+<td>
+51.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #15, #19)
+</td>
+<td>
+60.00
+</td>
+<td>
+(#4, #15, #20)
+</td>
+<td>
+52.00
+</td>
+<td>
+(#4, #16, #17)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#4, #16, #18)
+</td>
+<td>
+45.67
+</td>
+</tr>
+<tr>
+<td>
+(#4, #16, #19)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#4, #16, #20)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#4, #17, #18)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#4, #17, #19)
+</td>
+<td>
+52.00
+</td>
+</tr>
+<tr>
+<td>
+(#4, #17, #20)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#4, #18, #19)
+</td>
+<td>
+52.00
+</td>
+<td>
+(#4, #18, #20)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#4, #19, #20)
+</td>
+<td>
+52.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #6, #7)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#5, #6, #8)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#5, #6, #9)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#5, #6, #10)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #6, #11)
+</td>
+<td>
+31.33
+</td>
+<td>
+(#5, #6, #12)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#5, #6, #13)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#5, #6, #14)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #6, #15)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#5, #6, #16)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#5, #6, #17)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#5, #6, #18)
+</td>
+<td>
+34.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #6, #19)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#5, #6, #20)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#5, #7, #8)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#5, #7, #9)
+</td>
+<td>
+36.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #7, #10)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#5, #7, #11)
+</td>
+<td>
+30.33
+</td>
+<td>
+(#5, #7, #12)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#5, #7, #13)
+</td>
+<td>
+34.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #7, #14)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#5, #7, #15)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#5, #7, #16)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#5, #7, #17)
+</td>
+<td>
+33.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #7, #18)
+</td>
+<td>
+33.67
+</td>
+<td>
+(#5, #7, #19)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#5, #7, #20)
+</td>
+<td>
+34.00
+</td>
+<td>
+(#5, #8, #9)
+</td>
+<td>
+35.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #8, #10)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#5, #8, #11)
+</td>
+<td>
+30.00
+</td>
+<td>
+(#5, #8, #12)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#5, #8, #13)
+</td>
+<td>
+33.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #8, #14)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#5, #8, #15)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#5, #8, #16)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#5, #8, #17)
+</td>
+<td>
+33.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #8, #18)
+</td>
+<td>
+33.33
+</td>
+<td>
+(#5, #8, #19)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#5, #8, #20)
+</td>
+<td>
+33.67
+</td>
+<td>
+(#5, #9, #10)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #9, #11)
+</td>
+<td>
+31.00
+</td>
+<td>
+(#5, #9, #12)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#5, #9, #13)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#5, #9, #14)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #9, #15)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#5, #9, #16)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#5, #9, #17)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#5, #9, #18)
+</td>
+<td>
+34.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #9, #19)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#5, #9, #20)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#5, #10, #11)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#5, #10, #12)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #10, #13)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#5, #10, #14)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#5, #10, #15)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#5, #10, #16)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #10, #17)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#5, #10, #18)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#5, #10, #19)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#5, #10, #20)
+</td>
+<td>
+39.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #11, #12)
+</td>
+<td>
+32.33
+</td>
+<td>
+(#5, #11, #13)
+</td>
+<td>
+29.00
+</td>
+<td>
+(#5, #11, #14)
+</td>
+<td>
+30.67
+</td>
+<td>
+(#5, #11, #15)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #11, #16)
+</td>
+<td>
+30.67
+</td>
+<td>
+(#5, #11, #17)
+</td>
+<td>
+28.67
+</td>
+<td>
+(#5, #11, #18)
+</td>
+<td>
+28.67
+</td>
+<td>
+(#5, #11, #19)
+</td>
+<td>
+37.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #11, #20)
+</td>
+<td>
+29.00
+</td>
+<td>
+(#5, #12, #13)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#5, #12, #14)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#5, #12, #15)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #12, #16)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#5, #12, #17)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#5, #12, #18)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#5, #12, #19)
+</td>
+<td>
+44.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #12, #20)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#5, #13, #14)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#5, #13, #15)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#5, #13, #16)
+</td>
+<td>
+34.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #13, #17)
+</td>
+<td>
+32.33
+</td>
+<td>
+(#5, #13, #18)
+</td>
+<td>
+32.33
+</td>
+<td>
+(#5, #13, #19)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#5, #13, #20)
+</td>
+<td>
+32.67
+</td>
+</tr>
+<tr>
+<td>
+(#5, #14, #15)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#5, #14, #16)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#5, #14, #17)
+</td>
+<td>
+34.00
+</td>
+<td>
+(#5, #14, #18)
+</td>
+<td>
+34.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #14, #19)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#5, #14, #20)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#5, #15, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#5, #15, #17)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #15, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#5, #15, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#5, #15, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#5, #16, #17)
+</td>
+<td>
+34.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #16, #18)
+</td>
+<td>
+34.00
+</td>
+<td>
+(#5, #16, #19)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#5, #16, #20)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#5, #17, #18)
+</td>
+<td>
+32.00
+</td>
+</tr>
+<tr>
+<td>
+(#5, #17, #19)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#5, #17, #20)
+</td>
+<td>
+32.33
+</td>
+<td>
+(#5, #18, #19)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#5, #18, #20)
+</td>
+<td>
+32.33
+</td>
+</tr>
+<tr>
+<td>
+(#5, #19, #20)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #7, #8)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#6, #7, #9)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#6, #7, #10)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #7, #11)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#6, #7, #12)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#6, #7, #13)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #7, #14)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #7, #15)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#6, #7, #16)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#6, #7, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#6, #7, #18)
+</td>
+<td>
+40.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #7, #19)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#6, #7, #20)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #8, #9)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#6, #8, #10)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #8, #11)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#6, #8, #12)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#6, #8, #13)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#6, #8, #14)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #8, #15)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#6, #8, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#6, #8, #17)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#6, #8, #18)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #8, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#6, #8, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#6, #9, #10)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#6, #9, #11)
+</td>
+<td>
+37.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #9, #12)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#6, #9, #13)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#6, #9, #14)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#6, #9, #15)
+</td>
+<td>
+49.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #9, #16)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#6, #9, #17)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #9, #18)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #9, #19)
+</td>
+<td>
+49.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #9, #20)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#6, #10, #11)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#6, #10, #12)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#6, #10, #13)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #10, #14)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#6, #10, #15)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#6, #10, #16)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#6, #10, #17)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #10, #18)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#6, #10, #19)
+</td>
+<td>
+54.33
+</td>
+<td>
+(#6, #10, #20)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#6, #11, #12)
+</td>
+<td>
+39.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #11, #13)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#6, #11, #14)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#6, #11, #15)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#6, #11, #16)
+</td>
+<td>
+37.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #11, #17)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#6, #11, #18)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#6, #11, #19)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#6, #11, #20)
+</td>
+<td>
+35.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #12, #13)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#6, #12, #14)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#6, #12, #15)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#6, #12, #16)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#6, #12, #17)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#6, #12, #18)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#6, #12, #19)
+</td>
+<td>
+50.67
+</td>
+<td>
+(#6, #12, #20)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #13, #14)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #13, #15)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#6, #13, #16)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #13, #17)
+</td>
+<td>
+39.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #13, #18)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#6, #13, #19)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#6, #13, #20)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#6, #14, #15)
+</td>
+<td>
+48.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #14, #16)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#6, #14, #17)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #14, #18)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #14, #19)
+</td>
+<td>
+49.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #14, #20)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #15, #16)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#6, #15, #17)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#6, #15, #18)
+</td>
+<td>
+46.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #15, #19)
+</td>
+<td>
+55.00
+</td>
+<td>
+(#6, #15, #20)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#6, #16, #17)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#6, #16, #18)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#6, #16, #19)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#6, #16, #20)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#6, #17, #18)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#6, #17, #19)
+</td>
+<td>
+47.00
+</td>
+</tr>
+<tr>
+<td>
+(#6, #17, #20)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#6, #18, #19)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#6, #18, #20)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#6, #19, #20)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #8, #9)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#7, #8, #10)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#7, #8, #11)
+</td>
+<td>
+35.67
+</td>
+<td>
+(#7, #8, #12)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#7, #8, #13)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#7, #8, #14)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#7, #8, #15)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#7, #8, #16)
+</td>
+<td>
+41.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #8, #17)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#7, #8, #18)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#7, #8, #19)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#7, #8, #20)
+</td>
+<td>
+39.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #9, #10)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#7, #9, #11)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#7, #9, #12)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#7, #9, #13)
+</td>
+<td>
+40.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #9, #14)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#7, #9, #15)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#7, #9, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#7, #9, #17)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #9, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#7, #9, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#7, #9, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#7, #10, #11)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#7, #10, #12)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#7, #10, #13)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#7, #10, #14)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#7, #10, #15)
+</td>
+<td>
+53.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #10, #16)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#7, #10, #17)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#7, #10, #18)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#7, #10, #19)
+</td>
+<td>
+53.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #10, #20)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#7, #11, #12)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#7, #11, #13)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#7, #11, #14)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #11, #15)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#7, #11, #16)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#7, #11, #17)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#7, #11, #18)
+</td>
+<td>
+34.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #11, #19)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#7, #11, #20)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#7, #12, #13)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#7, #12, #14)
+</td>
+<td>
+43.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #12, #15)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#7, #12, #16)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#7, #12, #17)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#7, #12, #18)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #12, #19)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#7, #12, #20)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#7, #13, #14)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#7, #13, #15)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #13, #16)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#7, #13, #17)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#7, #13, #18)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#7, #13, #19)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#7, #13, #20)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#7, #14, #15)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#7, #14, #16)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#7, #14, #17)
+</td>
+<td>
+39.67
+</td>
+</tr>
+<tr>
+<td>
+(#7, #14, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#7, #14, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#7, #14, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#7, #15, #16)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#7, #15, #17)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#7, #15, #18)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#7, #15, #19)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#7, #15, #20)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #16, #17)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#7, #16, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#7, #16, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#7, #16, #20)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #17, #18)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#7, #17, #19)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#7, #17, #20)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#7, #18, #19)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#7, #18, #20)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#7, #19, #20)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#8, #9, #10)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#8, #9, #11)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #9, #12)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#8, #9, #13)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#8, #9, #14)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#8, #9, #15)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #9, #16)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#8, #9, #17)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #9, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #9, #19)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#8, #9, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#8, #10, #11)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#8, #10, #12)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#8, #10, #13)
+</td>
+<td>
+45.00
+</td>
+</tr>
+<tr>
+<td>
+(#8, #10, #14)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#8, #10, #15)
+</td>
+<td>
+52.67
+</td>
+<td>
+(#8, #10, #16)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#8, #10, #17)
+</td>
+<td>
+44.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #10, #18)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#8, #10, #19)
+</td>
+<td>
+53.00
+</td>
+<td>
+(#8, #10, #20)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#8, #11, #12)
+</td>
+<td>
+37.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #11, #13)
+</td>
+<td>
+34.33
+</td>
+<td>
+(#8, #11, #14)
+</td>
+<td>
+36.00
+</td>
+<td>
+(#8, #11, #15)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#8, #11, #16)
+</td>
+<td>
+36.00
+</td>
+</tr>
+<tr>
+<td>
+(#8, #11, #17)
+</td>
+<td>
+34.00
+</td>
+<td>
+(#8, #11, #18)
+</td>
+<td>
+34.00
+</td>
+<td>
+(#8, #11, #19)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#8, #11, #20)
+</td>
+<td>
+34.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #12, #13)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#8, #12, #14)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#8, #12, #15)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#8, #12, #16)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#8, #12, #17)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#8, #12, #18)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#8, #12, #19)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#8, #12, #20)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #13, #14)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #13, #15)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#8, #13, #16)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #13, #17)
+</td>
+<td>
+37.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #13, #18)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#8, #13, #19)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#8, #13, #20)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#8, #14, #15)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #14, #16)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#8, #14, #17)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#8, #14, #18)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#8, #14, #19)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #14, #20)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #15, #16)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#8, #15, #17)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#8, #15, #18)
+</td>
+<td>
+45.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #15, #19)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#8, #15, #20)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#8, #16, #17)
+</td>
+<td>
+39.33
+</td>
+<td>
+(#8, #16, #18)
+</td>
+<td>
+39.33
+</td>
+</tr>
+<tr>
+<td>
+(#8, #16, #19)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#8, #16, #20)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#8, #17, #18)
+</td>
+<td>
+37.33
+</td>
+<td>
+(#8, #17, #19)
+</td>
+<td>
+45.67
+</td>
+</tr>
+<tr>
+<td>
+(#8, #17, #20)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#8, #18, #19)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#8, #18, #20)
+</td>
+<td>
+37.67
+</td>
+<td>
+(#8, #19, #20)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#9, #10, #11)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#9, #10, #12)
+</td>
+<td>
+49.33
+</td>
+<td>
+(#9, #10, #13)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#9, #10, #14)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #10, #15)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#9, #10, #16)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#9, #10, #17)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#9, #10, #18)
+</td>
+<td>
+45.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #10, #19)
+</td>
+<td>
+54.00
+</td>
+<td>
+(#9, #10, #20)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#9, #11, #12)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#9, #11, #13)
+</td>
+<td>
+35.33
+</td>
+</tr>
+<tr>
+<td>
+(#9, #11, #14)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#9, #11, #15)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#9, #11, #16)
+</td>
+<td>
+37.00
+</td>
+<td>
+(#9, #11, #17)
+</td>
+<td>
+35.00
+</td>
+</tr>
+<tr>
+<td>
+(#9, #11, #18)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#9, #11, #19)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#9, #11, #20)
+</td>
+<td>
+35.33
+</td>
+<td>
+(#9, #12, #13)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#9, #12, #14)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#9, #12, #15)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#9, #12, #16)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#9, #12, #17)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#9, #12, #18)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#9, #12, #19)
+</td>
+<td>
+50.33
+</td>
+<td>
+(#9, #12, #20)
+</td>
+<td>
+42.33
+</td>
+<td>
+(#9, #13, #14)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #13, #15)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#9, #13, #16)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#9, #13, #17)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#9, #13, #18)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #13, #19)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#9, #13, #20)
+</td>
+<td>
+39.00
+</td>
+<td>
+(#9, #14, #15)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#9, #14, #16)
+</td>
+<td>
+42.33
+</td>
+</tr>
+<tr>
+<td>
+(#9, #14, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#9, #14, #18)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#9, #14, #19)
+</td>
+<td>
+48.67
+</td>
+<td>
+(#9, #14, #20)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #15, #16)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#9, #15, #17)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#9, #15, #18)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#9, #15, #19)
+</td>
+<td>
+54.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #15, #20)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#9, #16, #17)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#9, #16, #18)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#9, #16, #19)
+</td>
+<td>
+48.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #16, #20)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#9, #17, #18)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#9, #17, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#9, #17, #20)
+</td>
+<td>
+38.67
+</td>
+</tr>
+<tr>
+<td>
+(#9, #18, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#9, #18, #20)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#9, #19, #20)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#10, #11, #12)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#10, #11, #13)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#10, #11, #14)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#10, #11, #15)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#10, #11, #16)
+</td>
+<td>
+42.00
+</td>
+</tr>
+<tr>
+<td>
+(#10, #11, #17)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#10, #11, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#10, #11, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#10, #11, #20)
+</td>
+<td>
+40.33
+</td>
+</tr>
+<tr>
+<td>
+(#10, #12, #13)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#10, #12, #14)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#10, #12, #15)
+</td>
+<td>
+55.00
+</td>
+<td>
+(#10, #12, #16)
+</td>
+<td>
+49.00
+</td>
+</tr>
+<tr>
+<td>
+(#10, #12, #17)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#10, #12, #18)
+</td>
+<td>
+47.00
+</td>
+<td>
+(#10, #12, #19)
+</td>
+<td>
+55.33
+</td>
+<td>
+(#10, #12, #20)
+</td>
+<td>
+47.33
+</td>
+</tr>
+<tr>
+<td>
+(#10, #13, #14)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#10, #13, #15)
+</td>
+<td>
+51.67
+</td>
+<td>
+(#10, #13, #16)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#10, #13, #17)
+</td>
+<td>
+43.67
+</td>
+</tr>
+<tr>
+<td>
+(#10, #13, #18)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#10, #13, #19)
+</td>
+<td>
+52.00
+</td>
+<td>
+(#10, #13, #20)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#10, #14, #15)
+</td>
+<td>
+53.33
+</td>
+</tr>
+<tr>
+<td>
+(#10, #14, #16)
+</td>
+<td>
+47.33
+</td>
+<td>
+(#10, #14, #17)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#10, #14, #18)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#10, #14, #19)
+</td>
+<td>
+53.67
+</td>
+</tr>
+<tr>
+<td>
+(#10, #14, #20)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#10, #15, #16)
+</td>
+<td>
+53.33
+</td>
+<td>
+(#10, #15, #17)
+</td>
+<td>
+51.33
+</td>
+<td>
+(#10, #15, #18)
+</td>
+<td>
+51.33
+</td>
+</tr>
+<tr>
+<td>
+(#10, #15, #19)
+</td>
+<td>
+59.67
+</td>
+<td>
+(#10, #15, #20)
+</td>
+<td>
+51.67
+</td>
+<td>
+(#10, #16, #17)
+</td>
+<td>
+45.33
+</td>
+<td>
+(#10, #16, #18)
+</td>
+<td>
+45.33
+</td>
+</tr>
+<tr>
+<td>
+(#10, #16, #19)
+</td>
+<td>
+53.67
+</td>
+<td>
+(#10, #16, #20)
+</td>
+<td>
+45.67
+</td>
+<td>
+(#10, #17, #18)
+</td>
+<td>
+43.33
+</td>
+<td>
+(#10, #17, #19)
+</td>
+<td>
+51.67
+</td>
+</tr>
+<tr>
+<td>
+(#10, #17, #20)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#10, #18, #19)
+</td>
+<td>
+51.67
+</td>
+<td>
+(#10, #18, #20)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#10, #19, #20)
+</td>
+<td>
+52.00
+</td>
+</tr>
+<tr>
+<td>
+(#11, #12, #13)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#11, #12, #14)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#11, #12, #15)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#11, #12, #16)
+</td>
+<td>
+38.33
+</td>
+</tr>
+<tr>
+<td>
+(#11, #12, #17)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#11, #12, #18)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#11, #12, #19)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#11, #12, #20)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#11, #13, #14)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#11, #13, #15)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#11, #13, #16)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#11, #13, #17)
+</td>
+<td>
+33.00
+</td>
+</tr>
+<tr>
+<td>
+(#11, #13, #18)
+</td>
+<td>
+33.00
+</td>
+<td>
+(#11, #13, #19)
+</td>
+<td>
+41.33
+</td>
+<td>
+(#11, #13, #20)
+</td>
+<td>
+33.33
+</td>
+<td>
+(#11, #14, #15)
+</td>
+<td>
+42.67
+</td>
+</tr>
+<tr>
+<td>
+(#11, #14, #16)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#11, #14, #17)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#11, #14, #18)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#11, #14, #19)
+</td>
+<td>
+43.00
+</td>
+</tr>
+<tr>
+<td>
+(#11, #14, #20)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#11, #15, #16)
+</td>
+<td>
+42.67
+</td>
+<td>
+(#11, #15, #17)
+</td>
+<td>
+40.67
+</td>
+<td>
+(#11, #15, #18)
+</td>
+<td>
+40.67
+</td>
+</tr>
+<tr>
+<td>
+(#11, #15, #19)
+</td>
+<td>
+49.00
+</td>
+<td>
+(#11, #15, #20)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#11, #16, #17)
+</td>
+<td>
+34.67
+</td>
+<td>
+(#11, #16, #18)
+</td>
+<td>
+34.67
+</td>
+</tr>
+<tr>
+<td>
+(#11, #16, #19)
+</td>
+<td>
+43.00
+</td>
+<td>
+(#11, #16, #20)
+</td>
+<td>
+35.00
+</td>
+<td>
+(#11, #17, #18)
+</td>
+<td>
+32.67
+</td>
+<td>
+(#11, #17, #19)
+</td>
+<td>
+41.00
+</td>
+</tr>
+<tr>
+<td>
+(#11, #17, #20)
+</td>
+<td>
+33.00
+</td>
+<td>
+(#11, #18, #19)
+</td>
+<td>
+41.00
+</td>
+<td>
+(#11, #18, #20)
+</td>
+<td>
+33.00
+</td>
+<td>
+(#11, #19, #20)
+</td>
+<td>
+41.33
+</td>
+</tr>
+<tr>
+<td>
+(#12, #13, #14)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#12, #13, #15)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#12, #13, #16)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#12, #13, #17)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#12, #13, #18)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#12, #13, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#12, #13, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#12, #14, #15)
+</td>
+<td>
+49.67
+</td>
+</tr>
+<tr>
+<td>
+(#12, #14, #16)
+</td>
+<td>
+43.67
+</td>
+<td>
+(#12, #14, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#12, #14, #18)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#12, #14, #19)
+</td>
+<td>
+50.00
+</td>
+</tr>
+<tr>
+<td>
+(#12, #14, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#12, #15, #16)
+</td>
+<td>
+49.67
+</td>
+<td>
+(#12, #15, #17)
+</td>
+<td>
+47.67
+</td>
+<td>
+(#12, #15, #18)
+</td>
+<td>
+47.67
+</td>
+</tr>
+<tr>
+<td>
+(#12, #15, #19)
+</td>
+<td>
+56.00
+</td>
+<td>
+(#12, #15, #20)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#12, #16, #17)
+</td>
+<td>
+41.67
+</td>
+<td>
+(#12, #16, #18)
+</td>
+<td>
+41.67
+</td>
+</tr>
+<tr>
+<td>
+(#12, #16, #19)
+</td>
+<td>
+50.00
+</td>
+<td>
+(#12, #16, #20)
+</td>
+<td>
+42.00
+</td>
+<td>
+(#12, #17, #18)
+</td>
+<td>
+39.67
+</td>
+<td>
+(#12, #17, #19)
+</td>
+<td>
+48.00
+</td>
+</tr>
+<tr>
+<td>
+(#12, #17, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#12, #18, #19)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#12, #18, #20)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#12, #19, #20)
+</td>
+<td>
+48.33
+</td>
+</tr>
+<tr>
+<td>
+(#13, #14, #15)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#13, #14, #16)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#13, #14, #17)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#13, #14, #18)
+</td>
+<td>
+38.33
+</td>
+</tr>
+<tr>
+<td>
+(#13, #14, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#13, #14, #20)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#13, #15, #16)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#13, #15, #17)
+</td>
+<td>
+44.33
+</td>
+</tr>
+<tr>
+<td>
+(#13, #15, #18)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#13, #15, #19)
+</td>
+<td>
+52.67
+</td>
+<td>
+(#13, #15, #20)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#13, #16, #17)
+</td>
+<td>
+38.33
+</td>
+</tr>
+<tr>
+<td>
+(#13, #16, #18)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#13, #16, #19)
+</td>
+<td>
+46.67
+</td>
+<td>
+(#13, #16, #20)
+</td>
+<td>
+38.67
+</td>
+<td>
+(#13, #17, #18)
+</td>
+<td>
+36.33
+</td>
+</tr>
+<tr>
+<td>
+(#13, #17, #19)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#13, #17, #20)
+</td>
+<td>
+36.67
+</td>
+<td>
+(#13, #18, #19)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#13, #18, #20)
+</td>
+<td>
+36.67
+</td>
+</tr>
+<tr>
+<td>
+(#13, #19, #20)
+</td>
+<td>
+45.00
+</td>
+<td>
+(#14, #15, #16)
+</td>
+<td>
+48.00
+</td>
+<td>
+(#14, #15, #17)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#14, #15, #18)
+</td>
+<td>
+46.00
+</td>
+</tr>
+<tr>
+<td>
+(#14, #15, #19)
+</td>
+<td>
+54.33
+</td>
+<td>
+(#14, #15, #20)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#14, #16, #17)
+</td>
+<td>
+40.00
+</td>
+<td>
+(#14, #16, #18)
+</td>
+<td>
+40.00
+</td>
+</tr>
+<tr>
+<td>
+(#14, #16, #19)
+</td>
+<td>
+48.33
+</td>
+<td>
+(#14, #16, #20)
+</td>
+<td>
+40.33
+</td>
+<td>
+(#14, #17, #18)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#14, #17, #19)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#14, #17, #20)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#14, #18, #19)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#14, #18, #20)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#14, #19, #20)
+</td>
+<td>
+46.67
+</td>
+</tr>
+<tr>
+<td>
+(#15, #16, #17)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#15, #16, #18)
+</td>
+<td>
+46.00
+</td>
+<td>
+(#15, #16, #19)
+</td>
+<td>
+54.33
+</td>
+<td>
+(#15, #16, #20)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#15, #17, #18)
+</td>
+<td>
+44.00
+</td>
+<td>
+(#15, #17, #19)
+</td>
+<td>
+52.33
+</td>
+<td>
+(#15, #17, #20)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#15, #18, #19)
+</td>
+<td>
+52.33
+</td>
+</tr>
+<tr>
+<td>
+(#15, #18, #20)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#15, #19, #20)
+</td>
+<td>
+52.67
+</td>
+<td>
+(#16, #17, #18)
+</td>
+<td>
+38.00
+</td>
+<td>
+(#16, #17, #19)
+</td>
+<td>
+46.33
+</td>
+</tr>
+<tr>
+<td>
+(#16, #17, #20)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#16, #18, #19)
+</td>
+<td>
+46.33
+</td>
+<td>
+(#16, #18, #20)
+</td>
+<td>
+38.33
+</td>
+<td>
+(#16, #19, #20)
+</td>
+<td>
+46.67
+</td>
+</tr>
+<tr>
+<td>
+(#17, #18, #19)
+</td>
+<td>
+44.33
+</td>
+<td>
+(#17, #18, #20)
+</td>
+<td>
+36.33
+</td>
+<td>
+(#17, #19, #20)
+</td>
+<td>
+44.67
+</td>
+<td>
+(#18, #19, #20)
+</td>
+<td>
+44.67
+</td>
+</tr>
+</tbody>
+</table>
+<figure>
+<svg id="sampling-dist-fish">
+</svg>
+<figcaption>
+<strong>Figure 1:</strong> Sampling distribution of the sample average of weight (dkg) for samples of size 3 fish from the aquarium.
+</figcaption>
+</figure>
+<div class="cell hidden">
+<div class="sourceCode cell-code hidden" id="cb2" data-startfrom="3046" data-source-offset="0"><pre class="sourceCode numberSource js number-lines code-with-copy"><code class="sourceCode javascript" style="counter-reset: source-line 3045;"><span id="cb2-3046"><a href=""></a>{</span>
+<span id="cb2-3047"><a href=""></a>    <span class="kw">const</span> get_data_from_table <span class="op">=</span> (table_name<span class="op">,</span> collapsible <span class="op">=</span> <span class="kw">false</span>) <span class="kw">=&gt;</span>{ </span>
+<span id="cb2-3048"><a href=""></a>        <span class="kw">const</span> table <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(table_name)<span class="op">;</span></span>
+<span id="cb2-3049"><a href=""></a>        <span class="kw">const</span> entries_pop <span class="op">=</span> table<span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">"td"</span>)<span class="op">;</span></span>
+<span id="cb2-3050"><a href=""></a>        <span class="kw">let</span> data <span class="op">=</span> <span class="bu">Array</span>(<span class="dv">1140</span>)<span class="op">;</span></span>
+<span id="cb2-3051"><a href=""></a>        </span>
+<span id="cb2-3052"><a href=""></a>        <span class="kw">let</span> cont <span class="op">=</span> <span class="dv">0</span><span class="op">;</span></span>
+<span id="cb2-3053"><a href=""></a>        entries_pop<span class="op">.</span><span class="fu">forEach</span>(</span>
+<span id="cb2-3054"><a href=""></a>            (entry) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3055"><a href=""></a>                <span class="kw">const</span> value <span class="op">=</span> <span class="pp">parseFloat</span>(entry<span class="op">.</span><span class="at">textContent</span>)<span class="op">;</span></span>
+<span id="cb2-3056"><a href=""></a>                <span class="cf">if</span> (<span class="op">!</span><span class="pp">isNaN</span>(value)) {</span>
+<span id="cb2-3057"><a href=""></a>                    data[cont<span class="op">++</span>] <span class="op">=</span> <span class="pp">parseFloat</span>(entry<span class="op">.</span><span class="at">textContent</span>)<span class="op">;</span></span>
+<span id="cb2-3058"><a href=""></a>                    entry<span class="op">.</span><span class="at">value</span> <span class="op">=</span> value<span class="op">;</span></span>
+<span id="cb2-3059"><a href=""></a>                }</span>
+<span id="cb2-3060"><a href=""></a>            }</span>
+<span id="cb2-3061"><a href=""></a>        )<span class="op">;</span></span>
+<span id="cb2-3062"><a href=""></a>        <span class="cf">return</span> data<span class="op">;</span></span>
+<span id="cb2-3063"><a href=""></a>    }</span>
+<span id="cb2-3064"><a href=""></a></span>
+<span id="cb2-3065"><a href=""></a>    <span class="kw">const</span> selectConfigureSVG <span class="op">=</span> (id<span class="op">,</span> height <span class="op">=</span> <span class="dv">400</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3066"><a href=""></a>        <span class="kw">let</span> svg <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(<span class="st">'#'</span> <span class="op">+</span> id)<span class="op">;</span></span>
+<span id="cb2-3067"><a href=""></a>        svg<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"*"</span>)<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-3068"><a href=""></a>        svg<span class="op">.</span><span class="fu">attr</span>(<span class="st">'width'</span><span class="op">,</span> width)</span>
+<span id="cb2-3069"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">'height'</span><span class="op">,</span> height <span class="op">+</span> margin<span class="op">.</span><span class="at">top</span> <span class="op">+</span> margin<span class="op">.</span><span class="at">bottom</span> )</span>
+<span id="cb2-3070"><a href=""></a>            <span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3071"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span></span>
+<span id="cb2-3072"><a href=""></a>                <span class="st">"translate("</span> <span class="op">+</span> margin<span class="op">.</span><span class="at">left</span> <span class="op">+</span> <span class="st">","</span> <span class="op">+</span> margin<span class="op">.</span><span class="at">top</span> <span class="op">+</span> <span class="st">")"</span>)<span class="op">;</span></span>
+<span id="cb2-3073"><a href=""></a>        <span class="cf">return</span> svg<span class="op">;</span></span>
+<span id="cb2-3074"><a href=""></a>    }</span>
+<span id="cb2-3075"><a href=""></a></span>
+<span id="cb2-3076"><a href=""></a>    <span class="kw">const</span> makeXAxis <span class="op">=</span> (bins<span class="op">,</span> xLabel<span class="op">,</span> height <span class="op">=</span> <span class="dv">400</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3077"><a href=""></a>        <span class="kw">let</span> x <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb2-3078"><a href=""></a>        <span class="op">.</span><span class="fu">domain</span>([bins[<span class="dv">0</span>]<span class="op">.</span><span class="at">x0</span> <span class="op">-</span> <span class="dv">1</span><span class="op">,</span> bins[bins<span class="op">.</span><span class="at">length</span> <span class="op">-</span> <span class="dv">1</span>]<span class="op">.</span><span class="at">x1</span> <span class="op">+</span> <span class="dv">5</span>])</span>
+<span id="cb2-3079"><a href=""></a>        <span class="op">.</span><span class="fu">range</span>([margin<span class="op">.</span><span class="at">left</span><span class="op">,</span> width <span class="op">-</span> margin<span class="op">.</span><span class="at">right</span>])<span class="op">;</span></span>
+<span id="cb2-3080"><a href=""></a></span>
+<span id="cb2-3081"><a href=""></a>        <span class="kw">let</span> xAxis <span class="op">=</span> g <span class="kw">=&gt;</span> g</span>
+<span id="cb2-3082"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> <span class="vs">`translate(0, </span><span class="sc">${</span>height <span class="op">-</span> margin<span class="op">.</span><span class="at">bottom</span><span class="sc">}</span><span class="vs">)`</span>)</span>
+<span id="cb2-3083"><a href=""></a>        <span class="op">.</span><span class="fu">call</span>(d3<span class="op">.</span><span class="fu">axisBottom</span>(x)<span class="op">.</span><span class="fu">ticks</span>(width <span class="op">/</span> <span class="dv">100</span>)<span class="op">.</span><span class="fu">tickSizeOuter</span>(<span class="dv">0</span>))</span>
+<span id="cb2-3084"><a href=""></a>        <span class="op">.</span><span class="fu">call</span>(g <span class="kw">=&gt;</span> g<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3085"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> width <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb2-3086"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">7</span>)</span>
+<span id="cb2-3087"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"currentColor"</span>)</span>
+<span id="cb2-3088"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="st">"bold"</span>)</span>
+<span id="cb2-3089"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"bottom"</span>)</span>
+<span id="cb2-3090"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">'font-size'</span><span class="op">,</span> <span class="st">'16px'</span>)</span>
+<span id="cb2-3091"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"axis"</span>)</span>
+<span id="cb2-3092"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"2.5em"</span>)</span>
+<span id="cb2-3093"><a href=""></a>            <span class="op">.</span><span class="fu">text</span>(xLabel)</span>
+<span id="cb2-3094"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"axes-label"</span>))<span class="op">;</span></span>
+<span id="cb2-3095"><a href=""></a></span>
+<span id="cb2-3096"><a href=""></a>            <span class="cf">return</span> [x<span class="op">,</span> xAxis]<span class="op">;</span></span>
+<span id="cb2-3097"><a href=""></a></span>
+<span id="cb2-3098"><a href=""></a>    }</span>
+<span id="cb2-3099"><a href=""></a></span>
+<span id="cb2-3100"><a href=""></a>    <span class="kw">const</span> makeYAxis <span class="op">=</span> (bins<span class="op">,</span> height <span class="op">=</span> <span class="dv">400</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3101"><a href=""></a>        <span class="kw">let</span> y <span class="op">=</span> d3<span class="op">.</span><span class="fu">scaleLinear</span>()</span>
+<span id="cb2-3102"><a href=""></a>            <span class="op">.</span><span class="fu">domain</span>([<span class="dv">0</span><span class="op">,</span> d3<span class="op">.</span><span class="fu">max</span>(bins<span class="op">,</span> d <span class="kw">=&gt;</span> d<span class="op">.</span><span class="at">length</span>) <span class="op">+</span> <span class="dv">10</span>])<span class="op">.</span><span class="fu">nice</span>()</span>
+<span id="cb2-3103"><a href=""></a>            <span class="op">.</span><span class="fu">range</span>([height <span class="op">-</span> margin<span class="op">.</span><span class="at">bottom</span><span class="op">,</span> margin<span class="op">.</span><span class="at">top</span>])<span class="op">;</span></span>
+<span id="cb2-3104"><a href=""></a></span>
+<span id="cb2-3105"><a href=""></a>        <span class="kw">let</span> yAxis <span class="op">=</span> g <span class="kw">=&gt;</span> g</span>
+<span id="cb2-3106"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"transform"</span><span class="op">,</span> <span class="vs">`translate(</span><span class="sc">${</span>margin<span class="op">.</span><span class="at">left</span><span class="sc">}</span><span class="vs">,0)`</span>)</span>
+<span id="cb2-3107"><a href=""></a>            <span class="op">.</span><span class="fu">call</span>(d3<span class="op">.</span><span class="fu">axisLeft</span>(y)<span class="op">.</span><span class="fu">ticks</span>(height <span class="op">/</span> <span class="dv">100</span>))</span>
+<span id="cb2-3108"><a href=""></a>            <span class="op">.</span><span class="fu">call</span>(g <span class="kw">=&gt;</span> g<span class="op">.</span><span class="fu">select</span>(<span class="st">".tick:last-of-type text"</span>)<span class="op">.</span><span class="fu">clone</span>()</span>
+<span id="cb2-3109"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="op">-</span>(height <span class="op">-</span> margin<span class="op">.</span><span class="at">bottom</span>)<span class="op">/</span><span class="dv">3</span>)</span>
+<span id="cb2-3110"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="op">-</span><span class="dv">45</span>)</span>
+<span id="cb2-3111"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"font-weight"</span><span class="op">,</span> <span class="st">"bold"</span>)</span>
+<span id="cb2-3112"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">'font-size'</span><span class="op">,</span> <span class="st">'16px'</span>)</span>
+<span id="cb2-3113"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">'transform'</span><span class="op">,</span> <span class="st">'rotate(270)'</span>)</span>
+<span id="cb2-3114"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
+<span id="cb2-3115"><a href=""></a>            <span class="op">.</span><span class="fu">text</span>(<span class="st">"Frequency"</span>)</span>
+<span id="cb2-3116"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span><span class="st">"axes-label"</span>))<span class="op">;</span></span>
+<span id="cb2-3117"><a href=""></a></span>
+<span id="cb2-3118"><a href=""></a>            <span class="cf">return</span> [y<span class="op">,</span> yAxis]<span class="op">;</span></span>
+<span id="cb2-3119"><a href=""></a>    }</span>
+<span id="cb2-3120"><a href=""></a></span>
+<span id="cb2-3121"><a href=""></a>    <span class="kw">const</span> appendBars <span class="op">=</span> (svg<span class="op">,</span> bins<span class="op">,</span> x<span class="op">,</span> y) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3122"><a href=""></a>        svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3123"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb2-3124"><a href=""></a>            <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3125"><a href=""></a>            <span class="op">.</span><span class="fu">data</span>(bins)</span>
+<span id="cb2-3126"><a href=""></a>            <span class="op">.</span><span class="fu">join</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3127"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">x</span>(d<span class="op">.</span><span class="at">x0</span>) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-3128"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="fu">x</span>(d<span class="op">.</span><span class="at">x1</span>) <span class="op">-</span> <span class="fu">x</span>(d<span class="op">.</span><span class="at">x0</span>) <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb2-3129"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y</span>(d<span class="op">.</span><span class="at">length</span>))</span>
+<span id="cb2-3130"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y</span>(<span class="dv">0</span>) <span class="op">-</span> <span class="fu">y</span>(d<span class="op">.</span><span class="at">length</span>))</span>
+<span id="cb2-3131"><a href=""></a>            <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">'bin'</span>)<span class="op">;</span></span>
+<span id="cb2-3132"><a href=""></a>    }</span>
+<span id="cb2-3133"><a href=""></a></span>
+<span id="cb2-3134"><a href=""></a>    <span class="kw">const</span> appendTitle <span class="op">=</span> (svg<span class="op">,</span> title) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3135"><a href=""></a>        svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3136"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> width <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb2-3137"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="dv">50</span>)</span>
+<span id="cb2-3138"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
+<span id="cb2-3139"><a href=""></a>        <span class="op">.</span><span class="fu">text</span>(title)</span>
+<span id="cb2-3140"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"-15px"</span>)</span>
+<span id="cb2-3141"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"plot-title"</span>)<span class="op">;</span></span>
+<span id="cb2-3142"><a href=""></a>    }</span>
+<span id="cb2-3143"><a href=""></a></span>
+<span id="cb2-3144"><a href=""></a>    <span class="kw">const</span> appendAxes <span class="op">=</span> (svg<span class="op">,</span> xAxis<span class="op">,</span> yAxis) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3145"><a href=""></a>        svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3146"><a href=""></a>            <span class="op">.</span><span class="fu">call</span>(xAxis)<span class="op">;</span></span>
+<span id="cb2-3147"><a href=""></a>        </span>
+<span id="cb2-3148"><a href=""></a>        svg<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3149"><a href=""></a>            <span class="op">.</span><span class="fu">call</span>(yAxis)<span class="op">;</span></span>
+<span id="cb2-3150"><a href=""></a>    }</span>
+<span id="cb2-3151"><a href=""></a></span>
+<span id="cb2-3152"><a href=""></a>    <span class="kw">const</span> makeHistogram <span class="op">=</span> (id<span class="op">,</span> data<span class="op">,</span> nbins<span class="op">,</span> title<span class="op">,</span> xLabel<span class="op">,</span> height <span class="op">=</span> <span class="dv">400</span>) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3153"><a href=""></a>        <span class="kw">let</span> svg <span class="op">=</span> <span class="fu">selectConfigureSVG</span>(id<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb2-3154"><a href=""></a>        </span>
+<span id="cb2-3155"><a href=""></a>        <span class="kw">let</span> bins <span class="op">=</span> d3<span class="op">.</span><span class="fu">bin</span>()</span>
+<span id="cb2-3156"><a href=""></a>            <span class="op">.</span><span class="fu">thresholds</span>(nbins)(data)<span class="op">;</span></span>
+<span id="cb2-3157"><a href=""></a></span>
+<span id="cb2-3158"><a href=""></a>        <span class="kw">let</span> [x<span class="op">,</span> xAxis] <span class="op">=</span> <span class="fu">makeXAxis</span>(bins<span class="op">,</span> xLabel<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb2-3159"><a href=""></a>        <span class="kw">let</span> [y<span class="op">,</span> yAxis] <span class="op">=</span> <span class="fu">makeYAxis</span>(bins<span class="op">,</span> height)<span class="op">;</span></span>
+<span id="cb2-3160"><a href=""></a>        <span class="fu">appendBars</span>(svg<span class="op">,</span> bins<span class="op">,</span> x<span class="op">,</span> y)<span class="op">;</span></span>
+<span id="cb2-3161"><a href=""></a>        <span class="fu">appendTitle</span>(svg<span class="op">,</span> title)<span class="op">;</span></span>
+<span id="cb2-3162"><a href=""></a>        <span class="fu">appendAxes</span>(svg<span class="op">,</span> xAxis<span class="op">,</span> yAxis)<span class="op">;</span></span>
+<span id="cb2-3163"><a href=""></a>    }</span>
+<span id="cb2-3164"><a href=""></a></span>
+<span id="cb2-3165"><a href=""></a></span>
+<span id="cb2-3166"><a href=""></a>    <span class="co">/** Getting the calculated style properties */</span></span>
+<span id="cb2-3167"><a href=""></a>    <span class="kw">let</span> margin <span class="op">=</span> { <span class="dt">top</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">right</span><span class="op">:</span> <span class="dv">5</span><span class="op">,</span> <span class="dt">bottom</span><span class="op">:</span> <span class="dv">25</span><span class="op">,</span> <span class="dt">left</span><span class="op">:</span> <span class="dv">60</span> }<span class="op">,</span></span>
+<span id="cb2-3168"><a href=""></a>        height <span class="op">=</span> <span class="dv">400</span><span class="op">,</span></span>
+<span id="cb2-3169"><a href=""></a>        <span class="co">//width = 800 - margin.left - margin.right;</span></span>
+<span id="cb2-3170"><a href=""></a>        width <span class="op">=</span> <span class="bu">document</span><span class="op">.</span><span class="fu">querySelector</span>(<span class="st">"#all-samples-fish"</span>)<span class="op">.</span><span class="at">clientWidth</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">left</span> <span class="op">-</span> margin<span class="op">.</span><span class="at">right</span><span class="op">;</span></span>
+<span id="cb2-3171"><a href=""></a></span>
+<span id="cb2-3172"><a href=""></a></span>
+<span id="cb2-3173"><a href=""></a>    <span class="co">/**********************************/</span></span>
+<span id="cb2-3174"><a href=""></a>    <span class="co">/****  Creates the histogram </span></span>
+<span id="cb2-3175"><a href=""></a><span class="co">     **** of Sampling Distribution </span></span>
+<span id="cb2-3176"><a href=""></a><span class="co">    /**********************************/</span></span>
+<span id="cb2-3177"><a href=""></a></span>
+<span id="cb2-3178"><a href=""></a>    <span class="co">/** Collecting the data from the table */</span></span>
+<span id="cb2-3179"><a href=""></a>    <span class="kw">let</span> sample_means_fish <span class="op">=</span> <span class="fu">get_data_from_table</span>(<span class="st">"all-samples-fish"</span><span class="op">,</span> <span class="kw">true</span>)<span class="op">;</span></span>
+<span id="cb2-3180"><a href=""></a>    <span class="kw">let</span> sampling_dist_fish <span class="op">=</span> <span class="fu">selectConfigureSVG</span>(<span class="st">"sampling-dist-fish"</span><span class="op">,</span> height <span class="op">=</span> <span class="dv">500</span>)<span class="op">;</span></span>
+<span id="cb2-3181"><a href=""></a></span>
+<span id="cb2-3182"><a href=""></a>    <span class="co">/** creates the bin with thresholds of 20 */</span></span>
+<span id="cb2-3183"><a href=""></a>    <span class="kw">let</span> bins <span class="op">=</span> d3<span class="op">.</span><span class="fu">bin</span>()<span class="op">.</span><span class="fu">thresholds</span>(<span class="dv">20</span>)(sample_means_fish)<span class="op">;</span></span>
+<span id="cb2-3184"><a href=""></a></span>
+<span id="cb2-3185"><a href=""></a>    <span class="kw">let</span> [x_fish<span class="op">,</span> xAxis] <span class="op">=</span> <span class="fu">makeXAxis</span>(bins<span class="op">,</span> <span class="st">"Average Fish Weight (dkg)"</span><span class="op">,</span> height <span class="op">=</span> <span class="dv">500</span>)<span class="op">;</span></span>
+<span id="cb2-3186"><a href=""></a>    <span class="kw">let</span> [y_fish<span class="op">,</span> yAxis] <span class="op">=</span> <span class="fu">makeYAxis</span>(bins<span class="op">,</span> height <span class="op">=</span> <span class="dv">500</span>)<span class="op">;</span></span>
+<span id="cb2-3187"><a href=""></a>    <span class="fu">appendAxes</span>(sampling_dist_fish<span class="op">,</span> xAxis<span class="op">,</span> yAxis)<span class="op">;</span></span>
+<span id="cb2-3188"><a href=""></a></span>
+<span id="cb2-3189"><a href=""></a>    <span class="co">/** appending the bars and adding event handlers */</span></span>
+<span id="cb2-3190"><a href=""></a>    sampling_dist_fish<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3191"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb2-3192"><a href=""></a>        <span class="op">.</span><span class="fu">selectAll</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3193"><a href=""></a>        <span class="op">.</span><span class="fu">data</span>(bins)</span>
+<span id="cb2-3194"><a href=""></a>        <span class="op">.</span><span class="fu">join</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3195"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">x_fish</span>(d<span class="op">.</span><span class="at">x0</span>) <span class="op">+</span> <span class="dv">1</span>)</span>
+<span id="cb2-3196"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="bu">Math</span><span class="op">.</span><span class="fu">max</span>(<span class="dv">0</span><span class="op">,</span> <span class="fu">x_fish</span>(d<span class="op">.</span><span class="at">x1</span>) <span class="op">-</span> <span class="fu">x_fish</span>(d<span class="op">.</span><span class="at">x0</span>) <span class="op">-</span> <span class="dv">1</span>))</span>
+<span id="cb2-3197"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y_fish</span>(d<span class="op">.</span><span class="at">length</span>))</span>
+<span id="cb2-3198"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y_fish</span>(<span class="dv">0</span>) <span class="op">-</span> <span class="fu">y_fish</span>(d<span class="op">.</span><span class="at">length</span>))</span>
+<span id="cb2-3199"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">'bin'</span>)</span>
+<span id="cb2-3200"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseenter"</span><span class="op">,</span> (d<span class="op">,</span> i<span class="op">,</span> nodes) <span class="kw">=&gt;</span> { </span>
+<span id="cb2-3201"><a href=""></a>            </span>
+<span id="cb2-3202"><a href=""></a>            <span class="co">// Mouse-over event: turns the bin red and add the number of data points in the bin to the top of the bin</span></span>
+<span id="cb2-3203"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"red"</span>)<span class="op">;</span></span>
+<span id="cb2-3204"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">parentNode</span>)</span>
+<span id="cb2-3205"><a href=""></a>                <span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3206"><a href=""></a>                <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> (<span class="fu">x_fish</span>(i<span class="op">.</span><span class="at">x0</span>) <span class="op">+</span> <span class="fu">x_fish</span>(i<span class="op">.</span><span class="at">x1</span>)) <span class="op">/</span> <span class="dv">2</span>)</span>
+<span id="cb2-3207"><a href=""></a>                <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
+<span id="cb2-3208"><a href=""></a>                <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(i<span class="op">.</span><span class="at">length</span> <span class="op">+</span> <span class="dv">3</span>))</span>
+<span id="cb2-3209"><a href=""></a>                <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"freq"</span>)</span>
+<span id="cb2-3210"><a href=""></a>                <span class="op">.</span><span class="fu">text</span>(i<span class="op">.</span><span class="at">length</span>)</span>
+<span id="cb2-3211"><a href=""></a>                <span class="op">.</span><span class="fu">property</span>(<span class="st">"bar"</span><span class="op">,</span> d<span class="op">.</span><span class="at">target</span>)</span>
+<span id="cb2-3212"><a href=""></a>                <span class="op">.</span><span class="fu">style</span>(<span class="st">'font-size'</span><span class="op">,</span><span class="st">'0.7em'</span>)<span class="op">;</span></span>
+<span id="cb2-3213"><a href=""></a></span>
+<span id="cb2-3214"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span> <span class="co">// change the cursor</span></span>
+<span id="cb2-3215"><a href=""></a>            <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"all-samples-fish"</span>)</span>
+<span id="cb2-3216"><a href=""></a>                    <span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">"td"</span>)</span>
+<span id="cb2-3217"><a href=""></a>                    <span class="op">.</span><span class="fu">forEach</span>(entry <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3218"><a href=""></a>                        <span class="cf">if</span> (entry<span class="op">.</span><span class="at">value</span> <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">__data__</span><span class="op">.</span><span class="at">x0</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb2-3219"><a href=""></a>                            entry<span class="op">.</span><span class="at">value</span> <span class="op">&lt;</span> d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">__data__</span><span class="op">.</span><span class="at">x1</span>){</span>
+<span id="cb2-3220"><a href=""></a>                            entry<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">'red'</span><span class="op">;</span></span>
+<span id="cb2-3221"><a href=""></a>                    }</span>
+<span id="cb2-3222"><a href=""></a>            })<span class="op">;</span></span>
+<span id="cb2-3223"><a href=""></a>        })</span>
+<span id="cb2-3224"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseout"</span><span class="op">,</span> (d<span class="op">,</span> i<span class="op">,</span> nodes) <span class="kw">=&gt;</span> { </span>
+<span id="cb2-3225"><a href=""></a>            <span class="co">// Mouse-out event: returns to the original configuration</span></span>
+<span id="cb2-3226"><a href=""></a>            <span class="cf">if</span> (<span class="op">!</span>d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">flag</span>) {</span>
+<span id="cb2-3227"><a href=""></a>                d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"steelblue"</span>)</span>
+<span id="cb2-3228"><a href=""></a>                d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">".freq"</span>)</span>
+<span id="cb2-3229"><a href=""></a>                    <span class="op">.</span><span class="fu">filter</span>((e<span class="op">,</span> j<span class="op">,</span> texts) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3230"><a href=""></a>                        <span class="cf">return</span> texts[j]<span class="op">.</span><span class="at">bar</span> <span class="op">===</span> d<span class="op">.</span><span class="at">target</span><span class="op">;</span></span>
+<span id="cb2-3231"><a href=""></a>                    })<span class="op">.</span><span class="fu">remove</span>()<span class="op">;</span></span>
+<span id="cb2-3232"><a href=""></a>                d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"default"</span>)<span class="op">;</span></span>
+<span id="cb2-3233"><a href=""></a></span>
+<span id="cb2-3234"><a href=""></a>                <span class="bu">document</span><span class="op">.</span><span class="fu">getElementById</span>(<span class="st">"all-samples-fish"</span>)</span>
+<span id="cb2-3235"><a href=""></a>                    <span class="op">.</span><span class="fu">querySelectorAll</span>(<span class="st">"td"</span>)</span>
+<span id="cb2-3236"><a href=""></a>                    <span class="op">.</span><span class="fu">forEach</span>(entry <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3237"><a href=""></a>                        <span class="cf">if</span> (entry<span class="op">.</span><span class="at">value</span> <span class="op">&gt;=</span> d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">__data__</span><span class="op">.</span><span class="at">x0</span> <span class="op">&amp;&amp;</span></span>
+<span id="cb2-3238"><a href=""></a>                            entry<span class="op">.</span><span class="at">value</span> <span class="op">&lt;</span> d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">__data__</span><span class="op">.</span><span class="at">x1</span>){</span>
+<span id="cb2-3239"><a href=""></a>                            entry<span class="op">.</span><span class="at">style</span><span class="op">.</span><span class="at">color</span> <span class="op">=</span> <span class="st">''</span><span class="op">;</span></span>
+<span id="cb2-3240"><a href=""></a>                    }</span>
+<span id="cb2-3241"><a href=""></a>                })<span class="op">;</span></span>
+<span id="cb2-3242"><a href=""></a>            }</span>
+<span id="cb2-3243"><a href=""></a>        })</span>
+<span id="cb2-3244"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> (d<span class="op">,</span> i<span class="op">,</span> nodes) <span class="kw">=&gt;</span> { </span>
+<span id="cb2-3245"><a href=""></a>            <span class="co">// click event: lock/unlock the mouse over changes.</span></span>
+<span id="cb2-3246"><a href=""></a>            d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">flag</span> <span class="op">=</span> <span class="op">!</span>d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">flag</span><span class="op">;</span></span>
+<span id="cb2-3247"><a href=""></a>            <span class="cf">if</span> (d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">flag</span>) {</span>
+<span id="cb2-3248"><a href=""></a>                sampling_dist_fish<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">"mouseenter"</span>)<span class="op">;</span></span>
+<span id="cb2-3249"><a href=""></a>            }</span>
+<span id="cb2-3250"><a href=""></a>            <span class="cf">else</span> {</span>
+<span id="cb2-3251"><a href=""></a>                d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span>)<span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"steelblue"</span>)<span class="op">;</span></span>
+<span id="cb2-3252"><a href=""></a>            }</span>
+<span id="cb2-3253"><a href=""></a>        })<span class="op">;</span></span>
+<span id="cb2-3254"><a href=""></a></span>
+<span id="cb2-3255"><a href=""></a></span>
+<span id="cb2-3256"><a href=""></a>    <span class="co">/** Append Subtitle */</span></span>
+<span id="cb2-3257"><a href=""></a>    sampling_dist_fish<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3258"><a href=""></a>        <span class="op">.</span><span class="fu">text</span>(<span class="st">"Population Mean: 43.45"</span>)</span>
+<span id="cb2-3259"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="fu">x_fish</span>(<span class="dv">28</span>))</span>
+<span id="cb2-3260"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(<span class="dv">197</span>))</span>
+<span id="cb2-3261"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"start"</span>)</span>
+<span id="cb2-3262"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"dy"</span><span class="op">,</span> <span class="st">"6px"</span>)</span>
+<span id="cb2-3263"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"class"</span><span class="op">,</span> <span class="st">"plot-subtitle"</span>)<span class="op">;</span></span>
+<span id="cb2-3264"><a href=""></a></span>
+<span id="cb2-3265"><a href=""></a>    <span class="co">/** Button to Show/Hide Mean  */</span></span>
+<span id="cb2-3266"><a href=""></a>    <span class="kw">let</span> g <span class="op">=</span> sampling_dist_fish<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3267"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseover"</span><span class="op">,</span> <span class="kw">function</span> (d) {</span>
+<span id="cb2-3268"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span> <span class="co">// change the cursor</span></span>
+<span id="cb2-3269"><a href=""></a>        })</span>
+<span id="cb2-3270"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseout"</span><span class="op">,</span> <span class="kw">function</span> (d) {</span>
+<span id="cb2-3271"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"default"</span>)<span class="op">;</span></span>
+<span id="cb2-3272"><a href=""></a>        })</span>
+<span id="cb2-3273"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> (d<span class="op">,</span> i<span class="op">,</span> e) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3274"><a href=""></a>            d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">parentElement</span><span class="op">.</span><span class="at">clicked</span> <span class="op">=</span> <span class="op">!</span>d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">parentElement</span><span class="op">.</span><span class="at">clicked</span><span class="op">;</span></span>
+<span id="cb2-3275"><a href=""></a>            <span class="kw">let</span> g_element <span class="op">=</span> d3<span class="op">.</span><span class="fu">select</span>(d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">parentElement</span>)<span class="op">;</span></span>
+<span id="cb2-3276"><a href=""></a>            <span class="cf">if</span> (d<span class="op">.</span><span class="at">target</span><span class="op">.</span><span class="at">parentElement</span><span class="op">.</span><span class="at">clicked</span>) {</span>
+<span id="cb2-3277"><a href=""></a>                g_element<span class="op">.</span><span class="fu">select</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3278"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#c45149"</span>)<span class="op">;</span></span>
+<span id="cb2-3279"><a href=""></a>                g_element<span class="op">.</span><span class="fu">select</span>(<span class="st">'text'</span>)</span>
+<span id="cb2-3280"><a href=""></a>                    <span class="op">.</span><span class="fu">text</span>(<span class="st">'Hide true mean'</span>)<span class="op">;</span></span>
+<span id="cb2-3281"><a href=""></a></span>
+<span id="cb2-3282"><a href=""></a>                g_element</span>
+<span id="cb2-3283"><a href=""></a>                    <span class="op">.</span><span class="fu">append</span>(<span class="st">'line'</span>)</span>
+<span id="cb2-3284"><a href=""></a>                    <span class="op">.</span><span class="fu">style</span>(<span class="st">"stroke"</span><span class="op">,</span> <span class="st">"black"</span>)</span>
+<span id="cb2-3285"><a href=""></a>                    <span class="op">.</span><span class="fu">style</span>(<span class="st">"stroke-width"</span><span class="op">,</span> <span class="dv">3</span>)</span>
+<span id="cb2-3286"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x1"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">x_fish</span>(<span class="fl">43.45</span>))</span>
+<span id="cb2-3287"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y1"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y_fish</span>(<span class="dv">0</span>))</span>
+<span id="cb2-3288"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x2"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">x_fish</span>(<span class="fl">43.45</span>))</span>
+<span id="cb2-3289"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y2"</span><span class="op">,</span> d <span class="kw">=&gt;</span> <span class="fu">y_fish</span>(<span class="dv">185</span>))<span class="op">;</span></span>
+<span id="cb2-3290"><a href=""></a>            }</span>
+<span id="cb2-3291"><a href=""></a>            <span class="cf">else</span> {</span>
+<span id="cb2-3292"><a href=""></a>                g_element<span class="op">.</span><span class="fu">select</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3293"><a href=""></a>                    <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)<span class="op">;</span></span>
+<span id="cb2-3294"><a href=""></a>                g_element<span class="op">.</span><span class="fu">select</span>(<span class="st">'text'</span>)</span>
+<span id="cb2-3295"><a href=""></a>                    <span class="op">.</span><span class="fu">text</span>(<span class="st">'Show true mean'</span>)<span class="op">;</span></span>
+<span id="cb2-3296"><a href=""></a></span>
+<span id="cb2-3297"><a href=""></a>                g_element<span class="op">.</span><span class="fu">select</span>(<span class="st">"line"</span>)<span class="op">.</span><span class="fu">remove</span>()</span>
+<span id="cb2-3298"><a href=""></a>            }</span>
+<span id="cb2-3299"><a href=""></a>        })<span class="op">;</span></span>
+<span id="cb2-3300"><a href=""></a></span>
+<span id="cb2-3301"><a href=""></a>    <span class="co">/** Creates the rectangle of the button */</span></span>
+<span id="cb2-3302"><a href=""></a>    g<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3303"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="fu">x_fish</span>(<span class="dv">28</span>))</span>
+<span id="cb2-3304"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(<span class="dv">190</span>))</span>
+<span id="cb2-3305"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">122</span>)</span>
+<span id="cb2-3306"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">32</span>)</span>
+<span id="cb2-3307"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"gray"</span>)</span>
+<span id="cb2-3308"><a href=""></a>    </span>
+<span id="cb2-3309"><a href=""></a>    g<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3310"><a href=""></a>        <span class="op">.</span><span class="fu">text</span>(<span class="st">"Show true mean"</span>)</span>
+<span id="cb2-3311"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"left"</span>)</span>
+<span id="cb2-3312"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="fu">x_fish</span>(<span class="fl">28.5</span>))</span>
+<span id="cb2-3313"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(<span class="dv">181</span>))</span>
+<span id="cb2-3314"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"white"</span>)</span>
+<span id="cb2-3315"><a href=""></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"font-size"</span><span class="op">,</span> <span class="st">'15px'</span>)<span class="op">;</span></span>
+<span id="cb2-3316"><a href=""></a>        </span>
+<span id="cb2-3317"><a href=""></a></span>
+<span id="cb2-3318"><a href=""></a></span>
+<span id="cb2-3319"><a href=""></a>    <span class="co">/**  Button to Reset */</span></span>
+<span id="cb2-3320"><a href=""></a>    <span class="kw">let</span> reset <span class="op">=</span> sampling_dist_fish<span class="op">.</span><span class="fu">append</span>(<span class="st">"g"</span>)</span>
+<span id="cb2-3321"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"mouseover"</span><span class="op">,</span> <span class="kw">function</span> (d) {</span>
+<span id="cb2-3322"><a href=""></a>            d3<span class="op">.</span><span class="fu">select</span>(<span class="kw">this</span>)<span class="op">.</span><span class="fu">style</span>(<span class="st">"cursor"</span><span class="op">,</span> <span class="st">"pointer"</span>)<span class="op">;</span> <span class="co">// change the cursor</span></span>
+<span id="cb2-3323"><a href=""></a>        })</span>
+<span id="cb2-3324"><a href=""></a>        <span class="op">.</span><span class="fu">on</span>(<span class="st">"click"</span><span class="op">,</span> (d<span class="op">,</span> i<span class="op">,</span> e) <span class="kw">=&gt;</span> {</span>
+<span id="cb2-3325"><a href=""></a>            <span class="kw">var</span> bins <span class="op">=</span> d3<span class="op">.</span><span class="fu">selectAll</span>(<span class="st">".bin"</span>)<span class="op">;</span></span>
+<span id="cb2-3326"><a href=""></a>            <span class="cf">for</span> (<span class="kw">var</span> i <span class="op">=</span> <span class="dv">0</span><span class="op">;</span> i <span class="op">&lt;</span> bins<span class="op">.</span><span class="at">_groups</span>[<span class="dv">0</span>]<span class="op">.</span><span class="at">length</span><span class="op">;</span> i<span class="op">++</span>) {</span>
+<span id="cb2-3327"><a href=""></a>                <span class="kw">let</span> bin <span class="op">=</span> bins<span class="op">.</span><span class="at">_groups</span>[<span class="dv">0</span>][i]<span class="op">;</span></span>
+<span id="cb2-3328"><a href=""></a>                bin<span class="op">.</span><span class="at">flag</span> <span class="op">=</span> <span class="kw">false</span><span class="op">;</span></span>
+<span id="cb2-3329"><a href=""></a>            }</span>
+<span id="cb2-3330"><a href=""></a>            bins<span class="op">.</span><span class="fu">dispatch</span>(<span class="st">"mouseout"</span>)<span class="op">;</span></span>
+<span id="cb2-3331"><a href=""></a>        })<span class="op">;</span></span>
+<span id="cb2-3332"><a href=""></a></span>
+<span id="cb2-3333"><a href=""></a>    <span class="co">/** Creates the rectangle of the button */</span></span>
+<span id="cb2-3334"><a href=""></a>    reset<span class="op">.</span><span class="fu">append</span>(<span class="st">"rect"</span>)</span>
+<span id="cb2-3335"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="fu">x_fish</span>(<span class="dv">28</span>))</span>
+<span id="cb2-3336"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(<span class="dv">170</span>))</span>
+<span id="cb2-3337"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"width"</span><span class="op">,</span> <span class="dv">122</span>)</span>
+<span id="cb2-3338"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"height"</span><span class="op">,</span> <span class="dv">32</span>)</span>
+<span id="cb2-3339"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"#e3732d"</span>)<span class="op">;</span></span>
+<span id="cb2-3340"><a href=""></a></span>
+<span id="cb2-3341"><a href=""></a>    <span class="co">/** Add text to the button */</span></span>
+<span id="cb2-3342"><a href=""></a>    reset<span class="op">.</span><span class="fu">append</span>(<span class="st">"text"</span>)</span>
+<span id="cb2-3343"><a href=""></a>        <span class="op">.</span><span class="fu">text</span>(<span class="st">"Reset plot"</span>)</span>
+<span id="cb2-3344"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"x"</span><span class="op">,</span> <span class="fu">x_fish</span>(<span class="dv">28</span>) <span class="op">+</span> <span class="dv">61</span>)</span>
+<span id="cb2-3345"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"y"</span><span class="op">,</span> <span class="fu">y_fish</span>(<span class="dv">161</span>))</span>
+<span id="cb2-3346"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"text-anchor"</span><span class="op">,</span> <span class="st">"middle"</span>)</span>
+<span id="cb2-3347"><a href=""></a>        <span class="op">.</span><span class="fu">style</span>(<span class="st">"font-size"</span><span class="op">,</span> <span class="st">'15px'</span>)</span>
+<span id="cb2-3348"><a href=""></a>        <span class="op">.</span><span class="fu">attr</span>(<span class="st">"fill"</span><span class="op">,</span> <span class="st">"white"</span>)<span class="op">;</span></span>
+<span id="cb2-3349"><a href=""></a></span>
+<span id="cb2-3350"><a href=""></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-display hidden">
+<div id="ojs-cell-2" data-nodetype="expression">
+
+</div>
+</div>
+</div>
+<div style="font-size: 0.85em; margin-top: 1em;">
+<ul>
+<li><p><strong>Exercise:</strong> If you take a sample at random, what would be the probability that the mean of your sample is fairly close to the true mean, say between 40 and 46?</p></li>
+<li><p><strong>Exercise:</strong> True or False: Each time we take a random sample we will have a different sampling distribution.</p></li>
+</ul>
+</div>
+</section>
+<section id="sampling-distribution" class="slide level2">
+<h2>Sampling Distribution</h2>
+<p>The sampling distribution of a statistic, like <span class="math inline">\(\overline{y}\)</span> and <span class="math inline">\(\hat{p}\)</span>, is the distribution of the value of the statistic across all possible random samples of size <span class="math inline">\(n\)</span> that could be selected from a given population.</p>
+</section>
+<section id="sampling-distribution-1" class="slide level2">
+<h2>Sampling Distribution</h2>
+<ul>
+<li>Some key questions:
+<ul>
+<li>What is the centre of the sampling distribution?</li>
+<li>How spread is the sampling distribution?</li>
+<li>What is the shape of the sampling distribution?</li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-distribution-2" class="slide level2">
+<h2>Sampling Distribution</h2>
+<ul>
+<li>As you can see, the sampling distribution tells us a lot about our statistic.
+<ul>
+<li>We could, for example, calculate the probability that our statistic would be to a certain range around the parameter.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-distribution-3" class="slide level2">
+<h2>Sampling Distribution</h2>
+<ul>
+<li>But how is this useful if we need to have access to all possible samples?
+<ul>
+<li>In this case, we would be better off just checking out the entire population.</li>
+</ul></li>
+</ul>
+</section>
+<section id="sampling-distribution-4" class="slide level2">
+<h2>Sampling Distribution</h2>
+<ul>
+<li><p>Luckily, we do not need to have access to all possible samples to know the sampling distribution.</p></li>
+<li><p>All we need is a sample! The same sample you use to calculate the statistic will also give you information on the uncertainty of your estimate.</p></li>
+</ul>
+<div class="fragment fade-in" style="text-align: center;">
+<iframe src="https://giphy.com/embed/SACoDGYTvVNhZYNb5a" width="240" height="180" frameborder="0" class="giphy-embed" style="margin:0;">
+</iframe>
+</div>
+</section>
+<section id="sampling-distribution-of-overliney" class="slide level2">
+<h2>Sampling distribution of <span class="math inline">\(\overline{Y}\)</span></h2>
+<div style="font-size: 13px; margin-top: -30px; color: red;">
+<p>This Applet was developed by <a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm">Mike Whitlock</a>.</p>
+</div>
+<iframe src="https://www.zoology.ubc.ca/~whitlock/Kingfisher/SamplingNormal.htm" width="100%" height="75%" style="margin:0;">
+</iframe>
+<div style="font-size: 0.85em; margin-top: 0.5em;">
+<ul>
+<li><strong>Exercise:</strong> Using the applet above, study what happens to the spread of the sampling distribution when the sample size increases.</li>
+</ul>
+</div>
+</section>
+<section id="references" class="slide level2">
+<h2>References</h2>
+<ul>
+<li>Sampling Distribution and CLT applets:
+<ul>
+<li><a href="https://www.zoology.ubc.ca/~whitlock/Kingfisher/KFhomepage.htm#close">M. Whitlock, B. Dalstein, Z. Almasslawi, D. Tan, University of British Columbia</a></li>
+</ul></li>
+<li>Fish images: Mrmw, CC0, via Wikimedia Commons.
+<ul>
+<li><a href="https://commons.wikimedia.org/wiki/File:Heraldry_Fish_337.svg">Fish 1</a> || <a href="https://commons.wikimedia.org/wiki/File:Heraldry_Fish_360.svg">Fish 2</a> || <a href="https://commons.wikimedia.org/wiki/File:Heraldry_Fish_240.svg">Fish 3</a> || <a href="https://commons.wikimedia.org/wiki/File:Heraldry_Fish_365.svg">Fish 4</a></li>
+</ul></li>
+</ul>
+<div class="quarto-auto-generated-content">
+<div class="footer footer-default">
+<p>© 2024 Rodolfo Lourenzutti – Material Licensed under <a href="https://creativecommons.org/licenses/by-sa/4.0/">CC By-SA 4.0</a></p>
+</div>
+</div>
+</section></section>
+    </div>
+  </div>
+
+  <script>window.backupDefine = window.define; window.define = undefined;</script>
+  <script src="lecture01_files/libs/revealjs/dist/reveal.js"></script>
+  <!-- reveal.js plugins -->
+  <script src="lecture01_files/libs/revealjs/plugin/quarto-line-highlight/line-highlight.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/pdf-export/pdfexport.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/reveal-menu/menu.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/reveal-menu/quarto-menu.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/reveal-chalkboard/plugin.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/quarto-support/support.js"></script>
+  
+
+  <script src="lecture01_files/libs/revealjs/plugin/notes/notes.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/search/search.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/zoom/zoom.js"></script>
+  <script src="lecture01_files/libs/revealjs/plugin/math/math.js"></script>
+  <script>window.define = window.backupDefine; window.backupDefine = undefined;</script>
+
+  <script>
+
+      // Full list of configuration options available at:
+      // https://revealjs.com/config/
+      Reveal.initialize({
+'controlsAuto': true,
+'previewLinksAuto': true,
+'pdfSeparateFragments': false,
+'autoAnimateEasing': "ease",
+'autoAnimateDuration': 1,
+'autoAnimateUnmatched': true,
+'menu': {"side":"left","useTextContentForMissingTitles":true,"markers":false,"loadIcons":false,"custom":[{"title":"Tools","icon":"<i class=\"fas fa-gear\"></i>","content":"<ul class=\"slide-menu-items\">\n<li class=\"slide-tool-item active\" data-item=\"0\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.fullscreen(event)\"><kbd>f</kbd> Fullscreen</a></li>\n<li class=\"slide-tool-item\" data-item=\"1\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.speakerMode(event)\"><kbd>s</kbd> Speaker View</a></li>\n<li class=\"slide-tool-item\" data-item=\"2\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.overview(event)\"><kbd>o</kbd> Slide Overview</a></li>\n<li class=\"slide-tool-item\" data-item=\"3\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.togglePdfExport(event)\"><kbd>e</kbd> PDF Export Mode</a></li>\n<li class=\"slide-tool-item\" data-item=\"4\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleChalkboard(event)\"><kbd>b</kbd> Toggle Chalkboard</a></li>\n<li class=\"slide-tool-item\" data-item=\"5\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.toggleNotesCanvas(event)\"><kbd>c</kbd> Toggle Notes Canvas</a></li>\n<li class=\"slide-tool-item\" data-item=\"6\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.downloadDrawings(event)\"><kbd>d</kbd> Download Drawings</a></li>\n<li class=\"slide-tool-item\" data-item=\"7\"><a href=\"#\" onclick=\"RevealMenuToolHandlers.keyboardHelp(event)\"><kbd>?</kbd> Keyboard Help</a></li>\n</ul>"}],"openButton":true},
+'chalkboard': {"buttons":true},
+'smaller': false,
+ 
+        // Display controls in the bottom right corner
+        controls: false,
+
+        // Help the user learn the controls by providing hints, for example by
+        // bouncing the down arrow when they first encounter a vertical slide
+        controlsTutorial: false,
+
+        // Determines where controls appear, "edges" or "bottom-right"
+        controlsLayout: 'edges',
+
+        // Visibility rule for backwards navigation arrows; "faded", "hidden"
+        // or "visible"
+        controlsBackArrows: 'faded',
+
+        // Display a presentation progress bar
+        progress: true,
+
+        // Display the page number of the current slide
+        slideNumber: 'c',
+
+        // 'all', 'print', or 'speaker'
+        showSlideNumber: 'all',
+
+        // Add the current slide number to the URL hash so that reloading the
+        // page/copying the URL will return you to the same slide
+        hash: true,
+
+        // Start with 1 for the hash rather than 0
+        hashOneBasedIndex: false,
+
+        // Flags if we should monitor the hash and change slides accordingly
+        respondToHashChanges: true,
+
+        // Push each slide change to the browser history
+        history: true,
+
+        // Enable keyboard shortcuts for navigation
+        keyboard: true,
+
+        // Enable the slide overview mode
+        overview: true,
+
+        // Disables the default reveal.js slide layout (scaling and centering)
+        // so that you can use custom CSS layout
+        disableLayout: false,
+
+        // Vertical centering of slides
+        center: false,
+
+        // Enables touch navigation on devices with touch input
+        touch: true,
+
+        // Loop the presentation
+        loop: false,
+
+        // Change the presentation direction to be RTL
+        rtl: false,
+
+        // see https://revealjs.com/vertical-slides/#navigation-mode
+        navigationMode: 'linear',
+
+        // Randomizes the order of slides each time the presentation loads
+        shuffle: false,
+
+        // Turns fragments on and off globally
+        fragments: true,
+
+        // Flags whether to include the current fragment in the URL,
+        // so that reloading brings you to the same fragment position
+        fragmentInURL: false,
+
+        // Flags if the presentation is running in an embedded mode,
+        // i.e. contained within a limited portion of the screen
+        embedded: false,
+
+        // Flags if we should show a help overlay when the questionmark
+        // key is pressed
+        help: true,
+
+        // Flags if it should be possible to pause the presentation (blackout)
+        pause: true,
+
+        // Flags if speaker notes should be visible to all viewers
+        showNotes: false,
+
+        // Global override for autoplaying embedded media (null/true/false)
+        autoPlayMedia: null,
+
+        // Global override for preloading lazy-loaded iframes (null/true/false)
+        preloadIframes: null,
+
+        // Number of milliseconds between automatically proceeding to the
+        // next slide, disabled when set to 0, this value can be overwritten
+        // by using a data-autoslide attribute on your slides
+        autoSlide: 0,
+
+        // Stop auto-sliding after user input
+        autoSlideStoppable: true,
+
+        // Use this method for navigation when auto-sliding
+        autoSlideMethod: null,
+
+        // Specify the average time in seconds that you think you will spend
+        // presenting each slide. This is used to show a pacing timer in the
+        // speaker view
+        defaultTiming: null,
+
+        // Enable slide navigation via mouse wheel
+        mouseWheel: false,
+
+        // The display mode that will be used to show slides
+        display: 'block',
+
+        // Hide cursor if inactive
+        hideInactiveCursor: true,
+
+        // Time before the cursor is hidden (in ms)
+        hideCursorTime: 5000,
+
+        // Opens links in an iframe preview overlay
+        previewLinks: false,
+
+        // Transition style (none/fade/slide/convex/concave/zoom)
+        transition: 'none',
+
+        // Transition speed (default/fast/slow)
+        transitionSpeed: 'default',
+
+        // Transition style for full page slide backgrounds
+        // (none/fade/slide/convex/concave/zoom)
+        backgroundTransition: 'none',
+
+        // Number of slides away from the current that are visible
+        viewDistance: 3,
+
+        // Number of slides away from the current that are visible on mobile
+        // devices. It is advisable to set this to a lower number than
+        // viewDistance in order to save resources.
+        mobileViewDistance: 2,
+
+        // The "normal" size of the presentation, aspect ratio will be preserved
+        // when the presentation is scaled to fit different resolutions. Can be
+        // specified using percentage units.
+        width: 1050,
+
+        height: 700,
+
+        // Factor of the display size that should remain empty around the content
+        margin: 5.0e-2,
+
+        maxScale: 4,
+
+        math: {
+          mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
+          config: 'TeX-AMS_HTML-full',
+          tex2jax: {
+            inlineMath: [['\\(','\\)']],
+            displayMath: [['\\[','\\]']],
+            balanceBraces: true,
+            processEscapes: false,
+            processRefs: true,
+            processEnvironments: true,
+            preview: 'TeX',
+            skipTags: ['script','noscript','style','textarea','pre','code'],
+            ignoreClass: 'tex2jax_ignore',
+            processClass: 'tex2jax_process'
+          },
+        },
+
+        // reveal.js plugins
+        plugins: [QuartoLineHighlight, PdfExport, RevealMenu, RevealChalkboard, QuartoSupport,
+
+          RevealMath,
+          RevealNotes,
+          RevealSearch,
+          RevealZoom
+        ]
+      });
+    </script>
+    <script type="ojs-module-contents">
+    eyJjb250ZW50cyI6W3sibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMSIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IlxyXG57XHJcblxyXG4gIGZ1bmN0aW9uIGdldFJhbmRvbShtaW4sIG1heCkge1xyXG4gICAgLy9HZW5lcmF0ZXMgYSBudW1iZXIgZnJvbSBVKG1pbiwgbWF4KVxyXG4gICAgcmV0dXJuIE1hdGgucmFuZG9tKCkgKiAobWF4IC0gbWluKSArIG1pbjtcclxuICB9XHJcblxyXG4gIC8vIFRoaXMgY29kZSBhcHBlbmQgdGhlIGltYWdlcyB0byB0aGUgYXF1YXJpdW1cclxuICBjb25zdCBOID0gMjA7IC8vIGhvdyBtYW55IGltYWdlcyB0byBhcHBlbmRcclxuICBjb25zdCBkaXYgPSBkb2N1bWVudC5xdWVyeVNlbGVjdG9yKFwiI2FxdWFyaXVtXCIpO1xyXG4gIFxyXG4gIGZvciAobGV0IGk9MDsgaSA8IE47IGkrKyl7XHJcbiAgICAgbGV0IGltZ19maWxlO1xyXG4gICAgIGlmIChpICUgNCA9PSAwKSBpbWdfZmlsZSA9ICdpbWdzL2Zpc2gxLnN2Zyc7XHJcbiAgICAgaWYgKGkgJSA0ID09IDEpIGltZ19maWxlID0gJ2ltZ3MvZmlzaDIuc3ZnJztcclxuICAgICBpZiAoaSAlIDQgPT0gMikgaW1nX2ZpbGUgPSAnaW1ncy9maXNoMy5zdmcnO1xyXG4gICAgIGlmIChpICUgNCA9PSAzKSBpbWdfZmlsZSA9ICdpbWdzL2Zpc2g0LnN2Zyc7XHJcbiAgICAgbGV0IGltZyA9IGh0bWxgPGltZyBzcmM9XCIke2ltZ19maWxlfVwiIGhlaWdodD1cIiR7Z2V0UmFuZG9tKDIwLDc1KX1weFwiIHdpZHRoPWF1dG8gc3R5bGU9J3Bvc2l0aW9uOiBhYnNvbHV0ZTsgbGVmdDogJHtnZXRSYW5kb20oMTMsIDY3KX0lOyB0b3A6ICR7Z2V0UmFuZG9tKDAsIDc1KX0lOyBwYWRkaW5nOjA7IG1hcmdpbjowOyc+PC9pbWc+YDtcclxuICAgICBkaXYuYXBwZW5kKGltZyk7XHJcbiAgfVxyXG59XHJcbiJ9LHsibWV0aG9kTmFtZSI6ImludGVycHJldCIsImNlbGxOYW1lIjoib2pzLWNlbGwtMiIsImlubGluZSI6ZmFsc2UsInNvdXJjZSI6IntcclxuICAgIGNvbnN0IGdldF9kYXRhX2Zyb21fdGFibGUgPSAodGFibGVfbmFtZSwgY29sbGFwc2libGUgPSBmYWxzZSkgPT57IFxyXG4gICAgICAgIGNvbnN0IHRhYmxlID0gZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQodGFibGVfbmFtZSk7XHJcbiAgICAgICAgY29uc3QgZW50cmllc19wb3AgPSB0YWJsZS5xdWVyeVNlbGVjdG9yQWxsKFwidGRcIik7XHJcbiAgICAgICAgbGV0IGRhdGEgPSBBcnJheSgxMTQwKTtcclxuICAgICAgICBcclxuICAgICAgICBsZXQgY29udCA9IDA7XHJcbiAgICAgICAgZW50cmllc19wb3AuZm9yRWFjaChcclxuICAgICAgICAgICAgKGVudHJ5KSA9PiB7XHJcbiAgICAgICAgICAgICAgICBjb25zdCB2YWx1ZSA9IHBhcnNlRmxvYXQoZW50cnkudGV4dENvbnRlbnQpO1xyXG4gICAgICAgICAgICAgICAgaWYgKCFpc05hTih2YWx1ZSkpIHtcclxuICAgICAgICAgICAgICAgICAgICBkYXRhW2NvbnQrK10gPSBwYXJzZUZsb2F0KGVudHJ5LnRleHRDb250ZW50KTtcclxuICAgICAgICAgICAgICAgICAgICBlbnRyeS52YWx1ZSA9IHZhbHVlO1xyXG4gICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgKTtcclxuICAgICAgICByZXR1cm4gZGF0YTtcclxuICAgIH1cclxuXHJcbiAgICBjb25zdCBzZWxlY3RDb25maWd1cmVTVkcgPSAoaWQsIGhlaWdodCA9IDQwMCkgPT4ge1xyXG4gICAgICAgIGxldCBzdmcgPSBkMy5zZWxlY3QoJyMnICsgaWQpO1xyXG4gICAgICAgIHN2Zy5zZWxlY3RBbGwoXCIqXCIpLnJlbW92ZSgpO1xyXG4gICAgICAgIHN2Zy5hdHRyKCd3aWR0aCcsIHdpZHRoKVxyXG4gICAgICAgICAgICAuYXR0cignaGVpZ2h0JywgaGVpZ2h0ICsgbWFyZ2luLnRvcCArIG1hcmdpbi5ib3R0b20gKVxyXG4gICAgICAgICAgICAuYXBwZW5kKFwiZ1wiKVxyXG4gICAgICAgICAgICAuYXR0cihcInRyYW5zZm9ybVwiLFxyXG4gICAgICAgICAgICAgICAgXCJ0cmFuc2xhdGUoXCIgKyBtYXJnaW4ubGVmdCArIFwiLFwiICsgbWFyZ2luLnRvcCArIFwiKVwiKTtcclxuICAgICAgICByZXR1cm4gc3ZnO1xyXG4gICAgfVxyXG5cclxuICAgIGNvbnN0IG1ha2VYQXhpcyA9IChiaW5zLCB4TGFiZWwsIGhlaWdodCA9IDQwMCkgPT4ge1xyXG4gICAgICAgIGxldCB4ID0gZDMuc2NhbGVMaW5lYXIoKVxyXG4gICAgICAgIC5kb21haW4oW2JpbnNbMF0ueDAgLSAxLCBiaW5zW2JpbnMubGVuZ3RoIC0gMV0ueDEgKyA1XSlcclxuICAgICAgICAucmFuZ2UoW21hcmdpbi5sZWZ0LCB3aWR0aCAtIG1hcmdpbi5yaWdodF0pO1xyXG5cclxuICAgICAgICBsZXQgeEF4aXMgPSBnID0+IGdcclxuICAgICAgICAuYXR0cihcInRyYW5zZm9ybVwiLCBgdHJhbnNsYXRlKDAsICR7aGVpZ2h0IC0gbWFyZ2luLmJvdHRvbX0pYClcclxuICAgICAgICAuY2FsbChkMy5heGlzQm90dG9tKHgpLnRpY2tzKHdpZHRoIC8gMTAwKS50aWNrU2l6ZU91dGVyKDApKVxyXG4gICAgICAgIC5jYWxsKGcgPT4gZy5hcHBlbmQoXCJ0ZXh0XCIpXHJcbiAgICAgICAgICAgIC5hdHRyKFwieFwiLCB3aWR0aCAvIDIpXHJcbiAgICAgICAgICAgIC5hdHRyKFwieVwiLCA3KVxyXG4gICAgICAgICAgICAuYXR0cihcImZpbGxcIiwgXCJjdXJyZW50Q29sb3JcIilcclxuICAgICAgICAgICAgLmF0dHIoXCJmb250LXdlaWdodFwiLCBcImJvbGRcIilcclxuICAgICAgICAgICAgLmF0dHIoXCJ0ZXh0LWFuY2hvclwiLCBcImJvdHRvbVwiKVxyXG4gICAgICAgICAgICAuYXR0cignZm9udC1zaXplJywgJzE2cHgnKVxyXG4gICAgICAgICAgICAuYXR0cihcImNsYXNzXCIsIFwiYXhpc1wiKVxyXG4gICAgICAgICAgICAuYXR0cihcImR5XCIsIFwiMi41ZW1cIilcclxuICAgICAgICAgICAgLnRleHQoeExhYmVsKVxyXG4gICAgICAgICAgICAuYXR0cihcImNsYXNzXCIsXCJheGVzLWxhYmVsXCIpKTtcclxuXHJcbiAgICAgICAgICAgIHJldHVybiBbeCwgeEF4aXNdO1xyXG5cclxuICAgIH1cclxuXHJcbiAgICBjb25zdCBtYWtlWUF4aXMgPSAoYmlucywgaGVpZ2h0ID0gNDAwKSA9PiB7XHJcbiAgICAgICAgbGV0IHkgPSBkMy5zY2FsZUxpbmVhcigpXHJcbiAgICAgICAgICAgIC5kb21haW4oWzAsIGQzLm1heChiaW5zLCBkID0+IGQubGVuZ3RoKSArIDEwXSkubmljZSgpXHJcbiAgICAgICAgICAgIC5yYW5nZShbaGVpZ2h0IC0gbWFyZ2luLmJvdHRvbSwgbWFyZ2luLnRvcF0pO1xyXG5cclxuICAgICAgICBsZXQgeUF4aXMgPSBnID0+IGdcclxuICAgICAgICAgICAgLmF0dHIoXCJ0cmFuc2Zvcm1cIiwgYHRyYW5zbGF0ZSgke21hcmdpbi5sZWZ0fSwwKWApXHJcbiAgICAgICAgICAgIC5jYWxsKGQzLmF4aXNMZWZ0KHkpLnRpY2tzKGhlaWdodCAvIDEwMCkpXHJcbiAgICAgICAgICAgIC5jYWxsKGcgPT4gZy5zZWxlY3QoXCIudGljazpsYXN0LW9mLXR5cGUgdGV4dFwiKS5jbG9uZSgpXHJcbiAgICAgICAgICAgIC5hdHRyKFwieFwiLCAtKGhlaWdodCAtIG1hcmdpbi5ib3R0b20pLzMpXHJcbiAgICAgICAgICAgIC5hdHRyKFwieVwiLCAtNDUpXHJcbiAgICAgICAgICAgIC5hdHRyKFwiZm9udC13ZWlnaHRcIiwgXCJib2xkXCIpXHJcbiAgICAgICAgICAgIC5hdHRyKCdmb250LXNpemUnLCAnMTZweCcpXHJcbiAgICAgICAgICAgIC5hdHRyKCd0cmFuc2Zvcm0nLCAncm90YXRlKDI3MCknKVxyXG4gICAgICAgICAgICAuYXR0cihcInRleHQtYW5jaG9yXCIsIFwibWlkZGxlXCIpXHJcbiAgICAgICAgICAgIC50ZXh0KFwiRnJlcXVlbmN5XCIpXHJcbiAgICAgICAgICAgIC5hdHRyKFwiY2xhc3NcIixcImF4ZXMtbGFiZWxcIikpO1xyXG5cclxuICAgICAgICAgICAgcmV0dXJuIFt5LCB5QXhpc107XHJcbiAgICB9XHJcblxyXG4gICAgY29uc3QgYXBwZW5kQmFycyA9IChzdmcsIGJpbnMsIHgsIHkpID0+IHtcclxuICAgICAgICBzdmcuYXBwZW5kKFwiZ1wiKVxyXG4gICAgICAgICAgICAuYXR0cihcImZpbGxcIiwgXCJzdGVlbGJsdWVcIilcclxuICAgICAgICAgICAgLnNlbGVjdEFsbChcInJlY3RcIilcclxuICAgICAgICAgICAgLmRhdGEoYmlucylcclxuICAgICAgICAgICAgLmpvaW4oXCJyZWN0XCIpXHJcbiAgICAgICAgICAgIC5hdHRyKFwieFwiLCBkID0+IHgoZC54MCkgKyAxKVxyXG4gICAgICAgICAgICAuYXR0cihcIndpZHRoXCIsIGQgPT4gTWF0aC5tYXgoMCwgeChkLngxKSAtIHgoZC54MCkgLSAxKSlcclxuICAgICAgICAgICAgLmF0dHIoXCJ5XCIsIGQgPT4geShkLmxlbmd0aCkpXHJcbiAgICAgICAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIGQgPT4geSgwKSAtIHkoZC5sZW5ndGgpKVxyXG4gICAgICAgICAgICAuYXR0cihcImNsYXNzXCIsICdiaW4nKTtcclxuICAgIH1cclxuXHJcbiAgICBjb25zdCBhcHBlbmRUaXRsZSA9IChzdmcsIHRpdGxlKSA9PiB7XHJcbiAgICAgICAgc3ZnLmFwcGVuZChcInRleHRcIilcclxuICAgICAgICAuYXR0cihcInhcIiwgd2lkdGggLyAyKVxyXG4gICAgICAgIC5hdHRyKFwieVwiLCA1MClcclxuICAgICAgICAuYXR0cihcInRleHQtYW5jaG9yXCIsIFwibWlkZGxlXCIpXHJcbiAgICAgICAgLnRleHQodGl0bGUpXHJcbiAgICAgICAgLmF0dHIoXCJkeVwiLCBcIi0xNXB4XCIpXHJcbiAgICAgICAgLmF0dHIoXCJjbGFzc1wiLCBcInBsb3QtdGl0bGVcIik7XHJcbiAgICB9XHJcblxyXG4gICAgY29uc3QgYXBwZW5kQXhlcyA9IChzdmcsIHhBeGlzLCB5QXhpcykgPT4ge1xyXG4gICAgICAgIHN2Zy5hcHBlbmQoXCJnXCIpXHJcbiAgICAgICAgICAgIC5jYWxsKHhBeGlzKTtcclxuICAgICAgICBcclxuICAgICAgICBzdmcuYXBwZW5kKFwiZ1wiKVxyXG4gICAgICAgICAgICAuY2FsbCh5QXhpcyk7XHJcbiAgICB9XHJcblxyXG4gICAgY29uc3QgbWFrZUhpc3RvZ3JhbSA9IChpZCwgZGF0YSwgbmJpbnMsIHRpdGxlLCB4TGFiZWwsIGhlaWdodCA9IDQwMCkgPT4ge1xyXG4gICAgICAgIGxldCBzdmcgPSBzZWxlY3RDb25maWd1cmVTVkcoaWQsIGhlaWdodCk7XHJcbiAgICAgICAgXHJcbiAgICAgICAgbGV0IGJpbnMgPSBkMy5iaW4oKVxyXG4gICAgICAgICAgICAudGhyZXNob2xkcyhuYmlucykoZGF0YSk7XHJcblxyXG4gICAgICAgIGxldCBbeCwgeEF4aXNdID0gbWFrZVhBeGlzKGJpbnMsIHhMYWJlbCwgaGVpZ2h0KTtcclxuICAgICAgICBsZXQgW3ksIHlBeGlzXSA9IG1ha2VZQXhpcyhiaW5zLCBoZWlnaHQpO1xyXG4gICAgICAgIGFwcGVuZEJhcnMoc3ZnLCBiaW5zLCB4LCB5KTtcclxuICAgICAgICBhcHBlbmRUaXRsZShzdmcsIHRpdGxlKTtcclxuICAgICAgICBhcHBlbmRBeGVzKHN2ZywgeEF4aXMsIHlBeGlzKTtcclxuICAgIH1cclxuXHJcblxyXG4gICAgLyoqIEdldHRpbmcgdGhlIGNhbGN1bGF0ZWQgc3R5bGUgcHJvcGVydGllcyAqL1xyXG4gICAgbGV0IG1hcmdpbiA9IHsgdG9wOiAyNSwgcmlnaHQ6IDUsIGJvdHRvbTogMjUsIGxlZnQ6IDYwIH0sXHJcbiAgICAgICAgaGVpZ2h0ID0gNDAwLFxyXG4gICAgICAgIC8vd2lkdGggPSA4MDAgLSBtYXJnaW4ubGVmdCAtIG1hcmdpbi5yaWdodDtcclxuICAgICAgICB3aWR0aCA9IGRvY3VtZW50LnF1ZXJ5U2VsZWN0b3IoXCIjYWxsLXNhbXBsZXMtZmlzaFwiKS5jbGllbnRXaWR0aCAtIG1hcmdpbi5sZWZ0IC0gbWFyZ2luLnJpZ2h0O1xyXG5cclxuXHJcbiAgICAvKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuICAgIC8qKioqICBDcmVhdGVzIHRoZSBoaXN0b2dyYW0gXHJcbiAgICAgKioqKiBvZiBTYW1wbGluZyBEaXN0cmlidXRpb24gXHJcbiAgICAvKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKioqKi9cclxuXHJcbiAgICAvKiogQ29sbGVjdGluZyB0aGUgZGF0YSBmcm9tIHRoZSB0YWJsZSAqL1xyXG4gICAgbGV0IHNhbXBsZV9tZWFuc19maXNoID0gZ2V0X2RhdGFfZnJvbV90YWJsZShcImFsbC1zYW1wbGVzLWZpc2hcIiwgdHJ1ZSk7XHJcbiAgICBsZXQgc2FtcGxpbmdfZGlzdF9maXNoID0gc2VsZWN0Q29uZmlndXJlU1ZHKFwic2FtcGxpbmctZGlzdC1maXNoXCIsIGhlaWdodCA9IDUwMCk7XHJcblxyXG4gICAgLyoqIGNyZWF0ZXMgdGhlIGJpbiB3aXRoIHRocmVzaG9sZHMgb2YgMjAgKi9cclxuICAgIGxldCBiaW5zID0gZDMuYmluKCkudGhyZXNob2xkcygyMCkoc2FtcGxlX21lYW5zX2Zpc2gpO1xyXG5cclxuICAgIGxldCBbeF9maXNoLCB4QXhpc10gPSBtYWtlWEF4aXMoYmlucywgXCJBdmVyYWdlIEZpc2ggV2VpZ2h0IChka2cpXCIsIGhlaWdodCA9IDUwMCk7XHJcbiAgICBsZXQgW3lfZmlzaCwgeUF4aXNdID0gbWFrZVlBeGlzKGJpbnMsIGhlaWdodCA9IDUwMCk7XHJcbiAgICBhcHBlbmRBeGVzKHNhbXBsaW5nX2Rpc3RfZmlzaCwgeEF4aXMsIHlBeGlzKTtcclxuXHJcbiAgICAvKiogYXBwZW5kaW5nIHRoZSBiYXJzIGFuZCBhZGRpbmcgZXZlbnQgaGFuZGxlcnMgKi9cclxuICAgIHNhbXBsaW5nX2Rpc3RfZmlzaC5hcHBlbmQoXCJnXCIpXHJcbiAgICAgICAgLmF0dHIoXCJmaWxsXCIsIFwic3RlZWxibHVlXCIpXHJcbiAgICAgICAgLnNlbGVjdEFsbChcInJlY3RcIilcclxuICAgICAgICAuZGF0YShiaW5zKVxyXG4gICAgICAgIC5qb2luKFwicmVjdFwiKVxyXG4gICAgICAgIC5hdHRyKFwieFwiLCBkID0+IHhfZmlzaChkLngwKSArIDEpXHJcbiAgICAgICAgLmF0dHIoXCJ3aWR0aFwiLCBkID0+IE1hdGgubWF4KDAsIHhfZmlzaChkLngxKSAtIHhfZmlzaChkLngwKSAtIDEpKVxyXG4gICAgICAgIC5hdHRyKFwieVwiLCBkID0+IHlfZmlzaChkLmxlbmd0aCkpXHJcbiAgICAgICAgLmF0dHIoXCJoZWlnaHRcIiwgZCA9PiB5X2Zpc2goMCkgLSB5X2Zpc2goZC5sZW5ndGgpKVxyXG4gICAgICAgIC5hdHRyKFwiY2xhc3NcIiwgJ2JpbicpXHJcbiAgICAgICAgLm9uKFwibW91c2VlbnRlclwiLCAoZCwgaSwgbm9kZXMpID0+IHsgXHJcbiAgICAgICAgICAgIFxyXG4gICAgICAgICAgICAvLyBNb3VzZS1vdmVyIGV2ZW50OiB0dXJucyB0aGUgYmluIHJlZCBhbmQgYWRkIHRoZSBudW1iZXIgb2YgZGF0YSBwb2ludHMgaW4gdGhlIGJpbiB0byB0aGUgdG9wIG9mIHRoZSBiaW5cclxuICAgICAgICAgICAgZDMuc2VsZWN0KGQudGFyZ2V0KS5hdHRyKFwiZmlsbFwiLCBcInJlZFwiKTtcclxuICAgICAgICAgICAgZDMuc2VsZWN0KGQudGFyZ2V0LnBhcmVudE5vZGUpXHJcbiAgICAgICAgICAgICAgICAuYXBwZW5kKFwidGV4dFwiKVxyXG4gICAgICAgICAgICAgICAgLmF0dHIoXCJ4XCIsICh4X2Zpc2goaS54MCkgKyB4X2Zpc2goaS54MSkpIC8gMilcclxuICAgICAgICAgICAgICAgIC5hdHRyKFwidGV4dC1hbmNob3JcIiwgXCJtaWRkbGVcIilcclxuICAgICAgICAgICAgICAgIC5hdHRyKFwieVwiLCB5X2Zpc2goaS5sZW5ndGggKyAzKSlcclxuICAgICAgICAgICAgICAgIC5hdHRyKFwiY2xhc3NcIiwgXCJmcmVxXCIpXHJcbiAgICAgICAgICAgICAgICAudGV4dChpLmxlbmd0aClcclxuICAgICAgICAgICAgICAgIC5wcm9wZXJ0eShcImJhclwiLCBkLnRhcmdldClcclxuICAgICAgICAgICAgICAgIC5zdHlsZSgnZm9udC1zaXplJywnMC43ZW0nKTtcclxuXHJcbiAgICAgICAgICAgIGQzLnNlbGVjdChkLnRhcmdldCkuc3R5bGUoXCJjdXJzb3JcIiwgXCJwb2ludGVyXCIpOyAvLyBjaGFuZ2UgdGhlIGN1cnNvclxyXG4gICAgICAgICAgICBkb2N1bWVudC5nZXRFbGVtZW50QnlJZChcImFsbC1zYW1wbGVzLWZpc2hcIilcclxuICAgICAgICAgICAgICAgICAgICAucXVlcnlTZWxlY3RvckFsbChcInRkXCIpXHJcbiAgICAgICAgICAgICAgICAgICAgLmZvckVhY2goZW50cnkgPT4ge1xyXG4gICAgICAgICAgICAgICAgICAgICAgICBpZiAoZW50cnkudmFsdWUgPj0gZC50YXJnZXQuX19kYXRhX18ueDAgJiZcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVudHJ5LnZhbHVlIDwgZC50YXJnZXQuX19kYXRhX18ueDEpe1xyXG4gICAgICAgICAgICAgICAgICAgICAgICAgICAgZW50cnkuc3R5bGUuY29sb3IgPSAncmVkJztcclxuICAgICAgICAgICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIH0pO1xyXG4gICAgICAgIH0pXHJcbiAgICAgICAgLm9uKFwibW91c2VvdXRcIiwgKGQsIGksIG5vZGVzKSA9PiB7IFxyXG4gICAgICAgICAgICAvLyBNb3VzZS1vdXQgZXZlbnQ6IHJldHVybnMgdG8gdGhlIG9yaWdpbmFsIGNvbmZpZ3VyYXRpb25cclxuICAgICAgICAgICAgaWYgKCFkLnRhcmdldC5mbGFnKSB7XHJcbiAgICAgICAgICAgICAgICBkMy5zZWxlY3QoZC50YXJnZXQpLmF0dHIoXCJmaWxsXCIsIFwic3RlZWxibHVlXCIpXHJcbiAgICAgICAgICAgICAgICBkMy5zZWxlY3RBbGwoXCIuZnJlcVwiKVxyXG4gICAgICAgICAgICAgICAgICAgIC5maWx0ZXIoKGUsIGosIHRleHRzKSA9PiB7XHJcbiAgICAgICAgICAgICAgICAgICAgICAgIHJldHVybiB0ZXh0c1tqXS5iYXIgPT09IGQudGFyZ2V0O1xyXG4gICAgICAgICAgICAgICAgICAgIH0pLnJlbW92ZSgpO1xyXG4gICAgICAgICAgICAgICAgZDMuc2VsZWN0KGQudGFyZ2V0KS5zdHlsZShcImN1cnNvclwiLCBcImRlZmF1bHRcIik7XHJcblxyXG4gICAgICAgICAgICAgICAgZG9jdW1lbnQuZ2V0RWxlbWVudEJ5SWQoXCJhbGwtc2FtcGxlcy1maXNoXCIpXHJcbiAgICAgICAgICAgICAgICAgICAgLnF1ZXJ5U2VsZWN0b3JBbGwoXCJ0ZFwiKVxyXG4gICAgICAgICAgICAgICAgICAgIC5mb3JFYWNoKGVudHJ5ID0+IHtcclxuICAgICAgICAgICAgICAgICAgICAgICAgaWYgKGVudHJ5LnZhbHVlID49IGQudGFyZ2V0Ll9fZGF0YV9fLngwICYmXHJcbiAgICAgICAgICAgICAgICAgICAgICAgICAgICBlbnRyeS52YWx1ZSA8IGQudGFyZ2V0Ll9fZGF0YV9fLngxKXtcclxuICAgICAgICAgICAgICAgICAgICAgICAgICAgIGVudHJ5LnN0eWxlLmNvbG9yID0gJyc7XHJcbiAgICAgICAgICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICAgICAgfSk7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICB9KVxyXG4gICAgICAgIC5vbihcImNsaWNrXCIsIChkLCBpLCBub2RlcykgPT4geyBcclxuICAgICAgICAgICAgLy8gY2xpY2sgZXZlbnQ6IGxvY2svdW5sb2NrIHRoZSBtb3VzZSBvdmVyIGNoYW5nZXMuXHJcbiAgICAgICAgICAgIGQudGFyZ2V0LmZsYWcgPSAhZC50YXJnZXQuZmxhZztcclxuICAgICAgICAgICAgaWYgKGQudGFyZ2V0LmZsYWcpIHtcclxuICAgICAgICAgICAgICAgIHNhbXBsaW5nX2Rpc3RfZmlzaC5kaXNwYXRjaChcIm1vdXNlZW50ZXJcIik7XHJcbiAgICAgICAgICAgIH1cclxuICAgICAgICAgICAgZWxzZSB7XHJcbiAgICAgICAgICAgICAgICBkMy5zZWxlY3QoZC50YXJnZXQpLmF0dHIoXCJmaWxsXCIsIFwic3RlZWxibHVlXCIpO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgfSk7XHJcblxyXG5cclxuICAgIC8qKiBBcHBlbmQgU3VidGl0bGUgKi9cclxuICAgIHNhbXBsaW5nX2Rpc3RfZmlzaC5hcHBlbmQoXCJ0ZXh0XCIpXHJcbiAgICAgICAgLnRleHQoXCJQb3B1bGF0aW9uIE1lYW46IDQzLjQ1XCIpXHJcbiAgICAgICAgLmF0dHIoXCJ4XCIsIHhfZmlzaCgyOCkpXHJcbiAgICAgICAgLmF0dHIoXCJ5XCIsIHlfZmlzaCgxOTcpKVxyXG4gICAgICAgIC5hdHRyKFwidGV4dC1hbmNob3JcIiwgXCJzdGFydFwiKVxyXG4gICAgICAgIC5hdHRyKFwiZHlcIiwgXCI2cHhcIilcclxuICAgICAgICAuYXR0cihcImNsYXNzXCIsIFwicGxvdC1zdWJ0aXRsZVwiKTtcclxuXHJcbiAgICAvKiogQnV0dG9uIHRvIFNob3cvSGlkZSBNZWFuICAqL1xyXG4gICAgbGV0IGcgPSBzYW1wbGluZ19kaXN0X2Zpc2guYXBwZW5kKFwiZ1wiKVxyXG4gICAgICAgIC5vbihcIm1vdXNlb3ZlclwiLCBmdW5jdGlvbiAoZCkge1xyXG4gICAgICAgICAgICBkMy5zZWxlY3QodGhpcykuc3R5bGUoXCJjdXJzb3JcIiwgXCJwb2ludGVyXCIpOyAvLyBjaGFuZ2UgdGhlIGN1cnNvclxyXG4gICAgICAgIH0pXHJcbiAgICAgICAgLm9uKFwibW91c2VvdXRcIiwgZnVuY3Rpb24gKGQpIHtcclxuICAgICAgICAgICAgZDMuc2VsZWN0KHRoaXMpLnN0eWxlKFwiY3Vyc29yXCIsIFwiZGVmYXVsdFwiKTtcclxuICAgICAgICB9KVxyXG4gICAgICAgIC5vbihcImNsaWNrXCIsIChkLCBpLCBlKSA9PiB7XHJcbiAgICAgICAgICAgIGQudGFyZ2V0LnBhcmVudEVsZW1lbnQuY2xpY2tlZCA9ICFkLnRhcmdldC5wYXJlbnRFbGVtZW50LmNsaWNrZWQ7XHJcbiAgICAgICAgICAgIGxldCBnX2VsZW1lbnQgPSBkMy5zZWxlY3QoZC50YXJnZXQucGFyZW50RWxlbWVudCk7XHJcbiAgICAgICAgICAgIGlmIChkLnRhcmdldC5wYXJlbnRFbGVtZW50LmNsaWNrZWQpIHtcclxuICAgICAgICAgICAgICAgIGdfZWxlbWVudC5zZWxlY3QoXCJyZWN0XCIpXHJcbiAgICAgICAgICAgICAgICAgICAgLmF0dHIoXCJmaWxsXCIsIFwiI2M0NTE0OVwiKTtcclxuICAgICAgICAgICAgICAgIGdfZWxlbWVudC5zZWxlY3QoJ3RleHQnKVxyXG4gICAgICAgICAgICAgICAgICAgIC50ZXh0KCdIaWRlIHRydWUgbWVhbicpO1xyXG5cclxuICAgICAgICAgICAgICAgIGdfZWxlbWVudFxyXG4gICAgICAgICAgICAgICAgICAgIC5hcHBlbmQoJ2xpbmUnKVxyXG4gICAgICAgICAgICAgICAgICAgIC5zdHlsZShcInN0cm9rZVwiLCBcImJsYWNrXCIpXHJcbiAgICAgICAgICAgICAgICAgICAgLnN0eWxlKFwic3Ryb2tlLXdpZHRoXCIsIDMpXHJcbiAgICAgICAgICAgICAgICAgICAgLmF0dHIoXCJ4MVwiLCBkID0+IHhfZmlzaCg0My40NSkpXHJcbiAgICAgICAgICAgICAgICAgICAgLmF0dHIoXCJ5MVwiLCBkID0+IHlfZmlzaCgwKSlcclxuICAgICAgICAgICAgICAgICAgICAuYXR0cihcIngyXCIsIGQgPT4geF9maXNoKDQzLjQ1KSlcclxuICAgICAgICAgICAgICAgICAgICAuYXR0cihcInkyXCIsIGQgPT4geV9maXNoKDE4NSkpO1xyXG4gICAgICAgICAgICB9XHJcbiAgICAgICAgICAgIGVsc2Uge1xyXG4gICAgICAgICAgICAgICAgZ19lbGVtZW50LnNlbGVjdChcInJlY3RcIilcclxuICAgICAgICAgICAgICAgICAgICAuYXR0cihcImZpbGxcIiwgXCJncmF5XCIpO1xyXG4gICAgICAgICAgICAgICAgZ19lbGVtZW50LnNlbGVjdCgndGV4dCcpXHJcbiAgICAgICAgICAgICAgICAgICAgLnRleHQoJ1Nob3cgdHJ1ZSBtZWFuJyk7XHJcblxyXG4gICAgICAgICAgICAgICAgZ19lbGVtZW50LnNlbGVjdChcImxpbmVcIikucmVtb3ZlKClcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgIH0pO1xyXG5cclxuICAgIC8qKiBDcmVhdGVzIHRoZSByZWN0YW5nbGUgb2YgdGhlIGJ1dHRvbiAqL1xyXG4gICAgZy5hcHBlbmQoXCJyZWN0XCIpXHJcbiAgICAgICAgLmF0dHIoXCJ4XCIsIHhfZmlzaCgyOCkpXHJcbiAgICAgICAgLmF0dHIoXCJ5XCIsIHlfZmlzaCgxOTApKVxyXG4gICAgICAgIC5hdHRyKFwid2lkdGhcIiwgMTIyKVxyXG4gICAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIDMyKVxyXG4gICAgICAgIC5hdHRyKFwiZmlsbFwiLCBcImdyYXlcIilcclxuICAgIFxyXG4gICAgZy5hcHBlbmQoXCJ0ZXh0XCIpXHJcbiAgICAgICAgLnRleHQoXCJTaG93IHRydWUgbWVhblwiKVxyXG4gICAgICAgIC5hdHRyKFwidGV4dC1hbmNob3JcIiwgXCJsZWZ0XCIpXHJcbiAgICAgICAgLmF0dHIoXCJ4XCIsIHhfZmlzaCgyOC41KSlcclxuICAgICAgICAuYXR0cihcInlcIiwgeV9maXNoKDE4MSkpXHJcbiAgICAgICAgLmF0dHIoXCJmaWxsXCIsIFwid2hpdGVcIilcclxuICAgICAgICAuc3R5bGUoXCJmb250LXNpemVcIiwgJzE1cHgnKTtcclxuICAgICAgICBcclxuXHJcblxyXG4gICAgLyoqICBCdXR0b24gdG8gUmVzZXQgKi9cclxuICAgIGxldCByZXNldCA9IHNhbXBsaW5nX2Rpc3RfZmlzaC5hcHBlbmQoXCJnXCIpXHJcbiAgICAgICAgLm9uKFwibW91c2VvdmVyXCIsIGZ1bmN0aW9uIChkKSB7XHJcbiAgICAgICAgICAgIGQzLnNlbGVjdCh0aGlzKS5zdHlsZShcImN1cnNvclwiLCBcInBvaW50ZXJcIik7IC8vIGNoYW5nZSB0aGUgY3Vyc29yXHJcbiAgICAgICAgfSlcclxuICAgICAgICAub24oXCJjbGlja1wiLCAoZCwgaSwgZSkgPT4ge1xyXG4gICAgICAgICAgICB2YXIgYmlucyA9IGQzLnNlbGVjdEFsbChcIi5iaW5cIik7XHJcbiAgICAgICAgICAgIGZvciAodmFyIGkgPSAwOyBpIDwgYmlucy5fZ3JvdXBzWzBdLmxlbmd0aDsgaSsrKSB7XHJcbiAgICAgICAgICAgICAgICBsZXQgYmluID0gYmlucy5fZ3JvdXBzWzBdW2ldO1xyXG4gICAgICAgICAgICAgICAgYmluLmZsYWcgPSBmYWxzZTtcclxuICAgICAgICAgICAgfVxyXG4gICAgICAgICAgICBiaW5zLmRpc3BhdGNoKFwibW91c2VvdXRcIik7XHJcbiAgICAgICAgfSk7XHJcblxyXG4gICAgLyoqIENyZWF0ZXMgdGhlIHJlY3RhbmdsZSBvZiB0aGUgYnV0dG9uICovXHJcbiAgICByZXNldC5hcHBlbmQoXCJyZWN0XCIpXHJcbiAgICAgICAgLmF0dHIoXCJ4XCIsIHhfZmlzaCgyOCkpXHJcbiAgICAgICAgLmF0dHIoXCJ5XCIsIHlfZmlzaCgxNzApKVxyXG4gICAgICAgIC5hdHRyKFwid2lkdGhcIiwgMTIyKVxyXG4gICAgICAgIC5hdHRyKFwiaGVpZ2h0XCIsIDMyKVxyXG4gICAgICAgIC5hdHRyKFwiZmlsbFwiLCBcIiNlMzczMmRcIik7XHJcblxyXG4gICAgLyoqIEFkZCB0ZXh0IHRvIHRoZSBidXR0b24gKi9cclxuICAgIHJlc2V0LmFwcGVuZChcInRleHRcIilcclxuICAgICAgICAudGV4dChcIlJlc2V0IHBsb3RcIilcclxuICAgICAgICAuYXR0cihcInhcIiwgeF9maXNoKDI4KSArIDYxKVxyXG4gICAgICAgIC5hdHRyKFwieVwiLCB5X2Zpc2goMTYxKSlcclxuICAgICAgICAuYXR0cihcInRleHQtYW5jaG9yXCIsIFwibWlkZGxlXCIpXHJcbiAgICAgICAgLnN0eWxlKFwiZm9udC1zaXplXCIsICcxNXB4JylcclxuICAgICAgICAuYXR0cihcImZpbGxcIiwgXCJ3aGl0ZVwiKTtcclxuXHJcbn1cclxuIn1dfQ==
+    </script>
+    <script type="module">
+    if (window.location.protocol === "file:") { alert("The OJS runtime does not work with file:// URLs. Please use a web server to view this document."); }
+    window._ojs.paths.runtimeToDoc = "../../..";
+    window._ojs.paths.runtimeToRoot = "../../../../..";
+    window._ojs.paths.docToRoot = "../..";
+    window._ojs.selfContained = false;
+    window._ojs.runtime.interpretFromScriptTags();
+    </script>
+    <script id="quarto-html-after-body" type="application/javascript">
+    window.document.addEventListener("DOMContentLoaded", function (event) {
+      const toggleBodyColorMode = (bsSheetEl) => {
+        const mode = bsSheetEl.getAttribute("data-mode");
+        const bodyEl = window.document.querySelector("body");
+        if (mode === "dark") {
+          bodyEl.classList.add("quarto-dark");
+          bodyEl.classList.remove("quarto-light");
+        } else {
+          bodyEl.classList.add("quarto-light");
+          bodyEl.classList.remove("quarto-dark");
+        }
+      }
+      const toggleBodyColorPrimary = () => {
+        const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+        if (bsSheetEl) {
+          toggleBodyColorMode(bsSheetEl);
+        }
+      }
+      toggleBodyColorPrimary();  
+      const tabsets =  window.document.querySelectorAll(".panel-tabset-tabby")
+      tabsets.forEach(function(tabset) {
+        const tabby = new Tabby('#' + tabset.id);
+      });
+      const isCodeAnnotation = (el) => {
+        for (const clz of el.classList) {
+          if (clz.startsWith('code-annotation-')) {                     
+            return true;
+          }
+        }
+        return false;
+      }
+      const onCopySuccess = function(e) {
+        // button target
+        const button = e.trigger;
+        // don't keep focus
+        button.blur();
+        // flash "checked"
+        button.classList.add('code-copy-button-checked');
+        var currentTitle = button.getAttribute("title");
+        button.setAttribute("title", "Copied!");
+        let tooltip;
+        if (window.bootstrap) {
+          button.setAttribute("data-bs-toggle", "tooltip");
+          button.setAttribute("data-bs-placement", "left");
+          button.setAttribute("data-bs-title", "Copied!");
+          tooltip = new bootstrap.Tooltip(button, 
+            { trigger: "manual", 
+              customClass: "code-copy-button-tooltip",
+              offset: [0, -8]});
+          tooltip.show();    
+        }
+        setTimeout(function() {
+          if (tooltip) {
+            tooltip.hide();
+            button.removeAttribute("data-bs-title");
+            button.removeAttribute("data-bs-toggle");
+            button.removeAttribute("data-bs-placement");
+          }
+          button.setAttribute("title", currentTitle);
+          button.classList.remove('code-copy-button-checked');
+        }, 1000);
+        // clear code selection
+        e.clearSelection();
+      }
+      const getTextToCopy = function(trigger) {
+          const codeEl = trigger.previousElementSibling.cloneNode(true);
+          for (const childEl of codeEl.children) {
+            if (isCodeAnnotation(childEl)) {
+              childEl.remove();
+            }
+          }
+          return codeEl.innerText;
+      }
+      const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+        text: getTextToCopy
+      });
+      clipboard.on('success', onCopySuccess);
+      if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+        // For code content inside modals, clipBoardJS needs to be initialized with a container option
+        // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+        const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+          text: getTextToCopy,
+          container: window.document.getElementById('quarto-embedded-source-code-modal')
+        });
+        clipboardModal.on('success', onCopySuccess);
+      }
+        var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+        var mailtoRegex = new RegExp(/^mailto:/);
+          var filterRegex = new RegExp('/' + window.location.host + '/');
+        var isInternal = (href) => {
+            return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+        }
+        // Inspect non-navigation links and adorn them if external
+     	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+        for (var i=0; i<links.length; i++) {
+          const link = links[i];
+          if (!isInternal(link.href)) {
+            // undo the damage that might have been done by quarto-nav.js in the case of
+            // links that we want to consider external
+            if (link.dataset.originalHref !== undefined) {
+              link.href = link.dataset.originalHref;
+            }
+          }
+        }
+      function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+        const config = {
+          allowHTML: true,
+          maxWidth: 500,
+          delay: 100,
+          arrow: false,
+          appendTo: function(el) {
+              return el.closest('section.slide') || el.parentElement;
+          },
+          interactive: true,
+          interactiveBorder: 10,
+          theme: 'light-border',
+          placement: 'bottom-start',
+        };
+        if (contentFn) {
+          config.content = contentFn;
+        }
+        if (onTriggerFn) {
+          config.onTrigger = onTriggerFn;
+        }
+        if (onUntriggerFn) {
+          config.onUntrigger = onUntriggerFn;
+        }
+          config['offset'] = [0,0];
+          config['maxWidth'] = 700;
+        window.tippy(el, config); 
+      }
+      const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+      for (var i=0; i<noterefs.length; i++) {
+        const ref = noterefs[i];
+        tippyHover(ref, function() {
+          // use id or data attribute instead here
+          let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+          try { href = new URL(href).hash; } catch {}
+          const id = href.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note) {
+            return note.innerHTML;
+          } else {
+            return "";
+          }
+        });
+      }
+      const findCites = (el) => {
+        const parentEl = el.parentElement;
+        if (parentEl) {
+          const cites = parentEl.dataset.cites;
+          if (cites) {
+            return {
+              el,
+              cites: cites.split(' ')
+            };
+          } else {
+            return findCites(el.parentElement)
+          }
+        } else {
+          return undefined;
+        }
+      };
+      var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+      for (var i=0; i<bibliorefs.length; i++) {
+        const ref = bibliorefs[i];
+        const citeInfo = findCites(ref);
+        if (citeInfo) {
+          tippyHover(citeInfo.el, function() {
+            var popup = window.document.createElement('div');
+            citeInfo.cites.forEach(function(cite) {
+              var citeDiv = window.document.createElement('div');
+              citeDiv.classList.add('hanging-indent');
+              citeDiv.classList.add('csl-entry');
+              var biblioDiv = window.document.getElementById('ref-' + cite);
+              if (biblioDiv) {
+                citeDiv.innerHTML = biblioDiv.innerHTML;
+              }
+              popup.appendChild(citeDiv);
+            });
+            return popup.innerHTML;
+          });
+        }
+      }
+    });
+    </script>
+    
+
+</body></html>
