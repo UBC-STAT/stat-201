@@ -8,7 +8,6 @@ dependencies:
   - jupyterlab
   - jupyterlab-git
   - jupyter-resource-usage
-  - jupytext
   - nbgitpuller
   - python=3.11
   - r-aer 
