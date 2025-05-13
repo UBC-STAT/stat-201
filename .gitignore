@@ -1,5 +1,5 @@
 .DS_store
 # Jupyter Notebook
 .ipynb_checkpoints
-.Rmd
+*.Rmd
 .Rapp.history
