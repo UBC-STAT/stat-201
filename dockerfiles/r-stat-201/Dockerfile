@@ -55,6 +55,9 @@ COPY config/shortcuts.jupyterlab-settings /home/${NB_USER}/.jupyter/lab/user-set
 # Copy jupyter_server_config.py which allows students to see and delete hidden files
 COPY config/jupyter_server_config.py /home/${NB_USER}/.jupyter
 
+# Copy jupyter_notebook_config.py with automatic backup script
+COPY config/jupyter_notebook_config.py /home/${NB_USER}/.jupyter
+
 # Copy gitconfig that sets global default pull strategy to rebase
 COPY config/.gitconfig /home/${NB_USER}/
 
